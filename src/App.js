@@ -1,10 +1,12 @@
 import React from "react";
 import "./App.scss";
 
+import Carousel from "./components/carousel/Carousel";
+
 function App() {
   return (
     <div className="App">
-      <h1>Hello world!</h1>
+      <Carousel />
     </div>
   );
 }
