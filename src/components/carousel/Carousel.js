@@ -4,9 +4,6 @@ import PropTypes from "prop-types";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { ArrowBackIos, ArrowForwardIos } from "@mui/icons-material";
-// import image1 from "../../assets/spahetti.jpg";
-// import image2 from "../../assets/salad.jpg";
-// import image3 from "../../assets/fish.jpg";
 import "./carousel.scss";
 
 function SamplePrevArrow(props) {
@@ -53,7 +50,7 @@ function Carousel() {
     dots: true,
     // autoplay: true,
     infinite: true,
-    speed: 500,
+    speed: 2000,
     slidesToShow: 1,
     slidesToScroll: 1,
     nextArrow: <SampleNextArrow />,
@@ -61,7 +58,7 @@ function Carousel() {
     dotsClass: "slick-dots slick-thumb",
     customPaging: (i) => (
       <div>
-        <img src={images[i].image} alt="" className="customPaging" />
+        <img src={images[i].image} alt="paging" className="customPaging" />
       </div>
     ),
   };
@@ -71,7 +68,7 @@ function Carousel() {
       <Slider {...settings}>
         {images.map((item) => (
           <div className="imageWrapper">
-            <img src={item.image} alt="" />
+            <img src={item.image} alt="foodImage" />
             <div className="textOffer">
               <p>{item.text}</p>
               <p className="textsubOffer">{item.subtext}</p>
