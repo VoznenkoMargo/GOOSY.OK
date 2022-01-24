@@ -70,7 +70,7 @@ function Carousel() {
           <div className="imageWrapper">
             <img src={item.image} alt="foodImage" />
             <div className="textOffer">
-              <p>{item.text}</p>
+              <p className="mainTextOffer">{item.text}</p>
               <p className="textsubOffer">{item.subtext}</p>
             </div>
           </div>
