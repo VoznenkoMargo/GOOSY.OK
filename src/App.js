@@ -1,13 +1,19 @@
 import React from "react";
 import "./App.scss";
-
+import { Provider } from "react-redux";
 import Carousel from "./components/carousel/Carousel";
+import Item from "./components/Item/Item";
+import store from "./store";
+
 
 function App() {
   return (
-    <div className="App">
-      <Carousel />
-    </div>
+      <Provider store={store}>
+          <div className="App">
+              <Carousel />
+              <Item/>
+          </div>
+      </Provider>
   );
 }
 
