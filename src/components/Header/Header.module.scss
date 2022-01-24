@@ -34,7 +34,7 @@ li {
   color: #ffffff;
 
   .logoText {
-    width: 100px;
+    min-width: 100px;
     height: 25px;
     text-transform: uppercase;
     font-family: "Montserrat", sans-serif;
@@ -53,7 +53,7 @@ li {
 }
 
 .cartWrap {
-  width: 149px;
+  max-width: 149px;
   height: 52px;
   background: linear-gradient(114.93deg, #618967 5.11%, #72a479 94%);
   border-radius: 10px;
@@ -69,7 +69,7 @@ li {
     line-height: 17px;
     color: #ffffff;
     border-right: 1px solid rgba(255, 255, 255, 0.3);
-    padding: 13px 20px 13px 0px;
+    padding: 13px 20px 13px 20px;
   }
 
   svg {
@@ -82,12 +82,12 @@ li {
     border-radius: 20px;
     background: #ffffff;
     color: #403c3b;
-
     font-size: 12px;
     line-height: 14px;
     display: flex;
     align-items: center;
     justify-content: center;
+    margin: 13px 10px 13px 10px;
   }
 }
 
@@ -123,7 +123,7 @@ li {
 
 form {
   position: relative;
-  width: 100%;
+  max-width: 555px;
   margin: 0 auto;
 }
 input,
@@ -134,15 +134,15 @@ button {
   font-family: "Montserrat", sans-serif;
   font-style: normal;
   font-weight: normal;
-  font-size: 18px;
-  line-height: 21px;
+  font-size: 20px;
+  line-height: 19px;
   color: #cfcfcf;
 }
 input {
-  width: 100%;
+  max-width: 100%;
   height: 52px;
   background: #504b4a;
-  padding-left: 15px;
+  padding: 0px 15px 0px 15px;
 }
 
 .burger {
@@ -159,6 +159,8 @@ input {
   .contact {
     display: none;
   }
+
+
 
   .cartWrap {
     width: 62px;
@@ -184,9 +186,7 @@ input {
     svg {
       display: block;
       width: 2em;
-      height: 2em;
-      margin-bottom: -12px;
-      padding-top: 15px;
+      height: 2em;      
       padding-right: 5px;
     }
   }
@@ -225,6 +225,7 @@ input {
     svg {
       width: 4em;
       height: 2em;
+      margin-bottom: 10px;
     }
   }
 
