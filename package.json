@@ -60,6 +60,7 @@
     "eslint-plugin-react": "^7.28.0",
     "eslint-plugin-react-hooks": "^4.3.0",
     "prettier": "2.5.1",
-    "sass": "^1.49.0"
+    "sass": "^1.49.0",
+    "standart": "^6.1.0"
   }
 }
