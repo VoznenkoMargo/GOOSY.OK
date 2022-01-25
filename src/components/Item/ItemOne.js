@@ -8,50 +8,8 @@ import AddCartBtn from "../AddCartBtn/AddCartBtn";
 
 function Item({items}) {
 
-
-  // console.log(items);
-  // const items = [
-  //   {
-  //     id: 1,
-  //     img: "https://i.gifer.com/7Jdz.gif",
-  //     title: "Goose",
-  //     weight: "Weight: 225 g",
-  //     description: "Stuffed with rice, apple, truffle and ripe cherry",
-  //     price: "7 900 ₴",
-  //   },
-  //   {
-  //     id: 2,
-  //     img: "https://i.gifer.com/LS8v.gif",
-  //     title: "Turkey",
-  //     weight: "Weight: 225 g",
-  //     description:
-  //       "Stuffed with buckwheat, dried apricots, orange and green apple",
-  //     price: "450 ₴",
-  //   },
-  // ];
-
-  // const itemsAdded = [
-  //   {
-  //     id: 1,
-  //     img: "https://i.gifer.com/7Jdz.gif",
-  //     title: "Goose",
-  //     weight: "Weight: 225 g",
-  //     description: "Stuffed with rice, apple, truffle and ripe cherry",
-  //     price: "7 900 ₴",
-  //   },
-  //   {
-  //     id: 2,
-  //     img: "https://i.gifer.com/LS8v.gif",
-  //     title: "Turkey",
-  //     weight: "Weight: 225 g",
-  //     description:
-  //       "Stuffed with buckwheat, dried apricots, orange and green apple",
-  //     price: "450 ₴",
-  //   },
-  // ];
-
   return (
-    <div className={styles.container}>
+    <div >
       {items.map((item) => (
         <div className={styles.item} key={item._id}>
           <img src={item.imageUrls} alt="dish" />

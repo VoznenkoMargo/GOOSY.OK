@@ -1,7 +1,7 @@
 /* eslint-disable import/extensions */
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import Header from "../../components/Header/Header";
+// import Header from "../../components/Header/Header";
 import Carousel from "../../components/Carousel/Carousel";
 import Item from "../../components/Item/Item";
 
@@ -14,11 +14,19 @@ function HomePage() {
         axios.get(apiUrl).then((resp) => {
           const allItems = resp.data;
           setItems(allItems);
+          console.log(allItems);
         });
       }, [setItems]);
+
+
+
+
+
+
+
     return (
         <div>
-            <Header/>
+            {/* <Header/> */}
             <Carousel/>
             <Item items={items}/>
         </div>
