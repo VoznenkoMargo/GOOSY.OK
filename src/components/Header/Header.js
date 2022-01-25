@@ -11,7 +11,6 @@ function Header() {
         <ul>
           <li className={styles.burger}>
             <div className={styles.burger}>
-              {/* <FiMenu/> */}
               <GiGoose />
               <p>menu</p>
             </div>

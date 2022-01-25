@@ -1,73 +1,78 @@
+/* eslint-disable no-underscore-dangle */
+/* eslint-disable react/prop-types */
 import React from "react";
 // import PropTypes from "prop-types";
-import { HiPlus, HiMinus } from "react-icons/hi";
+// import { HiPlus, HiMinus } from "react-icons/hi";
 import styles from "./Item.module.scss";
 import AddCartBtn from "../AddCartBtn/AddCartBtn";
 
-function Item() {
-  const items = [
-    {
-      id: 1,
-      img: "https://i.gifer.com/7Jdz.gif",
-      title: "Goose",
-      weight: "Weight: 225 g",
-      description: "Stuffed with rice, apple, truffle and ripe cherry",
-      price: "7 900 ₴",
-    },
-    {
-      id: 2,
-      img: "https://i.gifer.com/LS8v.gif",
-      title: "Turkey",
-      weight: "Weight: 225 g",
-      description:
-        "Stuffed with buckwheat, dried apricots, orange and green apple",
-      price: "450 ₴",
-    },
-  ];
+function Item({items}) {
 
-  const itemsAdded = [
-    {
-      id: 1,
-      img: "https://i.gifer.com/7Jdz.gif",
-      title: "Goose",
-      weight: "Weight: 225 g",
-      description: "Stuffed with rice, apple, truffle and ripe cherry",
-      price: "7 900 ₴",
-    },
-    {
-      id: 2,
-      img: "https://i.gifer.com/LS8v.gif",
-      title: "Turkey",
-      weight: "Weight: 225 g",
-      description:
-        "Stuffed with buckwheat, dried apricots, orange and green apple",
-      price: "450 ₴",
-    },
-  ];
+
+  
+  // const items = [
+  //   {
+  //     id: 1,
+  //     img: "https://i.gifer.com/7Jdz.gif",
+  //     title: "Goose",
+  //     weight: "Weight: 225 g",
+  //     description: "Stuffed with rice, apple, truffle and ripe cherry",
+  //     price: "7 900 ₴",
+  //   },
+  //   {
+  //     id: 2,
+  //     img: "https://i.gifer.com/LS8v.gif",
+  //     title: "Turkey",
+  //     weight: "Weight: 225 g",
+  //     description:
+  //       "Stuffed with buckwheat, dried apricots, orange and green apple",
+  //     price: "450 ₴",
+  //   },
+  // ];
+
+  // const itemsAdded = [
+  //   {
+  //     id: 1,
+  //     img: "https://i.gifer.com/7Jdz.gif",
+  //     title: "Goose",
+  //     weight: "Weight: 225 g",
+  //     description: "Stuffed with rice, apple, truffle and ripe cherry",
+  //     price: "7 900 ₴",
+  //   },
+  //   {
+  //     id: 2,
+  //     img: "https://i.gifer.com/LS8v.gif",
+  //     title: "Turkey",
+  //     weight: "Weight: 225 g",
+  //     description:
+  //       "Stuffed with buckwheat, dried apricots, orange and green apple",
+  //     price: "450 ₴",
+  //   },
+  // ];
 
   return (
     <div className={styles.container}>
       {items.map((item) => (
-        <div className={styles.item} key={item.id}>
-          <img src={item.img} alt="dish" />
+        <div className={styles.item} key={item._id}>
+          <img src={item.imageUrls} alt="dish" />
 
           <div>
             <div className={styles.mainInfo}>
-              <div className={styles.title}>{item.title}</div>
+              <div className={styles.title}>{item.name}</div>
               <div className={styles.weight}>{item.weight} </div>
             </div>
 
-            <p className={styles.description}>{item.description}</p>
+            {/* <p className={styles.description}>{item.description}</p> */}
           </div>
 
           <div className={styles.priceInfo}>
-            <h2 className={styles.price}>{item.price}</h2>
+            <h2 className={styles.price}>{item.currentPrice}</h2>
             <AddCartBtn />
           </div>
         </div>
       ))}
 
-      {itemsAdded.map((item) => (
+      {/* {itemsAdded.map((item) => (
         <div className={styles.item} key={item.id}>
           <div className={styles.dishCount}>
             <p>3</p>
@@ -92,7 +97,7 @@ function Item() {
             </div>
           </div>
         </div>
-      ))}
+      ))} */}
     </div>
   );
 }

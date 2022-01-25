@@ -61,13 +61,11 @@
     background: rgba(0, 0, 0, 0.7);
     .mainTextOffer {
       font-size: 50px;
-      font-family: "Caveat", cursive;
     }
     .textsubOffer {
-      font-size: 25px;
+      font-size: 15px;
       text-shadow: none;
       margin-top: 10px;
-      font-family: "Caveat", cursive;
     }
   }
 }
@@ -80,9 +78,6 @@
   width: 100px;
   height: 70px;
   filter: grayscale(100%);
-  img {
-    border-radius: 5px;
-  }
 }
 .customPaging {
   width: 100px;
@@ -110,7 +105,7 @@
   }
   .slick-slide img {
     width: 100vw;
-    height: 50vh;
+    height: 40vh;
     object-fit: cover;
   }
 }
@@ -142,7 +137,7 @@
   .imageWrapper .textOffer {
     padding: 0 20px;
     .mainTextOffer {
-      font-size: 30px;
+      font-size: 25px;
     }
     .textsubOffer {
       font-size: 15px;

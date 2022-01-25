@@ -17,7 +17,7 @@ nav {
 ul {
   width: 100%;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   padding-left: 0px;
 }
@@ -37,12 +37,11 @@ li {
     min-width: 100px;
     height: 25px;
     text-transform: uppercase;
-    font-family: "Montserrat", sans-serif;
     font-style: normal;
     font-weight: bold;
     font-size: 25px;
     line-height: 25px;
-    letter-spacing: 0.15em;
+    letter-spacing: 0.1em;
   }
 
   svg {
@@ -62,11 +61,10 @@ li {
   justify-content: space-around;
 
   .cart {
-    font-family: "Montserrat", sans-serif;
     font-style: normal;
     font-weight: 400;
-    font-size: 14px;
-    line-height: 17px;
+    font-size: 20px;
+    line-height: 20px;
     color: #ffffff;
     border-right: 1px solid rgba(255, 255, 255, 0.3);
     padding: 13px 20px 13px 20px;
@@ -82,9 +80,10 @@ li {
     border-radius: 20px;
     background: #ffffff;
     color: #403c3b;
-    font-size: 12px;
-    line-height: 14px;
+    font-size: 18px;
+    line-height: 20px;
     display: flex;
+    padding: 15px 16px 15px;
     align-items: center;
     justify-content: center;
     margin: 13px 10px 13px 10px;
@@ -110,9 +109,9 @@ li {
     display: flex;
     flex-direction: column;
     text-align: left;
+    font-size: 20px;
 
     span {
-      font-family: "Montserrat", sans-serif;
       font-style: normal;
       font-weight: normal;
       font-size: 12px;
@@ -123,7 +122,6 @@ li {
 
 form {
   position: relative;
-  max-width: 555px;
   margin: 0 auto;
 }
 input,
@@ -131,16 +129,13 @@ button {
   border: none;
   outline: none;
   border-radius: 10px;
-  font-family: "Montserrat", sans-serif;
-  font-style: normal;
-  font-weight: normal;
   font-size: 20px;
   line-height: 19px;
   color: #cfcfcf;
 }
 input {
-  max-width: 100%;
   height: 52px;
+  width: 350px;
   background: #504b4a;
   padding: 0px 15px 0px 15px;
 }
@@ -154,14 +149,14 @@ input {
   cursor: pointer;
   text-decoration: none;
 }
+@media screen and (max-width: 991px) {
+  input {
+    width: 300px;
+  }
 
-@media (max-width: 767px) {
   .contact {
     display: none;
   }
-
-
-
   .cartWrap {
     width: 62px;
     height: 56px;
@@ -177,10 +172,9 @@ input {
     .cart {
       border-right: none;
       border-top: 1px solid rgba(255, 255, 255, 0.3);
-      font-size: 12px;
+      font-size: 20px;
       line-height: 14px;
       padding: 3px 0px 3px 0px;
-      text-transform: lowercase;
     }
 
     svg {
@@ -192,6 +186,11 @@ input {
   }
 }
 
+@media (max-width: 630px) {
+  input {
+    display: none;
+  }
+}
 @media (max-width: 479px) {
   ul {
     width: 100%;
@@ -203,6 +202,7 @@ input {
 
   .contact {
     display: none;
+    
   }
 
   .burger {
@@ -237,5 +237,10 @@ input {
     svg {
       display: none;
     }
+  }
+  .cartWrap .cart {
+    font-size: 15px;
+    padding: 3px 0px 3px 0px;
+   
   }
 }
