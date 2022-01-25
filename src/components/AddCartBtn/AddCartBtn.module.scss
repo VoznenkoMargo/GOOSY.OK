@@ -1,22 +1,19 @@
-
 .backgroundBtn {
-    background: linear-gradient(114.93deg, #618967 5.11%, #72A479 94%);
-    border-radius: 10px;
-    display: flex;
-    width: 150px;
-    align-items: center;
+  background: linear-gradient(114.93deg, #618967 5.11%, #72a479 94%);
+  border-radius: 10px;
+  display: flex;
+  max-width: 150px;
+  align-items: center;
 
-    p {
-        font-weight: 600;
-        font-size: 14px;
-        line-height: 17px;
-        color: #FFFFFF;
-        padding: 14px 14px 14px 19px;
-    }
+  p {
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 17px;
+    color: #ffffff;
+    padding: 18px;
+  }
 
-    svg {
-        margin-right: 15px;
-    }
+  svg {
+    margin-right: 15px;
+  }
 }
-
-

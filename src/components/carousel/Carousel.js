@@ -29,28 +29,28 @@ function Carousel() {
     {
       image:
         "https://supericebuckett.s3.eu-west-3.amazonaws.com/img/img/main_dishes/carbonara.jpg",
-      text: "Ешь  любимую пасту Карбонара всего за 200 грн!",
-      subtext: "Акционное предложение действует в период с 20.03 по 27.03.2022",
+      text: "Eat your favorite Carbonara pasta for only 200₴!",
+      subtext: "The promotional offer is valid from 20.03 to 27.03.2022",
     },
     {
       image:
         "https://supericebuckett.s3.eu-west-3.amazonaws.com/img/img/salads/salat.jpg",
-      text: "Заказывай любой салат и получи второй бесплатно!",
-      subtext: "Акционное предложение действует в период с 08.01 по 22.03.2022",
+      text: "Order any salad and get the second one for free!",
+      subtext: "The promotional offer is valid from 08.01 to 22.03.2022",
     },
     {
       image:
         "https://supericebuckett.s3.eu-west-3.amazonaws.com/img/img/main_dishes/fish.jpg",
-      text: "Тотально рыбный обед всего за 300 грн!",
+      text: "Totally fish dinner for only 300₴!",
       subtext:
-        "Акционное предложение действует каждый четверг c 12-00 до 15-00",
+        "The promotional offer is valid every Thursday from 12-00 to 15-00",
     },
   ];
   const settings = {
     dots: true,
     // autoplay: true,
     infinite: true,
-    speed: 2000,
+    speed: 300,
     slidesToShow: 1,
     slidesToScroll: 1,
     nextArrow: <SampleNextArrow />,

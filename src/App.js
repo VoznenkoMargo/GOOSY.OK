@@ -1,18 +1,21 @@
 import React from "react";
 import "./App.scss";
 import { Provider } from "react-redux";
-import Carousel from "./components/carousel/Carousel";
-import Item from "./components/Item/Item";
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import HomePage from "./pages/HomePage";
 import store from "./store";
 
 
 function App() {
   return (
       <Provider store={store}>
-          <div className="App">
-              <Carousel />
-              <Item/>
-          </div>
+        <Router>
+        <div className="App">
+          <Switch>  
+            <Route exact path="/" component={HomePage}/>
+          </Switch>
+        </div>
+        </Router>
       </Provider>
   );
 }
