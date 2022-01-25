@@ -5,7 +5,8 @@ import styles from "./Item.module.scss"
 import AddCartBtn from "../AddCartBtn/AddCartBtn";
 
 
-function Item () {
+function Item ( ) {
+    
     const items = [
         {
         id: 1,

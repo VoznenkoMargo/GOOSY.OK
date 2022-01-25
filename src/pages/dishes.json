@@ -1,0 +1,296 @@
+{
+    "dishes": [
+      {
+        "enabled":"true",
+        "name": "Italian antipasti",
+        "currentPrice": "395 ₴",
+        "categories":"coldSnaks",
+        "imageUrls": [
+            "https://supericebuckett.s3.eu-west-3.amazonaws.com/img/img/cold_snaks/antipasti.JPG"
+        ],
+        "quantity": 0,
+        "weight": "400 g"
+        
+      },
+      {
+        "enabled":"true",
+        "name": "Veal carpaccio",
+        "currentPrice": "215 ₴",
+        "categories":"coldSnaks",
+        "imageUrls": ["https://supericebuckett.s3.eu-west-3.amazonaws.com/img/img/cold_snaks/beef_carpacho.JPG"],
+        "quantity": 0,
+        "weight": "175 g"
+      },
+      {
+        "enabled":"true",
+        "name": "Trio of bruschetta",
+        "currentPrice": "175 ₴",
+        "categories":"coldSnaks",
+        "imageUrls": ["https://supericebuckett.s3.eu-west-3.amazonaws.com/img/img/cold_snaks/brusket.JPG"],
+        "quantity": 0,
+        "weight": "150 g"
+      },
+      {
+        "enabled":"true",
+        "name": "Cheese burrata",
+        "currentPrice": "250 ₴",
+        "categories":"coldSnaks",
+        "imageUrls": ["https://supericebuckett.s3.eu-west-3.amazonaws.com/img/img/cold_snaks/burrata.JPG"],
+        "quantity": 0,
+        "weight": "250 g"
+      },
+      {
+        "enabled":"true",
+        "name": "Assorted European cheeses",
+        "currentPrice": "255 ₴",
+        "categories":"coldSnaks",
+        "imageUrls": ["https://supericebuckett.s3.eu-west-3.amazonaws.com/img/img/cold_snaks/cheese_plato.JPG"],
+        "quantity": 0,
+        "weight": "250 g"
+      },
+      {
+        "enabled":"true",
+        "name": "Chicken liver pate su-vid",
+        "currentPrice": "145 ₴",
+        "categories":"coldSnaks",
+        "imageUrls": ["https://supericebuckett.s3.eu-west-3.amazonaws.com/img/img/cold_snaks/chicken_liver_pate.JPG"],
+        "quantity": 0,
+        "weight": "150 g"
+      },
+      {
+        "enabled":"true",
+        "name": "Guacamole with corn nachos",
+        "currentPrice": "155 ₴",
+        "categories":"coldSnaks",
+        "imageUrls": ["https://supericebuckett.s3.eu-west-3.amazonaws.com/img/img/cold_snaks/guakamole.JPG"],
+        "quantity": 0,
+        "weight": "170 g"
+      },
+      {
+        "enabled":"true",
+        "name": "Italian meat delicacies",
+        "currentPrice": "235 ₴",
+        "categories":"coldSnaks",
+        "imageUrls": ["https://supericebuckett.s3.eu-west-3.amazonaws.com/img/img/cold_snaks/italian_delishes.JPG"],
+        "quantity": 0,
+        "weight": "160 g"
+      },
+      {
+        "enabled":"true",
+        "name": "Salmon carpaccio",
+        "currentPrice": "235 ₴",
+        "categories":"coldSnaks",
+        "imageUrls": ["https://supericebuckett.s3.eu-west-3.amazonaws.com/img/img/cold_snaks/salmon_carpacho.JPG"],
+        "quantity": 0,
+        "weight": "175 g"
+      },
+      {
+        "enabled":"true",
+        "name": "Chicken broth",
+        "currentPrice": "115 ₴",
+        "categories":"soup",
+        "imageUrls": ["https://supericebuckett.s3.eu-west-3.amazonaws.com/img/img/soups/chiken_soup.JPG"],
+        "quantity": 0,
+        "weight": "350 g"
+      },
+      {
+        "enabled":"true",
+        "name": "Mushroom cream soup",
+        "currentPrice": "155 ₴",
+        "categories":"soup",
+        "imageUrls": ["https://supericebuckett.s3.eu-west-3.amazonaws.com/img/img/soups/mashroom_soup.JPG"],
+        "quantity": 0,
+        "weight": "300 g"
+      },
+      {
+        "enabled":"true",
+        "name": "Tom Yum with seafood",
+        "currentPrice": "255 ₴",
+        "categories":"soup",
+        "imageUrls": ["https://supericebuckett.s3.eu-west-3.amazonaws.com/img/img/soups/tom_yam.JPG"],
+        "quantity": 0,
+        "weight": "400 g"
+      },
+      {
+        "enabled":"true",
+        "name": "Bowl salad with salmon",
+        "currentPrice": "265 ₴",
+        "categories":"salads",
+        "imageUrls": ["https://supericebuckett.s3.eu-west-3.amazonaws.com/img/img/salads/bowl_salmon.JPG"],
+        "quantity": 0,
+        "weight": "350 g"
+      },
+      {
+        "enabled":"true",
+        "name": "Cesar salad",
+        "currentPrice": "175 ₴",
+        "categories":"salads",
+        "imageUrls": ["https://supericebuckett.s3.eu-west-3.amazonaws.com/img/img/salads/cesar.JPG"],
+        "quantity": 0,
+        "weight": "250 g"
+      },
+      {
+        "enabled":"true",
+        "name": "Salad “Fiji” ",
+        "currentPrice": "165 ₴",
+        "categories":"salads",
+        "imageUrls": ["https://supericebuckett.s3.eu-west-3.amazonaws.com/img/img/salads/fiji.JPG"],
+        "quantity": 0,
+        "weight": "200 g"
+      },
+      {
+        "enabled":"true",
+        "name": "Stewed veal with truffle puree ",
+        "currentPrice": "215 ₴",
+        "categories":"mainDishes",
+        "imageUrls": ["https://supericebuckett.s3.eu-west-3.amazonaws.com/img/img/main_dishes/beef_with_palenta.JPG"],
+        "quantity": 0,
+        "weight": "280 g"
+      },
+      {
+        "enabled":"true",
+        "name": "Cheeseburger with chicken",
+        "currentPrice": "255 ₴",
+        "categories":"mainDishes",
+        "imageUrls": ["https://supericebuckett.s3.eu-west-3.amazonaws.com/img/img/main_dishes/cheaseburger.JPG"],
+        "quantity": 0,
+        "weight": "450 g"
+      },
+      {
+        "enabled":"true",
+        "name": "Meat_set",
+        "currentPrice": "990 ₴",
+        "categories":"mainDishes",
+        "imageUrls": ["https://supericebuckett.s3.eu-west-3.amazonaws.com/img/img/main_dishes/meat_set.JPG"],
+        "quantity": 0,
+        "weight": "1200 g"
+      },
+      {
+        "enabled":"true",
+        "name": "Carbonara",
+        "currentPrice": "175 ₴",
+        "categories":"mainDishes",
+        "imageUrls": ["https://supericebuckett.s3.eu-west-3.amazonaws.com/img/img/main_dishes/carbonara.JPG"],
+        "quantity": 0,
+        "weight": "250 g"
+      },
+      {
+        "enabled":"true",
+        "name": "Dorado",
+        "currentPrice": "325 ₴",
+        "categories":"mainDishes",
+        "imageUrls": ["https://supericebuckett.s3.eu-west-3.amazonaws.com/img/img/main_dishes/dorado.JPG"],
+        "quantity": 0,
+        "weight": "350 g"
+      },
+      {
+        "enabled":"true",
+        "name": "Ribeye steak",
+        "currentPrice": "275 ₴",
+        "categories":"mainDishes",
+        "imageUrls": ["https://supericebuckett.s3.eu-west-3.amazonaws.com/img/img/main_dishes/ribay.JPG"],
+        "quantity": 0,
+        "weight": "350 g"
+      },
+      {
+        "enabled":"true",
+        "name": "Pork steak",
+        "currentPrice": "275 ₴",
+        "categories":"mainDishes",
+        "imageUrls": ["https://supericebuckett.s3.eu-west-3.amazonaws.com/img/img/main_dishes/pork.JPG"],
+        "quantity": 0,
+        "weight": "350 g"
+      },
+      {
+        "enabled":"true",
+        "name": "Masala chicken",
+        "currentPrice": "195 ₴",
+        "categories":"mainDishes",
+        "imageUrls": ["https://supericebuckett.s3.eu-west-3.amazonaws.com/img/img/main_dishes/chiken_masala.JPG"],
+        "quantity": 0,
+        "weight": "300 g"
+      },
+      {
+        "enabled":"true",
+        "name": "Salmon steak",
+        "currentPrice": "325 ₴",
+        "categories":"mainDishes",
+        "imageUrls": ["https://supericebuckett.s3.eu-west-3.amazonaws.com/img/img/main_dishes/salmon.JPG"],
+        "quantity": 0,
+        "weight": "300 g"
+      },
+      {
+        "enabled":"true",
+        "name": "Cheesecake",
+        "currentPrice": "135 ₴",
+        "categories":"desert",
+        "imageUrls": ["https://supericebuckett.s3.eu-west-3.amazonaws.com/img/img/desert/chease_cake.JPG"],
+        "quantity": 0,
+        "weight": "150 g"
+      },
+      {
+        "enabled":"true",
+        "name": "Chocolate brownie",
+        "currentPrice": "135 ₴",
+        "categories":"desert",
+        "imageUrls": ["https://supericebuckett.s3.eu-west-3.amazonaws.com/img/img/desert/browne.JPG"],
+        "quantity": 0,
+        "weight": "200 g"
+      },
+      {
+        "enabled":"true",
+        "name": "Meringue cake in Kyiv style",
+        "currentPrice": "145 ₴",
+        "categories":"desert",
+        "imageUrls": ["https://supericebuckett.s3.eu-west-3.amazonaws.com/img/img/desert/kyiv_cake.JPG"],
+        "quantity": 0,
+        "weight": "180 g"
+      },      
+      {
+        "enabled":"true",
+        "name": "Hummus",
+        "currentPrice": "155 ₴",
+        "categories":"hotSnaks",
+        "imageUrls": ["https://supericebuckett.s3.eu-west-3.amazonaws.com/img/img/hot_snaks/humus.JPG"],
+        "quantity": 0,
+        "weight": "200 g"
+      },
+      {
+        "enabled":"true",
+        "name": "Chicken strips",
+        "currentPrice": "145 ₴",
+        "categories":"hotSnaks",
+        "imageUrls": ["https://supericebuckett.s3.eu-west-3.amazonaws.com/img/img/hot_snaks/chiken_strips.JPG"],
+        "quantity": 0,
+        "weight": "200 g"
+      },
+      {
+        "enabled":"true",
+        "name": "Potato dips",
+        "currentPrice": "115 ₴",
+        "categories":"hotSnaks",
+        "imageUrls": ["https://supericebuckett.s3.eu-west-3.amazonaws.com/img/img/hot_snaks/potato_dips.JPG"],
+        "quantity": 0,
+        "weight": "220 g"
+      },
+      {
+        "enabled":"true",
+        "name": "Тaco with chicken",
+        "currentPrice": "165 ₴",
+        "categories":"hotSnaks",
+        "imageUrls": ["https://supericebuckett.s3.eu-west-3.amazonaws.com/img/img/hot_snaks/tako.JPG"],
+        "quantity": 0,
+        "weight": "250 g"
+      },
+      {
+        "enabled":"true",
+        "name": "Grilled vegetables",
+        "currentPrice": "115 ₴",
+        "categories":"hotSnaks",
+        "imageUrls": ["https://supericebuckett.s3.eu-west-3.amazonaws.com/img/img/hot_snaks/vegetables_grill.JPG"],
+        "quantity": 0,
+        "weight": "240 g"
+      }
+    ]
+  }
+  
