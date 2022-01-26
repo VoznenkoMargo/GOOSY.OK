@@ -12,6 +12,7 @@
     .footer_rights{
         border-top: 1px solid rgba(238, 238, 238, 0.2);
         padding: 30px 0px 30px 0px;
+        text-align: center;//
     }
 }
 
@@ -19,7 +20,7 @@
     display: flex;
     align-items: center;
     background: linear-gradient(270.7deg, #44403F 0.4%, #211F20 100%);
-    justify-content: center;
+    justify-content: space-between;//
     padding-bottom: 20px;
 padding-left: 10px;
 padding-right: 10px;

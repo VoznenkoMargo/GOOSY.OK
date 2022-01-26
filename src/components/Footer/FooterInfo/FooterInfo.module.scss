@@ -1,4 +1,5 @@
 .footerInfo{
+
     text-align: left;
     h2{
         padding: 26px 0px 15px 0px;
@@ -7,6 +8,11 @@
         line-height: 25px;
         color: #FFFFFF;
     }
+
+    ul{
+        flex-direction: column;
+        align-items: start;
+    }//
     
     li{
         padding-top: 10px;
