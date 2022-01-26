@@ -1,6 +1,6 @@
 .backgroundBtn {
   background: linear-gradient(114.93deg, #618967 5.11%, #72a479 94%);
-  border-radius: 10px;
+  border-radius: 5px;
   display: flex;
   max-width: 150px;
   align-items: center;
@@ -8,9 +8,8 @@
   p {
     font-weight: 600;
     font-size: 14px;
-    line-height: 17px;
     color: #ffffff;
-    padding: 18px;
+    padding: 14px 5px 14px 14px;
   }
 
   svg {

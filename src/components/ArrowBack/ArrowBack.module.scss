@@ -1,0 +1,17 @@
+.arrowBack {
+  cursor: pointer;
+  align-items: center;
+  display: flex;
+  color: #fff;
+  column-gap: 7px;
+  font-size: 18px;
+  .arrow {
+    background-color: #618967;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+  }
+}
