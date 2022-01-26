@@ -2,7 +2,7 @@ import React from "react";
 import "./App.scss";
 import { Provider } from "react-redux";
 import {BrowserRouter} from "react-router-dom";
-import Carousel from "./components/carousel/Carousel";
+import Carousel from "./components/Carousel/Carousel";
 import Item from "./components/Item/Item";
 import Header from "./components/Header/Header";
 import store from "./store";
