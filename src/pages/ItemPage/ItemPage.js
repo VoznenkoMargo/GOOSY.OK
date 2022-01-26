@@ -1,28 +1,30 @@
 /* eslint-disable no-underscore-dangle */
 /* eslint-disable react/prop-types */
-import React, {useState, useEffect} from 'react';
-import {useRouteMatch} from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { useRouteMatch } from "react-router-dom";
+import ItemDetails from "../../components/ItemDetails/ItemDetails";
 
 function ItemPage() {
-  const {params: { itemNo }} = useRouteMatch();
+  const {
+    params: { itemNo },
+  } = useRouteMatch();
 
-    const [item, setItem] = useState({});
-    useEffect(() => (async () => {
-      const result = await fetch(`https://ajax.test-danit.com/api/json/posts/${itemNo}`)
-          .then(res => res.json());
-          setItem(result);
-  })(), []);
-
-      return (
-        <section>
-            {item._id &&
-            <>
-                <h2>{item.name}</h2>
-                <p>{item.weight}</p>
-            </>}
-        </section>
-    )
-
+  const [item, setItem] = useState({});
+  useEffect(
+    () =>
+      (async () => {
+        const result = await fetch(
+          `http://35.180.205.240:5000/api/products/${itemNo}`
+        ).then((res) => res.json());
+        setItem(result);
+      })(),
+    []
+  );
+  return (
+    <section>
+      <ItemDetails item={item} />
+    </section>
+  );
 }
 
 export default ItemPage;

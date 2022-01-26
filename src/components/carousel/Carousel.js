@@ -29,7 +29,7 @@ function Carousel() {
     {
       image:
         "https://supericebuckett.s3.eu-west-3.amazonaws.com/img/img/main_dishes/carbonara.jpg",
-      text: "Eat your favorite Carbonara pasta for only 200₴!",
+      text: "Eat your favorite Carbonara pasta for only 200 uah!",
       subtext: "The promotional offer is valid from 20.03 to 27.03.2022",
     },
     {
@@ -41,7 +41,7 @@ function Carousel() {
     {
       image:
         "https://supericebuckett.s3.eu-west-3.amazonaws.com/img/img/main_dishes/fish.jpg",
-      text: "Totally fish dinner for only 300₴!",
+      text: "Totally fish dinner for only 300 uah!",
       subtext:
         "The promotional offer is valid every Thursday from 12-00 to 15-00",
     },
