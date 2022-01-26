@@ -8,16 +8,16 @@ import styles from './FooterNav.module.scss'
             <nav>
                 <ul>
                     <li>
-                        <NavLink to="/about" className={styles.footerNav_link}>О ресторане</NavLink>
+                        <NavLink to="/about" className={styles.footerNav_link}>About the Restaurant</NavLink>
                     </li>
                     <li>
-                        <NavLink to="/shipments" className={styles.footerNav_link}>Условия доставки</NavLink>
+                        <NavLink to="/shipments" className={styles.footerNav_link}>Shipping and Delivery</NavLink>
                     </li>
                     <li>
-                        <NavLink to="/returns" className={styles.footerNav_link}>Возврат товара</NavLink>
+                        <NavLink to="/returns" className={styles.footerNav_link}>Return Policy</NavLink>
                     </li>
                     <li>
-                        <NavLink to="/stock" className={styles.footerNav_link}>Акции</NavLink>
+                        <NavLink to="/stock" className={styles.footerNav_link}>Stock</NavLink>
                     </li>
                 </ul>
             </nav>

@@ -10,19 +10,19 @@ function FooterInfo() {
     <nav>
     <ul>
         <li>
-            <Link to="/about" className={styles.footerInfo_link}>O нас</Link>
+            <Link to="/about" className={styles.footerInfo_link}>About Us</Link>
         </li>
         <li>
-            <Link to="/news" className={styles.footerInfo_link}>Новости и события</Link>
+            <Link to="/news" className={styles.footerInfo_link}>News and Events</Link>
         </li>
         <li>
-            <Link to="/agreement" className={styles.footerInfo_link}>Пользовательское соглашение</Link>
+            <Link to="/agreement" className={styles.footerInfo_link}>User Agreement</Link>
         </li>
         <li>
-            <Link to="/map" className={styles.footerInfo_link}>Карта сайта</Link>
+            <Link to="/map" className={styles.footerInfo_link}>Site Map</Link>
         </li>
         <li>
-            <Link to="/confidentiality" className={styles.footerInfo_link}>Политика конфиденциальности</Link>
+            <Link to="/confidentiality" className={styles.footerInfo_link}>Privacy Policy</Link>
         </li>
     </ul>
     </nav>
