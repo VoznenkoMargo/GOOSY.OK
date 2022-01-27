@@ -1,7 +1,7 @@
 /* eslint-disable import/extensions */
 import React, { useState, useEffect } from "react";
 // import axios from 'axios';
-import Carousel from "../../components/carousel/Carousel";
+import Carousel from "../../components/Carousel/Carousel";
 import ItemsContainer from "../../components/ItemsContainer/ItemsContainer";
 // import Item from "../../components/Item/Item";
 
