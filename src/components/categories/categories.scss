@@ -8,6 +8,7 @@
     justify-content: space-around;
     height: 78px;
     align-items: center;
+    
 }
 .categories_item_link{
     text-decoration: none;
@@ -15,7 +16,13 @@
     font-size: 18px;
     font-weight: 500;
     @media (max-width: 1200px) {
-        font-size: 15px;
+        font-size: 14px;
+     }
+     @media (max-width: 950px) {
+        font-size: 12px;
+     }
+     @media (max-width: 820px) {
+        display: none;
      }
 }
 .categories_item_link_active{
