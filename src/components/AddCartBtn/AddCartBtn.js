@@ -5,7 +5,7 @@ import styles from "./AddCartBtn.module.scss";
 function AddCartBtn() {
   return (
     <div className={styles.backgroundBtn}>
-      <p>To Cart</p>
+      <p>Add to Cart</p>
       <Cart />
     </div>
   );
