@@ -2,10 +2,8 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Header from "../../components/Header/Header";
-import Carousel from "../../components/Carousel/Carousel";
 import Item from "../../components/Item/Item";
-
-
+import Carousel from "../../components/carousel/Carousel";
 
 function HomePage() {
     const [items, setItems] = useState([]);
@@ -19,7 +17,7 @@ function HomePage() {
     return (
         <div>
             <Header/>
-            <Carousel/>
+           <Carousel/>
             <Item items={items}/>
         </div>
     )
