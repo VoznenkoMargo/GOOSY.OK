@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 // import axios from 'axios';
 import Carousel from "../../components/Carousel/Carousel";
+import Categories from "../../components/Categories/Categories"
 import ItemsContainer from "../../components/ItemsContainer/ItemsContainer";
 // import Item from "../../components/Item/Item";
 
@@ -30,6 +31,7 @@ function HomePage() {
   return (
     <div>
       <Carousel />
+     <Categories />
       <ItemsContainer items={items} isLoading={isLoading} isError={isError} />
     </div>
   );
