@@ -13,6 +13,7 @@ function Routes(){
             <Route exact path="/products" component={ProductsPage}/>
             <Route exact path="/products/:itemNo" component={ItemPage}/>
             <Route exact path="/categorys" component={CategorysPage}/>
+            {/* <Route exact path="/categoreis/coldsnacks" component={C} */}
         </Switch>
     );
 }

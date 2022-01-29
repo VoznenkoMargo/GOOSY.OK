@@ -1,7 +1,7 @@
 import React  from 'react';
-import { shallowEqual, useSelector, useDispatch } from 'react-redux';
-import { initItems } from '../../store/actionCreators';
+import {  useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
+import { initItems } from '../../store/actionCreators';
 import Find from '../../components/Find/Find';
 import style from "./CategorysPage.module.scss"
 import ItemsContainer from '../../components/ItemsContainer/ItemsContainer';

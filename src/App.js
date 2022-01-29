@@ -6,7 +6,7 @@ import Header from "./components/Header/Header";
 import Routes from "./Routes/Routes";
 import store from "./store";
 import Footer from "./components/Footer/Footer/Footer";
-
+import Categories from "./components/Categories/Categories"
 
 function App() {
   return (
@@ -15,6 +15,7 @@ function App() {
 
         <div className="App">
           <Header/>
+          <Categories />
           <Routes/>
           <Footer/>
         </div>
