@@ -15,7 +15,10 @@ const ItemsContainer = (props) => {
 
               <section className={styles.root}>
                   <div className='container'>
+                  <div className={styles.itemswrapper}>
                   <h2 className={styles.items_header}>{header}</h2>
+                  <img alt='' width='50px' src="https://img.icons8.com/office/16/000000/fire-element.png"/>
+                  </div>
                   {/* <GoBack history={history}/> */}
                       <div className={styles.itemsContainer}>
                           {isLoading
