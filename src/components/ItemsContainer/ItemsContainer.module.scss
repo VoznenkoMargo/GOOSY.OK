@@ -4,9 +4,21 @@
 }
 
 .itemsContainer {
-  padding-top: 100px;
+  
   display: flex;
+ 
   flex-wrap: wrap;
   gap: 30px;
-  justify-content: center;
+  margin-bottom: 30px;
+  
+}
+.items_header{
+  margin-bottom: 20px;
+  font-weight: bold;
+  font-size: 32px;
+  line-height: 39px;
+  color: #FFFFFF;
+  text-transform: uppercase;
+  border-left: 5px solid #618967;
+  padding-left: 20px;
 }

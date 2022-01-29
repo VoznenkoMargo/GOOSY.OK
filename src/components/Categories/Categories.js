@@ -36,8 +36,10 @@ function Categories () {
 
 
     return(
+        
         <div id='navbar' className="categories_block">
-
+            <div className="container">
+                <div className='categories_items'>
                 <NavLink to="/cart1" className='categories_item_link' activeClassName='categories_item_link_active'>Холодные закуски </NavLink>
             
                 <NavLink to="/cart2" className='categories_item_link'  activeClassName='categories_item_link_active'>Горячие закуски </NavLink>
@@ -61,8 +63,8 @@ function Categories () {
                 <NavLink to="/cart8" className='categories_item_link' activeClassName='categories_item_link_active'>Напитки</NavLink>
     
 
-           
-        
+                </div>
+                </div>
         </div>
     )
 

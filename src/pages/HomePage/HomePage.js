@@ -30,8 +30,8 @@ function HomePage() {
   return (
     <div>
       <Carousel />
-     
-      <ItemsContainer items={items} isLoading={isLoading} isError={isError} />
+
+      <ItemsContainer header='Popular categories' items={items} isLoading={isLoading} isError={isError} />
     </div>
   );
 }

@@ -14,10 +14,12 @@ function App() {
         <Router>
 
         <div className="App">
+      
           <Header/>
           <Categories />
           <Routes/>
           <Footer/>
+        
         </div>
 
         </Router>

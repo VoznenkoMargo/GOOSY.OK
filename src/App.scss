@@ -12,3 +12,11 @@ p {
 .App {
   background-color: #322f2f;
 }
+.container{
+  width: 1400px;
+  margin: 0 auto;
+  @media(min-width:1600px ){
+    width: 2000px;
+    margin: 0 auto;
+  }
+}
