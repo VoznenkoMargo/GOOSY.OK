@@ -1,12 +1,22 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import style from "./Select.module.scss";
+<<<<<<< HEAD
 import { getUrl } from "../../store/actionCreators";
 import { selectSwitch } from "./selectSwitch";
 
 function Select() {
   const [value, setValue] = useState("All");
   // const {url} = useSelector((store)=> store.items)
+=======
+
+import { getUrl } from "../../store/actionCreators";
+import selectSwitch from "./selectSwitch";
+
+function Select() {
+  const [value, setValue] = useState("All");
+  // const { url} = useSelector((store)=> store.items)
+>>>>>>> 7ac6e2d7df90df53ea77c53d827eb2b4e58691f0
   const dispatch = useDispatch();
   function chengeSelect(event) {
     setValue(event.target.value);
