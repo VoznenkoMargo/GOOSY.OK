@@ -11,7 +11,6 @@ const ItemsContainer = (props) => {
         const {items, isLoading} = props;
         return (
               <section className={styles.root}>
-                  {/* <GoBack history={history}/> */}
                       <div className={styles.itemsContainer}>
                           {isLoading
                               ? <Preloader className={styles.preloader} color="secondary" size={60} />
