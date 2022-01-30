@@ -9,7 +9,6 @@ function CheckBox() {
         const dispatch = useDispatch()
 
         function test (e){
-
             const value = e.target.value
             const newFilter = [...filter]
             if (e.target.checked){
@@ -20,10 +19,12 @@ function CheckBox() {
             }
             setFilter(newFilter)
         }
+
         useEffect(() => {
             const newUrl = `${defUrl}filter?categories=${filter.toString()}`
             !filter.length==0 ? dispatch(initItems(newUrl)) : dispatch(initItems(defUrl))
         }, [filter]) 
+
     return (
         <div className={style.checkBox_container}>
             <form>    
