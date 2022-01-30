@@ -9,7 +9,10 @@ import FooterSocial from '../FooterSocial/FooterSocial';
 
 function Footer() {
   return <div className={styles.footer}><div className={styles.footer_container}>
-  <FontAwesomeIcon icon={faChevronCircleUp} size="5x" className={styles.footer_chevron}/>
+  <FontAwesomeIcon icon={faChevronCircleUp} size="5x" className={styles.footer_chevron} onClick={() =>{
+    window.scrollTo({
+    top: 0, 
+    behavior: 'smooth'})}}/>
   <FooterInfo />
   <FooterNav />
   <FooterSocial/>

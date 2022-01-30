@@ -6,13 +6,13 @@ import Header from "./components/Header/Header";
 import Routes from "./Routes/Routes";
 import store from "./store";
 import Footer from "./components/Footer/Footer/Footer";
-
+import ScrollToTop from "./Routes/ScrollToTop";
 
 function App() {
   return (
       <Provider store={store}>
         <Router>
-
+        <ScrollToTop />
         <div className="App">
           <Header/>
           <Routes/>
