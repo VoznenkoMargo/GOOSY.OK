@@ -8,10 +8,10 @@ import styles from './FooterNav.module.scss'
             <nav>
                 <ul>
                     <li>
-                        <NavLink to="/about" className={styles.footerNav_link}>About the Restaurant</NavLink>
+                        <NavLink to="/about-restauraunt" className={styles.footerNav_link}>About the Restaurant</NavLink>
                     </li>
                     <li>
-                        <NavLink to="/shipments" className={styles.footerNav_link}>Shipping and Delivery</NavLink>
+                        <NavLink to="/payment-and-delivery" className={styles.footerNav_link}>Payment and Delivery</NavLink>
                     </li>
                     <li>
                         <NavLink to="/returns" className={styles.footerNav_link}>Return Policy</NavLink>
