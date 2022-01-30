@@ -67,11 +67,7 @@ function Carousel() {
     <div>
       <Slider {...settings}>
         {images.map((item) => (
-<<<<<<< HEAD
-          <div key={new Date()} className="imageWrapper">
-=======
           <div className="imageWrapper" key={new Date()}>
->>>>>>> 7ac6e2d7df90df53ea77c53d827eb2b4e58691f0
             <img src={item.image} alt="foodImage" />
             <div className="textOffer">
               <p className="mainTextOffer">{item.text}</p>

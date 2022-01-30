@@ -30,7 +30,7 @@ function Categories() {
       <div className="container">
         <div className="categories_items">
           <NavLink
-            to="/categories"
+            to="/cat1"
             className="categories_item_link"
             activeClassName="categories_item_link_active"
           >
@@ -38,7 +38,7 @@ function Categories() {
           </NavLink>
 
           <NavLink
-            to="/categories"
+            to="/cat2"
             className="categories_item_link"
             activeClassName="categories_item_link_active"
           >
@@ -46,7 +46,7 @@ function Categories() {
           </NavLink>
 
           <NavLink
-            to="/categories"
+            to="/cat3"
             className="categories_item_link"
             activeClassName="categories_item_link_active"
           >
@@ -54,7 +54,7 @@ function Categories() {
           </NavLink>
 
           <NavLink
-            to="/categories"
+            to="/cat4"
             className="categories_item_link"
             activeClassName="categories_item_link_active"
           >
@@ -62,7 +62,7 @@ function Categories() {
           </NavLink>
 
           <NavLink
-            to="/categories"
+            to="/cat5"
             className="categories_item_link"
             activeClassName="categories_item_link_active"
           >
@@ -70,7 +70,7 @@ function Categories() {
           </NavLink>
 
           <NavLink
-            to="/categories"
+            to="/cat6"
             className="categories_item_link"
             activeClassName="categories_item_link_active"
           >
@@ -78,7 +78,7 @@ function Categories() {
           </NavLink>
 
           <NavLink
-            to="/categories"
+            to="/cat7"
             className="categories_item_link"
             activeClassName="categories_item_link_active"
           >
@@ -86,7 +86,7 @@ function Categories() {
           </NavLink>
 
           <NavLink
-            to="/categories"
+            to="/cat8"
             className="categories_item_link"
             activeClassName="categories_item_link_active"
           >
