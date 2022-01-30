@@ -9,8 +9,8 @@ import AddCartBtn from "../AddCartBtn/AddCartBtn";
 
 function Item({ itemNo, imageUrls, name, currentPrice, weight }) {
   return (
-    <Link to={`/products/${itemNo}`} style={{ textDecoration: "none" }}>
-      <div className={styles.item} key={itemNo}>
+    <div className={styles.item} key={itemNo}>
+      <Link to={`/products/${itemNo}`} style={{ textDecoration: "none" }}>
         <img src={imageUrls} alt="dish" />
         <div>
           <div className={styles.cardStyles}>
@@ -19,13 +19,13 @@ function Item({ itemNo, imageUrls, name, currentPrice, weight }) {
               <p className={styles.weight}>{weight} g</p>
             </div>
           </div>
-          <div className={styles.priceInfo}>
-            <h2 className={styles.price}>{currentPrice} ₴</h2>
-            <AddCartBtn />
-          </div>
         </div>
+      </Link>
+      <div className={styles.priceInfo}>
+        <h2 className={styles.price}>{currentPrice} ₴</h2>
+        <AddCartBtn />
       </div>
-    </Link>
+    </div>
   );
 }
 

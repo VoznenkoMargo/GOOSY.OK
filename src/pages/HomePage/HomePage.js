@@ -31,7 +31,12 @@ function HomePage() {
     <div>
       <Carousel />
 
-      <ItemsContainer header='Популярные блюда' items={items} isLoading={isLoading} isError={isError} />
+      <ItemsContainer
+        header="Popular dishes"
+        items={items}
+        isLoading={isLoading}
+        isError={isError}
+      />
     </div>
   );
 }
