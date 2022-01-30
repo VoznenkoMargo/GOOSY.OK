@@ -7,13 +7,14 @@ import { Link } from "react-router-dom";
 import styles from "./Item.module.scss";
 import AddCartBtn from "../AddCartBtn/AddCartBtn";
 
-function Item({ itemNo, imageUrls, name, currentPrice, weight }) {
+function Item({ itemNo, imageUrls, categories, name, currentPrice, weight }) {
   return (
     <div className={styles.item} key={itemNo}>
       <Link to={`/products/${itemNo}`} style={{ textDecoration: "none" }}>
         <img src={imageUrls} alt="dish" />
         <div>
           <div className={styles.cardStyles}>
+            <p className={styles.weight}>{categories}</p>
             <div className={styles.mainInfo}>
               <p className={styles.title}>{name}</p>
               <p className={styles.weight}>{weight} g</p>

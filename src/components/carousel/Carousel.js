@@ -1,6 +1,6 @@
+/* eslint-disable react/prop-types */
 import React from "react";
 import Slider from "react-slick";
-import PropTypes from "prop-types";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { ArrowBackIos, ArrowForwardIos } from "@mui/icons-material";
@@ -67,7 +67,7 @@ function Carousel() {
     <div>
       <Slider {...settings}>
         {images.map((item) => (
-          <div className="imageWrapper">
+          <div className="imageWrapper" key={new Date()}>
             <img src={item.image} alt="foodImage" />
             <div className="textOffer">
               <p className="mainTextOffer">{item.text}</p>
@@ -80,12 +80,3 @@ function Carousel() {
   );
 }
 export default Carousel;
-
-SamplePrevArrow.propTypes = {
-  className: PropTypes.string.isRequired,
-  onClick: PropTypes.func.isRequired,
-};
-SampleNextArrow.propTypes = {
-  className: PropTypes.string.isRequired,
-  onClick: PropTypes.func.isRequired,
-};

@@ -2,15 +2,13 @@ import React, { useEffect, useState } from "react";
 
 import { NavLink } from "react-router-dom";
 
-import "./categories.scss";
+import "./Categories.scss";
 
 function Categories() {
   const [scrolled, setScrolled] = useState(false);
+
   const handleScroll = () => {
-    // const sticky = document.getElementById('navbar').offsetTop;
-    // console.log(sticky)
     const offset = window.scrollY;
-    // console.log("Offset:", offset)
     if (offset > 98) {
       setScrolled(true);
     } else {
@@ -32,23 +30,23 @@ function Categories() {
       <div className="container">
         <div className="categories_items">
           <NavLink
-            to="/cart1"
+            to="/categories"
             className="categories_item_link"
             activeClassName="categories_item_link_active"
           >
-            Cols snacks{" "}
+            Cold snacks{" "}
           </NavLink>
 
           <NavLink
-            to="/cart2"
+            to="/categories"
             className="categories_item_link"
             activeClassName="categories_item_link_active"
           >
-            Hot snack{" "}
+            Hot snacks{" "}
           </NavLink>
 
           <NavLink
-            to="/cart3"
+            to="/categories"
             className="categories_item_link"
             activeClassName="categories_item_link_active"
           >
@@ -56,7 +54,7 @@ function Categories() {
           </NavLink>
 
           <NavLink
-            to="/cart4"
+            to="/categories"
             className="categories_item_link"
             activeClassName="categories_item_link_active"
           >
@@ -64,7 +62,7 @@ function Categories() {
           </NavLink>
 
           <NavLink
-            to="/cart5"
+            to="/categories"
             className="categories_item_link"
             activeClassName="categories_item_link_active"
           >
@@ -72,7 +70,7 @@ function Categories() {
           </NavLink>
 
           <NavLink
-            to="/cart6"
+            to="/categories"
             className="categories_item_link"
             activeClassName="categories_item_link_active"
           >
@@ -80,7 +78,7 @@ function Categories() {
           </NavLink>
 
           <NavLink
-            to="/cart7"
+            to="/categories"
             className="categories_item_link"
             activeClassName="categories_item_link_active"
           >
@@ -88,7 +86,7 @@ function Categories() {
           </NavLink>
 
           <NavLink
-            to="/cart8"
+            to="/categories"
             className="categories_item_link"
             activeClassName="categories_item_link_active"
           >
