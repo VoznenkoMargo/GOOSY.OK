@@ -1,13 +1,10 @@
-/* eslint-disable import/extensions */
 
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Carousel from "../../components/Carousel/Carousel";
-
-// import axios from 'axios';
-
 import ItemsContainer from "../../components/ItemsContainer/ItemsContainer";
 import { initItems } from "../../store/actionCreators";
+
 
 function HomePage() {
   const url = useSelector((store) => store.items.url);
@@ -20,8 +17,6 @@ function HomePage() {
     dispatch(initItems(url));
   }, [url]);
 
-  // eslint-disable-next-line react/prop-types
-
   return (
     <div>
       <Carousel />
@@ -33,6 +28,7 @@ function HomePage() {
       />
     </div>
   );
+
 }
 
 export default HomePage;

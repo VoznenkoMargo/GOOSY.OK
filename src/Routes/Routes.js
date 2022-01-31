@@ -4,16 +4,22 @@ import CategoriesPage from "../pages/CategoriesPage/CategoriesPage";
 import HomePage from "../pages/HomePage";
 import ItemPage from "../pages/ItemPage";
 import ProductsPage from "../pages/ProductsPage";
+import CartPage from "../pages/CartPage/CartPage";
 import PrivacyPolicyPage from "../pages/FooterPages/PrivacyPolicyPage";
 import UserAgrPage from "../pages/FooterPages/UserAgrPage/UserAgrPage";
 import AboutPage from "../pages/FooterPages/AboutPage/AboutPage";
 import PaymentAndDeliveryPage from "../pages/FooterPages/PaymentAndDeliveryPage/PaymentAndDeliveryPage";
-
+import CategorysPage from "../pages/CategorysPage/CategorysPage";
 
 
 function Routes(){
     return(
         <Switch>
+            <Route exact path="/" component={HomePage}/>
+            <Route exact path="/products" component={ProductsPage}/>
+            <Route exact path="/products/:itemNo" component={ItemPage}/>
+            <Route exact path="/categorys" component={CategorysPage}/>
+            <Route exact path="/cart" component={CartPage}/>
             <Route exact path="/" component={HomePage} />
             <Route exact path="/products" component={ProductsPage} />
             <Route exact path="/products/:itemNo" component={ItemPage} />

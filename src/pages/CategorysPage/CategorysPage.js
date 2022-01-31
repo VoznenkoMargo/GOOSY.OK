@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { initItems } from "../../store/actionCreators";
 import Find from "../../components/Find/Find";
-import style from "./CategorysPage.module.scss";
 import ItemsContainer from "../../components/ItemsContainer/ItemsContainer";
 import Select from "../../components/Select/Select";
 
