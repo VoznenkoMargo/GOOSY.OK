@@ -3,6 +3,7 @@ import { shallowEqual, useSelector, useDispatch } from 'react-redux';
 import { initItems } from '../../store/actionCreators';
 import { useEffect } from 'react';
 import Find from '../../components/Find/Find';
+import FindPrice from '../../components/FindPrice/FindPrice';
 import style from "./CategorysPage.module.scss"
 import ItemsContainer from '../../components/ItemsContainer/ItemsContainer';
 import Select from '../../components/Select/Select';
@@ -23,6 +24,7 @@ function CategorysPage () {
         <section className={style.mainSection}>
             <div>
                 <Find/>
+                <FindPrice/>
             </div>
             <div>
             <Select />
