@@ -5,7 +5,7 @@ import styles from './FooterInfo.module.scss';
 function FooterInfo() {
   return (
       <div className={styles.footerInfo}>   
-          <h2>GOOS.OK</h2>  
+        
           
     <nav>
     <ul>

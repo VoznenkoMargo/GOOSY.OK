@@ -20,9 +20,9 @@ function Footer() {
         <FooterNav />
         <FooterSocial />
       </div>
-      <p className={styles.footer_rights}>
-        «GOOS.OK» All Rights Reserved. 2021 - 2022
-      </p>
+      {/* <p className={styles.footer_rights}>
+        «GOOSY.OK» All Rights Reserved. 2021 - 2022
+      </p> */}
     </div>
   );
 
