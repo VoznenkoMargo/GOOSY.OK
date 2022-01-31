@@ -1,8 +1,10 @@
 import React from "react";
-import { FiPhoneCall, FiShoppingCart } from "react-icons/fi";
 import { GiGoose } from "react-icons/gi";
 import { NavLink } from "react-router-dom";
 import styles from "./Header.module.scss";
+import Contact from "./Contact/Contact";
+import CartBtn from "./CartBtn/CartBtn";
+import Search from "./Search/Search";
 
 function Header() {
   return (
@@ -10,7 +12,7 @@ function Header() {
       <nav>
         <ul>
           <li className={styles.burger}>
-            <div className={styles.burger}>
+            <div className={styles.burger}>              
               <GiGoose />
               <p>menu</p>
             </div>
@@ -29,30 +31,15 @@ function Header() {
           </li>
 
           <li>
-            <div>
-              <form>
-                <input
-                  type="text"
-                  placeholder="What would you like to eat?"
-                />
-              </form>
-            </div>
+            <Search />
           </li>
 
           <li className={styles.contact}>
             <NavLink
               style={{ textDecoration: "none" }}
               activeClassName={styles.active}
-              to="/contact"
-            >
-              <div className={styles.contact}>
-                <div className={styles.icon}>
-                  <FiPhoneCall />
-                </div>
-                <p className={styles.number}>
-                  <span>Contacts:</span> 067 215 9888
-                </p>
-              </div>
+              to="/contact">            
+              <Contact />
             </NavLink>
           </li>
 
@@ -60,14 +47,8 @@ function Header() {
             <NavLink
               style={{ textDecoration: "none" }}
               activeClassName={styles.active}
-              className={styles.cartWrap}
-              to="/cart"
-            >
-              <div className={styles.cartMobile}>
-                <FiShoppingCart />
-              </div>
-              <h3 className={styles.cart}>Cart</h3>
-              <div className={styles.counter}>0</div>
+              to="/cart">            
+              <CartBtn />
             </NavLink>
           </li>
         </ul>
