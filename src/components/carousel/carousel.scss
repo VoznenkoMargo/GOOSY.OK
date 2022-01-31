@@ -61,11 +61,15 @@
     background: rgba(0, 0, 0, 0.7);
     .mainTextOffer {
       font-size: 50px;
+      font-family: "Caveat Brush", cursive;
+      letter-spacing: 2px;
     }
     .textsubOffer {
-      font-size: 15px;
+      font-size: 25px;
       text-shadow: none;
       margin-top: 10px;
+      font-family: "Caveat Brush", cursive;
+      letter-spacing: 1px;
     }
   }
 }
