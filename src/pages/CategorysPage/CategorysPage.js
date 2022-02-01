@@ -17,14 +17,14 @@ function CategorysPage() {
   }, [url]);
 
   return (
-    <section className={style.mainSection}>
+    <section className={mainSection}>
       <div>
         <Find />
       </div>
       <div>
         <Select />
         <ItemsContainer
-          className={style.test}
+          className={test}
           items={items}
           isLoading={isLoading}
           isError={isError}

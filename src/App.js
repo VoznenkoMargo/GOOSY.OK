@@ -7,12 +7,14 @@ import Routes from "./Routes/Routes";
 import store from "./store";
 import Footer from "./components/Footer/Footer/Footer";
 import Categories from "./components/Categories/Categories";
+import ModalCart from "./components/ModalCart/ModalCart";
 
 function App() {
   return (
     <Provider store={store}>
       <Router>
         <div className="App">
+        <ModalCart />
           <Header />
           <Categories />
           <Routes />
