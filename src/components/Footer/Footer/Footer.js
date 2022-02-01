@@ -4,6 +4,7 @@ import FooterInfo from "../FooterInfo/FooterInfo";
 import FooterNav from "../FooterNav/FooterNav";
 import styles from "./Footer.module.scss";
 import FooterSocial from "../FooterSocial/FooterSocial";
+// import ScrollToTopBtn from "../../ScrollTopBtn/ScrollToTopBtn";
 
 function Footer() {
   return (
@@ -12,6 +13,7 @@ function Footer() {
         <FooterSocial />
         <FooterInfo />
         <FooterNav />  
+        {/* <ScrollToTopBtn /> */}
       </div>
     </div>
   );

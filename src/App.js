@@ -8,6 +8,7 @@ import store from "./store";
 import Footer from "./components/Footer/Footer/Footer";
 import Categories from "./components/Categories/Categories";
 import ScrollToTop from "./Routes/ScrollToTop";
+import ScrollToTopBtn from "./components/ScrollToTopBtn/ScrollToTopBtn";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Categories />
           <Routes />
           <Footer />
+          <ScrollToTopBtn />
         </div>
       </Router>
     </Provider>
