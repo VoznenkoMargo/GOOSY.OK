@@ -2,7 +2,7 @@
 
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import Carousel from "../../components/Carousel/Carousel";
+import Carousel from "../../components/carousel/Carousel";
 
 // import axios from 'axios';
 

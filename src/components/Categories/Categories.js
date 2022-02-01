@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 
 import { NavLink } from "react-router-dom";
 
-import "./Categories.scss";
+import "./categories.scss";
 
 function Categories() {
   const [scrolled, setScrolled] = useState(false);

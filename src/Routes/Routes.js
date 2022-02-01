@@ -20,8 +20,9 @@ function Routes(){
             <Route exact path="/categories" component={CategoriesPage} />
             <Route exact path="/about" component={AboutPage} />
             <Route exact path="/agreement" component={UserAgrPage} />
-            <Route exact path="/confidentiality" component={PrivacyPolicyPage} />
+            <Route exact path="/privacy-policy" component={PrivacyPolicyPage} />
             <Route exact path="/payment-and-delivery" component={PaymentAndDeliveryPage} />
+            
         </Switch>
     );
 }

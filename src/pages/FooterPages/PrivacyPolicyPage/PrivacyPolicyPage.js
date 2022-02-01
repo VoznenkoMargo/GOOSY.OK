@@ -1,18 +1,12 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faChevronCircleLeft } from '@fortawesome/free-solid-svg-icons'
+import ArrowBack from "../../../components/ArrowBack/ArrowBack";
 import styles from './PrivacyPolicyPage.module.scss'
 
 
 function PrivacyPolicyPage() {
   return <div className={styles.privacy_policy}>
       <div className={styles.privacy_back}>
-        <Link to="/">
-        <FontAwesomeIcon icon={faChevronCircleLeft} size="5x" className={styles.privacy_policy_chevron_left}/>
-        </Link>
-            
-            <span>To main</span>
+      <ArrowBack />
       </div>
       <h2>Privacy Policy</h2>
       <p>At Restaurant GOOSY.OK, we are committed to protecting your privacy as an online visitor to our website. We use the information we collect about you to maximize the services that we provide to you. We respect the privacy and confidentiality of the information provided by you and adhere to the Ukrainian Privacy Principles. Please read our privacy policy below carefully.</p>
@@ -40,6 +34,24 @@ function PrivacyPolicyPage() {
       <h3>CHANGE IN PRIVACY POLICY</h3>
       <p>As we plan to ensure our privacy policy remains current, this policy is subject to change. We may modify this policy at any time, in our sole discretion and all modifications will be effective immediately upon our posting of the modifications on this website. Please return periodically to review our privacy policy.</p>
       <p>If you have any questions or concerns at any time about our privacy policy or the use of your personal information, please contact us at admin@restaurantgoosyok.com with "Att: Privacy Officer" in the subject and we will respond within 48 hours.</p>      
+ 
+      <h2>Return Policy</h2>
+    <p>To provide the best customer satisfaction, we provide the following solutions. Feel free to contact us if you have any questions regarding the Return Policy by emailing us at the restaurant.</p>
+    <p>Preparation of your order will begin immediately after your order has been confirmed. We cannot accept cancellations once your order has been confirmed with the restaurant or third party.</p>
+    <h3>Food Order Errors</h3>
+    <p>If you receive food that is different from your receipt, we sincerely apologize. Please call us or your third-party delivery company as soon as you notice that there was an error in your order.</p>
+    <p>•For credit card payments, we will issue a cancel payment on the order with an error and recharge the corrected amount.</p>
+    <p>•For cash payments, you will be asked to pay the difference of the balance if the new food has a greater value than the food received in error.</p>
+    <p>In the same way, you will receive the difference of the balance back as credit for the new item if less than the food received in error. In some cases, we may offer you a store credit. In all cases, please return the food order in the original container(s)* to our host.</p>
+ <h3>Food Order Incomplete</h3>
+ <p>In the rare occasion that you do not receive food that is on your receipt, we will make it up to you. Please call us as soon as you notice that any food items were not received in your order. You may cancel the missed food before we prepare it without any question, and we will refund the amount to a credit card or we will refund you with a store credit. No cash refunds.</p>
+ <h3>Food Dissatisfaction</h3>
+ <p>We cook our food fresh to order with only the finest and freshest ingredients. We take great care and pride in all of the dishes we make. Refunds and/or replacement food are available upon request for orders in which the food is wrong, omitted and other similar circumstances. Refunds are not typically provided for food that a guest simply does not like.</p>
+ <p> If the food has been discarded, repackaged or tampered with then we cannot verify its origin or issue and cannot issue any discount, refund or store credit.</p>
+ <h3>Cancel Order</h3>
+ <p>Sorry, we cannot cancel, refund or give store credit if you change your mind or mistakenly order an item after the order is prepared. We cannot provide any refund or store credit for non-food items or beverages.</p>
+  <h3>Cancelling Restaurant Delivery</h3>
+  <p>We cannot cancel if an order is already in progress and on the delivery route. If the driver made a reasonable effort to contact you after arriving at your requested location, you may not be eligible for a refund.</p>
   </div>
 }
 
