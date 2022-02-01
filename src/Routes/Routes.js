@@ -4,32 +4,30 @@ import CategoriesPage from "../pages/CategoriesPage/CategoriesPage";
 import HomePage from "../pages/HomePage";
 import ItemPage from "../pages/ItemPage";
 import ProductsPage from "../pages/ProductsPage";
-import CartPage from "../pages/CartPage/CartPage";
+import CartPage from "../pages/CartPage";
 import PrivacyPolicyPage from "../pages/FooterPages/PrivacyPolicyPage";
 import UserAgrPage from "../pages/FooterPages/UserAgrPage/UserAgrPage";
 import AboutPage from "../pages/FooterPages/AboutPage/AboutPage";
 import PaymentAndDeliveryPage from "../pages/FooterPages/PaymentAndDeliveryPage/PaymentAndDeliveryPage";
-import CategorysPage from "../pages/CategorysPage/CategorysPage";
 
-
-function Routes(){
-    return(
-        <Switch>
-            <Route exact path="/" component={HomePage}/>
-            <Route exact path="/products" component={ProductsPage}/>
-            <Route exact path="/products/:itemNo" component={ItemPage}/>
-            <Route exact path="/categorys" component={CategorysPage}/>
-            <Route exact path="/cart" component={CartPage}/>
-            <Route exact path="/" component={HomePage} />
-            <Route exact path="/products" component={ProductsPage} />
-            <Route exact path="/products/:itemNo" component={ItemPage} />
-            <Route exact path="/categories" component={CategoriesPage} />
-            <Route exact path="/about" component={AboutPage} />
-            <Route exact path="/agreement" component={UserAgrPage} />
-            <Route exact path="/confidentiality" component={PrivacyPolicyPage} />
-            <Route exact path="/payment-and-delivery" component={PaymentAndDeliveryPage} />
-        </Switch>
-    );
+function Routes() {
+  return (
+    <Switch>
+      <Route exact path="/" component={HomePage} />
+      <Route exact path="/products" component={ProductsPage} />
+      <Route exact path="/products/:itemNo" component={ItemPage} />
+      <Route exact path="/cart" component={CartPage} />
+      <Route exact path="/categories" component={CategoriesPage} />
+      <Route exact path="/about" component={AboutPage} />
+      <Route exact path="/agreement" component={UserAgrPage} />
+      <Route exact path="/confidentiality" component={PrivacyPolicyPage} />
+      <Route
+        exact
+        path="/payment-and-delivery"
+        component={PaymentAndDeliveryPage}
+      />
+    </Switch>
+  );
 }
 
 export default Routes;

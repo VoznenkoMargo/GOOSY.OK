@@ -44,7 +44,7 @@ function ItemDetails({ item }) {
               />
             </div>
 
-            <div className={styles.addtToCart}>
+            <div className={styles.addToCart}>
               <AddCartBtn />
               <p className={styles.currentPrice}>
                 Price: {item.currentPrice} ₴

@@ -4,17 +4,15 @@
   margin-top: 50px;
   padding: 15px 15px 130px 15px;
 
-
-  .cartTitle{
+  .cartTitle {
     margin-top: 70px;
     margin-bottom: 40px;
     font-weight: bold;
     font-size: 32px;
     line-height: 39px;
-    color: #FFFFFF;
-
+    color: #ffffff;
   }
-  .cartTitle::before{
+  .cartTitle::before {
     content: "";
     width: 5px;
     height: 30px;
@@ -22,7 +20,6 @@
     display: inline-block;
     margin-right: 20px;
   }
-
 }
 .itemCard {
   margin-top: 10px;
@@ -43,11 +40,10 @@
     display: flex;
     align-items: center;
 
-    .info{
+    .info {
       width: 650px;
       margin-right: 20px;
     }
-
   }
   .name {
     font-size: 25px;
@@ -76,8 +72,8 @@
       justify-content: center;
       align-items: center;
 
-      *{
-        fill: #FFFFFF;
+      * {
+        fill: #ffffff;
         width: 20px;
         height: 20px;
       }
@@ -105,7 +101,7 @@
   }
 }
 
-.totalPrice{
+.totalPrice {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -115,29 +111,28 @@
   margin: 100px auto 90px auto;
   height: 100px;
 
-  .priceTitle{
+  .priceTitle {
     font-weight: 500;
     font-size: 18px;
     line-height: 21px;
-    color: #A6A7AB;
+    color: #a6a7ab;
     margin-left: 40px;
 
-    *{
+    * {
       font-size: 20px;
       color: #fff;
       font-weight: bold;
       padding-left: 5px;
     }
-
   }
 
-  .order{
+  .order {
     padding: 17px 50px;
-    background: linear-gradient(114.93deg, #618967 5.11%, #72A479 94%);
+    background: linear-gradient(114.93deg, #618967 5.11%, #72a479 94%);
     border-radius: 10px;
     font-size: 14px;
     line-height: 17px;
-    color: #FFFFFF;
+    color: #ffffff;
     margin-right: 30px;
   }
 }
@@ -151,41 +146,39 @@
       margin-top: 10px;
     }
   }
-  .description{
+  .description {
     display: none;
   }
   .itemCard img {
-   width: 70%;
+    width: 70%;
   }
-  .info{
+  .info {
     width: unset;
   }
-  .orderDetails{
+  .orderDetails {
     flex-direction: column;
   }
-  .name{
+  .name {
     text-align: center;
     margin-top: 20px;
   }
 }
 
 @media screen and (max-width: 930px) {
-  .totalPrice{
+  .totalPrice {
     flex-direction: column;
-    .priceTitle{
-    margin-left: 0;
+    .priceTitle {
+      margin-left: 0;
       margin-top: 10px;
       margin-bottom: 10px;
     }
-    .order{
+    .order {
       margin-right: 0;
       margin-bottom: 10px;
       padding: 10px 20px;
     }
   }
-
 }
-
 
 @media screen and (max-width: 479px) {
   .itemCard {
@@ -202,8 +195,5 @@
       display: flex;
       align-items: center;
     }
-  }
-  .order {
-
   }
 }
