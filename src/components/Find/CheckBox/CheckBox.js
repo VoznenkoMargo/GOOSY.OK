@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import style from "./CheckBox.module.scss"
-import { initItems } from "../../../store/actionCreators";
+import { initItems, getUrl } from "../../../store/actionCreators";
 
 function CheckBox() {
         const defUrl = 'http://35.180.205.240:5000/api/products/'
@@ -22,7 +22,7 @@ function CheckBox() {
 
         useEffect(() => {
             const newUrl = `${defUrl}filter?categories=${filter.toString()}`
-            !filter.length==0 ? dispatch(initItems(newUrl)) : dispatch(initItems(defUrl))
+            !filter.length==0 ? dispatch(getUrl(newUrl)) : dispatch(getUrl(defUrl))
         }, [filter]) 
 
     return (

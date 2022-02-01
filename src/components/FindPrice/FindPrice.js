@@ -1,56 +1,31 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import style from './FindPrice.module.scss'
 
 
 function FindPrice(){
 
-    
+    const defUrl = 'http://35.180.205.240:5000/api/products/'
     const [minValue,setMinValue]= useState(0)
     const [maxValue,setMaxValue]= useState(990)
     const [minPrice, setMinPrice]= useState(0)
     const [maxPrice, setMaxPrice]= useState(990)
-    function test() {
-        console.log(minPrice, maxPrice);
+
+    const setMinPr = (e)=>{
+        let newPr = Number(e.target.value)
+        setMinPrice(newPr)
     }
-    function minPr(e) {
-        const newPr = Number(e.target.value)
-        console.log(newPr, maxPrice);
-        if(newPr > maxPrice){
-            setMaxPrice(newPr)
-            setMinPrice(newPr)
-            console.log('>');
-        } else if(newPr < 0 ){
-            setMinPrice(0)
-            console.log('<0');
-        } else{
-            setMinPrice(e.target.value)
-            console.log('work');
-        }
+    const setMaxPr = (e)=>{
+        let newPr = Number(e.target.value)
+        setMaxPrice(newPr)
     }
-    function maxPr(e) {
-        const newPr = Number(e.target.value)
-        if(newPr < minPrice){
-            setMinPrice(minPrice)
-            console.log('>');
-        } else if(newPr < 0 ){
-            setMinPrice(maxPrice)
-            console.log('<0');
-        } else if(newPr> maxValue){
-            setMaxPrice(maxValue)
-        }else {
-            setMaxPrice(newPr)
-            console.log('work');
-        }
-    }
-    // function maxPr(e) {
-    //     setMaxPrice(e.target.value)
-    // }
+
 
     return (
         <div className={style.findPrice}>
-            <input type={"number"} onChange={minPr} value={minPrice} max={maxValue} min={minValue} ></input>
-            <input type={"number"} onChange={maxPr} value={maxPrice} max={maxValue} min={minValue}></input>
-            <button onClick={test}>Find</button>
+        <p>{minPrice}{maxPrice}</p>
+            <input type={"number"} onInput={setMinPr}  max={maxValue} min={minValue} ></input>
+            <input type={"number"} onInput={setMaxPr}  max={maxValue} min={minValue}></input>
+            <button >Find</button>
         </div>
     )
 
