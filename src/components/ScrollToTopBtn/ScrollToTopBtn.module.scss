@@ -1,0 +1,32 @@
+.scrollToTop {
+    position: fixed;
+    bottom: 1rem;
+    right: 2rem;
+    animation: fadeIn 700ms ease-in-out 1s both;
+    cursor: pointer;
+    color: #72a479;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @media screen and (max-width: 479px) {
+    .scrollToTop{
+      right: calc(50% - 46.5px/2);
+      color: #72a479B3;
+    }
+  }
+  
+  @media screen and (max-width: 767px) {
+    .scrollToTop{
+      right: calc(50% - 46.5px/2);
+    }
+    
+  }
+  

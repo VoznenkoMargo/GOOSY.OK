@@ -1,17 +1,11 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faChevronCircleLeft } from '@fortawesome/free-solid-svg-icons'
+import ArrowBack from "../../../components/ArrowBack/ArrowBack";
 import styles from './UserAgrPage.module.scss'
 
 function UserAgrPage() {
   return <div className={styles.user_agr}>
      <div className={styles.user_agr_back}>
-        <Link to="/">
-        <FontAwesomeIcon icon={faChevronCircleLeft} size="5x" className={styles.user_agr_chevron_left}/>
-        </Link>
-            
-            <span>To main</span>
+     <ArrowBack />
       </div>
             <h2>User Agreement</h2>
             <h3>Privacy agreement</h3>

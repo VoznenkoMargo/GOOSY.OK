@@ -8,8 +8,8 @@ function FooterNav() {
       <nav>
         <ul>
           <li>
-            <NavLink to="/about-restauraunt" className={styles.footerNav_link}>
-              About the Restaurant
+            <NavLink to="/about" className={styles.footerNav_link}>
+            About Us
             </NavLink>
           </li>
           <li>
@@ -21,8 +21,8 @@ function FooterNav() {
             </NavLink>
           </li>
           <li>
-            <NavLink to="/returns" className={styles.footerNav_link}>
-              Return Policy
+            <NavLink to="/privacy-policy" className={styles.footerNav_link}>
+            Privacy Policy
             </NavLink>
           </li>
           <li>

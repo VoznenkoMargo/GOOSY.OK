@@ -7,16 +7,20 @@ import Routes from "./Routes/Routes";
 import store from "./store";
 import Footer from "./components/Footer/Footer/Footer";
 import Categories from "./components/Categories/Categories";
+import ScrollToTop from "./Routes/ScrollToTop";
+import ScrollToTopBtn from "./components/ScrollToTopBtn/ScrollToTopBtn";
 
 function App() {
   return (
     <Provider store={store}>
       <Router>
+        <ScrollToTop/>
         <div className="App">
           <Header />
           <Categories />
           <Routes />
           <Footer />
+          <ScrollToTopBtn />
         </div>
       </Router>
     </Provider>

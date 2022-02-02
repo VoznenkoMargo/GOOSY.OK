@@ -1,16 +1,11 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faChevronCircleLeft } from '@fortawesome/free-solid-svg-icons'
+import ArrowBack from "../../../components/ArrowBack/ArrowBack";
 import styles from './AboutPage.module.scss'
 
 function AboutPage() {
   return <div className={styles.about}>
        <div className={styles.about_back}>
-        <Link to="/">
-        <FontAwesomeIcon icon={faChevronCircleLeft} size="5x" className={styles.about_chevron_left}/>
-        </Link>       
-            <span>To main</span>
+          <ArrowBack />
       </div>   
         <h2>About company</h2>
         <p className={styles.about_slogan}>GOOSY.OK! - The Queen of Goose</p>
