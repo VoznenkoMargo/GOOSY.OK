@@ -23,7 +23,7 @@ function Categories() {
       document.getElementById("navbar").classList.remove("scrolled");
     }
   });
-  //   let navbarClasses=['navbar'];
+ 
 
   return (
     <div id="navbar" className="categories_block">

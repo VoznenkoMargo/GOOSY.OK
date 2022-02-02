@@ -1,18 +1,17 @@
 import React from "react";
+import "./modalcart.scss"
+import { ReactComponent as IconMenu } from '../../assets/svg/CartSad.svg'
 
 function ModalCart () {
     return(
         <div className = "modal active"  >
             <div className="modalContent">
-            <div className="modalContentHeader" >
-            <header className='modalHeader'> 123 </header>
-              
-                </div>
+            <span className="modalCloseBtn">X</span>
+            <div className='modalMainContent'>
+            <IconMenu />
+            <p className="modalMainText">Your Cart Is Empty</p>
             
-            
-            <p className='mainText'>TExt</p>
-            <div className='modalButtons'>
-             12312312312312313
+            <button type="button" className="modalMainBtn">Check out Menu</button>
             
             </div>
            
