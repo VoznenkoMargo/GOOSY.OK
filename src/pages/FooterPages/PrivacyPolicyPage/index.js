@@ -1,1 +1,2 @@
-export {default} from "./PrivacyPolicyPage"
+// eslint-disable-next-line no-restricted-exports
+export { default } from "./PrivacyPolicyPage";

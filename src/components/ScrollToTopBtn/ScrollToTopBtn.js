@@ -3,9 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronCircleUp } from "@fortawesome/free-solid-svg-icons";
 import styles from "./ScrollToTopBtn.module.scss";
 
-
 function ScrollToTopBtn() {
-
   const [isVisible, setIsVisible] = useState(false);
 
   const toggleVisibility = () => {
@@ -19,7 +17,7 @@ function ScrollToTopBtn() {
   const scrollToTopFunc = () => {
     window.scrollTo({
       top: 0,
-      behavior: "smooth"
+      behavior: "smooth",
     });
   };
 
@@ -29,14 +27,13 @@ function ScrollToTopBtn() {
 
   return (
     <div className={styles.scrollToTop}>
-      {isVisible && 
-        <div onClick={scrollToTopFunc}>
-          <FontAwesomeIcon
-          icon={faChevronCircleUp}
-          size="3x"/>
-        </div>}
+      {isVisible && (
+        <div onClick={scrollToTopFunc} aria-hidden>
+          <FontAwesomeIcon icon={faChevronCircleUp} size="3x" />
+        </div>
+      )}
     </div>
   );
 }
 
-export default  ScrollToTopBtn;
+export default ScrollToTopBtn;

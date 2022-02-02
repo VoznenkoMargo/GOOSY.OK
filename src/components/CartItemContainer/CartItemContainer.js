@@ -7,6 +7,7 @@ import ArrowBack from "../ArrowBack/ArrowBack";
 import styles from "./CartItemContainer.module.scss";
 import {
   deleteFromCartCreator,
+  deleteItemCreator,
   addToCartCreator,
 } from "../../store/actionCreators/cartItemsCreator";
 
@@ -18,6 +19,9 @@ function CartItemContainer({ cartItems }) {
   };
   const handleClickAdd = (cartItem) => {
     dispatch(addToCartCreator(cartItem));
+  };
+  const handleClickDeleteItem = (cartItem) => {
+    dispatch(deleteItemCreator(cartItem));
   };
 
   return (
@@ -44,7 +48,7 @@ function CartItemContainer({ cartItems }) {
                         className={styles.minus}
                         fill="#fff"
                         size={20}
-                        onClick={() => handleClickDelete(item)}
+                        onClick={() => handleClickDeleteItem(item)}
                       />
                       <h4>{item.count}</h4>
                       <FaPlus
