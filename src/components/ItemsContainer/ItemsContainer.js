@@ -16,7 +16,6 @@ const ItemsContainer = (props) => {
           <h2 className={styles.items_header}>{header}</h2>
           <img alt="" width="40px" src={flames} />
         </div>
-        {/* <GoBack history={history}/> */}
         <div className={styles.itemsContainer}>
           {isLoading ? (
             <Preloader

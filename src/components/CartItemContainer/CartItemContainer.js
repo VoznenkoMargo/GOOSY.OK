@@ -1,21 +1,23 @@
 /* eslint-disable react/prop-types */
-import React, { useState } from "react";
+import React from "react";
+import { useDispatch } from "react-redux";
 import { FaMinus, FaPlus } from "react-icons/fa";
 import { AiTwotoneDelete } from "react-icons/ai";
 import ArrowBack from "../ArrowBack/ArrowBack";
 import styles from "./CartItemContainer.module.scss";
+import {
+  deleteFromCartCreator,
+  addToCartCreator,
+} from "../../store/actionCreators/cartItemsCreator";
 
 function CartItemContainer({ cartItems }) {
-  const [count, setCount] = useState(0);
-  // const [price, setPrice] = useState(0);
-
-  const decrement = () => {
-    if (count > 0) {
-      setCount(count - 1);
-    }
+  const dispatch = useDispatch();
+  // const cart = useSelector((state) => state.cart.cartItems, shallowEqual);
+  const handleClickDelete = (cartItem) => {
+    dispatch(deleteFromCartCreator(cartItem));
   };
-  const increment = () => {
-    setCount(count + 1);
+  const handleClickAdd = (cartItem) => {
+    dispatch(addToCartCreator(cartItem));
   };
 
   return (
@@ -28,7 +30,7 @@ function CartItemContainer({ cartItems }) {
         {cartItems.length > 0 &&
           cartItems.map((item) => {
             return (
-              <div className={styles.itemCard} key={item.id}>
+              <div className={styles.itemCard} key={item.itemNo}>
                 <img src={item.imageUrls} alt="foodImage" />
                 <div className={styles.orderDetails}>
                   <div className={styles.info}>
@@ -42,21 +44,23 @@ function CartItemContainer({ cartItems }) {
                         className={styles.minus}
                         fill="#fff"
                         size={20}
-                        onClick={decrement}
+                        onClick={() => handleClickDelete(item)}
                       />
-                      <h4>{count}</h4>
+                      <h4>{item.count}</h4>
                       <FaPlus
                         className={styles.plus}
                         fill="#fff"
                         size={20}
-                        onClick={increment}
+                        onClick={() => handleClickAdd(item)}
                       />
                     </div>
                     <p className={styles.currentPrice}>
                       Price: {item.currentPrice} ₴
                     </p>
                     <div className={styles.delete}>
-                      <AiTwotoneDelete />
+                      <AiTwotoneDelete
+                        onClick={() => handleClickDelete(item)}
+                      />
                     </div>
                   </div>
                 </div>
@@ -68,8 +72,10 @@ function CartItemContainer({ cartItems }) {
           <h2 className={styles.priceTitle}>
             Total price:
             <span className={styles.currentPrice}>
-              {" "}
-              {cartItems.reduce((sum, price) => sum + price.currentPrice, 0)} ₴
+              {cartItems
+                .map((item) => item.count * item.currentPrice)
+                .reduce((a, b) => a + b)}
+              ₴
             </span>
           </h2>
           <div className={styles.order}>Place an order</div>
