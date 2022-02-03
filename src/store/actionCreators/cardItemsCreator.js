@@ -6,6 +6,7 @@ import { GET_ITEMS } from "../actions/cardItemsActions";
 
 export const initCardItemsCreator = () => async (dispatch) => {
   const { data } = await getProducts();
+  console.log(data)
   dispatch({ type: GET_ITEMS, payload: data });
 };
 

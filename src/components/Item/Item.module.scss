@@ -101,4 +101,19 @@
       padding-bottom: 30px;
     }
   }
+  .cartCircle{
+    position: absolute;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    padding: 10px;
+    text-align: right;
+    background: #79B382;
+    border: 2px solid #79B382;
+    color: #fff;
+    text-align: center;
+    right:-5px;
+    top: -10px;
+    font-size: 15px;
+  }
 }
