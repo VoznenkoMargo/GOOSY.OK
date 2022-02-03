@@ -215,7 +215,6 @@ function PrivacyPolicyPage() {
         like.
       </p>
       <p>
-        {" "}
         If the food has been discarded, repackaged or tampered with then we
         cannot verify its origin or issue and cannot issue any discount, refund
         or store credit.

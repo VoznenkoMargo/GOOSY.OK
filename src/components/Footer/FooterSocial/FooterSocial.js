@@ -1,6 +1,6 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faTwitterSquare, faYoutubeSquare, faInstagramSquare, faFacebookSquare, faCcMastercard, faCcVisa, faCcApplePay } from '@fortawesome/free-brands-svg-icons'
+import { faTwitterSquare, faYoutubeSquare, faFacebookSquare, faCcMastercard, faCcVisa, faCcApplePay, faTelegram } from '@fortawesome/free-brands-svg-icons'
 import styles from './FooterSocial.module.scss'
 
 function FooterSocial() {
@@ -11,7 +11,7 @@ function FooterSocial() {
       <p>Join us</p>
       <FontAwesomeIcon icon={faTwitterSquare} size="2x" className={styles.footer_brand_icon}/>
       <FontAwesomeIcon icon={faYoutubeSquare} size="2x" className={styles.footer_brand_icon}/>
-      <FontAwesomeIcon icon={faInstagramSquare} size="2x" className={styles.footer_brand_icon}/>
+      <FontAwesomeIcon icon={faTelegram} size="2x" className={styles.footer_brand_icon}/>
       <FontAwesomeIcon icon={faFacebookSquare} size="2x" className={styles.footer_brand_icon}/>
       
       <p>Accept for Payment</p>

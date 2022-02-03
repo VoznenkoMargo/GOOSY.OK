@@ -15,6 +15,7 @@
 .footer_brand_icon{
     cursor: pointer;
     margin: 0px 5px 0px 5px;
+    color: #CFCFCF;
 }
 
 
@@ -28,7 +29,7 @@
 }
 
 .footer_brand_icon:nth-child(7):hover{
-    background: linear-gradient(#6559ca, #bc318f 30%, #e33f5f 50%, #f77638 70%, #fec66d 100%)
+    color: #0088cc;
 }
 
 .footer_brand_icon:nth-child(8):hover{
@@ -37,6 +38,7 @@
 
 .footer_pay_icon{
     margin: 0px 5px 0px 5px;
+    color: #CFCFCF;
 }
 
 .footer_pay_icon:hover{

@@ -17,8 +17,11 @@ function App() {
         <ScrollToTop/>
         <div className="App">
           <Header />
+          <div className="main_content">
           <Categories />
           <Routes />
+          </div>
+          
           <Footer />
           <ScrollToTopBtn />
         </div>
