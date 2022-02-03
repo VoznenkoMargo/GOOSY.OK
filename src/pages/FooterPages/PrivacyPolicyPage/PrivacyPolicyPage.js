@@ -35,13 +35,13 @@ function PrivacyPolicyPage() {
       <p>As we plan to ensure our privacy policy remains current, this policy is subject to change. We may modify this policy at any time, in our sole discretion and all modifications will be effective immediately upon our posting of the modifications on this website. Please return periodically to review our privacy policy.</p>
       <p>If you have any questions or concerns at any time about our privacy policy or the use of your personal information, please contact us at admin@restaurantgoosyok.com with "Att: Privacy Officer" in the subject and we will respond within 48 hours.</p>      
  
-      <h2>Return Policy</h2>
+      <h2 className={styles.privacy_padding}>Return Policy</h2>
     <p>To provide the best customer satisfaction, we provide the following solutions. Feel free to contact us if you have any questions regarding the Return Policy by emailing us at the restaurant.</p>
     <p>Preparation of your order will begin immediately after your order has been confirmed. We cannot accept cancellations once your order has been confirmed with the restaurant or third party.</p>
     <h3>Food Order Errors</h3>
     <p>If you receive food that is different from your receipt, we sincerely apologize. Please call us or your third-party delivery company as soon as you notice that there was an error in your order.</p>
-    <p>•For credit card payments, we will issue a cancel payment on the order with an error and recharge the corrected amount.</p>
-    <p>•For cash payments, you will be asked to pay the difference of the balance if the new food has a greater value than the food received in error.</p>
+    <p>- For credit card payments, we will issue a cancel payment on the order with an error and recharge the corrected amount.</p>
+    <p>- For cash payments, you will be asked to pay the difference of the balance if the new food has a greater value than the food received in error.</p>
     <p>In the same way, you will receive the difference of the balance back as credit for the new item if less than the food received in error. In some cases, we may offer you a store credit. In all cases, please return the food order in the original container(s)* to our host.</p>
  <h3>Food Order Incomplete</h3>
  <p>In the rare occasion that you do not receive food that is on your receipt, we will make it up to you. Please call us as soon as you notice that any food items were not received in your order. You may cancel the missed food before we prepare it without any question, and we will refund the amount to a credit card or we will refund you with a store credit. No cash refunds.</p>
