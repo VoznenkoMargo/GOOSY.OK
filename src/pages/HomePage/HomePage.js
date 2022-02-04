@@ -5,7 +5,8 @@ import ItemsContainer from "../../components/ItemsContainer/ItemsContainer";
 import { initCardItemsCreator } from "../../store/actionCreators/cardItemsCreator";
 
 function HomePage() {
-  const items = useSelector((store) => store.items.items).slice(0, 12);
+
+  const items = useSelector((store) => store.items.items);
   const isLoading = false;
   const isError = false;
 
