@@ -4,7 +4,7 @@ import Find from "../../components/Find/Find";
 import style from "./CategoriesPage.module.scss";
 import ItemsContainer from "../../components/ItemsContainer/ItemsContainer";
 import Select from "../../components/Select/Select";
-import { initCardItemsCreator, initСategoriesItemsCreator } from "../../store/actionCreators/cardItemsCreator";
+import {initСategoriesItemsCreator } from "../../store/actionCreators/cardItemsCreator";
 
 function CategoriesPage() {
     const items = useSelector((store) => store.items.items);
@@ -12,29 +12,27 @@ function CategoriesPage() {
     const [price, setPrice] = useState(['0','200'])
     const isLoading = false;
     const isError = false;
-    
-    
-    // console.log(allCategories);
     const dispatch = useDispatch();
     const setPri = (data)=>{setPrice(data)}
     const setCateg = (data)=>{setCategories(data)}
+
 
     useEffect(() => {
         const newFind = {categories:categories}
         newFind.price = price 
       dispatch(initСategoriesItemsCreator(newFind));
     }, [categories,price]);
-
-    let allCategories = {}
-    // items.map((item)=>{
-    //    if( !allCategories[item.categories]){
-    //         if( !Array.isArray(allCategories[item.categories])){
-    //             allCategories[item.categories]= []
-    //         }
-    //     allCategories[item.categories] = allCategories[item.categories].push(item)
-    //    }
-    // })
-    // console.log(allCategories);
+    const allCategories = {}
+    useEffect( ()=>{
+    items.map((item)=>{
+     if(!(`${item.categories}` in allCategories)){
+      allCategories[item.categories] = [item]
+     }
+      else {
+        allCategories[item.categories] = [...allCategories[item.categories],item]
+      }
+    })},[items]);
+    console.log(allCategories,categories)
 
   return (
     <section className={style.mainSection}>
@@ -43,13 +41,13 @@ function CategoriesPage() {
       </div>
       <div>
         {/* <Select /> */}
-        <ItemsContainer
+          <ItemsContainer
           className={style.test}
-        //   header={}
+          header={`asd`}
           items={items}
           isLoading={isLoading}
           isError={isError}
-        />
+          />
       </div>
     </section>
   );

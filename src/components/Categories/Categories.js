@@ -30,7 +30,7 @@ function Categories() {
       <div className="container">
         <div className="categories_items">
           <NavLink
-            to="/cat1"
+            to="/products/filter/cold!shaks"
             className="categories_item_link"
             activeClassName="categories_item_link_active"
           >
