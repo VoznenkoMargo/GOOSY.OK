@@ -19,10 +19,10 @@ import styles from './CardPaymentAndDelivery.module.scss'
  function CardPaymentAndDelivery(props) {
      const {title, text, terminal, online, courier, smartphone, callCenter, shopping, clock, free, contactless, pickup} = props;
 
-    const svgContainer = { maxWidth: 300, minHeight: 80, textAlign: "center", paddingTop: "20px", paddingBottom: "20px" }
+    const svgContainer = { maxWidth: 300, minHeight: 80, textAlign: "center", paddingTop: "20px", paddingBottom: "20px", background: "#d3d3d3", borderRadius: "30px" }
 
   return (
-    <Card sx={{ maxWidth: 300, background: "#d7d7d7" }}>
+    <Card sx={{ maxWidth: 300, background: "linear-gradient(90deg, #494544 0%, #504b4a 100%)" }}>
       <CardContent >
         <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
          {title}

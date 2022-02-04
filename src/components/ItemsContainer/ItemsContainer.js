@@ -10,7 +10,7 @@ import flames from "../../assets/flames.png";
 const ItemsContainer = (props) => {
   const { items, isLoading, header } = props;
   return (
-    <section className={styles.root}>
+    // <section className={styles.root}>
       <div className="container">
         <div className={styles.itemsWrapper}>
           <h2 className={styles.items_header}>{header}</h2>
@@ -32,7 +32,7 @@ const ItemsContainer = (props) => {
           )}
         </div>
       </div>
-    </section>
+   // {/* </section> */}
   );
 };
 
