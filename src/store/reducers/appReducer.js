@@ -1,8 +1,10 @@
-import {combineReducers} from "redux";
-import { itemReduser } from "./itemReducer";
+import { combineReducers } from "redux";
+import cardItemsReducer from "./cardItemsReducer";
+import cartItemsReducer from "./cartItemsReducer";
 
 const appReducer = combineReducers({
-    items: itemReduser
-})
+  items: cardItemsReducer,
+  cart: cartItemsReducer,
+});
 
 export default appReducer;

@@ -1,16 +1,16 @@
 import React from 'react';
 import style from "./Find.module.scss"
 import CheckBox from './CheckBox/CheckBox';
-// import Selec
+import FindPrice from './FindPrice/FindPrice';
 
 
-function Find() {
+function Find({setCateg, setPri,price}) {
     
 
     return(
         <div className={style.find}>
-        <CheckBox/>
-        
+        <CheckBox  setCateg={setCateg}/>
+        <FindPrice price={price} setPri={setPri} />
         </div>
     )
 }

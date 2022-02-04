@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import style from "./CheckBox.module.scss"
-import { initItems, getUrl } from "../../../store/actionCreators";
 
-function CheckBox() {
-        const defUrl = 'http://35.180.205.240:5000/api/products/'
+function CheckBox({setCateg}) {
+        // const defUrl = 'http://35.180.205.240:5000/api/products/'
         const [filter,setFilter] = useState([]);
-        const dispatch = useDispatch()
+        // const dispatch = useDispatch()
 
         function test (e){
             const value = e.target.value
@@ -18,12 +17,14 @@ function CheckBox() {
                index===0 ? newFilter.length=0 : newFilter.splice(index,index)
             }
             setFilter(newFilter)
+            setCateg(newFilter)
+            console.log(newFilter);
         }
 
-        useEffect(() => {
-            const newUrl = `${defUrl}filter?categories=${filter.toString()}`
-            !filter.length==0 ? dispatch(getUrl(newUrl)) : dispatch(getUrl(defUrl))
-        }, [filter]) 
+        // useEffect(() => {
+        //     const newUrl = `${defUrl}filter?categories=${filter.toString()}`
+        //     !filter.length==0 ? dispatch(getUrl(newUrl)) : dispatch(getUrl(defUrl))
+        // }, [filter]) 
 
     return (
         <div className={style.checkBox_container}>

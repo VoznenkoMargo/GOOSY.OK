@@ -20,9 +20,9 @@ function ItemDetails({ item }) {
       <ArrowBack />
       {item.itemNo && (
         <div className={styles.itemCard}>
-          {/* <div className={styles.itemImg}> */}
-          <img src={item.imageUrls} alt="foodImage" />
-          {/* </div> */}
+          <div className={styles.itemImg}>
+            <img src={item.imageUrls} alt="foodImage" />
+          </div>
           <div className={styles.orderDetails}>
             <h3 className={styles.name}>{item.name}</h3>
             <p className={styles.description}>{item.description}</p>
@@ -44,8 +44,8 @@ function ItemDetails({ item }) {
               />
             </div>
 
-            <div className={styles.addtToCart}>
-              <AddCartBtn />
+            <div className={styles.addToCart}>
+              <AddCartBtn cartItem={item} />
               <p className={styles.currentPrice}>
                 Price: {item.currentPrice} ₴
               </p>
