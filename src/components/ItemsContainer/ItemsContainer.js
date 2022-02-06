@@ -9,6 +9,7 @@ import flames from "../../assets/flames.png";
 
 const ItemsContainer = (props) => {
   const { items, isLoading, header } = props;
+  console.log(items);
   return (
     // <section className={styles.root}>
       <div className="container">
@@ -25,7 +26,7 @@ const ItemsContainer = (props) => {
             />
           ) : (
             <>
-              {items.map(({ itemNo, ...args }) => (
+              {items !== undefined && items.map(({ itemNo, ...args }) => (
                 <Item key={itemNo} itemNo={itemNo} {...args} />
               ))}
             </>

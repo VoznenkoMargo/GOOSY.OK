@@ -15,7 +15,7 @@ function HomePage() {
   useEffect(() => {
     dispatch(initCardItemsCreator());
   }, []);
-
+  
   return (
     <div>
       <Carousel />
