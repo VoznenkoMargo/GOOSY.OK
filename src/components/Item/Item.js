@@ -9,7 +9,7 @@ import AddCartBtn from "../AddCartBtn/AddCartBtn";
 
 function Item(props) {
   const { itemNo, imageUrls, categories, name, currentPrice, weight } = props;
-
+  console.log(categories);
   return (
     <div className={styles.item} key={itemNo}>
       <Link to={`/products/${itemNo}`} style={{ textDecoration: "none" }}>
