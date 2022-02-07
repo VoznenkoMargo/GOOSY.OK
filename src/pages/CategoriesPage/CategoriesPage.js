@@ -4,52 +4,45 @@ import Find from "../../components/Find/Find";
 import style from "./CategoriesPage.module.scss";
 import ItemsContainer from "../../components/ItemsContainer/ItemsContainer";
 import Select from "../../components/Select/Select";
-import { initCardItemsCreator, initСategoriesItemsCreator } from "../../store/actionCreators/cardItemsCreator";
+import {initСategoriesItemsCreator } from "../../store/actionCreators/cardItemsCreator";
 
 function CategoriesPage() {
-    const items = useSelector((store) => store.items.items);
-    const [categories, setCategories]= useState([])
-    const [price, setPrice] = useState(['0','200'])
-    const isLoading = false;
-    const isError = false;
+
     
-    
-    // console.log(allCategories);
     const dispatch = useDispatch();
+    const items = useSelector((store) => store.items.itemsFind);
+    const [categories, setCategories]= useState(['cold snaks', 'soup', 'salads', 'desert', 'hot snaks'])
+    const [price, setPrice] = useState(['0','200'])
     const setPri = (data)=>{setPrice(data)}
     const setCateg = (data)=>{setCategories(data)}
-
+    
+    const isLoading = false;
+    const isError = false;
+      
     useEffect(() => {
-        const newFind = {categories:categories}
-        newFind.price = price 
-      dispatch(initСategoriesItemsCreator(newFind));
-    }, [categories,price]);
-
-    let allCategories = {}
-    // items.map((item)=>{
-    //    if( !allCategories[item.categories]){
-    //         if( !Array.isArray(allCategories[item.categories])){
-    //             allCategories[item.categories]= []
-    //         }
-    //     allCategories[item.categories] = allCategories[item.categories].push(item)
-    //    }
-    // })
-    // console.log(allCategories);
-
-  return (
+    const newFind = {categories:categories}
+    newFind.price = price 
+    console.log(items);
+    dispatch(initСategoriesItemsCreator(newFind));
+    }, [categories,price])
+ 
+    
+    return (
     <section className={style.mainSection}>
       <div>
         <Find price={price} setPri={setPri} setCateg={setCateg} />
       </div>
       <div>
         {/* <Select /> */}
-        <ItemsContainer
-          className={style.test}
-        //   header={}
-          items={items}
-          isLoading={isLoading}
-          isError={isError}
+        { categories !== undefined && categories.map((key)=>{
+         return <ItemsContainer
+        header= {`${key}`}
+        items={items[`${key}`]}
+        isLoading={isLoading}
+        isError={isError}
         />
+        })
+          }
       </div>
     </section>
   );
