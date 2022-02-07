@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import Carousel from "../../components/Carousel/Carousel";
 import ItemsContainer from "../../components/ItemsContainer/ItemsContainer";
 import { initCardItemsCreator } from "../../store/actionCreators/cardItemsCreator";
-import { clearSearchItemsCreator } from "../../store/actionCreators/searchItemsCreator";
+// g
 
 function HomePage() {
   const items = useSelector((store) => store.items.items).slice(0, 12);
