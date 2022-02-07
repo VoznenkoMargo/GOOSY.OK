@@ -9,11 +9,22 @@
   gap: 20px;
   margin-bottom: 30px;
 }
+.nothingFound {
+  color: #fff;
+  font-size: 30px;
+}
+.allProducts {
+  color: #fff;
+  font-size: 20px;
+  margin-bottom: 20px;
+  display: block;
+  padding-left: 10px;
+}
 .itemsWrapper {
   margin-top: 40px;
   display: flex;
   align-items: center;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
   .items_header {
     font-weight: bold;
     font-size: 25px;
@@ -24,4 +35,3 @@
     padding-left: 10px;
   }
 }
-

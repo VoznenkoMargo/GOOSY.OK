@@ -1,5 +1,5 @@
+/* eslint-disable no-useless-rename */
 /* eslint-disable import/prefer-default-export */
-
 
 import { getProducts, getByCategory } from "../../axios";
 
@@ -11,18 +11,21 @@ export const initCardItemsCreator = () => async (dispatch) => {
 };
 
 export const initСategoriesItemsCreator = (inquiry) => async (dispatch) => {
-  const {categories:categories, price:price} = inquiry
-  const categ = `categories=${categories.toString()}`
-  const pric = `minPrice=${price[0]}&maxPrice=${price[1]}`
+  const { categories: categories, price: price } = inquiry;
+  const categ = `categories=${categories.toString()}`;
+  const pric = `minPrice=${price[0]}&maxPrice=${price[1]}`;
   console.log(price);
-  if(categories.length !==0){
-    const { data: {products} } = await getByCategory(`${categ}&${pric}`);
-    dispatch({type: GET_FIND_ITEMS, payload: products});
-    }
-    else {
-      const { data: {products} } = await getByCategory(pric);
-    dispatch({type: GET_FIND_ITEMS, payload: products});
-    }
+  if (categories.length !== 0) {
+    const {
+      data: { products },
+    } = await getByCategory(`${categ}&${pric}`);
+    dispatch({ type: GET_FIND_ITEMS, payload: products });
+  } else {
+    const {
+      data: { products },
+    } = await getByCategory(pric);
+    dispatch({ type: GET_FIND_ITEMS, payload: products });
+  }
 };
 
 // export const initItems = () => (dispatch) => {

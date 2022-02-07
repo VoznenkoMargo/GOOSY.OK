@@ -3,38 +3,41 @@ import { useSelector, useDispatch } from "react-redux";
 import Find from "../../components/Find/Find";
 import style from "./CategoriesPage.module.scss";
 import ItemsContainer from "../../components/ItemsContainer/ItemsContainer";
-import Select from "../../components/Select/Select";
-import { initCardItemsCreator, initСategoriesItemsCreator } from "../../store/actionCreators/cardItemsCreator";
+// import Select from "../../components/Select/Select";
+import { initСategoriesItemsCreator } from "../../store/actionCreators/cardItemsCreator";
 
 function CategoriesPage() {
-    const items = useSelector((store) => store.items.items);
-    const [categories, setCategories]= useState([])
-    const [price, setPrice] = useState(['0','200'])
-    const isLoading = false;
-    const isError = false;
-    
-    
-    // console.log(allCategories);
-    const dispatch = useDispatch();
-    const setPri = (data)=>{setPrice(data)}
-    const setCateg = (data)=>{setCategories(data)}
+  const items = useSelector((store) => store.items.items);
+  const [categories, setCategories] = useState([]);
+  const [price, setPrice] = useState(["0", "200"]);
+  const isLoading = false;
+  const isError = false;
 
-    useEffect(() => {
-        const newFind = {categories:categories}
-        newFind.price = price 
-      dispatch(initСategoriesItemsCreator(newFind));
-    }, [categories,price]);
+  // console.log(allCategories);
+  const dispatch = useDispatch();
+  const setPri = (data) => {
+    setPrice(data);
+  };
+  const setCateg = (data) => {
+    setCategories(data);
+  };
 
-    let allCategories = {}
-    // items.map((item)=>{
-    //    if( !allCategories[item.categories]){
-    //         if( !Array.isArray(allCategories[item.categories])){
-    //             allCategories[item.categories]= []
-    //         }
-    //     allCategories[item.categories] = allCategories[item.categories].push(item)
-    //    }
-    // })
-    // console.log(allCategories);
+  useEffect(() => {
+    const newFind = { categories };
+    newFind.price = price;
+    dispatch(initСategoriesItemsCreator(newFind));
+  }, [categories, price]);
+
+  // const allCategories = {};
+  // items.map((item)=>{
+  //    if( !allCategories[item.categories]){
+  //         if( !Array.isArray(allCategories[item.categories])){
+  //             allCategories[item.categories]= []
+  //         }
+  //     allCategories[item.categories] = allCategories[item.categories].push(item)
+  //    }
+  // })
+  // console.log(allCategories);
 
   return (
     <section className={style.mainSection}>
@@ -45,7 +48,7 @@ function CategoriesPage() {
         {/* <Select /> */}
         <ItemsContainer
           className={style.test}
-        //   header={}
+          //   header={}
           items={items}
           isLoading={isLoading}
           isError={isError}

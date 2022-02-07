@@ -1,38 +1,31 @@
 /* eslint-disable react/function-component-definition */
 /* eslint-disable no-unused-vars */
-// /* eslint-disable import/extensions */
-// /* eslint-disable react/function-component-definition */
-// /* eslint-disable react-hooks/rules-of-hooks */
-// /* eslint-disable no-unused-vars */
-import React, {useEffect, useState} from "react";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import Carousel from "../../components/Carousel/Carousel";
 import ItemsContainer from "../../components/ItemsContainer/ItemsContainer";
-
-
+import { initCardItemsCreator } from "../../store/actionCreators/cardItemsCreator";
 
 const ProductsPage = () => {
-    const [items, setItems] = useState([]);
-    const [isLoading, setIsLoading] = useState(false);
+  const items = useSelector((store) => store.items.items);
+  const isLoading = false;
+  const isError = false;
+  const dispatch = useDispatch();
 
+  useEffect(() => {
+    dispatch(initCardItemsCreator());
+  }, []);
 
-    useEffect(() => {
-        (async ()=>{
-            try {
-                const response = await fetch('http://35.180.205.240:5000/api/products')
-                .then(e => e.json())
-                setItems(response);
-                setIsLoading(false);
-            } catch (e) {
-                setIsLoading(false);
-            }
-        })()
-    },[]);
-
-    // eslint-disable-next-line react/prop-types
-
-    return (
-        <ItemsContainer items={items} isLoading={isLoading}/>
-        )
-}
+  return (
+    <div>
+      <ItemsContainer
+        header="All dishes"
+        items={items}
+        isLoading={isLoading}
+        isError={isError}
+      />
+    </div>
+  );
+};
 
 export default ProductsPage;
-

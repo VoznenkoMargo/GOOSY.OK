@@ -12,8 +12,8 @@ const cardItemsReducer = (state = initialState, { type, payload }) => {
       return { ...state, items: payload };
     }
 
-    case GET_FIND_ITEMS:{
-      return { ...state, items: payload }
+    case GET_FIND_ITEMS: {
+      return { ...state, items: payload };
     }
     // case GET_URL: {
     //   return { ...state, url: payload };
