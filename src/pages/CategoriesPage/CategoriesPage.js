@@ -5,10 +5,12 @@ import style from "./CategoriesPage.module.scss";
 import ItemsContainer from "../../components/ItemsContainer/ItemsContainer";
 import Select from "../../components/Select/Select";
 import {initСategoriesItemsCreator } from "../../store/actionCreators/cardItemsCreator";
+import { useLocation } from "react-router-dom";
 
 function CategoriesPage() {
+    const location = useLocation()
+    console.log(location.search)
 
-    
     const dispatch = useDispatch();
     const items = useSelector((store) => store.items.itemsFind);
     const [categories, setCategories]= useState(['cold snaks', 'soup', 'salads', 'desert', 'hot snaks'])
@@ -18,14 +20,14 @@ function CategoriesPage() {
     
     const isLoading = false;
     const isError = false;
-      
+    
     useEffect(() => {
     const newFind = {categories:categories}
     newFind.price = price 
-    console.log(items);
+    console.log(newFind);
     dispatch(initСategoriesItemsCreator(newFind));
     }, [categories,price])
- 
+    
     
     return (
     <section className={style.mainSection}>
@@ -34,10 +36,11 @@ function CategoriesPage() {
       </div>
       <div>
         {/* <Select /> */}
-        { categories !== undefined && categories.map((key)=>{
+        { categories  && categories.map((item)=>{
+        
          return <ItemsContainer
-        header= {`${key}`}
-        items={items[`${key}`]}
+        header= {`${item}`}
+        items={items[`${item}`]}
         isLoading={isLoading}
         isError={isError}
         />

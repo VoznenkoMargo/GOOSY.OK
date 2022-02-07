@@ -3,9 +3,7 @@ import { useDispatch } from "react-redux";
 import style from "./CheckBox.module.scss"
 
 function CheckBox({setCateg}) {
-        // const defUrl = 'http://35.180.205.240:5000/api/products/'
         const [filter,setFilter] = useState([]);
-        // const dispatch = useDispatch()
 
         function change (e){
             const value = e.target.value
@@ -19,11 +17,7 @@ function CheckBox({setCateg}) {
             setFilter(newFilter)
             setCateg(newFilter)
         }
-
-        // useEffect(() => {
-        //     const newUrl = `${defUrl}filter?categories=${filter.toString()}`
-        //     !filter.length==0 ? dispatch(getUrl(newUrl)) : dispatch(getUrl(defUrl))
-        // }, [filter]) 
+ 
 
     return (
         <div className={style.checkBox_container}>
