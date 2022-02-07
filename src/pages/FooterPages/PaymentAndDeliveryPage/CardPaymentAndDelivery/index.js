@@ -1,1 +1,2 @@
-export {default} from "./CardPaymentAndDelivery"
+/* eslint-disable no-restricted-exports */
+export { default } from "./CardPaymentAndDelivery";
