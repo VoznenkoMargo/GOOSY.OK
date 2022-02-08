@@ -10,6 +10,7 @@ function CheckBox({setCateg}) {
            const index = newFilter.findIndex(i => i == value)
            index===0 ? newFilter.length=0 : newFilter.splice(index,index)
         }
+
         setFilter(newFilter)
         setCateg(newFilter)
     }

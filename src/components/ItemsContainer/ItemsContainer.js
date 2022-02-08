@@ -10,6 +10,7 @@ import flames from "../../assets/flames.png";
 
 const ItemsContainer = (props) => {
   const { items, isLoading, header } = props;
+
   // const cartArray = useSelector((state) => {
   //   return state.cart.cartItems;
   // });
@@ -20,6 +21,7 @@ const ItemsContainer = (props) => {
   //     }
   //   }
   // }
+
 
   return (
     <div className="container">
