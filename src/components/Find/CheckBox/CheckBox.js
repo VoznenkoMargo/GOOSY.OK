@@ -1,5 +1,5 @@
 function CheckBox({setCateg}) {
-    const [filter,setFilter] = useState([]);
+        const [filter,setFilter] = useState([]);
 
     function change (e){
         const value = e.target.value
