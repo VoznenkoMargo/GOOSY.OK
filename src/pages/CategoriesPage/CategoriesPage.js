@@ -1,58 +1,60 @@
-/* eslint-disable object-shorthand */
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import Find from "../../components/Find/Find";
 import style from "./CategoriesPage.module.scss";
 import ItemsContainer from "../../components/ItemsContainer/ItemsContainer";
-// import Select from "../../components/Select/Select";
-import { initСategoriesItemsCreator } from "../../store/actionCreators/cardItemsCreator";
+import Select from "../../components/Select/Select";
+import {initСategoriesItemsCreator } from "../../store/actionCreators/cardItemsCreator";
+import { useHistory, useLocation } from "react-router-dom";
 
 function CategoriesPage() {
-  const dispatch = useDispatch();
-  const items = useSelector((store) => store.items.itemsFind);
-  const [categories, setCategories] = useState([
-    "cold snaks",
-    "soup",
-    "salads",
-    "desert",
-    "hot snaks",
-  ]);
-  const [price, setPrice] = useState(["0", "200"]);
-  const setPri = (data) => {
-    setPrice(data);
-  };
-  const setCateg = (data) => {
-    setCategories(data);
-  };
+    const location = useLocation().search
+    const history = useHistory()
+    const dispatch = useDispatch();
+    const items = useSelector((store) => store.items.itemsFind);
+    const [categories, setCategories]= useState([])
+    const [keyCategories, setKeyCategories]=useState([])
+    const [price, setPrice] = useState(['0','990'])
+    const setPri = (data)=>{setPrice(data)}
+    const setCateg = (data)=>{setCategories(data)}
+    
+    const isLoading = false;
+    const isError = false;
+    
+    useEffect(() => {
+      const allCategories = categories.length>0 ?   `&categories=${categories.toString()}` : [''].toString()
+      const rangePrice = `minPrice=${price[0]}&maxPrice=${price[1]}`
+      history.push(`?${rangePrice}${allCategories}`)
+    }, [categories,price])
 
-  const isLoading = false;
-  const isError = false;
-
-  useEffect(() => {
-    const newFind = { categories: categories };
-    newFind.price = price;
-    console.log(items);
-    dispatch(initСategoriesItemsCreator(newFind));
-  }, [categories, price]);
-
-  return (
+    useEffect(()=>{
+      console.log(location);
+      dispatch(initСategoriesItemsCreator(location));
+    },[location])
+    
+    useEffect(()=>{
+      const keys = Object.keys(items);
+      setKeyCategories(keys)
+    },[items])
+    
+    return (
     <section className={style.mainSection}>
       <div>
         <Find price={price} setPri={setPri} setCateg={setCateg} />
       </div>
       <div>
         {/* <Select /> */}
-        {categories !== undefined &&
-          categories.map((key) => {
-            return (
-              <ItemsContainer
-                header={`${key}`}
-                items={items[`${key}`]}
-                isLoading={isLoading}
-                isError={isError}
-              />
-            );
-          })}
+
+        { keyCategories  && keyCategories.map((item)=>{
+        
+         return <ItemsContainer
+        header= {`${item}`}
+        items={items[`${item}`]}
+        isLoading={isLoading}
+        isError={isError}
+        />
+        })
+          }
       </div>
     </section>
   );
