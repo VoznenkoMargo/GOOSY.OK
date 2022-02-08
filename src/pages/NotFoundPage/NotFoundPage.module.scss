@@ -1,0 +1,22 @@
+.notFoundPage{
+    height: 100vh;
+    background-image: url(../../assets/error-page.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: auto;
+    padding: 20px 50px 0px 50px;
+
+    
+    .notFoundPage_home{
+        color: #618967;
+    }
+
+    span{
+        font-size: 24px;
+        color: #5f5d5d;
+        padding-left: 10px;
+        
+        
+    }
+
+}
