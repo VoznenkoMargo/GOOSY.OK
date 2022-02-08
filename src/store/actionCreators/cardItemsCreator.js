@@ -10,13 +10,12 @@ export const initCardItemsCreator = () => async (dispatch) => {
   dispatch({ type: GET_ITEMS, payload: data });
 };
 
+
 export const initСategoriesItemsCreator = (inquiry) => async (dispatch) => {
-  const {categories:categories, price:price} = inquiry
-  const categ = `categories=${categories.toString()}`
-  const pric = `minPrice=${price[0]}&maxPrice=${price[1]}`
+
   const allCategories={};
-  if(categories.length !==0){
-    const { data: {products} } = await getByCategory(`${categ}&${pric}`);   
+    console.log(inquiry);
+    const { data: {products} } = await getByCategory(inquiry);   
     products.forEach((item)=>{
       if(!(`${item.categories}` in allCategories)){
         allCategories[item.categories] = [item]
@@ -27,20 +26,53 @@ export const initСategoriesItemsCreator = (inquiry) => async (dispatch) => {
     });
       dispatch({type: GET_FIND_ITEMS, payload: allCategories});
     }
-    else {
-      const { data: {products} } = await getByCategory(pric);
-      products.forEach((item)=>{
-        if(!(`${item.categories}` in allCategories)){
-          allCategories[item.categories] = [item]
-         }
-          else {
-            allCategories[item.categories] = [...allCategories[item.categories],item]
-          }
-      });
-    console.log(allCategories);
-    dispatch({type: GET_FIND_ITEMS, payload: allCategories});
-    }
-};
+//     else {
+//       const { data: {products} } = await getByCategory(pric);
+//       products.forEach((item)=>{
+//         if(!(`${item.categories}` in allCategories)){
+//           allCategories[item.categories] = [item]
+//          }
+//           else {
+//             allCategories[item.categories] = [...allCategories[item.categories],item]
+//           }
+//       });
+//     console.log(allCategories);
+//     dispatch({type: GET_FIND_ITEMS, payload: allCategories});
+//     }
+// };
+
+// export const initСategoriesItemsCreator = (inquiry) => async (dispatch) => {
+//   const {categories:categories, price:price} = inquiry
+//   const categ = `categories=${categories.toString()}`
+//   const pric = `minPrice=${price[0]}&maxPrice=${price[1]}`
+//   const allCategories={};
+//   if(categories.length !==0){
+//     console.log(`?${categ}&${pric}`);
+//     const { data: {products} } = await getByCategory(`${categ}&${pric}`);   
+//     products.forEach((item)=>{
+//       if(!(`${item.categories}` in allCategories)){
+//         allCategories[item.categories] = [item]
+//        }
+//         else {
+//           allCategories[item.categories] = [...allCategories[item.categories],item]
+//         }
+//     });
+//       dispatch({type: GET_FIND_ITEMS, payload: allCategories});
+//     }
+//     else {
+//       const { data: {products} } = await getByCategory(pric);
+//       products.forEach((item)=>{
+//         if(!(`${item.categories}` in allCategories)){
+//           allCategories[item.categories] = [item]
+//          }
+//           else {
+//             allCategories[item.categories] = [...allCategories[item.categories],item]
+//           }
+//       });
+//     console.log(allCategories);
+//     dispatch({type: GET_FIND_ITEMS, payload: allCategories});
+//     }
+// };
 
 // export const initItems = () => (dispatch) => {
 //   axios

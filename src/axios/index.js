@@ -12,7 +12,7 @@ export const getOneProduct = (itemNo) => instance.get(`/products/${itemNo}`); //
 // export const getByCategory = (category) =>
 //   instance.get(`/products/filter?categories=${category}`); // Получить продукты по категории
 export const getByCategory = (category) =>
-  instance.get(`/products/filter?${category}`); // Получить продукты по категории
+  instance.get(`/products/filter${category}`); // Получить продукты по категории
 
 
 // CRUD FOR CART

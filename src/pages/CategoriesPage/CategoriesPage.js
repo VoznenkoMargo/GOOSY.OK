@@ -5,16 +5,16 @@ import style from "./CategoriesPage.module.scss";
 import ItemsContainer from "../../components/ItemsContainer/ItemsContainer";
 import Select from "../../components/Select/Select";
 import {initСategoriesItemsCreator } from "../../store/actionCreators/cardItemsCreator";
-import { useLocation } from "react-router-dom";
+import { useHistory, useLocation } from "react-router-dom";
 
 function CategoriesPage() {
-    const location = useLocation()
-    console.log(location.search)
-
+    const location = useLocation().search
+    const history = useHistory()
     const dispatch = useDispatch();
     const items = useSelector((store) => store.items.itemsFind);
-    const [categories, setCategories]= useState(['cold snaks', 'soup', 'salads', 'desert', 'hot snaks'])
-    const [price, setPrice] = useState(['0','200'])
+    const [categories, setCategories]= useState([])
+    const [keyCategories, setKeyCategories]=useState([])
+    const [price, setPrice] = useState(['0','990'])
     const setPri = (data)=>{setPrice(data)}
     const setCateg = (data)=>{setCategories(data)}
     
@@ -22,12 +22,20 @@ function CategoriesPage() {
     const isError = false;
     
     useEffect(() => {
-    const newFind = {categories:categories}
-    newFind.price = price 
-    console.log(newFind);
-    dispatch(initСategoriesItemsCreator(newFind));
+      const allCategories = categories.length>0 ?   `&categories=${categories.toString()}` : [''].toString()
+      const rangePrice = `minPrice=${price[0]}&maxPrice=${price[1]}`
+      history.push(`?${rangePrice}${allCategories}`)
     }, [categories,price])
+
+    useEffect(()=>{
+      console.log(location);
+      dispatch(initСategoriesItemsCreator(location));
+    },[location])
     
+    useEffect(()=>{
+      const keys = Object.keys(items);
+      setKeyCategories(keys)
+    },[items])
     
     return (
     <section className={style.mainSection}>
@@ -36,7 +44,8 @@ function CategoriesPage() {
       </div>
       <div>
         {/* <Select /> */}
-        { categories  && categories.map((item)=>{
+
+        { keyCategories  && keyCategories.map((item)=>{
         
          return <ItemsContainer
         header= {`${item}`}
