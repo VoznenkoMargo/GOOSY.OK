@@ -27,7 +27,7 @@ const cartItemsReducer = (state = initialState, { type, payload }) => {
       const newCartItems = [...state.cartItems];
       const index = newCartItems.findIndex((elem) => elem._id === payload._id);
       if (index === -1) {
-        const newItem = { ...payload, count: 1 };
+        const newItem = { ...payload, count: 1, inCart:true, };
         saveToLS("cart", {
           cartItems: [...state.cartItems, newItem],
           counter: state.counter + 1,
