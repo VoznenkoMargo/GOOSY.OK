@@ -10,7 +10,7 @@ function FooterInfo() {
     <nav>
     <ul>
         <li>
-            <Link to="/news" className={styles.footerInfo_link}>News and Events</Link>
+            <Link to="/news-and-events" className={styles.footerInfo_link}>News and Events</Link>
         </li>
         <li>
             <Link to="/agreement" className={styles.footerInfo_link}>User Agreement</Link>

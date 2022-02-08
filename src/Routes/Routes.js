@@ -9,6 +9,7 @@ import PrivacyPolicyPage from "../pages/FooterPages/PrivacyPolicyPage";
 import UserAgrPage from "../pages/FooterPages/UserAgrPage/UserAgrPage";
 import AboutPage from "../pages/FooterPages/AboutPage/AboutPage";
 import PaymentAndDeliveryPage from "../pages/FooterPages/PaymentAndDeliveryPage/PaymentAndDeliveryPage";
+import NewsAndEventsPage from "../pages/FooterPages/NewsAndEventsPage/NewsAndEventsPage";
 
 
 
@@ -25,7 +26,7 @@ function Routes(){
             <Route exact path="/agreement" component={UserAgrPage} />
             <Route exact path="/privacy-policy" component={PrivacyPolicyPage} />
             <Route exact path="/payment-and-delivery" component={PaymentAndDeliveryPage} />
-            
+            <Route exact path="/news-and-events" component={NewsAndEventsPage} />
         </Switch>
     );
 }
