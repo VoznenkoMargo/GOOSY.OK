@@ -8,7 +8,7 @@ import styles from "./Item.module.scss";
 import AddCartBtn from "../AddCartBtn/AddCartBtn";
 
 function Item(props) {
-  const { itemNo, imageUrls, categories, name, currentPrice, weight } = props;
+  const { itemNo, imageUrls, categories, name, currentPrice, weight, count } = props;
   return (
     <div className={styles.item} key={itemNo}>
       <Link to={`/products/${itemNo}`} style={{ textDecoration: "none" }}>
