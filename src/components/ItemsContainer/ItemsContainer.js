@@ -31,7 +31,7 @@ const ItemsContainer = (props) => {
         {isLoading ? (
           <Preloader className={styles.preloader} color="secondary" size={60} />
         ) : (
-          items.map(({ itemNo, ...args }) => (
+          items && items.map(({ itemNo, ...args }) => (
             <Item key={itemNo} itemNo={itemNo} {...args} />
           ))
         )}
