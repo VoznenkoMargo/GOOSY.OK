@@ -1,11 +1,14 @@
 import React, { useState } from "react";
 import { FiSearch } from "react-icons/fi";
+// import { useHistory, Link, useRouteMatch } from "react-router-dom";
 import Notiflix from "notiflix";
 import { useDispatch } from "react-redux";
+
 import { searchItemsCreator } from "../../../store/actionCreators/searchItemsCreator";
 
 function Search() {
   const dispatch = useDispatch();
+
   const [text, setText] = useState("");
   const searchPhrases = {
     query: text.toLowerCase(),

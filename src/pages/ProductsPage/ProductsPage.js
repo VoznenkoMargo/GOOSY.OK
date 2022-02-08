@@ -8,8 +8,7 @@ import { initCardItemsCreator } from "../../store/actionCreators/cardItemsCreato
 
 const ProductsPage = () => {
   const items = useSelector((store) => store.items.items);
-  const isLoading = false;
-  const isError = false;
+  const { searchItems, isSearched } = useSelector((store) => store.search);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -18,12 +17,11 @@ const ProductsPage = () => {
 
   return (
     <div>
-      <ItemsContainer
-        header="All dishes"
-        items={items}
-        isLoading={isLoading}
-        isError={isError}
-      />
+      {!isSearched && <ItemsContainer header="All dishes" items={items} />}
+
+      {isSearched && (
+        <ItemsContainer header="Search results" items={searchItems} />
+      )}
     </div>
   );
 };

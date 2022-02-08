@@ -13,12 +13,19 @@
   color: #fff;
   font-size: 30px;
 }
-.allProducts {
+.allProducts,
+.resetButton {
   color: #fff;
   font-size: 20px;
   margin-bottom: 20px;
   display: block;
   padding-left: 10px;
+  cursor: pointer;
+}
+.allProducts {
+  display: flex;
+  align-items: center;
+  gap: 5px;
 }
 .itemsWrapper {
   margin-top: 40px;
