@@ -36,7 +36,7 @@ function Header() {
             </NavLink>
           </li>
 
-          <li>
+          <li className={styles.searchComponent}>
             <Search />
           </li>
 
@@ -58,6 +58,9 @@ function Header() {
             </NavLink>
           </li>
         </ul>
+        <div className={styles.searchComponentMobile}>
+            <Search />
+        </div>
       </nav>
     </header>
   );
