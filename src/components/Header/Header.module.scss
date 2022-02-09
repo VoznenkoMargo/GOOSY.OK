@@ -13,7 +13,7 @@
   flex: 0 0 auto;
 }
 nav {
-  width: 100%;
+ width: 100%;
 }
 
 ul {
@@ -124,7 +124,7 @@ li {
 
 form {
   position: relative;
-  max-width: 555px;
+  max-width: 100%;
   margin: 0 auto;
 
   input,
@@ -140,7 +140,7 @@ form {
     color: #cfcfcf;
   }
   input {
-    max-width: 100%;
+    width: 100%;  
     height: 52px;
     background: #504b4a;
     padding: 0px 45px 0px 15px;
@@ -165,11 +165,23 @@ form {
   text-decoration: none;
 }
 
-@media (max-width: 767px) {
-  .contact {
-    display: none;
+.searchComponentMobile{
+  display: none;
+}
+
+@media (max-width: 974px) {
+
+  .root{
+    height: 100%;
   }
 
+  ul{
+    justify-content: space-between;
+  }
+
+  li{
+    margin-top: 15px;
+  }
   .cartWrap {
     width: 62px;
     height: 56px;
@@ -198,6 +210,16 @@ form {
       padding-right: 5px;
     }
   }
+
+  .searchComponent{
+    display: none;       
+  }
+
+  .searchComponentMobile{
+    display: block;
+    margin: 10px 0 10px 0;
+  }
+
 }
 
 @media (max-width: 479px) {
@@ -237,8 +259,8 @@ form {
     }
   }
 
-  form {
-    display: none;
+  .searchComponentMobile{
+    display: block;
   }
 
   .logo {
