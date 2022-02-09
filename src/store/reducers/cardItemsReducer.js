@@ -4,7 +4,7 @@ import { GET_ITEMS, GET_FIND_ITEMS } from "../actions/cardItemsActions";
 
 const initialState = {
   items: [],
-  itemsFind:{}
+  itemsFind: {},
 };
 
 const cardItemsReducer = (state = initialState, { type, payload }) => {
@@ -12,8 +12,9 @@ const cardItemsReducer = (state = initialState, { type, payload }) => {
     case GET_ITEMS: {
       return { ...state, items: payload };
     }
-    case GET_FIND_ITEMS:{
-      return { ...state, itemsFind: payload }
+
+    case GET_FIND_ITEMS: {
+      return { ...state, itemsFind: payload };
     }
 
     default: {
