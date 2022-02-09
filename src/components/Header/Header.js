@@ -12,10 +12,16 @@ function Header() {
       <nav>
         <ul>
           <li className={styles.burger}>
+          <NavLink
+              style={{ textDecoration: "none" }}
+              activeClassName={styles.active}
+              to="/products"
+            >
             <div className={styles.burger}>              
               <GiGoose />
               <p>menu</p>
             </div>
+            </NavLink>
           </li>
           <li>
             <NavLink
