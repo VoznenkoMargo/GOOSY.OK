@@ -20,7 +20,12 @@
   margin-bottom: 20px;
   display: block;
   padding-left: 10px;
+  align-items: center;
   cursor: pointer;
+}
+.resetButton {
+  display: flex;
+  gap: 5px;
 }
 .allProducts {
   display: flex;

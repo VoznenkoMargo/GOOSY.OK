@@ -5,6 +5,8 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link, useRouteMatch } from "react-router-dom";
 import { BiHomeAlt, BiDish } from "react-icons/bi";
+import { AiOutlineClear } from "react-icons/ai";
+
 import Item from "../Item/Item";
 import styles from "./ItemsContainer.module.scss";
 import flames from "../../assets/flames.png";
@@ -40,7 +42,8 @@ const ItemsContainer = (props) => {
           aria-hidden
           onClick={() => dispatch(clearSearchItemsCreator())}
         >
-          Reset search results
+          <AiOutlineClear style={{ color: "#618967", fontSize: "30px" }} />
+          <p>Reset search results</p>
         </div>
       )}
       <div className={styles.itemsContainer}>
