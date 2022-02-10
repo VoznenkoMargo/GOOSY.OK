@@ -9,7 +9,7 @@ function Categories() {
 
   const handleScroll = () => {
     const offset = window.scrollY;
-    if (offset > 98) {
+    if (offset > 1) {
       setScrolled(true);
     } else {
       setScrolled(false);
@@ -18,9 +18,11 @@ function Categories() {
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
     if (scrolled) {
-      document.getElementById("navbar").classList.add("scrolled");
+      // document.getElementById("navbar").classList.add("scrolled");
+      document.getElementById("header").classList.add("scrolled");
     } else {
-      document.getElementById("navbar").classList.remove("scrolled");
+      // document.getElementById("navbar").classList.remove("scrolled");
+      document.getElementById("header").classList.remove("scrolled");
     }
   });
   //   let navbarClasses=['navbar'];

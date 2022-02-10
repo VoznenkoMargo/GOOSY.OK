@@ -6,7 +6,7 @@ import Header from "./components/Header/Header";
 import Routes from "./Routes/Routes";
 import store from "./store";
 import Footer from "./components/Footer/Footer/Footer";
-import Categories from "./components/Categories/Categories";
+// import Categories from "./components/Categories/Categories";
 import ScrollToTop from "./Routes/ScrollToTop";
 import ScrollToTopBtn from "./components/ScrollToTopBtn/ScrollToTopBtn";
 
@@ -18,7 +18,7 @@ function App() {
         <div className="App">
           <Header />
           <div className="main_content">
-          <Categories />
+          {/* <Categories /> */}
           <Routes />
           </div>
           

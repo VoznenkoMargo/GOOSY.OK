@@ -5,10 +5,13 @@ import styles from "./Header.module.scss";
 import Contact from "./Contact/Contact";
 import CartBtn from "./CartBtn/CartBtn";
 import Search from "./Search/Search";
+import Categories from "../Categories/Categories";
 
 function Header() {
   return (
-    <header className={styles.root}>
+    <div id='header'>
+      
+    <header  className={styles.root}>
       <nav>
         <ul>
           <li className={styles.burger}>
@@ -62,7 +65,10 @@ function Header() {
             <Search />
         </div>
       </nav>
+      
     </header>
+    <Categories />
+    </div>
   );
 }
 
