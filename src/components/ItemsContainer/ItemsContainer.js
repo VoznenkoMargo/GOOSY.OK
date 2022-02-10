@@ -60,6 +60,16 @@ const ItemsContainer = (props) => {
           <p>Reset search results</p>
         </div>
       )}
+      {isSearched && match.path === "/" && (
+        <div
+          className={styles.resetButton}
+          aria-hidden
+          onClick={() => dispatch(clearSearchItemsCreator())}
+        >
+          <AiOutlineClear style={{ color: "#618967", fontSize: "30px" }} />
+          <p>Reset search results</p>
+        </div>
+      )}
       <div className={styles.itemsContainer}>
         {items.length > 0 &&
           items.map(({ itemNo, ...args }) => (
