@@ -1,91 +1,63 @@
 .modal {
-  display: block; /* Скрыто по умолчанию */
-  position: fixed; /* Оставаться на месте */
-  z-index: 1; /* Сидеть на вершине */
+  display: block;
+  position: fixed;
+  z-index: 1;
+  padding-top: 250px;
   left: 0;
   top: 0;
-  width: 100%; /* Полная ширина */
-  height: 100%; /* Полная высота */
-  overflow: auto; /* Включите прокрутку, если это необходимо */
-  background-color: rgb(0, 0, 0); /* Цвет запасной вариант */
-  background-color: rgba(0, 0, 0, 0.4); /* Черный с непрозрачностью */
-}
-.modal:target {
-  opacity: 1;
-  pointer-events: auto;
-  overflow-y: auto;
-}
-.modalDialog {
-  position: relative;
-  width: auto;
-  margin: 10px;
+  width: 100%;
+  height: 100%;
+  
+  background-color: rgba(0, 0, 0, 0.596);
+
+  
+
 }
 
-@media (min-width: 576px) {
-  .modalDialog {
-    max-width: 500px;
-    margin: 30px auto;
-  }
-}
-.modalContent {
-  position: relative;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
+.modalContentHeader {
+  height: 40px;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  background-color: #fff;
-  -webkit-background-clip: padding-box;
-  background-clip: padding-box;
-  border: 1px solid rgba(0, 0, 0, 0.2);
-  border-radius: 0.3rem;
-  outline: 0;
-}
-@media (min-width: 768px) {
-  .modalContent {
-    -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
-  }
+  border-radius: 10px;
+  background-color: rgb(99, 101, 102);
 }
 
-.modalTitle {
-  margin-top: 0;
-  margin-bottom: 0;
-  line-height: 1.5;
-  font-size: 1.25rem;
-  font-weight: 500;
+.modalContent {
+  background-color: #494544;
+  margin: auto;
+
+  padding-bottom: 20px;
+  border: 1px solid #888;
+  width: 30%;
+  border-radius: 10px;
+  
 }
 
+.modalHeader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.mainText{
+  text-align: center;
+}
+
+.modalButtons{
+text-align: center;
+}
 .close {
+  display: block;
+  color: #aaaaaa;
   float: right;
-  font-family: sans-serif;
-  font-size: 24px;
-  font-weight: 700;
-  line-height: 1;
-  color: #000;
-  text-shadow: 0 1px 0 #fff;
-  opacity: 0.5;
-  text-decoration: none;
-}
+  font-size: 28px;
+  font-weight: bold;
+  padding-right: 10px;
 
-.close:focus,
-.close:hover {
-  color: #000;
-  text-decoration: none;
-  cursor: pointer;
-  opacity: 0.75;
-}
-
-.modalBody {
-  position: relative;
-  -webkit-box-flex: 1;
-  -webkit-flex: 1 1 auto;
-  -ms-flex: 1 1 auto;
-  flex: 1 1 auto;
-  padding: 15px;
-  overflow: auto;
+  &:hover,
+  &:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+  }
 }

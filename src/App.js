@@ -8,6 +8,7 @@ import store from "./store";
 import Footer from "./components/Footer/Footer/Footer";
 import ScrollToTop from "./Routes/ScrollToTop";
 import ScrollToTopBtn from "./components/ScrollToTopBtn/ScrollToTopBtn";
+import ModalEmptyCart from "./components/ModalEmptyCart/ModalEmptyCart";
 
 
 
@@ -19,6 +20,7 @@ function App() {
         <div className="App">
           
           <Header />
+          <ModalEmptyCart />
           <div className="main_content">
           <Routes />
           </div>
