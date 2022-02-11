@@ -3,7 +3,7 @@ import { FiSearch } from "react-icons/fi";
 // import { useHistory, Link, useRouteMatch } from "react-router-dom";
 import Notiflix from "notiflix";
 import { useDispatch } from "react-redux";
-
+import styles from "../Header.module.scss"
 import { searchItemsCreator } from "../../../store/actionCreators/searchItemsCreator";
 
 function Search() {
@@ -33,8 +33,8 @@ function Search() {
 
   return (
     <div>
-      <form>
-        <input
+      <form className={styles.formSearch}>
+        <input className={styles.inputSearch}
           type="text"
           placeholder="What would you like to eat?"
           value={text}

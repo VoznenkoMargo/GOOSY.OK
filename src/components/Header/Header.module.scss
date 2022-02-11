@@ -12,11 +12,11 @@
   //bind footer
   flex: 0 0 auto;
 }
-nav {
+.nav {
  width: 100%;
 }
 
-ul {
+.navList{
   width: 100%;
   display: flex;
   justify-content: space-around;
@@ -122,13 +122,12 @@ li {
   }
 }
 
-form {
+.formSearch {
   position: relative;
   max-width: 100%;
   margin: 0 auto;
 
-  input,
-  button {
+  .inputSearch{
     border: none;
     outline: none;
     border-radius: 10px;
@@ -138,8 +137,6 @@ form {
     font-size: 20px;
     line-height: 19px;
     color: #cfcfcf;
-  }
-  input {
     width: 100%;  
     height: 52px;
     background: #504b4a;
@@ -175,7 +172,7 @@ form {
     height: 100%;
   }
 
-  ul{
+  .navList{
     justify-content: space-between;
   }
 
@@ -223,7 +220,7 @@ form {
 }
 
 @media (max-width: 479px) {
-  ul {
+  .navList {
     width: 100%;
     display: flex;
     justify-content: space-around;

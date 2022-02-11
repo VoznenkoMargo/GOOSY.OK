@@ -9,8 +9,8 @@ import Search from "./Search/Search";
 function Header() {
   return (
     <header className={styles.root}>
-      <nav>
-        <ul>
+      <nav className={styles.nav}>
+        <ul className={styles.navList}>
           <li className={styles.burger}>
           <NavLink
               style={{ textDecoration: "none" }}
