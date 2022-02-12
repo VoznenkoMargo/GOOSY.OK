@@ -72,12 +72,12 @@ const ItemsContainer = (props) => {
         </div>
       )}
       <div className={styles.itemsContainer}>
-        {items.length > 0 &&
+        {items  &&
           items.map(({ itemNo, ...args }) => (
             <Item key={itemNo} itemNo={itemNo} {...args} />
           ))}
 
-        {!items.length && (
+        {!items && (
           <p className={styles.nothingFound}>Nothing found :(</p>
         )}
       </div>
