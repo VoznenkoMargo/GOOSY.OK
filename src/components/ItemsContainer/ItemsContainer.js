@@ -23,7 +23,8 @@ const ItemsContainer = (props) => {
   //     if (items[i].itemNo === cartArray[j].itemNo) {
   //       items[i] = { ...items[i], ...cartArray[j] };
   //     }
-  //   }
+
+  //   } 
   // }
 
   const { isSearched } = useSelector((store) => store.search);

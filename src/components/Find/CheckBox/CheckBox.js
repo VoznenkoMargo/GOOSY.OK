@@ -1,11 +1,10 @@
-/* eslint-disable jsx-a11y/label-has-associated-control */
-/* eslint-disable react/react-in-jsx-scope */
-/* eslint-disable no-unused-expressions */
-/* eslint-disable no-undef */
-/* eslint-disable react/prop-types */
-/* eslint-disable prefer-destructuring */
+
+import { useState } from "react";
+import style from "./CheckBox.module.scss"
+
 function CheckBox({ setCateg }) {
   const [filter, setFilter] = useState([]);
+
 
   function change(e) {
     const value = e.target.value;
