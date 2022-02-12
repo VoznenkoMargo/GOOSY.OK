@@ -18,7 +18,7 @@ const ItemsContainer = (props) => {
   //     if (items[i].itemNo === cartArray[j].itemNo) {
   //       items[i] = { ...items[i], ...cartArray[j] };
   //     }
-  //   }
+  //   } 
   // }
 
   return (
