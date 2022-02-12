@@ -27,7 +27,7 @@ export const initСategoriesItemsCreator = (inquiry) => async (dispatch) => {
     });
       dispatch({type: GET_FIND_ITEMS, payload: allCategories});
 
-
+  }
 
 
 // // export const initItems = () => (dispatch) => {
