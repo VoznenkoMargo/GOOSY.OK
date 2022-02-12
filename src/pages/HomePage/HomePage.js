@@ -6,10 +6,7 @@ import { initCardItemsCreator } from "../../store/actionCreators/cardItemsCreato
 
 function HomePage() {
   const items = useSelector((store) => store.items.items).slice(0, 12);
-
-  const isLoading = false;
-  const isError = false;
-
+  const { searchItems, isSearched } = useSelector((store) => store.search);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -19,12 +16,11 @@ function HomePage() {
   return (
     <div>
       <Carousel />
-      <ItemsContainer
-        header="Popular dishes"
-        items={items}
-        isLoading={isLoading}
-        isError={isError}
-      />
+
+      {!isSearched && <ItemsContainer header="Popular dishes" items={items} />}
+      {isSearched && (
+        <ItemsContainer header="Search results" items={searchItems} />
+      )}
     </div>
   );
 }

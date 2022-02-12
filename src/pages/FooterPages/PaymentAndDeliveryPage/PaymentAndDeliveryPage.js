@@ -96,14 +96,20 @@ function PaymentAndDeliveryPage() {
         />
       </div>
 
-<h3>Delivery Zones</h3>
-<p>We deliver dishes in Kiev from 10:00 to 23:00 without holidays.</p>
-<div className={styles.delivery_zones}>
-    <iframe src="https://www.google.com/maps/d/embed?mid=1W7TaM9XXDjjv8tLIohA0c_0Uem2GJlSQ&hl=en&ehbc=2E312F" width="70%" height="450" title='Kyiv' frameBorder="0" loading="lazy"></iframe>
-</div>
-
-
-  </div>
-)}
+      <h3>Delivery Zones</h3>
+      <p>We deliver dishes in Kiev from 10:00 to 23:00 without holidays.</p>
+      <div className={styles.delivery_zones}>
+        <iframe
+          src="https://www.google.com/maps/d/embed?mid=1W7TaM9XXDjjv8tLIohA0c_0Uem2GJlSQ&hl=en&ehbc=2E312F"
+          width="70%"
+          height="450"
+          title="Kyiv"
+          frameBorder="0"
+          loading="lazy"
+        ></iframe>
+      </div>
+    </div>
+  );
+}
 
 export default PaymentAndDeliveryPage;

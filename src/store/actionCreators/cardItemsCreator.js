@@ -11,8 +11,8 @@ export const initCardItemsCreator = () => async (dispatch) => {
   dispatch({ type: GET_ITEMS, payload: data });
 };
 
-
 export const initСategoriesItemsCreator = (inquiry) => async (dispatch) => {
+
 
   const allCategories={};
     console.log(inquiry);
@@ -27,7 +27,6 @@ export const initСategoriesItemsCreator = (inquiry) => async (dispatch) => {
     });
       dispatch({type: GET_FIND_ITEMS, payload: allCategories});
 
-    }
 
 
 

@@ -9,11 +9,34 @@
   gap: 20px;
   margin-bottom: 30px;
 }
+.nothingFound {
+  color: #fff;
+  font-size: 30px;
+}
+.allProducts,
+.resetButton {
+  color: #fff;
+  font-size: 20px;
+  margin-bottom: 20px;
+  display: block;
+  padding-left: 10px;
+  align-items: center;
+  cursor: pointer;
+}
+.resetButton {
+  display: flex;
+  gap: 5px;
+}
+.allProducts {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
 .itemsWrapper {
   margin-top: 40px;
   display: flex;
   align-items: center;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
   .items_header {
     font-weight: bold;
     font-size: 25px;
@@ -24,4 +47,3 @@
     padding-left: 10px;
   }
 }
-

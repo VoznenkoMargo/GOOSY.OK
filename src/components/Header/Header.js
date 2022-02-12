@@ -9,13 +9,19 @@ import Search from "./Search/Search";
 function Header() {
   return (
     <header className={styles.root}>
-      <nav>
-        <ul>
+      <nav className={styles.nav}>
+        <ul className={styles.navList}>
           <li className={styles.burger}>
+          <NavLink
+              style={{ textDecoration: "none" }}
+              activeClassName={styles.active}
+              to="/products"
+            >
             <div className={styles.burger}>              
               <GiGoose />
               <p>menu</p>
             </div>
+            </NavLink>
           </li>
           <li>
             <NavLink
@@ -30,7 +36,7 @@ function Header() {
             </NavLink>
           </li>
 
-          <li>
+          <li className={styles.searchComponent}>
             <Search />
           </li>
 
@@ -52,6 +58,9 @@ function Header() {
             </NavLink>
           </li>
         </ul>
+        <div className={styles.searchComponentMobile}>
+            <Search />
+        </div>
       </nav>
     </header>
   );
