@@ -11,7 +11,7 @@ function CardNewsAndEvents({title, imageUrl}) {
   return <div className={styles.cardNewsAndEvents}>
  <Card sx={{ maxWidth: 800, maxHeight: 300, display: "flex", flexDirection: "row" }}>
  <CardContent component="div" sx={{padding: "0", maxWidth: 400, minHeight: 300}}>
-        <CardMedia sx={{objectFit: "cover", height: "100%", width:"100%"}}
+        <CardMedia sx={{objectFit: "cover", height: "100%", maxWidth:"100%"}}
           component="img"
           image={imageUrl}
           alt="news"/>
