@@ -30,6 +30,7 @@ function CategoriesPage() {
       categories.length > 0
         ? `&categories=${categories.toString()}`
         : [""].toString();
+    console.log(allCategories);
     const rangePrice = `minPrice=${price[0]}&maxPrice=${price[1]}`;
     history.push(`?${rangePrice}${allCategories}`);
   }, [categories, price]);
