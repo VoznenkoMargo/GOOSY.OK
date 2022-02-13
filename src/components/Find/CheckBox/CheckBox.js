@@ -12,10 +12,13 @@ function CheckBox({ setCateg }) {
     if (e.target.checked) {
       newFilter.push(value);
     } else {
+        
       const index = newFilter.findIndex((i) => i === value);
-      index === 0 ? (newFilter.length = 0) : newFilter.splice(index, index);
+      console.log(index);
+      newFilter.splice(index, 1);
+    //   index === 0 ? (newFilter.length = 0) : newFilter.splice(index, index);
     }
-
+    console.log(newFilter);
     setFilter(newFilter);
     setCateg(newFilter);
   }
