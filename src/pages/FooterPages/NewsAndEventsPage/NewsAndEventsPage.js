@@ -8,19 +8,13 @@ import masterClassImage from "../../../assets/img/masterClass.jpg";
 import styles from "./NewsAndEventsPage.module.scss";
 
 function NewsAndEventsPage() {
+ 
   return <div className={styles.news_and_events}>
       <div className={styles.news_and_events_back}>
         <ArrowBack />
       </div>
       <h2>News And Events</h2>
 <div className={styles.news_and_events_cards}>
-    <CardNewsAndEvents 
-     title="Working hours during the holidays"
-     imageUrl={holidayImage}/>
-
-    <CardNewsAndEvents 
-     title="Site in a test mode"
-     imageUrl={updateImage}/>
 
     <CardNewsAndEvents 
      title="Goose Day"
@@ -30,11 +24,16 @@ function NewsAndEventsPage() {
      title="Master Class"
      imageUrl={masterClassImage}/>
 
+    <CardNewsAndEvents 
+     title="Working hours during the holidays"
+     imageUrl={holidayImage}/>
+
+    <CardNewsAndEvents 
+     title="Site in a test mode"
+     imageUrl={updateImage}/>
+  
 </div>
      
-
-
-
   </div>;
 }
 
