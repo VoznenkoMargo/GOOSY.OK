@@ -30,7 +30,7 @@ function Categories() {
       <div className="container">
         <div className="categories_items">
           <NavLink
-            to="/products/filter?minPrice=0&maxPrice=990&categories=cold snaks"
+            to = "/products/filter?minPrice=0&maxPrice=990&categories=cold snaks"
             className="categories_item_link"
             activeClassName="categories_item_link_active"
           >
@@ -38,7 +38,7 @@ function Categories() {
           </NavLink>
 
           <NavLink
-            to="/cat2"
+            to="/products/filter?minPrice=0&maxPrice=990&categories=hot snaks"
             className="categories_item_link"
             activeClassName="categories_item_link_active"
           >
@@ -46,7 +46,7 @@ function Categories() {
           </NavLink>
 
           <NavLink
-            to="/cat3"
+            to="/products/filter?minPrice=0&maxPrice=990&categories=main dishes"
             className="categories_item_link"
             activeClassName="categories_item_link_active"
           >
@@ -54,7 +54,7 @@ function Categories() {
           </NavLink>
 
           <NavLink
-            to="/cat4"
+            to="/products/filter?minPrice=0&maxPrice=990&categories=soup"
             className="categories_item_link"
             activeClassName="categories_item_link_active"
           >
@@ -62,7 +62,7 @@ function Categories() {
           </NavLink>
 
           <NavLink
-            to="/cat5"
+            to="/products/filter?minPrice=0&maxPrice=990&categories="
             className="categories_item_link"
             activeClassName="categories_item_link_active"
           >
@@ -70,7 +70,7 @@ function Categories() {
           </NavLink>
 
           <NavLink
-            to="/cat6"
+            to="/products/filter?minPrice=0&maxPrice=990&categories="
             className="categories_item_link"
             activeClassName="categories_item_link_active"
           >
@@ -78,7 +78,7 @@ function Categories() {
           </NavLink>
 
           <NavLink
-            to="/cat7"
+            to="/products/filter?minPrice=0&maxPrice=990&categories="
             className="categories_item_link"
             activeClassName="categories_item_link_active"
           >
@@ -86,7 +86,7 @@ function Categories() {
           </NavLink>
 
           <NavLink
-            to="/cat8"
+            to="/products/filter?minPrice=0&maxPrice=990&categories="
             className="categories_item_link"
             activeClassName="categories_item_link_active"
           >

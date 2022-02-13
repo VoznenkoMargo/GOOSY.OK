@@ -44,6 +44,10 @@ function CheckBox({ setCateg }) {
           <p>Salads</p>
         </label>
         <label>
+          <input id="main dishes" type="checkbox" onChange={change} value="main dishes" />
+          <p>Main Dishes</p>
+        </label>
+        <label>
           <input id="desert" type="checkbox" onChange={change} value="desert" />
           <p>Desert</p>
         </label>
