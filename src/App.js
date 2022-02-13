@@ -14,14 +14,13 @@ function App() {
   return (
     <Provider store={store}>
       <Router>
-        <ScrollToTop/>
+        <ScrollToTop />
         <div className="App">
           <Header />
           <div className="main_content">
-          <Categories />
-          <Routes />
+            <Categories />
+            <Routes />
           </div>
-          
           <Footer />
           <ScrollToTopBtn />
         </div>

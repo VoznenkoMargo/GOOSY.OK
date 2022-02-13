@@ -24,7 +24,7 @@ const ItemsContainer = (props) => {
   //       items[i] = { ...items[i], ...cartArray[j] };
   //     }
 
-  //   } 
+  //   }
   // }
 
   const { isSearched } = useSelector((store) => store.search);
@@ -39,7 +39,7 @@ const ItemsContainer = (props) => {
         <img alt="" width="40px" src={flames} />
       </div>
 
-      {match.path !== "/products" && (
+      {match.path === "/" && (
         <Link className={styles.allProducts} to="/products">
           <BiDish style={{ color: "#618967", fontSize: "30px" }} />
           To all dishes
@@ -72,14 +72,12 @@ const ItemsContainer = (props) => {
         </div>
       )}
       <div className={styles.itemsContainer}>
-        {items  &&
+        {items &&
           items.map(({ itemNo, ...args }) => (
             <Item key={itemNo} itemNo={itemNo} {...args} />
           ))}
 
-        {!items && (
-          <p className={styles.nothingFound}>Nothing found :(</p>
-        )}
+        {!items && <p className={styles.nothingFound}>Nothing found :(</p>}
       </div>
     </div>
   );

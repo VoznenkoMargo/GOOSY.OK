@@ -1,10 +1,13 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
+/* eslint-disable react/react-in-jsx-scope */
+/* eslint-disable prefer-destructuring */
+/* eslint-disable react/prop-types */
 
 import { useState } from "react";
-import style from "./CheckBox.module.scss"
+import style from "./CheckBox.module.scss";
 
 function CheckBox({ setCateg }) {
   const [filter, setFilter] = useState([]);
-
 
   function change(e) {
     const value = e.target.value;
@@ -12,11 +15,10 @@ function CheckBox({ setCateg }) {
     if (e.target.checked) {
       newFilter.push(value);
     } else {
-        
       const index = newFilter.findIndex((i) => i === value);
       console.log(index);
       newFilter.splice(index, 1);
-    //   index === 0 ? (newFilter.length = 0) : newFilter.splice(index, index);
+      //   index === 0 ? (newFilter.length = 0) : newFilter.splice(index, index);
     }
     console.log(newFilter);
     setFilter(newFilter);
@@ -44,7 +46,12 @@ function CheckBox({ setCateg }) {
           <p>Salads</p>
         </label>
         <label>
-          <input id="main dishes" type="checkbox" onChange={change} value="main dishes" />
+          <input
+            id="main dishes"
+            type="checkbox"
+            onChange={change}
+            value="main dishes"
+          />
           <p>Main Dishes</p>
         </label>
         <label>

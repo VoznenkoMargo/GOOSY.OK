@@ -10,9 +10,12 @@ function HomePage() {
   const dispatch = useDispatch();
 
   useEffect(() => {
+    if (items.length > 0) {
+      return;
+    }
     dispatch(initCardItemsCreator());
-  }, []);
-  
+  }, [items]);
+
   return (
     <div>
       <Carousel />
