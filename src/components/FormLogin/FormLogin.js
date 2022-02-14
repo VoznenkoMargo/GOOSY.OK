@@ -2,6 +2,7 @@ import React from "react";
 import { Formik, Form, Field } from "formik";
 import * as yup from 'yup';
 import NumberFormat from "react-number-format";
+import axios from "axios";
 import styles from './FormLogin.module.scss'
 
 
@@ -13,11 +14,8 @@ function FormLogin () {
         login:'',
         email:'',
         password:'',
-        confirmPassword:'',
-        telephone:'',
-        birthdate:'',
-        gender:'',
-        avatarUrl:'',
+        
+        
 
     }
 
@@ -42,11 +40,11 @@ function FormLogin () {
             .email('Неправильный формат email'),
         password:yup.string()
             .required('Reqire password'),
-        confirmPassword: yup.string().oneOf([yup.ref('password')], 'Passwords dont match').required("Required"),
+      
 
     });
 
-    document.body.style.overflow = 'hidden'
+    // document.body.style.overflow = 'hidden'
 
     const handleClose = ()=>{ 
         console.log('close')
@@ -54,10 +52,19 @@ function FormLogin () {
     const handleKeyDown = ()=>{
         console.log('ok')
     }
-    const handleSubmit = (value) => {
-     console.log(value);
+    const handleSubmit = (newCustomer) => {
+    console.log('pl')
+     console.log(newCustomer);
+
      document.body.style.overflow = 'unset'
+
+     axios.post("http://35.180.205.240:5000/api/customers", newCustomer)
+	.then(savedCustomer => {
+        console.log(savedCustomer)})
+	.catch(err => {console.log(err)})
     }
+
+
     return (
     <Formik initialValues={initialValues} handleKeyDown={handleKeyDown} handleClose={handleClose} onSubmit={handleSubmit} validationSchema={validationSchema} validateOnBlur>
 
@@ -97,18 +104,18 @@ function FormLogin () {
                     {touched.password && errors.password && <p className={styles.form_input_error}>{errors.password}</p>}
                 </label>
 
-                <label htmlFor='confirmPassword'>Confirm password*
+                {/* <label htmlFor='confirmPassword'>Confirm password*
                     <Field className={styles.form_input}  type='password' name='confirmPassword' placeholder="Repeat password" />
                     {touched.confirmPassword && errors.confirmPassword && <p className={styles.form_input_error}>{errors.confirmPassword}</p>}
-                </label>
+                </label> */}
 
-                <label htmlFor='telephone'> Your phone number
+                {/* <label htmlFor='telephone'> Your phone number
                     <Field className={styles.form_input}  type='text' name='telephone'  format="(###) ### ## ##" placeholder='(000) 000 00 00 ' component={NumberFormat}/>
                 </label>
 
                 <label htmlFor='birthdate'> Your birthdate
                     <Field className={styles.form_input}  type='text' name='birthdate' placeholder='(000) 000 00 00 ' component={NumberFormat}/>
-                </label>
+                </label> */}
 
 
                 <div className={styles.form_bottom}>
