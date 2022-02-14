@@ -26,6 +26,11 @@ function CategoriesPage() {
   const isError = false;
 
   useEffect(() => {
+    console.log(location);
+    dispatch(initСategoriesItemsCreator(location));
+  }, [location]);
+  
+  useEffect(() => {
     const allCategories =
       categories.length > 0
         ? `&categories=${categories.toString()}`
@@ -35,10 +40,7 @@ function CategoriesPage() {
     history.push(`?${rangePrice}${allCategories}`);
   }, [categories, price]);
 
-  useEffect(() => {
-    console.log(location);
-    dispatch(initСategoriesItemsCreator(location));
-  }, [location]);
+  
 
   useEffect(() => {
     const keys = Object.keys(items);
