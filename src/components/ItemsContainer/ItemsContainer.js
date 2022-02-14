@@ -11,9 +11,11 @@ import Item from "../Item/Item";
 import styles from "./ItemsContainer.module.scss";
 import flames from "../../assets/flames.png";
 import { clearSearchItemsCreator } from "../../store/actionCreators/searchItemsCreator";
+import Preloader from "../Preloader/Preloader";
+
 
 const ItemsContainer = (props) => {
-  const { items, header } = props;
+  const { items, header,  } = props;
 
   // const cartArray = useSelector((state) => {
   //   return state.cart.cartItems;
@@ -26,12 +28,16 @@ const ItemsContainer = (props) => {
 
   //   }
   // }
-
+  const { isLoading } = useSelector((store) => store.items);
   const { isSearched } = useSelector((store) => store.search);
+  
   const match = useRouteMatch();
   const dispatch = useDispatch();
+  
+  
 
   return (
+    isLoading ? <Preloader/>  :
     <div className="container">
       <div className={styles.itemsWrapper}>
         <h2 className={styles.items_header}>{header}</h2>
