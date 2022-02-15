@@ -4,7 +4,6 @@ import { useSelector, useDispatch } from "react-redux";
 import Find from "../../components/Find/Find";
 import style from "./CategoriesPage.module.scss";
 import ItemsContainer from "../../components/ItemsContainer/ItemsContainer";
-// import Select from "../../components/Select/Select";
 import { initСategoriesItemsCreator } from "../../store/actionCreators/cardItemsCreator";
 
 function CategoriesPage() {
@@ -54,6 +53,7 @@ function CategoriesPage() {
           keyCategories.map((item) => {
             return (
               <ItemsContainer
+                key={item}
                 header={`${item}`}
                 items={items[`${item}`]}
                 isLoading={isLoading}

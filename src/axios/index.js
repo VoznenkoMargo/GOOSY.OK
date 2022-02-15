@@ -1,5 +1,4 @@
 /* eslint-disable import/prefer-default-export */
-// import axios from "axios";
 
 import instance from "../api";
 
@@ -11,8 +10,6 @@ export const updatedProduct = (productId, data) =>
 export const searchProducts = (searchPhrases) =>
   instance.post(`/products/search`, searchPhrases); // Поиск продукта по фразе
 export const getOneProduct = (itemNo) => instance.get(`/products/${itemNo}`); // Получить один продукт
-// export const getByCategory = (category) =>
-//   instance.get(`/products/filter?categories=${category}`); // Получить продукты по категории
 export const getByCategory = (category) =>
   instance.get(`/products/filter${category}`); // Получить продукты по категории
 

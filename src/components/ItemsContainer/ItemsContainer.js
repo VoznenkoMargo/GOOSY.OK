@@ -1,5 +1,3 @@
-/* eslint-disable arrow-body-style */
-/* eslint-disable react/function-component-definition */
 /* eslint-disable react/prop-types */
 import React from "react";
 
@@ -13,7 +11,7 @@ import flames from "../../assets/flames.png";
 import { clearSearchItemsCreator } from "../../store/actionCreators/searchItemsCreator";
 import Preloader from "../Preloader/Preloader";
 
-const ItemsContainer = (props) => {
+function ItemsContainer(props) {
   const { items, header } = props;
 
   // const cartArray = useSelector((state) => {
@@ -79,13 +77,9 @@ const ItemsContainer = (props) => {
           items.map(({ itemNo, ...args }) => (
             <Item key={itemNo} itemNo={itemNo} {...args} />
           ))}
-
-        {/* {!items && (
-          <p className={styles.nothingFound}>Sorry, nothing found...</p>
-        )} */}
       </div>
     </div>
   );
-};
+}
 
 export default ItemsContainer;

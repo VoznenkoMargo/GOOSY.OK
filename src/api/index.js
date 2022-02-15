@@ -26,7 +26,6 @@ instance.interceptors.request.use((config) => {
       "authToken"
     )}`;
   }
-
   return config;
 });
 

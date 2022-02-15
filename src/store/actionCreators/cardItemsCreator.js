@@ -1,5 +1,4 @@
-/* eslint-disable no-useless-rename */
-/* eslint-disable import/prefer-default-export */
+
 
 import { getProducts, getByCategory } from "../../axios";
 

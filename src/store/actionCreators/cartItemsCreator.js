@@ -1,4 +1,3 @@
-/* eslint-disable import/prefer-default-export */
 import {
   ADD_TO_CART,
   DELETE_FROM_CART,

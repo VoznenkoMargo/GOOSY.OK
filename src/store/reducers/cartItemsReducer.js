@@ -1,6 +1,6 @@
-/* eslint-disable prefer-destructuring */
 /* eslint-disable no-underscore-dangle */
 /* eslint-disable default-param-last */
+
 import {
   ADD_TO_CART,
   DELETE_FROM_CART,
@@ -53,7 +53,7 @@ const cartItemsReducer = (state = initialState, { type, payload }) => {
     case DELETE_FROM_CART: {
       const newCartItems = [...state.cartItems];
       const index = newCartItems.findIndex((elem) => elem._id === payload._id);
-      const count = newCartItems[index].count;
+      const {count} = newCartItems[index];
       newCartItems.splice(index, 1);
       saveToLS("cart", {
         cartItems: newCartItems,

@@ -1,1 +1,2 @@
-export {default} from "./ScrollToTopBtn";
+/* eslint-disable no-restricted-exports */
+export { default } from "./ScrollToTopBtn";

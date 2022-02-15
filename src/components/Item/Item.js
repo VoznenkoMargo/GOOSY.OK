@@ -1,14 +1,12 @@
-/* eslint-disable no-underscore-dangle */
 /* eslint-disable react/prop-types */
 import React from "react";
-// import PropTypes from "prop-types";
-// import {useSelector} from 'react-redux';
 import { Link } from "react-router-dom";
 import styles from "./Item.module.scss";
 import AddCartBtn from "../AddCartBtn/AddCartBtn";
 
 function Item(props) {
-  const { itemNo, imageUrls, categories, name, currentPrice, weight, count } = props;
+  const { itemNo, imageUrls, categories, name, currentPrice, weight, count } =
+    props;
 
   return (
     <div className={styles.item} key={itemNo}>

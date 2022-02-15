@@ -6,16 +6,12 @@ import styles from "./Header.module.scss";
 import Contact from "./Contact/Contact";
 import CartBtn from "./CartBtn/CartBtn";
 import Search from "./Search/Search";
-
 import { clearSearchItemsCreator } from "../../store/actionCreators/searchItemsCreator";
 
 function Header() {
   const dispatch = useDispatch();
-  // const match = useRouteMatch({ isExact: true });
   const home = useRouteMatch("/");
   const products = useRouteMatch("/products");
-  console.log(home);
-  console.log(products);
   return (
     <header className={styles.root}>
       <nav className={styles.nav}>
@@ -48,18 +44,11 @@ function Header() {
               </div>
             </NavLink>
           </li>
-          {
-            home?.isExact ? (
-              <li className={styles.searchComponent}>
-                <Search />
-              </li>
-            ) : null
-            // (
-            //   <li className={styles.searchComponent}>
-            //     <Search disabled />
-            //   </li>
-            // )
-          }
+          {home?.isExact ? (
+            <li className={styles.searchComponent}>
+              <Search />
+            </li>
+          ) : null}
           {products?.isExact ? (
             <li className={styles.searchComponent}>
               <Search />
