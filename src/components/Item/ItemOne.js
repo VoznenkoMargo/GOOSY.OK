@@ -1,15 +1,12 @@
 /* eslint-disable no-underscore-dangle */
 /* eslint-disable react/prop-types */
 import React from "react";
-// import PropTypes from "prop-types";
-// import { HiPlus, HiMinus } from "react-icons/hi";
 import styles from "./Item.module.scss";
 import AddCartBtn from "../AddCartBtn/AddCartBtn";
 
-function Item({items}) {
-
+function Item({ items }) {
   return (
-    <div >
+    <div>
       {items.map((item) => (
         <div className={styles.item} key={item._id}>
           <img src={item.imageUrls} alt="dish" />

@@ -1,5 +1,3 @@
-/* eslint-disable arrow-body-style */
-/* eslint-disable react/function-component-definition */
 /* eslint-disable react/prop-types */
 import React from "react";
 
@@ -13,9 +11,8 @@ import flames from "../../assets/flames.png";
 import { clearSearchItemsCreator } from "../../store/actionCreators/searchItemsCreator";
 import Preloader from "../Preloader/Preloader";
 
-
-const ItemsContainer = (props) => {
-  const { items, header,  } = props;
+function ItemsContainer(props) {
+  const { items, header } = props;
 
   // const cartArray = useSelector((state) => {
   //   return state.cart.cartItems;
@@ -25,19 +22,17 @@ const ItemsContainer = (props) => {
   //     if (items[i].itemNo === cartArray[j].itemNo) {
   //       items[i] = { ...items[i], ...cartArray[j] };
   //     }
-
   //   }
   // }
   const { isLoading } = useSelector((store) => store.items);
   const { isSearched } = useSelector((store) => store.search);
-  
+
   const match = useRouteMatch();
   const dispatch = useDispatch();
-  
-  
 
-  return (
-    isLoading ? <Preloader/>  :
+  return isLoading ? (
+    <Preloader />
+  ) : (
     <div className="container">
       <div className={styles.itemsWrapper}>
         <h2 className={styles.items_header}>{header}</h2>
@@ -82,11 +77,9 @@ const ItemsContainer = (props) => {
           items.map(({ itemNo, ...args }) => (
             <Item key={itemNo} itemNo={itemNo} {...args} />
           ))}
-
-        {!items && <p className={styles.nothingFound}>Nothing found :(</p>}
       </div>
     </div>
   );
-};
+}
 
 export default ItemsContainer;

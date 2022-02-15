@@ -1,10 +1,10 @@
 .preloader {
-  display: flex;
+  display: inline-flex;
 }
 
 .itemsContainer {
-  display: flex;
-  justify-content: center;
+  display: inline-flex;
+  justify-content: flex-start;
   flex-wrap: wrap;
   gap: 20px;
   margin-bottom: 30px;
@@ -18,7 +18,7 @@
   color: #fff;
   font-size: 20px;
   margin-bottom: 20px;
-  display: block;
+  display: inline-block;
   padding-left: 10px;
   align-items: center;
   cursor: pointer;
@@ -45,5 +45,12 @@
     text-transform: uppercase;
     border-left: 5px solid #618967;
     padding-left: 10px;
+  }
+}
+
+@media screen and (max-width: 920px) {
+  .itemsContainer {
+    display: inline-flex;
+    justify-content: center;
   }
 }
