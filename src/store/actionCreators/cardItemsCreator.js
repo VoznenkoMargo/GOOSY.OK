@@ -15,12 +15,9 @@ export const setIsLoadingCards = (isLoading) => ({
 });
 
 export const initCardItemsCreator = () => async (dispatch) => {
-  
-    dispatch(setIsLoadingCards(true))
-    
+  dispatch(setIsLoadingCards(true));
   try {
     const { data } = await getProducts();
-    
     dispatch({ type: GET_ITEMS, payload: data });
     dispatch(setIsLoadingCards(false));
   } catch (e) {
@@ -45,16 +42,3 @@ export const initСategoriesItemsCreator = (inquiry) => async (dispatch) => {
   });
   dispatch({ type: GET_FIND_ITEMS, payload: allCategories });
 };
-
-// // export const initItems = () => (dispatch) => {
-// //   axios
-// //     .get(url)
-// //     .then(({ data }) => {
-// //       const allItems = Array.isArray(data) ? data : data.products;
-// //       dispatch({ type: GET_ITEMS, payload: allItems });
-// //     })
-// //     .catch((e) => {
-// //       console.log(e);
-// //     });
-// // };
-// >>>>>>> c7f2a4c048f8e00ae4d9214a2b4129009b78b3ad

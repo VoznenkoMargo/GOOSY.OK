@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 import axios from "axios";
 import Notiflix from "notiflix";
 
@@ -12,19 +13,21 @@ instance.interceptors.response.use(
       data: response.data,
     };
   },
-  // ({ response }) => {
-  //   return {
-  //     status: response?.status,
-  //     data: response?.data,
-  //     response,
-  //   };
-  // }
   (err) => {
     console.error(err);
-    // throw new Error(err.response.data.message);
     Notiflix.Notify.failure("Unable to load dishes. Server error.");
     return Promise.reject(err);
   }
 );
+
+instance.interceptors.request.use((config) => {
+  if (localStorage.getItem("authToken")) {
+    config.headers.Authorization = `Bearer ${localStorage.getItem(
+      "authToken"
+    )}`;
+  }
+
+  return config;
+});
 
 export default instance;

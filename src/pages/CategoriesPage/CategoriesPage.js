@@ -30,13 +30,12 @@ function CategoriesPage() {
       categories.length > 0
         ? `&categories=${categories.toString()}`
         : [""].toString();
-    
+
     const rangePrice = `minPrice=${price[0]}&maxPrice=${price[1]}`;
     history.push(`?${rangePrice}${allCategories}`);
   }, [categories, price]);
 
   useEffect(() => {
-    console.log(location);
     dispatch(initСategoriesItemsCreator(location));
   }, [location]);
 
@@ -51,8 +50,6 @@ function CategoriesPage() {
         <Find price={price} setPri={setPri} setCateg={setCateg} />
       </div>
       <div>
-        {/* <Select /> */}
-
         {keyCategories &&
           keyCategories.map((item) => {
             return (

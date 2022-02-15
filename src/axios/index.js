@@ -1,4 +1,6 @@
 /* eslint-disable import/prefer-default-export */
+// import axios from "axios";
+
 import instance from "../api";
 
 // CRUD FOR PRODUCTS
@@ -13,7 +15,6 @@ export const getOneProduct = (itemNo) => instance.get(`/products/${itemNo}`); //
 //   instance.get(`/products/filter?categories=${category}`); // Получить продукты по категории
 export const getByCategory = (category) =>
   instance.get(`/products/filter${category}`); // Получить продукты по категории
-
 
 // CRUD FOR CART
 export const getCart = () => instance.get(`/cart`); // Получить корзину
