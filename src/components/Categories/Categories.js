@@ -25,6 +25,10 @@ function Categories() {
   });
   //   let navbarClasses=['navbar'];
 
+  const test = () =>{
+
+  }
+
   return (
     <div id="navbar" className="categories_block">
       <div className="container">
@@ -33,6 +37,7 @@ function Categories() {
             to = "/products/filter?minPrice=0&maxPrice=990&categories=cold snaks"
             className="categories_item_link"
             activeClassName="categories_item_link_active"
+            onClick={}
           >
             Cold snacks{" "}
           </NavLink>
