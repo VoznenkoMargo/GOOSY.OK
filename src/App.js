@@ -8,7 +8,8 @@ import store from "./store";
 import Footer from "./components/Footer/Footer/Footer";
 import ScrollToTop from "./Routes/ScrollToTop";
 import ScrollToTopBtn from "./components/ScrollToTopBtn/ScrollToTopBtn";
-import ModalEmptyCart from "./components/ModalEmptyCart/ModalEmptyCart";
+// import FormLogin from "./components/FormLogin/FormLogin";
+
 
 
 
@@ -18,9 +19,9 @@ function App() {
       <Router>
         <ScrollToTop/>
         <div className="App">
-          
+          {/* <FormLogin /> */}
           <Header />
-          <ModalEmptyCart />
+         
           <div className="main_content">
           <Routes />
           </div>

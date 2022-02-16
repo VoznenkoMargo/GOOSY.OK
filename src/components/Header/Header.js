@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import { GiGoose } from "react-icons/gi";
 import { NavLink } from "react-router-dom";
 import styles from "./Header.module.scss";
@@ -6,8 +6,25 @@ import Contact from "./Contact/Contact";
 import CartBtn from "./CartBtn/CartBtn";
 import Search from "./Search/Search";
 import Categories from "../Categories/Categories";
+import FormLogin from "../FormLogin/FormLogin";
+
+
+
+
 
 function Header() {
+
+  const [isSignInOpen, setSignInOpen] = useState(false)
+
+  const openSignIn = ()=>{
+    setSignInOpen(true)
+  }
+
+  const closeSignIn = () => {
+    setSignInOpen(false)
+   
+   }
+
   return (
     <div id='header'>
       
@@ -50,6 +67,14 @@ function Header() {
               to="/contact">            
               <Contact />
             </NavLink>
+          </li>
+
+          <li className={styles.contact}>
+              <div className={styles.signInsignUp}>
+                <span  onClick={openSignIn} className={styles.signIn} role='button' tabIndex={0} onKeyPress={()=>{}}>Sign in</span>
+                {isSignInOpen ? <FormLogin closeSignIn={closeSignIn}  /> : '' }
+                <span className={styles.signUp}>Sign up</span> 
+              </div>
           </li>
 
           <li>

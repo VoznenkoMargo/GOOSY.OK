@@ -7,15 +7,12 @@ import axios from "axios";
 import styles from './FormLogin.module.scss'
 
 
-function FormLogin (props) {
+function FormReg (props) {
 
     const { closeSignIn } = props;
 
     const initialValues = {
-        firstName:'',
-        lastName:'',
-        login:'',
-        email:'',
+        loginOrEmail:'',
         password:'',
         
         
@@ -23,24 +20,11 @@ function FormLogin (props) {
     }
 
     const validationSchema = yup.object().shape({
-        firstName: yup.string()
-            .required('Enter your first name')
+        loginOrEmail: yup.string()
+            .required('This field is required')
             .min(2, 'Минимум 2 символа')
             .max(24, 'Максимум 24 символа')
             .matches(/[A-Za-z/s]/, 'Латиница онли'),
-        lastName: yup.string()
-            .required('Enter please your second name')
-            .min(2, 'Минимум 2 символа')
-            .max(24, 'Максимум 24 символа')
-            .matches(/[A-Za-z/s]/, 'Латиница онли'),
-        login: yup.string()
-            .required('Create login')
-            .min(2, 'Минимум 2 символа')
-            .max(24, 'Максимум 24 символа')
-            .matches(/[A-Za-z/s]/, 'Латиница онли'),
-        email: yup.string()
-            .required('Enter your email')
-            .email('Неправильный формат email'),
         password:yup.string()
             .required('Reqire password'),
        
@@ -137,7 +121,7 @@ function FormLogin (props) {
     
 }
 
-FormLogin.propTypes = {
+FormReg.propTypes = {
     closeSignIn : PropTypes.func.isRequired,
 }
-export default FormLogin;
+export default FormReg;
