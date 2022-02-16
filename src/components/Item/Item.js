@@ -1,5 +1,5 @@
-/* eslint-disable react/prop-types */
 import React from "react";
+import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import styles from "./Item.module.scss";
 import AddCartBtn from "../AddCartBtn/AddCartBtn";
@@ -32,5 +32,19 @@ function Item(props) {
     </div>
   );
 }
+
+Item.propTypes = {
+  itemNo:PropTypes.elementType.isRequired,
+  imageUrls:PropTypes.arrayOf(PropTypes.string).isRequired,
+  categories:PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  currentPrice: PropTypes.number.isRequired,
+  weight:PropTypes.number.isRequired,
+  count:PropTypes.number
+}
+
+Item.defaultProps = {
+  count: 0,
+} 
 
 export default Item;

@@ -1,5 +1,5 @@
-/* eslint-disable react/prop-types */
 import React from "react";
+import PropTypes from "prop-types";
 import style from "./Find.module.scss";
 import CheckBox from "./CheckBox/CheckBox";
 import FindPrice from "./FindPrice/FindPrice";
@@ -13,5 +13,12 @@ function Find({ setCateg, setPri, price }) {
     </div>
   );
 }
+
+Find.propTypes = {
+  setCateg:PropTypes.func.isRequired, 
+  setPri:PropTypes.func.isRequired, 
+  price:PropTypes.number.isRequired
+}
+
 
 export default Find;
