@@ -14,7 +14,14 @@ import FormLogin from "../FormLogin/FormLogin";
 
 function Header() {
 
+
+
+
+
+
   const [isSignInOpen, setSignInOpen] = useState(false)
+
+  const [isSignUpOpen, setSignUpOpen] = useState(false)
 
   const openSignIn = ()=>{
     setSignInOpen(true)
@@ -24,6 +31,8 @@ function Header() {
     setSignInOpen(false)
    
    }
+  
+  
 
   return (
     <div id='header'>
@@ -72,7 +81,7 @@ function Header() {
           <li className={styles.contact}>
               <div className={styles.signInsignUp}>
                 <span  onClick={openSignIn} className={styles.signIn} role='button' tabIndex={0} onKeyPress={()=>{}}>Sign in</span>
-                {isSignInOpen ? <FormLogin closeSignIn={closeSignIn}  /> : '' }
+               {isSignInOpen ?  <FormLogin  closeSignIn={closeSignIn}/>    : '' }
                 <span className={styles.signUp}>Sign up</span> 
               </div>
           </li>

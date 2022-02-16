@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useRef, useEffect} from "react";
 import { Formik, Form, Field } from "formik";
 import * as yup from 'yup';
 import PropTypes from 'prop-types'
@@ -10,6 +10,24 @@ import styles from './FormLogin.module.scss'
 function FormLogin (props) {
 
     const { closeSignIn } = props;
+
+    const ref = useRef();
+
+    useEffect(() => {
+        const checkIfClickedOutside = (e) => {
+          if (ref.current && !ref.current.contains(e.target)) {
+              closeSignIn()
+            }
+    
+        }
+        document.addEventListener("mousedown", checkIfClickedOutside)
+        return () => {
+    
+          document.removeEventListener("mousedown", checkIfClickedOutside)
+    
+        }
+    
+      }, [])
 
     const initialValues = {
         firstName:'',
@@ -67,8 +85,8 @@ function FormLogin (props) {
 
 
     return (
-    <div className = {styles.modal} >
-        <div className={styles.modalContent}>
+    <div  className = {styles.modal} >
+        <div ref={ref} className={styles.modalContent}>
             <Formik initialValues={initialValues} handleKeyDown={handleKeyDown} closeSingIn={closeSignIn} onSubmit={handleSubmit} validationSchema={validationSchema} validateOnBlur>
 
                 {({handleBlur, values, errors, touched, isValid, dirty})=>{
@@ -76,10 +94,10 @@ function FormLogin (props) {
                     
                     return (
                         
-                    <Form className={styles.form}>
+                    <Form  className={styles.form}>
                         <div className={styles.form_header}>
                             <h2 className={styles.form_header_topic}> Sign Up! </h2>
-                            <span id='closeBtn'  onClick={closeSignIn} role='button' tabIndex={0} onKeyPress='' className={styles.form_header_closebtn}>x</span>
+                            <span id='closeBtn'  onClick={closeSignIn} role='button' tabIndex={0} onKeyPress={()=>{}} className={styles.form_header_closebtn}>x</span>
                         </div> 
 
                         <label htmlFor='firstName'> First Name* 
