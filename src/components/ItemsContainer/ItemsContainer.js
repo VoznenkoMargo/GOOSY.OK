@@ -1,6 +1,5 @@
-/* eslint-disable react/prop-types */
 import React from "react";
-
+import PropTypes from "prop-types";
 import { useSelector, useDispatch } from "react-redux";
 import { Link, useRouteMatch } from "react-router-dom";
 import { BiHomeAlt, BiDish } from "react-icons/bi";
@@ -80,6 +79,11 @@ function ItemsContainer(props) {
       </div>
     </div>
   );
+}
+
+ItemsContainer.propTypes = {
+  header: PropTypes.elementType.isRequired,
+  items: PropTypes.arrayOf(PropTypes.object).isRequired
 }
 
 export default ItemsContainer;

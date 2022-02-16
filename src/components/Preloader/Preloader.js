@@ -1,5 +1,3 @@
-/* eslint-disable react/prop-types */
-
 import React from "react";
 import { CircularProgress } from "@mui/material";
 import styles from "./Preloader.module.scss";

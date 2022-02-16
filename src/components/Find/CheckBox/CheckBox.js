@@ -1,6 +1,5 @@
-/* eslint-disable react/prop-types */
-
 import React, { useState } from "react";
+import PropTypes from "prop-types";
 import style from "./CheckBox.module.scss";
 
 function CheckBox({ setCateg }) {
@@ -66,4 +65,9 @@ function CheckBox({ setCateg }) {
     </div>
   );
 }
+
+CheckBox.propTypes = {
+  setCateg: PropTypes.func.isRequired
+}
+
 export default CheckBox;
