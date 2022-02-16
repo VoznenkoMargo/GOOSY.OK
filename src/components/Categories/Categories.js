@@ -1,12 +1,9 @@
 import React, { useEffect, useState } from "react";
-
 import { NavLink } from "react-router-dom";
-
 import "./Categories.scss";
 
 function Categories() {
   const [scrolled, setScrolled] = useState(false);
-
   const handleScroll = () => {
     const offset = window.scrollY;
     if (offset > 98) {
@@ -23,11 +20,6 @@ function Categories() {
       document.getElementById("navbar").classList.remove("scrolled");
     }
   });
-  //   let navbarClasses=['navbar'];
-
-  const test = () =>{
-
-  }
 
   return (
     <div id="navbar" className="categories_block">
@@ -37,7 +29,7 @@ function Categories() {
             to = "/products/filter?minPrice=0&maxPrice=990&categories=cold snaks"
             className="categories_item_link"
             activeClassName="categories_item_link_active"
-            onClick={}
+           
           >
             Cold snacks{" "}
           </NavLink>

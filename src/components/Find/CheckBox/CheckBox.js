@@ -1,16 +1,13 @@
-/* eslint-disable jsx-a11y/label-has-associated-control */
-/* eslint-disable react/react-in-jsx-scope */
-/* eslint-disable prefer-destructuring */
 /* eslint-disable react/prop-types */
 
-import { useState } from "react";
+import React, { useState } from "react";
 import style from "./CheckBox.module.scss";
 
 function CheckBox({ setCateg }) {
   const [filter, setFilter] = useState([]);
-
+  
   function change(e) {
-    const value = e.target.value;
+    const { value } = e.target;
     const newFilter = [...filter];
     if (e.target.checked) {
       newFilter.push(value);
@@ -18,9 +15,7 @@ function CheckBox({ setCateg }) {
       const index = newFilter.findIndex((i) => i === value);
       console.log(index);
       newFilter.splice(index, 1);
-      //   index === 0 ? (newFilter.length = 0) : newFilter.splice(index, index);
     }
-    console.log(newFilter);
     setFilter(newFilter);
     setCateg(newFilter);
   }
@@ -28,7 +23,7 @@ function CheckBox({ setCateg }) {
   return (
     <div className={style.checkBox_container}>
       <form>
-        <label>
+        <label htmlFor="coldSnaks">
           <input
             id="coldSnaks"
             type="checkbox"
@@ -37,15 +32,15 @@ function CheckBox({ setCateg }) {
           />
           <p>Cold Snaks</p>
         </label>
-        <label>
+        <label htmlFor="soup">
           <input id="soup" type="checkbox" onChange={change} value="soup" />
           <p>Soup</p>
         </label>
-        <label>
+        <label htmlFor="salads">
           <input id="salads" type="checkbox" onChange={change} value="salads" />
           <p>Salads</p>
         </label>
-        <label>
+        <label htmlFor="main dishes">
           <input
             id="main dishes"
             type="checkbox"
@@ -54,11 +49,11 @@ function CheckBox({ setCateg }) {
           />
           <p>Main Dishes</p>
         </label>
-        <label>
+        <label htmlFor="desert">
           <input id="desert" type="checkbox" onChange={change} value="desert" />
           <p>Desert</p>
         </label>
-        <label>
+        <label htmlFor="hotSnaks">
           <input
             id="hotSnaks"
             type="checkbox"

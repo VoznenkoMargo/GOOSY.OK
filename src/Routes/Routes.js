@@ -4,7 +4,6 @@ import CategoriesPage from "../pages/CategoriesPage/CategoriesPage";
 import HomePage from "../pages/HomePage";
 import ItemPage from "../pages/ItemPage";
 import Preloader from "../components/Preloader/Preloader";
-// import ProductsPage from "../pages/ProductsPage";
 import CartPage from "../pages/CartPage";
 import PrivacyPolicyPage from "../pages/FooterPages/PrivacyPolicyPage";
 import UserAgrPage from "../pages/FooterPages/UserAgrPage/UserAgrPage";
