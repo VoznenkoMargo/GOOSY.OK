@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import { GiGoose } from "react-icons/gi";
 import { NavLink } from "react-router-dom";
 import styles from "./Header.module.scss";
@@ -8,20 +8,30 @@ import Search from "./Search/Search";
 import Categories from "../Categories/Categories";
 import FormLogin from "../FormLogin/FormLogin";
 import FormReg from "../FormReg/FormReg";
+import { getFromLS } from "../../utils/localStorage";
 
 
 
 
 function Header() {
 
-
-
-
-
-
   const [isSignInOpen, setSignInOpen] = useState(false)
 
   const [isSignUpOpen, setSignUpOpen] = useState(false)
+
+  const [isSigned, setSign] = useState(false)
+
+  const [userName, setUserName] = useState('')
+
+  useEffect(()=>{
+   if(getFromLS('authToken')){
+    setSign(true)
+    setUserName(getFromLS('userName'))
+   }else{
+    setSign(false)
+     
+   }
+  },[])
 
   const openSignIn = ()=>{
     setSignInOpen(true)
@@ -86,6 +96,7 @@ function Header() {
           </li>
 
           <li className={styles.contact}>
+            {isSigned ? <div> Weclome, {userName}</div> :
               <div className={styles.signInsignUp}>
                 <span  onClick={openSignUp} className={styles.signIn} role='button' tabIndex={0} onKeyPress={()=>{}}>Sign up</span>
                 {isSignUpOpen ?  <FormReg  closeSignUp={closeSignUp}/>    : '' }
@@ -93,6 +104,7 @@ function Header() {
                 <span onClick={openSignIn} className={styles.signUp} role='button' tabIndex={0} onKeyPress={()=>{}}>Sign in</span> 
                 {isSignInOpen ?  <FormLogin  closeSignIn={closeSignIn}/>    : '' }
               </div>
+            }
           </li>
 
           <li>

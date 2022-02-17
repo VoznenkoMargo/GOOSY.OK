@@ -5,6 +5,7 @@ import PropTypes from 'prop-types'
 // import NumberFormat from "react-number-format";
 import axios from "axios";
 import styles from './FormLogin.module.scss'
+import { saveToLS } from "../../utils/localStorage";
 
 
 
@@ -59,13 +60,10 @@ function FormLogin (props) {
         console.log('ok')
     }
     const handleSubmit = (userData) => {
-    console.log('pl')
-     console.log(userData);
-
      document.body.style.overflow = 'unset'
 
      axios.post("http://35.180.205.240:5000/api/customers/login", userData)
-	.then( ({ data }) => {console.log(data.token); closeSignIn()})
+	.then( ({ data }) => {saveToLS('authToken', data.token); saveToLS('userName', userData.name); closeSignIn()})
 	.catch(err => {console.log(err)})
 
 
