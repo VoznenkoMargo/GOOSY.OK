@@ -2,7 +2,7 @@
 /* eslint-disable no-underscore-dangle */
 /* eslint-disable default-param-last */
 import {
-  ADD_TO_CART,
+  ADD_TO_CART, ADD_TO_CART_MULTIPLY,
   DELETE_FROM_CART,
   DELETE_ITEM,
   GET_CART,
@@ -27,7 +27,7 @@ const cartItemsReducer = (state = initialState, { type, payload }) => {
       const newCartItems = [...state.cartItems];
       const index = newCartItems.findIndex((elem) => elem._id === payload._id);
       if (index === -1) {
-        const newItem = { ...payload, count: 1, inCart:true, };
+        const newItem = { ...payload, count: 1, inCart:true};
         saveToLS("cart", {
           cartItems: [...state.cartItems, newItem],
           counter: state.counter + 1,
@@ -46,6 +46,29 @@ const cartItemsReducer = (state = initialState, { type, payload }) => {
         counter: state.counter + 1,
       };
     }
+    case ADD_TO_CART_MULTIPLY: {
+      const newCartItems = [...state.cartItems];
+      const index = newCartItems.findIndex((elem) => elem._id === payload[0]._id);
+      if (index === -1) {
+        const newItem = { ...payload[0], count: payload[1], inCart:true};
+        saveToLS("cart", {
+          cartItems: [...state.cartItems, newItem],
+          counter: state.counter + payload[1],
+        });
+        return {
+          ...state,
+          cartItems: [...state.cartItems, newItem],
+          counter: state.counter + payload[1],
+        };
+      }
+      newCartItems[index].count += payload[1];
+      saveToLS("cart", { cartItems: newCartItems, counter: state.counter + 1 });
+      return {
+        ...state,
+        cartItems: newCartItems,
+        counter: state.counter + payload[1],
+      };
+    }
     case DELETE_ITEM: {
       const newCartItems = [...state.cartItems];
       const index = newCartItems.findIndex((elem) => elem._id === payload._id);
@@ -60,8 +83,6 @@ const cartItemsReducer = (state = initialState, { type, payload }) => {
       const newCartItems = [...state.cartItems];
       const index = newCartItems.findIndex((elem) => elem._id === payload._id);
       const count = newCartItems[index].count;
-      console.log(count);
-      console.log(index);
       newCartItems.splice(index, 1);
       saveToLS("cart", {
         cartItems: newCartItems,
