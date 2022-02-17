@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import styles from "./Item.module.scss";
 import AddCartBtn from "../AddCartBtn/AddCartBtn";
 
+
 function Item(props) {
   const { itemNo, imageUrls, categories, name, currentPrice, weight, count } =
     props;
@@ -27,7 +28,7 @@ function Item(props) {
 
       <div className={styles.priceInfo}>
         <h2 className={styles.price}>{currentPrice} ₴</h2>
-        <AddCartBtn cartItem={props} />
+          <AddCartBtn cartItem={props}/>
       </div>
     </div>
   );

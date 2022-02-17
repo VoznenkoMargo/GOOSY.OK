@@ -57,7 +57,7 @@ function CartItemContainer({ cartItems }) {
                       />
                     </div>
                     <p className={styles.currentPrice}>
-                      Price: {item.currentPrice} ₴
+                      Price: {item.currentPrice * item.count} ₴
                     </p>
                     <div className={styles.delete}>
                       <AiTwotoneDelete

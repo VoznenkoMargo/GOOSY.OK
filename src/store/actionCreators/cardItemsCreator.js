@@ -14,6 +14,7 @@ export const setIsLoadingCards = (isLoading) => ({
 });
 
 export const initCardItemsCreator = () => async (dispatch) => {
+
   dispatch(setIsLoadingCards(true));
   try {
     const { data } = await getProducts();

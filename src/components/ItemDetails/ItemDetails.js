@@ -1,20 +1,21 @@
 /* eslint-disable react/prop-types */
-import React, { useState } from "react";
+import React, {useState} from "react";
 import { FaPlus, FaMinus } from "react-icons/fa";
 import ArrowBack from "../ArrowBack/ArrowBack";
 import styles from "./ItemDetails.module.scss";
-import AddCartBtn from "../AddCartBtn/AddCartBtn";
+import AddCartBtnMultiply from "../AddCartBtn/AddCartBtnMultiply";
 
 function ItemDetails({ item }) {
-  const [count, setCount] = useState(0);
+  const [countDetail, setCountDetail] = useState(1);
   const decrement = () => {
-    if (count > 0) {
-      setCount(count - 1);
+    if (countDetail > 0) {
+      setCountDetail(countDetail - 1);
     }
   };
   const increment = () => {
-    setCount(count + 1);
+    setCountDetail(countDetail + 1);
   };
+
   return (
     <div className={styles.container}>
       <ArrowBack />
@@ -35,7 +36,7 @@ function ItemDetails({ item }) {
                 size={20}
                 onClick={decrement}
               />
-              <h4>{count}</h4>
+              <h4>{countDetail}</h4>
               <FaPlus
                 className={styles.plus}
                 fill="#fff"
@@ -45,7 +46,7 @@ function ItemDetails({ item }) {
             </div>
 
             <div className={styles.addToCart}>
-              <AddCartBtn cartItem={item} />
+              <AddCartBtnMultiply cartItem={item} countDetail={countDetail}/>
               <p className={styles.currentPrice}>
                 Price: {item.currentPrice} ₴
               </p>
