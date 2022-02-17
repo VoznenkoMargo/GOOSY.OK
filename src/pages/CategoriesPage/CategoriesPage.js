@@ -11,12 +11,16 @@ function CategoriesPage() {
   const history = useHistory();
   const dispatch = useDispatch();
   const items = useSelector((store) => store.items.itemsFind);
-  const [categories, setCategories] = useState([]);
+  const categories = useSelector((store) => store.items.categories);
+
+  const [categorises, setCategories] = useState([]);
   const [keyCategories, setKeyCategories] = useState([]);
   const [price, setPrice] = useState(["0", "990"]);
+  
   const setPri = (data) => {
     setPrice(data);
   };
+  
   const setCateg = (data) => {
     setCategories(data);
   };
@@ -25,11 +29,11 @@ function CategoriesPage() {
   const isError = false;
 
   useEffect(() => {
-    console.log(location);
     dispatch(initСategoriesItemsCreator(location));
   }, [location]);
 
   useEffect(() => {
+    console.log(categories);
     const allCategories =
       categories.length > 0
         ? `&categories=${categories.toString()}`

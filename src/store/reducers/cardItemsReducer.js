@@ -1,11 +1,12 @@
 /* eslint-disable default-param-last */
 
-import { GET_ITEMS, GET_FIND_ITEMS, SET_IS_LOADING_CARDS } from "../actions/cardItemsActions";
+import { GET_ITEMS, GET_FIND_ITEMS, SET_IS_LOADING_CARDS, SET_CATEGORIES } from "../actions/cardItemsActions";
 
 const initialState = {
   items: [],
   itemsFind: {},
   isLoading: false,
+  categories: []
 };
 
 const cardItemsReducer = (state = initialState, { type, payload }) => {
@@ -14,6 +15,9 @@ const cardItemsReducer = (state = initialState, { type, payload }) => {
       return { ...state, items: payload };
     }
 
+    case SET_CATEGORIES:{
+      return { ...state, categories: payload}
+    }
     case GET_FIND_ITEMS: {
       return { ...state, itemsFind: payload };
     }
