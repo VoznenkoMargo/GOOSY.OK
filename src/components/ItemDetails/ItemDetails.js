@@ -4,7 +4,6 @@ import { FaPlus, FaMinus } from "react-icons/fa";
 import ArrowBack from "../ArrowBack/ArrowBack";
 import styles from "./ItemDetails.module.scss";
 import AddCartBtnMultiply from "../AddCartBtn/AddCartBtnMultiply";
-// import AddCartBtn from "../AddCartBtn/AddCartBtn";
 
 function ItemDetails({ item }) {
   const [countDetail, setCountDetail] = useState(1);

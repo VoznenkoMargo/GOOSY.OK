@@ -8,18 +8,14 @@ import { ReactComponent as Cart } from "../../assets/svg/Buy.svg";
 import styles from "./AddCartBtn.module.scss";
 // eslint-disable-next-line import/named
 import { addToCartMultiplyCreator } from "../../store/actionCreators/cartItemsCreator";
-// import { updatedProduct } from "../../axios";
 
 function AddCartBtnMultiply(props) {
+
   const dispatch = useDispatch();
+
   const { cartItem, countDetail } = props;
-  // const newCartItem = {
-  //   cartItem,
-  //   inCart: true,
-  // };
+
   const handleClick = () => {
-    // const { data } = updatedProduct(cartItem._id, { cartItem, newCartItem });
-    // console.log(data);
     dispatch(addToCartMultiplyCreator(cartItem, countDetail));
   };
 
