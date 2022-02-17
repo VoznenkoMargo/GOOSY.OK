@@ -87,10 +87,11 @@ function Header() {
 
           <li className={styles.contact}>
               <div className={styles.signInsignUp}>
-                <span  onClick={openSignIn} className={styles.signIn} role='button' tabIndex={0} onKeyPress={()=>{}}>Sign in</span>
-                {isSignInOpen ?  <FormLogin  closeSignIn={closeSignIn}/>    : '' }
-                <span onClick={openSignUp} className={styles.signUp} role='button' tabIndex={0} onKeyPress={()=>{}}>Sign up</span> 
+                <span  onClick={openSignUp} className={styles.signIn} role='button' tabIndex={0} onKeyPress={()=>{}}>Sign up</span>
                 {isSignUpOpen ?  <FormReg  closeSignUp={closeSignUp}/>    : '' }
+
+                <span onClick={openSignIn} className={styles.signUp} role='button' tabIndex={0} onKeyPress={()=>{}}>Sign in</span> 
+                {isSignInOpen ?  <FormLogin  closeSignIn={closeSignIn}/>    : '' }
               </div>
           </li>
 
