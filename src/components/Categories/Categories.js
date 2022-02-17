@@ -27,7 +27,6 @@ function Categories() {
   });
 
   const setCategories = (categories)=>{
-    console.log(categories);
     dispatch(initCategories(categories))
   }
 
