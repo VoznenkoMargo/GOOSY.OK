@@ -1,5 +1,3 @@
-/* eslint-disable no-undef */
-/* eslint-disable no-underscore-dangle */
 /* eslint-disable react/prop-types */
 import React, { useEffect, useState } from "react";
 import { useRouteMatch } from "react-router-dom";

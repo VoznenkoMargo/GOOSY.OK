@@ -1,14 +1,14 @@
+/* eslint-disable react/prop-types */
 import React, { useState } from "react";
 import { FiSearch } from "react-icons/fi";
-// import { useHistory, Link, useRouteMatch } from "react-router-dom";
 import Notiflix from "notiflix";
 import { useDispatch } from "react-redux";
-import styles from "../Header.module.scss"
+
+import styles from "../Header.module.scss";
 import { searchItemsCreator } from "../../../store/actionCreators/searchItemsCreator";
 
-function Search() {
+function Search({ disabled }) {
   const dispatch = useDispatch();
-
   const [text, setText] = useState("");
   const searchPhrases = {
     query: text.toLowerCase(),
@@ -21,11 +21,9 @@ function Search() {
 
   const searchHandler = (event) => {
     event.preventDefault();
-    console.log("enter press here!");
-    if (text.trim() !== "") {
+    if (text.trim()) {
       dispatch(searchItemsCreator(searchPhrases));
-    }
-    if (text.trim() === "") {
+    } else {
       Notiflix.Notify.failure("Enter your request, please!");
     }
     setText("");
@@ -34,7 +32,9 @@ function Search() {
   return (
     <div>
       <form className={styles.formSearch}>
-        <input className={styles.inputSearch}
+        <input
+          disabled={disabled}
+          className={styles.inputSearch}
           type="text"
           placeholder="What would you like to eat?"
           value={text}

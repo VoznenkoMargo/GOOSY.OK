@@ -1,13 +1,13 @@
-/* eslint-disable react/prop-types */
-/* eslint-disable react/function-component-definition */
-
 import React from "react";
-import { CircularProgress } from "@mui/material"; // https://mui.com/api/circular-progress/
-import "./Preloader.scss";
+import { CircularProgress } from "@mui/material";
+import styles from "./Preloader.module.scss";
 
-const Preloader = (props) => {
-  const { color, size } = props;
-  return <CircularProgress className="preloader" color={color} size={size} />;
-};
+function Preloader() {
+  return (
+    <div className={styles.loadWrapper}>
+      <CircularProgress className="preloader" color="success" />
+    </div>
+  );
+}
 
 export default Preloader;

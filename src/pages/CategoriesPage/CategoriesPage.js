@@ -4,7 +4,6 @@ import { useSelector, useDispatch } from "react-redux";
 import Find from "../../components/Find/Find";
 import style from "./CategoriesPage.module.scss";
 import ItemsContainer from "../../components/ItemsContainer/ItemsContainer";
-// import Select from "../../components/Select/Select";
 import { initСategoriesItemsCreator } from "../../store/actionCreators/cardItemsCreator";
 
 function CategoriesPage() {
@@ -30,13 +29,12 @@ function CategoriesPage() {
       categories.length > 0
         ? `&categories=${categories.toString()}`
         : [""].toString();
-    
+
     const rangePrice = `minPrice=${price[0]}&maxPrice=${price[1]}`;
     history.push(`?${rangePrice}${allCategories}`);
   }, [categories, price]);
 
   useEffect(() => {
-    console.log(location);
     dispatch(initСategoriesItemsCreator(location));
   }, [location]);
 
@@ -51,12 +49,11 @@ function CategoriesPage() {
         <Find price={price} setPri={setPri} setCateg={setCateg} />
       </div>
       <div>
-        {/* <Select /> */}
-
         {keyCategories &&
           keyCategories.map((item) => {
             return (
               <ItemsContainer
+                key={item}
                 header={`${item}`}
                 items={items[`${item}`]}
                 isLoading={isLoading}

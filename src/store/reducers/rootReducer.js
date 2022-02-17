@@ -3,10 +3,10 @@ import cardItemsReducer from "./cardItemsReducer";
 import cartItemsReducer from "./cartItemsReducer";
 import searchItemsReducer from "./searchItemsReducer";
 
-const appReducer = combineReducers({
+const rootReducer = combineReducers({
   items: cardItemsReducer,
   cart: cartItemsReducer,
   search: searchItemsReducer,
 });
 
-export default appReducer;
+export default rootReducer;

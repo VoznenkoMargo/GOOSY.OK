@@ -1,1 +1,2 @@
-export {default} from "./FooterNav"
+/* eslint-disable no-restricted-exports */
+export { default } from "./FooterNav";
