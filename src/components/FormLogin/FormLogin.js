@@ -3,7 +3,7 @@ import { Formik, Form, Field } from "formik";
 import * as yup from 'yup';
 import PropTypes from 'prop-types'
 // import NumberFormat from "react-number-format";
-import axios from "axios";
+// import axios from "axios";
 import styles from './FormLogin.module.scss'
 
 
@@ -77,10 +77,10 @@ function FormLogin (props) {
 
      document.body.style.overflow = 'unset'
 
-     axios.post("http://35.180.205.240:5000/api/customers", newCustomer)
-	.then(savedCustomer => {
-        console.log(savedCustomer)})
-	.catch(err => {console.log(err)})
+    //  axios.post("http://35.180.205.240:5000/api/customers", newCustomer)
+	// .then(savedCustomer => {
+    //     console.log(savedCustomer)})
+	// .catch(err => {console.log(err)})
     }
 
 
@@ -89,7 +89,7 @@ function FormLogin (props) {
         <div ref={ref} className={styles.modalContent}>
             <Formik initialValues={initialValues} handleKeyDown={handleKeyDown} closeSingIn={closeSignIn} onSubmit={handleSubmit} validationSchema={validationSchema} validateOnBlur>
 
-                {({handleBlur, values, errors, touched, isValid, dirty})=>{
+                {({ errors, touched, isValid, dirty})=>{
                 
                     
                     return (
@@ -101,7 +101,7 @@ function FormLogin (props) {
                         </div> 
 
                         <label htmlFor='firstName'> First Name* 
-                            <Field className={styles.form_input} type='text'  name='firstName' placeholder="Name"  onBlur={handleBlur} value={values.firstName} />
+                            <Field className={styles.form_input} type='text'  name='firstName' placeholder="Name"   />
                             {touched.firstName && errors.firstName && <p className={styles.form_input_error}>{errors.firstName}</p>}
                         </label>
 

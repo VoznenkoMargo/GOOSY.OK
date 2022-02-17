@@ -7,7 +7,7 @@ import CartBtn from "./CartBtn/CartBtn";
 import Search from "./Search/Search";
 import Categories from "../Categories/Categories";
 import FormLogin from "../FormLogin/FormLogin";
-
+import FormReg from "../FormReg/FormReg";
 
 
 
@@ -31,8 +31,15 @@ function Header() {
     setSignInOpen(false)
    
    }
+
+   const openSignUp = ()=>{
+    setSignUpOpen(true)
+  }
   
-  
+  const closeSignUp = () => {
+    setSignUpOpen(false)
+   
+   }
 
   return (
     <div id='header'>
@@ -81,8 +88,9 @@ function Header() {
           <li className={styles.contact}>
               <div className={styles.signInsignUp}>
                 <span  onClick={openSignIn} className={styles.signIn} role='button' tabIndex={0} onKeyPress={()=>{}}>Sign in</span>
-               {isSignInOpen ?  <FormLogin  closeSignIn={closeSignIn}/>    : '' }
-                <span className={styles.signUp}>Sign up</span> 
+                {isSignInOpen ?  <FormLogin  closeSignIn={closeSignIn}/>    : '' }
+                <span onClick={openSignUp} className={styles.signUp} role='button' tabIndex={0} onKeyPress={()=>{}}>Sign up</span> 
+                {isSignUpOpen ?  <FormReg  closeSignUp={closeSignUp}/>    : '' }
               </div>
           </li>
 
