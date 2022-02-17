@@ -19,16 +19,16 @@ const cardItemsReducer = (state = initialState, { type, payload }) => {
 ////////////////
 
     case SET_CATEGORIES:{
-      const newCategories = [...initialState.categories];
-      console.log(initialState.categories);
+      const newCategories = [...state.categories];
+      console.log(payload);
     if (!newCategories.includes(payload)) {
-      console.log('push');
-      newCategories.push(payload)
+      console.log(newCategories,'push',payload);
+      newCategories.push(payload) 
       console.log(newCategories);
       return { ...state, categories: newCategories}
       } else {
         console.log('splice');
-      const index = newCategories.findIndex((i) => i === value);
+      const index = newCategories.findIndex((i) => i === payload);
       newCategories.splice(index, 1);
       return { ...state, categories: newCategories}
       }

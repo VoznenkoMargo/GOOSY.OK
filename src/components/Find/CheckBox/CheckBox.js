@@ -10,10 +10,10 @@ function CheckBox({ setCateg }) {
   const dispatch = useDispatch()
 
   useEffect(() => {
-    console.log(categories);
   }, [categories]);
 
   const setChecked = (id)=>{
+    console.log(categories);
     if(categories.includes(id)){
         return true
     } else {return false}
@@ -46,26 +46,28 @@ function CheckBox({ setCateg }) {
           <p>Soup</p>
         </label>
         <label htmlFor="salads">
-          <input id="salads" type="checkbox" onChange={change} value="salads" />
+          <input id="salads" type="checkbox" checked={setChecked('salads')} onChange={change} value="salads" />
           <p>Salads</p>
         </label>
         <label htmlFor="main dishes">
           <input
             id="main dishes"
             type="checkbox"
+            checked={setChecked('main dishes')}
             onChange={change}
             value="main dishes"
           />
           <p>Main Dishes</p>
         </label>
         <label htmlFor="desert">
-          <input id="desert" type="checkbox" onChange={change} value="desert" />
+          <input id="desert" type="checkbox" checked={setChecked('desert')} onChange={change} value="desert" />
           <p>Desert</p>
         </label>
         <label htmlFor="hot snaks">
           <input
-            id="hotSnaks"
+            id="hot snaks"
             type="checkbox"
+            checked={setChecked('hot snaks')}
             onChange={change}
             value="hot snaks"
           />

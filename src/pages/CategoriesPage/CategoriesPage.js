@@ -33,7 +33,6 @@ function CategoriesPage() {
   }, [location]);
 
   useEffect(() => {
-    console.log(categories);
     const allCategories =
       categories.length > 0
         ? `&categories=${categories.toString()}`
