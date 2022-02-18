@@ -4,8 +4,7 @@ import { initCategories } from "../../../store/actionCreators/cardItemsCreator";
 import PropTypes from "prop-types";
 import style from "./CheckBox.module.scss";
 
-function CheckBox({ setCateg }) {
-  const [filter, setFilter] = useState([]);
+function CheckBox() {
   const categories = useSelector((store) => store.items.categories);
   const dispatch = useDispatch()
 
