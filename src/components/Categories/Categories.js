@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import "./Categories.scss";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import {initCategories} from '../../store/actionCreators/cardItemsCreator'
 
@@ -9,6 +9,9 @@ import {initCategories} from '../../store/actionCreators/cardItemsCreator'
 function Categories() {
   const [scrolled, setScrolled] = useState(false);
   const dispatch = useDispatch()
+  const categories = useSelector((store) => store.items.categories);
+  
+
   const handleScroll = () => {
     const offset = window.scrollY;
     if (offset > 98) {
@@ -29,24 +32,29 @@ function Categories() {
   const setCategories = (categories)=>{
     dispatch(initCategories(categories))
   }
+  const setActivClass = (id)=>{
+    if(categories.includes(id)){
+        return 'categories_item_link categories_item_link_active'
+    } else {return 'categories_item_link'}
+  }
 
   return (
     <div id="navbar" className="categories_block">
       <div className="container">
         <div className="categories_items">
-          <NavLink
+         <NavLink
             to = "/products/filter?minPrice=0&maxPrice=990&categories=cold snaks"
-            className="categories_item_link"
-            activeClassName="categories_item_link_active"
+            className={setActivClass('cold snaks')}
+            // activeClassName="categories_item_link_active"
             onClick={()=>setCategories('cold snaks')}
           >
             Cold snacks{" "}
           </NavLink>
-
+  
           <NavLink
             to="/products/filter?minPrice=0&maxPrice=990&categories=hot snaks"
-            className="categories_item_link"
-            activeClassName="categories_item_link_active"
+            className={setActivClass('hot snaks')}
+            // activeClassName="categories_item_link_active"
             onClick={()=>setCategories('hot snaks')}
 
           >
@@ -55,8 +63,8 @@ function Categories() {
 
           <NavLink
             to="/products/filter?minPrice=0&maxPrice=990&categories=main dishes"
-            className="categories_item_link"
-            activeClassName="categories_item_link_active"
+            className={setActivClass('main dishes')}
+            // activeClassName="categories_item_link_active"
             onClick={()=>setCategories('main dishes')}
 
           >
@@ -65,8 +73,8 @@ function Categories() {
 
           <NavLink
             to="/products/filter?minPrice=0&maxPrice=990&categories=soup"
-            className="categories_item_link"
-            activeClassName="categories_item_link_active"
+            className={setActivClass('soup')}
+            // activeClassName="categories_item_link_active"
             onClick={()=>setCategories('soup')}
 
           >
@@ -75,32 +83,32 @@ function Categories() {
 
           <NavLink
             to="/products/filter?minPrice=0&maxPrice=990&categories="
-            className="categories_item_link"
-            activeClassName="categories_item_link_active"
+            className={setActivClass('Fish dishes')}  //// нет у нас
+            // activeClassName="categories_item_link_active"
           >
             Fish dishes
           </NavLink>
 
           <NavLink
             to="/products/filter?minPrice=0&maxPrice=990&categories="
-            className="categories_item_link"
-            activeClassName="categories_item_link_active"
+            className={setActivClass('Grill menu')} //// нет у нас
+            // activeClassName="categories_item_link_active"
           >
             Grill menu
           </NavLink>
 
           <NavLink
             to="/products/filter?minPrice=0&maxPrice=990&categories="
-            className="categories_item_link"
-            activeClassName="categories_item_link_active"
+            className={setActivClass('Specialties')} //// нет у нас
+            // activeClassName="categories_item_link_active"
           >
             Specialties{" "}
           </NavLink>
 
           <NavLink
             to="/products/filter?minPrice=0&maxPrice=990&categories="
-            className="categories_item_link"
-            activeClassName="categories_item_link_active"
+            className={setActivClass('Beverages')} //// нет у нас
+            // activeClassName="categories_item_link_active"
           >
             Beverages
           </NavLink>
