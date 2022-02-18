@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { initCategories } from "../../../store/actionCreators/cardItemsCreator";
-import PropTypes from "prop-types";
+
 import style from "./CheckBox.module.scss";
 
 function CheckBox() {
@@ -77,8 +77,6 @@ function CheckBox() {
   );
 }
 
-CheckBox.propTypes = {
-  setCateg: PropTypes.func.isRequired
-}
+
 
 export default CheckBox;

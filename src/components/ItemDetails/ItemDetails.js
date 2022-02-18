@@ -1,11 +1,12 @@
-/* eslint-disable react/prop-types */
 import React, {useState} from "react";
+import PropTypes from "prop-types";
 import { FaPlus, FaMinus } from "react-icons/fa";
 import ArrowBack from "../ArrowBack/ArrowBack";
 import styles from "./ItemDetails.module.scss";
 import AddCartBtnMultiply from "../AddCartBtn/AddCartBtnMultiply";
 
 function ItemDetails({ item }) {
+  console.log(item)
   const [countDetail, setCountDetail] = useState(1);
   const decrement = () => {
     if (countDetail > 0) {
@@ -58,6 +59,29 @@ function ItemDetails({ item }) {
   );
 }
 
+ItemDetails.propTypes = {
+  item: PropTypes.shape({
+    itemNo: PropTypes.string,
+    name: PropTypes.string,
+    currentPrice: PropTypes.number,
+    description:PropTypes.string,
+    imageUrls: PropTypes.arrayOf(PropTypes.string),
+    weight:PropTypes.number,   
+
+  })
+}
+
+ItemDetails.defaultProps = {
+  item: PropTypes.shape({
+    itemNo: "",
+    name: "",
+    currentPrice: 0,
+    description: "",
+    imageUrls: [""],
+    weight: 0,   
+
+  })
+}
 
 
 export default ItemDetails;
