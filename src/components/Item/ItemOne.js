@@ -1,6 +1,6 @@
-/* eslint-disable no-underscore-dangle */
-/* eslint-disable react/prop-types */
 import React from "react";
+import PropTypes from "prop-types";
+
 import styles from "./Item.module.scss";
 import AddCartBtn from "../AddCartBtn/AddCartBtn";
 
@@ -55,6 +55,26 @@ function Item({ items }) {
       ))} */}
     </div>
   );
+}
+
+Item.propTypes = {
+  item: PropTypes.shape({
+    _id: PropTypes.string,    
+    name: PropTypes.string,
+    currentPrice: PropTypes.number,    
+    imageUrls: PropTypes.arrayOf(PropTypes.string),  
+
+  })
+}
+
+Item.defaultProps = {
+  item: PropTypes.shape({
+    _id:0,
+    name: "",
+    currentPrice: 0,
+    imageUrls: [""],     
+
+  })
 }
 
 export default Item;
