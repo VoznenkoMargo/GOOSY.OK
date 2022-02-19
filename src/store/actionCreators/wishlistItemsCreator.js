@@ -30,6 +30,7 @@ export const addProductToUserWishlist = (productId) => async (dispatch) => {
         const result = await addProductToWishlist(productId);
         if(result.status === 200)
         dispatch({type: ADD_PRODUCTS_TO_WISHLIST, payload: result.data.products})
+        
     } catch (error) {
         console.error("Some Error");
     }
@@ -41,6 +42,7 @@ export const deleteProductFromUserWishlist = (productId) => async (dispatch) => 
         const result = await deleteProducFromWishlist(productId);
         if(result.status === 200)
         dispatch({type: DELETE_PRODUCTS_FROM_WISHLIST, payload: result.data.products})
+        
     } catch (error) {
         console.error("Some Error");
     }

@@ -19,12 +19,28 @@ function Item(props) {
 const dispatch = useDispatch();
 const {wishlistItems, isFavoriteItems} = useSelector(store => store.wishlist)
 
+console.log(wishlistItems);
+// useEffect(() => {
+//   dispatch(getUserWishlist())
+// }, [isFavoriteItems])
 
-useEffect(() => {
-  dispatch(getUserWishlist())
-}, [isFavoriteItems])
+// useEffect(() => {
+//   dispatch(getUserWishlist())
+// }, [])
 
 
+function handleAddWishlistItem(id) {
+  dispatch(addProductToUserWishlist(id))
+  // dispatch(getUserWishlist())
+}
+
+function handleDeleteWishlistItem(id) {
+  if(wishlistItems.length === 1){
+    dispatch(deleteUserWishlist())
+    }else
+  dispatch(deleteProductFromUserWishlist(id))
+  // dispatch(getUserWishlist())
+}
 
 
   return (
@@ -36,24 +52,13 @@ useEffect(() => {
       icon={faHeart}
       size="2x"
       className={styles.item_favorite_active}
-      onClick={
-        ()=>{
-          if(wishlistItems.length===1){
-          dispatch(deleteUserWishlist())
-          }else
-        dispatch(deleteProductFromUserWishlist(_id))
-        dispatch(getUserWishlist())
-      }
+      onClick={()=>{handleDeleteWishlistItem(_id)}
     }/> : 
       <FontAwesomeIcon  
        icon={faHeart}
        size="2x"
        className={styles.item_favorite}
-       onClick={
-         ()=>{
-         dispatch(addProductToUserWishlist(_id))
-         dispatch(getUserWishlist())
-       }
+       onClick={()=>{handleAddWishlistItem(_id)}
       }
        />}
       

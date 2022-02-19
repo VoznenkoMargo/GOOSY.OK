@@ -6,6 +6,7 @@ import Carousel from "../../components/Carousel/Carousel";
 import ItemsContainer from "../../components/ItemsContainer/ItemsContainer";
 import { initCardItemsCreator } from "../../store/actionCreators/cardItemsCreator";
 
+
 const ProductsPage = () => {
   const items = useSelector((store) => store.items.items);
   const { searchItems, isSearched } = useSelector((store) => store.search);
@@ -14,6 +15,7 @@ const ProductsPage = () => {
   useEffect(() => {
     dispatch(initCardItemsCreator());
   }, []);
+
 
   return (
     <div>

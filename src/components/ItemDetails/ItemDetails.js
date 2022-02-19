@@ -13,10 +13,21 @@ import { addProductToUserWishlist, getUserWishlist, deleteProductFromUserWishlis
 function ItemDetails({ item }) {
 
   const dispatch = useDispatch();
-  const {wishlistItems, isFavoriteItems} = useSelector(store => store.wishlist)
+  const {wishlistItems} = useSelector(store => store.wishlist)
   useEffect(() => {
     dispatch(getUserWishlist()) 
-  }, [isFavoriteItems])
+  }, [])
+
+  function handleAddWishlistItem(id) {
+    dispatch(addProductToUserWishlist(id))
+  }
+  
+  function handleDeleteWishlistItem(id) {
+    if(wishlistItems.length === 1){
+      dispatch(deleteUserWishlist())
+      }else
+    dispatch(deleteProductFromUserWishlist(id))
+  }
 
   const [count, setCount] = useState(0);
   const decrement = () => {
@@ -61,26 +72,13 @@ function ItemDetails({ item }) {
       icon={faHeart}
       size="2x"
       className={styles.itemDetalis_favorite_active}
-      onClick={()=>{
-        if(wishlistItems.length === 1){
-          dispatch(deleteUserWishlist())
-          }else
-        dispatch(deleteProductFromUserWishlist(item._id))
-        dispatch(getUserWishlist())
-      }}/> : 
+      onClick={()=>{handleDeleteWishlistItem(item._id)}}/> : 
       <FontAwesomeIcon  
        icon={faHeart}
        size="2x"
        className={styles.itemDetalis_favorite}
-       onClick={()=>{
-         dispatch(addProductToUserWishlist(item._id))
-         dispatch(getUserWishlist())
-       }}/>}
-
-
-
-
-            
+       onClick={()=>{handleAddWishlistItem(item._id)}}/>
+       }
 
             <div className={styles.addToCart}>
               <AddCartBtn cartItem={item} />

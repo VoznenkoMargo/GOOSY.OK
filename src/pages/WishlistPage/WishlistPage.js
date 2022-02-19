@@ -7,12 +7,12 @@ import styles from './WishlistPage.module.scss';
 
 function WishlistPage() {
 
-  const {wishlistItems, isFavoriteItems} = useSelector(store => store.wishlist)
+  const {wishlistItems} = useSelector(store => store.wishlist)
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(getUserWishlist())
-  }, [isFavoriteItems])
+  }, [])
 
   return (
     <div className={styles.wishlistPage}>
@@ -42,4 +42,4 @@ function WishlistPage() {
   )
 }
 
-export default WishlistPage
+export default WishlistPage;

@@ -1,8 +1,8 @@
 /* eslint-disable arrow-body-style */
 /* eslint-disable react/function-component-definition */
 /* eslint-disable react/prop-types */
-import React from "react";
-
+import React, {useEffect} from "react";
+import { getUserWishlist } from "../../store/actionCreators/wishlistItemsCreator";
 import { useSelector, useDispatch } from "react-redux";
 import { Link, useRouteMatch } from "react-router-dom";
 import { BiHomeAlt, BiDish } from "react-icons/bi";
@@ -27,9 +27,16 @@ const ItemsContainer = (props) => {
   //   }
   // }
 
+const dispatch = useDispatch();
+
+useEffect(() => {
+  dispatch(getUserWishlist())
+}, [])
+
+
   const { isSearched } = useSelector((store) => store.search);
   const match = useRouteMatch();
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
   return (
     <div className="container">

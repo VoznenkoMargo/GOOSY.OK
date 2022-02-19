@@ -19,11 +19,13 @@ const wishlistItemsReducer = (state = initialState, { type, payload }) => {
   }
 
   case ADD_PRODUCTS_TO_WISHLIST: {
-    return {...state, isFavoriteItems: {...payload}}
+    // return {...state, isFavoriteItems: {...payload}}
+    return {...state, wishlistItems: [...payload]}
   }
 
   case DELETE_PRODUCTS_FROM_WISHLIST: {
-    return {...state, isFavoriteItems: {...payload}}
+    // return {...state, isFavoriteItems: {...payload}}
+    return {...state, wishlistItems: [...payload]}
   }
 
   case DELETE_WISHLIST: {
