@@ -9,6 +9,11 @@ import PrivacyPolicyPage from "../pages/FooterPages/PrivacyPolicyPage";
 import UserAgrPage from "../pages/FooterPages/UserAgrPage/UserAgrPage";
 import AboutPage from "../pages/FooterPages/AboutPage/AboutPage";
 import PaymentAndDeliveryPage from "../pages/FooterPages/PaymentAndDeliveryPage/PaymentAndDeliveryPage";
+import NewsAndEventsPage from "../pages/FooterPages/NewsAndEventsPage/NewsAndEventsPage";
+import CardNewsAndEventsGoosePage from "../pages/FooterPages/NewsAndEventsPage/CardNewsAndEventsGoosePage/CardNewsAndEventsGoosePage";
+import CardNewsAndEventsMasterPage from "../pages/FooterPages/NewsAndEventsPage/CardNewsAndEventsMasterPage/CardNewsAndEventsMasterPage";
+import CardNewsAndEventsSitePage from "../pages/FooterPages/NewsAndEventsPage/CardNewsAndEventsSitePage/CardNewsAndEventsSitePage";
+import CardNewsAndEventsWorkingPage from "../pages/FooterPages/NewsAndEventsPage/CardNewsAndEventsWorkingPage/CardNewsAndEventsWorkingPage";
 import NotFoundPage from "../pages/NotFoundPage/NotFoundPage";
 import WishlistPage from "../pages/WishlistPage/WishlistPage";
 
@@ -32,11 +37,17 @@ function Routes() {
           path="/payment-and-delivery"
           component={PaymentAndDeliveryPage}
         />
+        <Route exact path="/news-and-events" component={NewsAndEventsPage} /> 
+            <Route exact path="/news-and-events/Goose Day" component={CardNewsAndEventsGoosePage} />
+            <Route exact path="/news-and-events/Site in a test mode" component={CardNewsAndEventsSitePage} />
+            <Route exact path="/news-and-events/Master Class" component={CardNewsAndEventsMasterPage} />
+            <Route exact path="/news-and-events/Working hours during the holidays" component={CardNewsAndEventsWorkingPage} />
         <Route exact path="/wishlist" component={WishlistPage} />
         <Route component={NotFoundPage} />
       </Switch>
     </Suspense>
   );
+
 }
 
 export default Routes;
