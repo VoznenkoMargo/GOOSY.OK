@@ -5,6 +5,7 @@ import styles from "./Header.module.scss";
 import Contact from "./Contact/Contact";
 import CartBtn from "./CartBtn/CartBtn";
 import Search from "./Search/Search";
+import HeartFromWishlist from "../HeartFromWishlist/HeartFromWishlist";
 
 function Header() {
   return (
@@ -48,6 +49,25 @@ function Header() {
               <Contact />
             </NavLink>
           </li>
+
+
+          
+
+          <li>
+            <NavLink
+              style={() => {
+                return {
+                  textDecoration: "none",
+                  color: "#cfcfcf",
+                }}}
+              to="/wishlist">            
+              <HeartFromWishlist />
+            </NavLink>
+          </li>
+
+
+
+
 
           <li>
             <NavLink
