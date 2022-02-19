@@ -10,6 +10,7 @@ import UserAgrPage from "../pages/FooterPages/UserAgrPage/UserAgrPage";
 import AboutPage from "../pages/FooterPages/AboutPage/AboutPage";
 import PaymentAndDeliveryPage from "../pages/FooterPages/PaymentAndDeliveryPage/PaymentAndDeliveryPage";
 import NotFoundPage from "../pages/NotFoundPage/NotFoundPage";
+import WishlistPage from "../pages/WishlistPage/WishlistPage";
 
 const ProductsPage = React.lazy(() => import("../pages/ProductsPage"));
 
@@ -31,6 +32,7 @@ function Routes() {
           path="/payment-and-delivery"
           component={PaymentAndDeliveryPage}
         />
+        <Route exact path="/wishlist" component={WishlistPage} />
         <Route component={NotFoundPage} />
       </Switch>
     </Suspense>

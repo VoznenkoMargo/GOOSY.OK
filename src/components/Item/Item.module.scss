@@ -11,6 +11,32 @@
   color: white;
   padding-bottom: 10px;
 
+position: relative;
+  .item_favorite{
+position: absolute;
+left: 5%;
+top: 3%;
+opacity: .4;
+cursor: pointer;
+  }
+
+  .item_favorite_active{
+    position: absolute;
+left: 5%;
+top: 3%;
+opacity: .8;
+cursor: pointer;
+    color:#79b382;
+  }
+
+  .item_favorite_active:hover{
+    opacity: 1;
+  }
+
+  .item_favorite:hover{
+    opacity: .8;
+  }
+
   .cardStyles {
     padding: 20px;
   }

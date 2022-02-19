@@ -7,6 +7,7 @@ import Contact from "./Contact/Contact";
 import CartBtn from "./CartBtn/CartBtn";
 import Search from "./Search/Search";
 import { clearSearchItemsCreator } from "../../store/actionCreators/searchItemsCreator";
+import HeartFromWishlist from "../HeartFromWishlist/HeartFromWishlist";
 
 function Header() {
   const dispatch = useDispatch();
@@ -64,6 +65,26 @@ function Header() {
               <Contact />
             </NavLink>
           </li>
+
+
+          
+
+          <li>
+            <NavLink
+              style={() => {
+                return {
+                  textDecoration: "none",
+                  color: "#cfcfcf",
+                }}}
+              to="/wishlist">            
+              <HeartFromWishlist />
+            </NavLink>
+          </li>
+
+
+
+
+
           <li>
             <NavLink
               style={{ textDecoration: "none" }}

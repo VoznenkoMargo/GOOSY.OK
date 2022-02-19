@@ -2,8 +2,9 @@
 import axios from "axios";
 import Notiflix from "notiflix";
 
+// axios.defaults.headers.common['Authorization'] = localStorage.getItem("token");
 const instance = axios.create({
-  baseURL: "http://35.180.205.240:5000/api",
+  baseURL: "http://goos-ok.herokuapp.com/api",
 });
 
 instance.interceptors.response.use(
