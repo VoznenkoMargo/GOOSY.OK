@@ -1,14 +1,14 @@
 import React from "react";
 import PropTypes from "prop-types";
 import style from "./Find.module.scss";
-import CheckBox from "./CheckBox/CheckBox";
+import CheckBoxContainer from "./CheckBoxContainer/CheckBoxContainer";
 import FindPrice from "./FindPrice/FindPrice";
 
 function Find({  setPri, price }) {
   return (
     <div className={style.find}>
       <p className={style.title}>Check filters</p>
-      <CheckBox  />
+      <CheckBoxContainer/>
       <FindPrice price={price} setPri={setPri} />
     </div>
   );
