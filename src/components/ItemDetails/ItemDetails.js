@@ -1,20 +1,32 @@
-/* eslint-disable react/prop-types */
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { addProductToUserWishlist, getUserWishlist, deleteProductFromUserWishlist, deleteUserWishlist } from "../../store/actionCreators/wishlistItemsCreator";
+import PropTypes from "prop-types";
 import { FaPlus, FaMinus } from "react-icons/fa";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {faHeart} from "@fortawesome/free-solid-svg-icons";
 import ArrowBack from "../ArrowBack/ArrowBack";
 import styles from "./ItemDetails.module.scss";
-import AddCartBtn from "../AddCartBtn/AddCartBtn";
+import AddCartBtnMultiply from "../AddCartBtn/AddCartBtnMultiply";
+
 
 function ItemDetails({ item }) {
-  const [count, setCount] = useState(0);
+  const [countDetail, setCountDetail] = useState(1);
+  const dispatch = useDispatch();
+  const {wishlistItems, isFavoriteItems} = useSelector(store => store.wishlist)
+  useEffect(() => {
+    dispatch(getUserWishlist()) 
+  }, [isFavoriteItems])
+
   const decrement = () => {
-    if (count > 0) {
-      setCount(count - 1);
+    if (countDetail > 0) {
+      setCountDetail(countDetail - 1);
     }
   };
   const increment = () => {
-    setCount(count + 1);
+    setCountDetail(countDetail + 1);
   };
+
   return (
     <div className={styles.container}>
       <ArrowBack />
@@ -28,6 +40,8 @@ function ItemDetails({ item }) {
             <p className={styles.description}>{item.description}</p>
             <p className={styles.itemNo}>id: {item.itemNo}</p>
             <p className={styles.weight}>weight: {item.weight} g</p>
+            
+<div className={styles.count_favorite_block}>
             <div className={styles.plusMinus}>
               <FaMinus
                 className={styles.minus}
@@ -35,26 +49,77 @@ function ItemDetails({ item }) {
                 size={20}
                 onClick={decrement}
               />
-              <h4>{count}</h4>
+              <h4>{countDetail}</h4>
               <FaPlus
                 className={styles.plus}
                 fill="#fff"
                 size={20}
-                onClick={increment}
-              />
+                onClick={increment}/>
             </div>
 
+            {wishlistItems.find((element)=>(element._id === item._id)) ? 
+      <FontAwesomeIcon  
+      icon={faHeart}
+      size="2x"
+      className={styles.itemDetalis_favorite_active}
+      onClick={()=>{
+        if(wishlistItems.length === 1){
+          dispatch(deleteUserWishlist())
+          }else
+        dispatch(deleteProductFromUserWishlist(item._id))
+        dispatch(getUserWishlist())
+      }}/> : 
+      <FontAwesomeIcon  
+       icon={faHeart}
+       size="2x"
+       className={styles.itemDetalis_favorite}
+       onClick={()=>{
+         dispatch(addProductToUserWishlist(item._id))
+         dispatch(getUserWishlist())
+       }}/>}
+
+
+
+
+            
+
             <div className={styles.addToCart}>
-              <AddCartBtn cartItem={item} />
+              <AddCartBtnMultiply cartItem={item} countDetail={countDetail}/>
               <p className={styles.currentPrice}>
                 Price: {item.currentPrice} ₴
               </p>
             </div>
-          </div>
+    </div>
+        </div>
         </div>
       )}
     </div>
-  );
+  )
 }
+
+ItemDetails.propTypes = {
+  item: PropTypes.shape({
+    itemNo: PropTypes.string,
+    name: PropTypes.string,
+    currentPrice: PropTypes.number,
+    description:PropTypes.string,
+    imageUrls: PropTypes.arrayOf(PropTypes.string),
+    weight:PropTypes.number,   
+
+  })
+}
+
+ItemDetails.defaultProps = {
+  item: PropTypes.shape({
+    itemNo: "",
+    name: "",
+    currentPrice: 0,
+    description: "",
+    imageUrls: [""],
+    weight: 0,   
+
+  })
+}
+
 
 export default ItemDetails;

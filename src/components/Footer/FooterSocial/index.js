@@ -1,1 +1,2 @@
-export {default} from './FooterSocial'
+/* eslint-disable no-restricted-exports */
+export { default } from "./FooterSocial";

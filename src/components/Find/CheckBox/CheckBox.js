@@ -1,60 +1,84 @@
+import React, { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { initCategories } from "../../../store/actionCreators/cardItemsCreator";
 
-import { useState } from "react";
-import style from "./CheckBox.module.scss"
+import style from "./CheckBox.module.scss";
 
-function CheckBox({ setCateg }) {
-  const [filter, setFilter] = useState([]);
+function CheckBox() {
+  const categories = useSelector((store) => store.items.categories);
+  const dispatch = useDispatch()
 
+  useEffect(() => {
+  }, [categories]);
+
+  const setChecked = (id)=>{
+    console.log(categories);
+    if(categories.includes(id)){
+        return true
+    } else {return false}
+  } 
 
   function change(e) {
-    const value = e.target.value;
-    const newFilter = [...filter];
-    if (e.target.checked) {
-      newFilter.push(value);
-    } else {
-        
-      const index = newFilter.findIndex((i) => i === value);
-      console.log(index);
-      newFilter.splice(index, 1);
-    //   index === 0 ? (newFilter.length = 0) : newFilter.splice(index, index);
-    }
-    console.log(newFilter);
-    setFilter(newFilter);
-    setCateg(newFilter);
+    const { value } = e.target;
+  //   if(!categories.includes(e.target.id)){
+  //     e.target.checked = true
+  // } else {e.target.checked = false}
+    dispatch(initCategories(value));
   }
 
   return (
     <div className={style.checkBox_container}>
       <form>
-        <label>
+        <label htmlFor="coldSnaks">
           <input
-            id="coldSnaks"
+            id="cold snaks"
             type="checkbox"
+            checked={setChecked('cold snaks')}
             onChange={change}
             value="cold snaks"
           />
           <p>Cold Snaks</p>
         </label>
-        <label>
-          <input id="soup" type="checkbox" onChange={change} value="soup" />
+        <label htmlFor="soup">
+            
+          <input id="soup"
+           type="checkbox"
+           checked={setChecked('soup')}
+             onChange={change}
+              value="soup" />
           <p>Soup</p>
         </label>
-        <label>
-          <input id="salads" type="checkbox" onChange={change} value="salads" />
+        <label htmlFor="salads">
+          <input id="salads"
+           type="checkbox"
+            checked={setChecked('salads')}
+             onChange={change}
+              value="salads" />
           <p>Salads</p>
         </label>
-        <label>
-          <input id="main dishes" type="checkbox" onChange={change} value="main dishes" />
+        <label htmlFor="main dishes">
+          <input
+            id="main dishes"
+            type="checkbox"
+            checked={setChecked('main dishes')}
+            onChange={change}
+            value="main dishes"
+          />
           <p>Main Dishes</p>
         </label>
-        <label>
-          <input id="desert" type="checkbox" onChange={change} value="desert" />
+        <label htmlFor="desert">
+          <input id="desert"
+           type="checkbox"
+            checked={setChecked('desert')}
+             onChange={change}
+              value="desert" />
           <p>Desert</p>
         </label>
-        <label>
+        <label htmlFor="hot snaks">
           <input
-            id="hotSnaks"
+            id="hot snaks"
             type="checkbox"
+            checked={setChecked('hot snaks')}
             onChange={change}
             value="hot snaks"
           />
@@ -64,4 +88,7 @@ function CheckBox({ setCateg }) {
     </div>
   );
 }
+
+
+
 export default CheckBox;

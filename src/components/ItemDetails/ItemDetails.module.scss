@@ -59,6 +59,25 @@
     font-weight: bold;
   }
 
+  .count_favorite_block{
+display: flex;
+gap: 20px;
+    .itemDetalis_favorite{
+align-self: center;
+color: #f1f1f1;
+cursor: pointer;
+}
+.itemDetalis_favorite:hover{
+  color: #cfcfcf;
+}
+.itemDetalis_favorite_active{
+    color:#79b382;
+    align-self: center;
+    cursor: pointer;
+  }
+
+  }
+
   .plusMinus {
     display: inline-flex;
     gap: 20px;

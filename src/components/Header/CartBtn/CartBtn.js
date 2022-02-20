@@ -1,10 +1,4 @@
-/* eslint-disable prefer-destructuring */
-/* eslint-disable react-hooks/rules-of-hooks */
-// eslint-disable react-hooks/rules-of-hooks
-
-// eslint-disable prefer-destructuring
 import React, { useEffect } from "react";
-
 import { useDispatch, useSelector } from "react-redux";
 import { FiShoppingCart } from "react-icons/fi";
 import { getFromLS } from "../../../utils/localStorage";

@@ -1,4 +1,3 @@
-/* eslint-disable import/prefer-default-export */
 import {
   SEARCH_ITEMS,
   CLEAR_SEARCH_ITEMS,
