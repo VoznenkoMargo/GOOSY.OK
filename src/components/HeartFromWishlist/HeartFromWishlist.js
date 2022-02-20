@@ -7,7 +7,7 @@ import styles from "./HeartFromWishlist.module.scss";
 function HeartFromWishlist() {
  const {wishlistItems} = useSelector(store => store.wishlist);
 
-  return ( <div>
+  return ( <div className={styles.heartFromWishlist}>
 {wishlistItems.length ? 
   <FontAwesomeIcon  
         icon={faHeart}

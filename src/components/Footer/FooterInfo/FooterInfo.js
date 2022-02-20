@@ -4,11 +4,13 @@ import styles from "./FooterInfo.module.scss";
 
 function FooterInfo() {
   return (
-      <div className={styles.footerInfo}>   
-          <h2>GOOSY.OK</h2>  
-          
+      <div className={styles.footerInfo}>    
     <nav>
     <ul>
+        <li>
+            <Link to="/" className={styles.footerInfo_logoName}>GOOSY.OK</Link>
+        </li>
+
         <li>
             <Link to="/news-and-events" className={styles.footerInfo_link}>News and Events</Link>
         </li>

@@ -1,6 +1,6 @@
 .footerInfo{
     text-align: left;
-    h2{
+    .footerInfo_logoName{
         padding: 26px 0px 15px 0px;
         font-weight: bold;
         font-size: 25px;
@@ -17,12 +17,11 @@
     
     li{
         padding-top: 10px;
-        text-decoration: underline;
     }
 }
 
 .footerInfo_link{
-    
+    text-decoration: underline;
     font-weight: 500;
     font-size: 14px;
     line-height: 16px;
@@ -50,4 +49,12 @@
         }
     }
   
+  }
+
+  @media screen and (max-width: 991px) {
+    .footerInfo{
+        li{
+            padding-top: 5px;
+        }
+    }
   }
