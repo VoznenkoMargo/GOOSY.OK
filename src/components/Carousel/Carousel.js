@@ -1,5 +1,6 @@
-/* eslint-disable react/prop-types */
+
 import React from "react";
+import PropTypes from "prop-types";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -8,6 +9,7 @@ import "./carousel.scss";
 
 function SamplePrevArrow(props) {
   const { className, onClick } = props;
+  
   return (
     <div className={className} onClick={onClick} aria-hidden>
       <ArrowBackIos className="arrowStyle" />
@@ -16,7 +18,7 @@ function SamplePrevArrow(props) {
 }
 
 function SampleNextArrow(props) {
-  const { className, onClick } = props;
+  const { className, onClick } = props;  
   return (
     <div className={className} onClick={onClick} aria-hidden>
       <ArrowForwardIos className="arrowStyle" />
@@ -78,6 +80,16 @@ function Carousel() {
       </Slider>
     </div>
   );
+}
+
+SamplePrevArrow.propTypes = {
+  className: PropTypes.string.isRequired,
+  onClick: PropTypes.func.isRequired
+}
+
+SampleNextArrow.propTypes = {
+  className: PropTypes.string.isRequired,
+  onClick: PropTypes.func.isRequired
 }
 
 

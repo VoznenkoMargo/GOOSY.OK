@@ -14,7 +14,7 @@ function AddCartBtnMultiply(props) {
   const dispatch = useDispatch();
 
   const { cartItem, countDetail } = props;
-
+ 
   const handleClick = () => {
     dispatch(addToCartMultiplyCreator(cartItem, countDetail));
   };
