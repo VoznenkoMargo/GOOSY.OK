@@ -1,10 +1,10 @@
-import React, {useEffect} from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {faHeart} from "@fortawesome/free-solid-svg-icons";
 import { useDispatch, useSelector } from "react-redux";
-import { addProductToUserWishlist, getUserWishlist, deleteProductFromUserWishlist, deleteUserWishlist } from "../../store/actionCreators/wishlistItemsCreator";
+import { addProductToUserWishlist, deleteProductFromUserWishlist, deleteUserWishlist } from "../../store/actionCreators/wishlistItemsCreator";
 import AddCartBtn from "../AddCartBtn/AddCartBtn";
 import styles from "./Item.module.scss";
 
@@ -13,14 +13,18 @@ function Item(props) {
   const { itemNo, imageUrls, categories, name, currentPrice, weight, count, _id } = props;
 
 const dispatch = useDispatch();
-const {wishlistItems, isFavoriteItems} = useSelector(store => store.wishlist)
+const {wishlistItems} = useSelector(store => store.wishlist)
 
+function handleAddWishlistItem(id) {
+  dispatch(addProductToUserWishlist(id))
+}
 
-useEffect(() => {
-  dispatch(getUserWishlist())
-}, [isFavoriteItems])
-
-
+function handleDeleteWishlistItem(id) {
+  if(wishlistItems.length === 1){
+    dispatch(deleteUserWishlist())
+    }else
+  dispatch(deleteProductFromUserWishlist(id))
+}
 
 
   return (
@@ -32,24 +36,13 @@ useEffect(() => {
       icon={faHeart}
       size="2x"
       className={styles.item_favorite_active}
-      onClick={
-        ()=>{
-          if(wishlistItems.length===1){
-          dispatch(deleteUserWishlist())
-          }else
-        dispatch(deleteProductFromUserWishlist(_id))
-        dispatch(getUserWishlist())
-      }
+      onClick={()=>{handleDeleteWishlistItem(_id)}
     }/> : 
       <FontAwesomeIcon  
        icon={faHeart}
        size="2x"
        className={styles.item_favorite}
-       onClick={
-         ()=>{
-         dispatch(addProductToUserWishlist(_id))
-         dispatch(getUserWishlist())
-       }
+       onClick={()=>{handleAddWishlistItem(_id)}
       }
        />}
       

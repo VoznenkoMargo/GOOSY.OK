@@ -13,10 +13,21 @@ import AddCartBtnMultiply from "../AddCartBtn/AddCartBtnMultiply";
 function ItemDetails({ item }) {
   const [countDetail, setCountDetail] = useState(1);
   const dispatch = useDispatch();
-  const {wishlistItems, isFavoriteItems} = useSelector(store => store.wishlist)
+  const {wishlistItems} = useSelector(store => store.wishlist)
   useEffect(() => {
     dispatch(getUserWishlist()) 
-  }, [isFavoriteItems])
+  }, [])
+
+  function handleAddWishlistItem(id) {
+    dispatch(addProductToUserWishlist(id))
+  }
+  
+  function handleDeleteWishlistItem(id) {
+    if(wishlistItems.length === 1){
+      dispatch(deleteUserWishlist())
+      }else
+    dispatch(deleteProductFromUserWishlist(id))
+  }
 
   const decrement = () => {
     if (countDetail > 0) {
@@ -62,34 +73,21 @@ function ItemDetails({ item }) {
       icon={faHeart}
       size="2x"
       className={styles.itemDetalis_favorite_active}
-      onClick={()=>{
-        if(wishlistItems.length === 1){
-          dispatch(deleteUserWishlist())
-          }else
-        dispatch(deleteProductFromUserWishlist(item._id))
-        dispatch(getUserWishlist())
-      }}/> : 
+      onClick={()=>{handleDeleteWishlistItem(item._id)}}/> : 
       <FontAwesomeIcon  
        icon={faHeart}
        size="2x"
        className={styles.itemDetalis_favorite}
-       onClick={()=>{
-         dispatch(addProductToUserWishlist(item._id))
-         dispatch(getUserWishlist())
-       }}/>}
-
-
-
-
-            
-
+       onClick={()=>{handleAddWishlistItem(item._id)}}/>
+       }
+</div>
             <div className={styles.addToCart}>
               <AddCartBtnMultiply cartItem={item} countDetail={countDetail}/>
               <p className={styles.currentPrice}>
                 Price: {item.currentPrice} ₴
               </p>
             </div>
-    </div>
+
         </div>
         </div>
       )}

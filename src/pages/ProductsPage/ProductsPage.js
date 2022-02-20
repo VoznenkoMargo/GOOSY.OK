@@ -17,6 +17,7 @@ function ProductsPage() {
     };
   }, []);
 
+
   return (
     <div>
       {!isSearched ? (

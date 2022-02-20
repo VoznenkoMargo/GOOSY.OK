@@ -66,9 +66,6 @@ function Header() {
             </NavLink>
           </li>
 
-
-          
-
           <li>
             <NavLink
               style={() => {
@@ -81,10 +78,6 @@ function Header() {
             </NavLink>
           </li>
 
-
-
-
-
           <li>
             <NavLink
               style={{ textDecoration: "none" }}
@@ -95,6 +88,8 @@ function Header() {
             </NavLink>
           </li>
         </ul>
+
+        
         <div className={styles.searchComponentMobile}>
           <Search />
         </div>
