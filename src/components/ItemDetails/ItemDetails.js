@@ -79,14 +79,14 @@ function ItemDetails({ item }) {
        className={styles.itemDetalis_favorite}
        onClick={()=>{handleAddWishlistItem(item._id)}}/>
        }
-
+</div>
             <div className={styles.addToCart}>
               <AddCartBtn cartItem={item} />
               <p className={styles.currentPrice}>
                 Price: {item.currentPrice} ₴
               </p>
             </div>
-    </div>
+
         </div>
         </div>
       )}

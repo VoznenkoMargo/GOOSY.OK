@@ -14,17 +14,6 @@ export const getUserWishlist = () => async (dispatch) => {
 }
 
 
-export const createUserWishlist = (newWishlist) => async (dispatch) => {
-    try {
-        const result = await addNewWishlist(newWishlist);
-        if(result.status === 200)
-        dispatch({type: CREATE_WISHLIST, payload: result})       
-    } catch (error) {
-        console.error("Some Error");
-    }
-}
-
-
 export const addProductToUserWishlist = (productId) => async (dispatch) => {
     try {
         const result = await addProductToWishlist(productId);
@@ -67,6 +56,17 @@ export const updatedUserWishlist = (productId) => async (dispatch) => {
         if(result.status === 200)
         dispatch({type: UPDATED_WISHLIST, payload: result})
         
+    } catch (error) {
+        console.error("Some Error");
+    }
+}
+
+
+export const createUserWishlist = (newWishlist) => async (dispatch) => {
+    try {
+        const result = await addNewWishlist(newWishlist);
+        if(result.status === 200)
+        dispatch({type: CREATE_WISHLIST, payload: result})       
     } catch (error) {
         console.error("Some Error");
     }

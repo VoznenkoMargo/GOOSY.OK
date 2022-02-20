@@ -36,7 +36,7 @@ useEffect(() => {
 
   const { isSearched } = useSelector((store) => store.search);
   const match = useRouteMatch();
-  // const dispatch = useDispatch();
+ 
 
   return (
     <div className="container">

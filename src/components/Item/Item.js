@@ -1,6 +1,6 @@
 /* eslint-disable no-underscore-dangle */
 /* eslint-disable react/prop-types */
-import React, { useEffect } from "react";
+import React from "react";
 // import PropTypes from "prop-types";
 // import {useSelector} from 'react-redux';
 import { Link } from "react-router-dom";
@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {faHeart} from "@fortawesome/free-solid-svg-icons";
 import { useDispatch, useSelector } from "react-redux";
-import { addProductToUserWishlist, getUserWishlist, deleteProductFromUserWishlist, deleteUserWishlist } from "../../store/actionCreators/wishlistItemsCreator";
+import { addProductToUserWishlist, deleteProductFromUserWishlist, deleteUserWishlist } from "../../store/actionCreators/wishlistItemsCreator";
 
 import AddCartBtn from "../AddCartBtn/AddCartBtn";
 import styles from "./Item.module.scss";
@@ -17,21 +17,10 @@ function Item(props) {
   const { itemNo, imageUrls, categories, name, currentPrice, weight, count, _id } = props;
 
 const dispatch = useDispatch();
-const {wishlistItems, isFavoriteItems} = useSelector(store => store.wishlist)
-
-console.log(wishlistItems);
-// useEffect(() => {
-//   dispatch(getUserWishlist())
-// }, [isFavoriteItems])
-
-// useEffect(() => {
-//   dispatch(getUserWishlist())
-// }, [])
-
+const {wishlistItems} = useSelector(store => store.wishlist)
 
 function handleAddWishlistItem(id) {
   dispatch(addProductToUserWishlist(id))
-  // dispatch(getUserWishlist())
 }
 
 function handleDeleteWishlistItem(id) {
@@ -39,7 +28,6 @@ function handleDeleteWishlistItem(id) {
     dispatch(deleteUserWishlist())
     }else
   dispatch(deleteProductFromUserWishlist(id))
-  // dispatch(getUserWishlist())
 }
 
 

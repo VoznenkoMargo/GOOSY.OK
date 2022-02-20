@@ -3,8 +3,6 @@ import { ADD_PRODUCTS_TO_WISHLIST, CREATE_WISHLIST, DELETE_PRODUCTS_FROM_WISHLIS
 
 const initialState = {
     wishlistItems: [],
-    isFavoriteItems: [],
-    isFavorite: false,
 }
 
 const wishlistItemsReducer = (state = initialState, { type, payload }) => {
@@ -14,22 +12,20 @@ const wishlistItemsReducer = (state = initialState, { type, payload }) => {
     return { ...state, wishlistItems: payload }
   }
 
-  case CREATE_WISHLIST:{
-    return {...state, wishlistItems: payload}
-  }
-
   case ADD_PRODUCTS_TO_WISHLIST: {
-    // return {...state, isFavoriteItems: {...payload}}
     return {...state, wishlistItems: [...payload]}
   }
 
   case DELETE_PRODUCTS_FROM_WISHLIST: {
-    // return {...state, isFavoriteItems: {...payload}}
     return {...state, wishlistItems: [...payload]}
   }
 
   case DELETE_WISHLIST: {
     return {...state, wishlistItems: []}
+  }
+
+  case CREATE_WISHLIST:{
+    return {...state, wishlistItems: payload}
   }
 
   case UPDATED_WISHLIST: {
