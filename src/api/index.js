@@ -2,7 +2,7 @@ import axios from "axios";
 import Notiflix from "notiflix";
 
 const instance = axios.create({
-  baseURL: "http://35.180.205.240:5000/api",
+  baseURL: "https://goos-ok.herokuapp.com/api",
 });
 
 instance.interceptors.response.use(
