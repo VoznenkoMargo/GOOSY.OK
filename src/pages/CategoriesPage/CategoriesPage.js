@@ -29,8 +29,10 @@ function CategoriesPage() {
   const isError = false;
 
   useEffect(() => {
+
     dispatch(initСategoriesItemsCreator(location));
   }, [location]);
+
 
   useEffect(() => {
     const allCategories =

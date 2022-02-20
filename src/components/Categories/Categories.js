@@ -45,72 +45,49 @@ function Categories() {
          <NavLink
             to = "/products/filter?minPrice=0&maxPrice=990&categories=cold snaks"
             className={setActivClass('cold snaks')}
-            // activeClassName="categories_item_link_active"
             onClick={()=>setCategories('cold snaks')}
           >
             Cold snacks{" "}
-          </NavLink>
-  
-          <NavLink
-            to="/products/filter?minPrice=0&maxPrice=990&categories=hot snaks"
-            className={setActivClass('hot snaks')}
-            // activeClassName="categories_item_link_active"
-            onClick={()=>setCategories('hot snaks')}
-
-          >
-            Hot snacks{" "}
-          </NavLink>
-
-          <NavLink
-            to="/products/filter?minPrice=0&maxPrice=990&categories=main dishes"
-            className={setActivClass('main dishes')}
-            // activeClassName="categories_item_link_active"
-            onClick={()=>setCategories('main dishes')}
-
-          >
-            Meat dishes
           </NavLink>
 
           <NavLink
             to="/products/filter?minPrice=0&maxPrice=990&categories=soup"
             className={setActivClass('soup')}
-            // activeClassName="categories_item_link_active"
             onClick={()=>setCategories('soup')}
-
           >
             Soups{" "}
           </NavLink>
 
           <NavLink
-            to="/products/filter?minPrice=0&maxPrice=990&categories="
-            className={setActivClass('Fish dishes')}  //// нет у нас
-            // activeClassName="categories_item_link_active"
+            to="/products/filter?minPrice=0&maxPrice=990&categories=salads"
+            className={setActivClass('salads')}  //// нет у нас
+            onClick={()=>setCategories('salads')}
           >
-            Fish dishes
+            Salads
           </NavLink>
 
           <NavLink
-            to="/products/filter?minPrice=0&maxPrice=990&categories="
-            className={setActivClass('Grill menu')} //// нет у нас
-            // activeClassName="categories_item_link_active"
+            to="/products/filter?minPrice=0&maxPrice=990&categories=main dishes"
+            className={setActivClass('main dishes')}
+            onClick={()=>setCategories('main dishes')}
           >
-            Grill menu
+            Main dishes
           </NavLink>
 
           <NavLink
-            to="/products/filter?minPrice=0&maxPrice=990&categories="
-            className={setActivClass('Specialties')} //// нет у нас
-            // activeClassName="categories_item_link_active"
+            to="/products/filter?minPrice=0&maxPrice=990&categories=desert"
+            className={setActivClass('desert')} //// нет у нас
+            onClick={()=>setCategories('desert')}
           >
-            Specialties{" "}
+            Deserts
           </NavLink>
 
           <NavLink
-            to="/products/filter?minPrice=0&maxPrice=990&categories="
-            className={setActivClass('Beverages')} //// нет у нас
-            // activeClassName="categories_item_link_active"
+            to="/products/filter?minPrice=0&maxPrice=990&categories=hot snaks"
+            className={setActivClass('hot snaks')}
+            onClick={()=>setCategories('hot snaks')}
           >
-            Beverages
+            Hot snacks{" "}
           </NavLink>
         </div>
       </div>
