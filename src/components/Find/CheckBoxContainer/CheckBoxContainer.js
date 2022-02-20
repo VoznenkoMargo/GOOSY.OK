@@ -12,7 +12,7 @@ function CheckBoxContainer() {
   }, [categories]);
 
   const setChecked = (id)=>{
-    console.log(categories);
+    
     if(categories.includes(id)){
         return true
     } else {return false}

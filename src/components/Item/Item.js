@@ -71,16 +71,23 @@ function handleDeleteWishlistItem(id) {
 }
 
 Item.propTypes = {
+  _id: PropTypes.string,
   itemNo:PropTypes.elementType.isRequired,
-  imageUrls:PropTypes.arrayOf(PropTypes.string).isRequired,
-  categories:PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
-  currentPrice: PropTypes.number.isRequired,
-  weight:PropTypes.number.isRequired,
+  imageUrls:PropTypes.arrayOf(PropTypes.string),
+  categories:PropTypes.string,
+  name: PropTypes.string,
+  currentPrice: PropTypes.number,
+  weight:PropTypes.number,
   count:PropTypes.number
 }
 
 Item.defaultProps = {
+  _id: "",
+  imageUrls: [""],
+  categories: "",
+  name: "",
+  currentPrice: 0,
+  weight: 0,
   count: 0,
 } 
  

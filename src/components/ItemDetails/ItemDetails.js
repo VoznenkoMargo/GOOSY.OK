@@ -97,6 +97,7 @@ function ItemDetails({ item }) {
 
 ItemDetails.propTypes = {
   item: PropTypes.shape({
+    _id: PropTypes.string,
     itemNo: PropTypes.string,
     name: PropTypes.string,
     currentPrice: PropTypes.number,
@@ -109,6 +110,7 @@ ItemDetails.propTypes = {
 
 ItemDetails.defaultProps = {
   item: PropTypes.shape({
+    _id: "" ,
     itemNo: "",
     name: "",
     currentPrice: 0,

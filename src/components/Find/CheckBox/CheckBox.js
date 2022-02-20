@@ -1,5 +1,6 @@
 import React from "react";
-import style from  "./CheckBox.module.scss";
+import PropTypes from "prop-types";
+
 
 function CheckBox ({id, name, funcOnChange, funChecked}){
 
@@ -14,6 +15,14 @@ function CheckBox ({id, name, funcOnChange, funChecked}){
           </label>
         </div>
     )
+}
+
+CheckBox.propTypes = {
+  id: PropTypes.string.isRequired,
+  funcOnChange: PropTypes.func.isRequired,
+  funChecked: PropTypes.func.isRequired,
+  name: PropTypes.string.isRequired
+
 }
 
 export default CheckBox
