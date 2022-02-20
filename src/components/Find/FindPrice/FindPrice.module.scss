@@ -1,7 +1,23 @@
-.findPrice{
+.findPrice {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-content: flex-end;
+  margin-bottom: 2em;
+  & > label {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 10px;
+    font-weight: bold;
+    font-size: 18px;
+    color: #ffffff;
     input::-webkit-outer-spin-button,
     input::-webkit-inner-spin-button {
     -webkit-appearance: none;
-    margin:0
-}
+    margin: 0;
+  }
+    & > input{
+      max-width: 4em;
+    }
+  }
 }

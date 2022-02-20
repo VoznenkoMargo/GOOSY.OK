@@ -1,1 +1,2 @@
-export {default} from "./PaymentAndDeliveryPage";
+/* eslint-disable no-restricted-exports */
+export { default } from "./PaymentAndDeliveryPage";

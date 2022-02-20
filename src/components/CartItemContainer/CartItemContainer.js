@@ -13,7 +13,6 @@ import {
 
 function CartItemContainer({ cartItems }) {
   const dispatch = useDispatch();
-  // const cart = useSelector((state) => state.cart.cartItems, shallowEqual);
   const handleClickDelete = (cartItem) => {
     dispatch(deleteFromCartCreator(cartItem));
   };
@@ -27,7 +26,6 @@ function CartItemContainer({ cartItems }) {
   return (
     <>
       {cartItems.length === 0 && <h1>Корзина пустая</h1>}
-
       <div className={styles.container}>
         <ArrowBack />
         <div className={styles.cartTitle}>CART</div>
@@ -59,7 +57,7 @@ function CartItemContainer({ cartItems }) {
                       />
                     </div>
                     <p className={styles.currentPrice}>
-                      Price: {item.currentPrice} ₴
+                      Price: {item.currentPrice * item.count} ₴
                     </p>
                     <div className={styles.delete}>
                       <AiTwotoneDelete

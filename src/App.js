@@ -17,15 +17,14 @@ function App() {
   return (
     <Provider store={store}>
       <Router>
-        <ScrollToTop/>
+        <ScrollToTop />
         <div className="App">
           {/* <FormLogin /> */}
           <Header />
-         
           <div className="main_content">
-          <Routes />
+            <Categories />
+            <Routes />
           </div>
-        
           <Footer />
           <ScrollToTopBtn />
         </div>

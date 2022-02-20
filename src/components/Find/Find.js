@@ -1,16 +1,23 @@
-/* eslint-disable react/prop-types */
 import React from "react";
+import PropTypes from "prop-types";
 import style from "./Find.module.scss";
-import CheckBox from "./CheckBox/CheckBox";
+import CheckBoxContainer from "./CheckBoxContainer/CheckBoxContainer";
 import FindPrice from "./FindPrice/FindPrice";
 
-function Find({ setCateg, setPri, price }) {
+function Find({  setPri, price }) {
   return (
     <div className={style.find}>
-      <CheckBox setCateg={setCateg} />
+      <p className={style.title}>Check filters</p>
+      <CheckBoxContainer/>
       <FindPrice price={price} setPri={setPri} />
     </div>
   );
 }
+
+Find.propTypes = {
+  setPri:PropTypes.func.isRequired, 
+  price:PropTypes.number.isRequired
+}
+
 
 export default Find;

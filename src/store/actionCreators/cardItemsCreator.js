@@ -1,19 +1,44 @@
-/* eslint-disable no-useless-rename */
-/* eslint-disable import/prefer-default-export */
+
 
 import { getProducts, getByCategory } from "../../axios";
 
-import { GET_ITEMS, GET_FIND_ITEMS } from "../actions/cardItemsActions";
+import {
+  GET_ITEMS,
+  GET_FIND_ITEMS,
+  SET_IS_LOADING_CARDS,
+  SET_CATEGORIES
+} from "../actions/cardItemsActions";
+
+export const setIsLoadingCards = (isLoading) => ({
+  type: SET_IS_LOADING_CARDS,
+  payload: isLoading,
+});
 
 export const initCardItemsCreator = () => async (dispatch) => {
+<<<<<<< HEAD
   const { data } = await getProducts();
   
   dispatch({ type: GET_ITEMS, payload: data });
+=======
+
+  dispatch(setIsLoadingCards(true));
+  try {
+    const { data } = await getProducts();
+    dispatch({ type: GET_ITEMS, payload: data });
+    dispatch(setIsLoadingCards(false));
+  } catch (e) {
+    dispatch(setIsLoadingCards(false));
+  }
+>>>>>>> dev
 };
+
+export const initCategories = (categories) => ({
+  type: SET_CATEGORIES,
+  payload: categories,
+});
 
 export const initСategoriesItemsCreator = (inquiry) => async (dispatch) => {
   const allCategories = {};
-  console.log(inquiry);
   const {
     data: { products },
   } = await getByCategory(inquiry);
@@ -29,15 +54,3 @@ export const initСategoriesItemsCreator = (inquiry) => async (dispatch) => {
   });
   dispatch({ type: GET_FIND_ITEMS, payload: allCategories });
 };
-
-// export const initItems = () => (dispatch) => {
-//   axios
-//     .get(url)
-//     .then(({ data }) => {
-//       const allItems = Array.isArray(data) ? data : data.products;
-//       dispatch({ type: GET_ITEMS, payload: allItems });
-//     })
-//     .catch((e) => {
-//       console.log(e);
-//     });
-// };

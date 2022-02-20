@@ -1,6 +1,8 @@
 import React, {useEffect, useState} from "react";
+
+import { useDispatch } from "react-redux";
 import { GiGoose } from "react-icons/gi";
-import { NavLink } from "react-router-dom";
+import { NavLink, useRouteMatch } from "react-router-dom";
 import styles from "./Header.module.scss";
 import Contact from "./Contact/Contact";
 import CartBtn from "./CartBtn/CartBtn";
@@ -9,7 +11,8 @@ import Categories from "../Categories/Categories";
 import FormLogin from "../FormLogin/FormLogin";
 import FormReg from "../FormReg/FormReg";
 import { getFromLS } from "../../utils/localStorage";
-
+import { clearSearchItemsCreator } from "../../store/actionCreators/searchItemsCreator";
+import HeartFromWishlist from "../HeartFromWishlist/HeartFromWishlist";
 
 
 
@@ -22,6 +25,10 @@ function Header() {
   const [isSigned, setSign] = useState(false)
 
   const [userName, setUserName] = useState('')
+
+  const dispatch = useDispatch();
+  const home = useRouteMatch("/");
+  const products = useRouteMatch("/products");
 
   useEffect(()=>{
    if(getFromLS('authToken')){
@@ -51,22 +58,23 @@ function Header() {
    
    }
 
+
+  
   return (
-    <div id='header'>
-      
-    <header  className={styles.root}>
-      <nav>
-        <ul>
+    <div>
+    <header className={styles.root}>
+      <nav className={styles.nav}>
+        <ul className={styles.navList}>
           <li className={styles.burger}>
-          <NavLink
+            <NavLink
               style={{ textDecoration: "none" }}
               activeClassName={styles.active}
               to="/products"
             >
-            <div className={styles.burger}>              
-              <GiGoose />
-              <p>menu</p>
-            </div>
+              <div className={styles.burger}>
+                <GiGoose />
+                <p>menu</p>
+              </div>
             </NavLink>
           </li>
           <li>
@@ -75,22 +83,33 @@ function Header() {
               activeClassName={styles.active}
               to="/"
             >
-              <div className={styles.logo}>
+              <div
+                aria-hidden
+                className={styles.logo}
+                onClick={() => dispatch(clearSearchItemsCreator())}
+              >
                 <GiGoose />
                 <h1 className={styles.logoText}>goosy.ok</h1>
               </div>
             </NavLink>
           </li>
-
-          <li className={styles.searchComponent}>
-            <Search />
-          </li>
+          {home?.isExact ? (
+            <li className={styles.searchComponent}>
+              <Search />
+            </li>
+          ) : null}
+          {products?.isExact ? (
+            <li className={styles.searchComponent}>
+              <Search />
+            </li>
+          ) : null}
 
           <li className={styles.contact}>
             <NavLink
               style={{ textDecoration: "none" }}
               activeClassName={styles.active}
-              to="/contact">            
+              to="/contact"
+            >
               <Contact />
             </NavLink>
           </li>
@@ -109,15 +128,30 @@ function Header() {
 
           <li>
             <NavLink
+              style={() => {
+                return {
+                  textDecoration: "none",
+                  color: "#cfcfcf",
+                }}}
+              to="/wishlist">            
+              <HeartFromWishlist />
+            </NavLink>
+          </li>
+
+          <li>
+            <NavLink
               style={{ textDecoration: "none" }}
               activeClassName={styles.active}
-              to="/cart">            
+              to="/cart"
+            >
               <CartBtn />
             </NavLink>
           </li>
         </ul>
+
+        
         <div className={styles.searchComponentMobile}>
-            <Search />
+          <Search />
         </div>
       </nav>
       
@@ -126,5 +160,6 @@ function Header() {
     </div>
   );
 }
+          
 
 export default Header;

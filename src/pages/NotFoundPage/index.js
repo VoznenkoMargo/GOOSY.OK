@@ -1,1 +1,2 @@
-export {default} from "./NotFoundPage";
+/* eslint-disable no-restricted-exports */
+export { default } from "./NotFoundPage";

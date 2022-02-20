@@ -1,8 +1,6 @@
-/* eslint-disable arrow-body-style */
-/* eslint-disable react/function-component-definition */
-/* eslint-disable react/prop-types */
-import React from "react";
-
+import React, {useEffect} from "react";
+import PropTypes from "prop-types";
+import { getUserWishlist } from "../../store/actionCreators/wishlistItemsCreator";
 import { useSelector, useDispatch } from "react-redux";
 import { Link, useRouteMatch } from "react-router-dom";
 import { BiHomeAlt, BiDish } from "react-icons/bi";
@@ -11,8 +9,9 @@ import Item from "../Item/Item";
 import styles from "./ItemsContainer.module.scss";
 import flames from "../../assets/flames.png";
 import { clearSearchItemsCreator } from "../../store/actionCreators/searchItemsCreator";
+import Preloader from "../Preloader/Preloader";
 
-const ItemsContainer = (props) => {
+function ItemsContainer(props) {
   const { items, header } = props;
 
   // const cartArray = useSelector((state) => {
@@ -25,12 +24,23 @@ const ItemsContainer = (props) => {
   //     }
   //   }
   // }
+  const { isLoading } = useSelector((store) => store.items);
+
+const dispatch = useDispatch();
+
+useEffect(() => {
+  dispatch(getUserWishlist())
+}, [])
+
 
   const { isSearched } = useSelector((store) => store.search);
-  const match = useRouteMatch();
-  const dispatch = useDispatch();
 
-  return (
+  const match = useRouteMatch();
+ 
+
+  return isLoading ? (
+    <Preloader />
+  ) : (
     <div className="container">
       <div className={styles.itemsWrapper}>
         <h2 className={styles.items_header}>{header}</h2>
@@ -38,7 +48,7 @@ const ItemsContainer = (props) => {
         <img alt="" width="40px" src={flames} />
       </div>
 
-      {match.path !== "/products" && (
+      {match.path === "/" && (
         <Link className={styles.allProducts} to="/products">
           <BiDish style={{ color: "#618967", fontSize: "30px" }} />
           To all dishes
@@ -60,18 +70,29 @@ const ItemsContainer = (props) => {
           <p>Reset search results</p>
         </div>
       )}
+      {isSearched && match.path === "/" && (
+        <div
+          className={styles.resetButton}
+          aria-hidden
+          onClick={() => dispatch(clearSearchItemsCreator())}
+        >
+          <AiOutlineClear style={{ color: "#618967", fontSize: "30px" }} />
+          <p>Reset search results</p>
+        </div>
+      )}
       <div className={styles.itemsContainer}>
-        {items.length > 0 &&
+        {items &&
           items.map(({ itemNo, ...args }) => (
             <Item key={itemNo} itemNo={itemNo} {...args} />
           ))}
-
-        {!items.length && (
-          <p className={styles.nothingFound}>Nothing found :(</p>
-        )}
       </div>
     </div>
   );
-};
+}
+
+ItemsContainer.propTypes = {
+  header: PropTypes.elementType.isRequired,
+  items: PropTypes.arrayOf(PropTypes.object).isRequired
+}
 
 export default ItemsContainer;

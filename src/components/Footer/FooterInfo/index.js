@@ -1,1 +1,2 @@
-export {default} from './FooterInfo'
+// eslint-disable-next-line no-restricted-exports
+export { default } from "./FooterInfo";

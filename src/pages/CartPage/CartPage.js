@@ -1,6 +1,5 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-underscore-dangle */
-/* eslint-disable react/prop-types */
 
 import React, { useEffect } from "react";
 import { useSelector, shallowEqual, useDispatch } from "react-redux";
