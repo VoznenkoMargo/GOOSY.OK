@@ -21,6 +21,7 @@ function HomePage() {
 
   return (
     <div>
+     
       <Carousel />
       {!isSearched ? (
         <ItemsContainer header="Popular dishes" items={items} />
@@ -32,6 +33,7 @@ function HomePage() {
           <p className={styles.text}>Sorry, nothing found...</p>
         </div>
       )}
+       
     </div>
   );
 }

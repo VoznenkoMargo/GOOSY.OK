@@ -2,22 +2,24 @@ import React, {useEffect, useState} from "react";
 
 import { useDispatch } from "react-redux";
 import { GiGoose } from "react-icons/gi";
-import { NavLink, useRouteMatch } from "react-router-dom";
+import { NavLink, useRouteMatch, useLocation } from "react-router-dom";
 import styles from "./Header.module.scss";
 import Contact from "./Contact/Contact";
 import CartBtn from "./CartBtn/CartBtn";
 import Search from "./Search/Search";
-import Categories from "../Categories/Categories";
+
 import FormLogin from "../FormLogin/FormLogin";
 import FormReg from "../FormReg/FormReg";
 import { getFromLS } from "../../utils/localStorage";
 import { clearSearchItemsCreator } from "../../store/actionCreators/searchItemsCreator";
 import HeartFromWishlist from "../HeartFromWishlist/HeartFromWishlist";
+import Categories from "../Categories/Categories";
 
 
 
 function Header() {
-
+  const location = useLocation();
+  
   const [isSignInOpen, setSignInOpen] = useState(false)
 
   const [isSignUpOpen, setSignUpOpen] = useState(false)
@@ -61,7 +63,7 @@ function Header() {
 
   
   return (
-    <div>
+    <div id='header'>
     <header className={styles.root}>
       <nav className={styles.nav}>
         <ul className={styles.navList}>
@@ -156,7 +158,7 @@ function Header() {
       </nav>
       
     </header>
-    <Categories />
+    {location.pathname === '/' ? <Categories /> : ''}
     </div>
   );
 }

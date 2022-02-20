@@ -14,16 +14,20 @@ import Preloader from "../Preloader/Preloader";
 function ItemsContainer(props) {
   const { items, header } = props;
 
-  // const cartArray = useSelector((state) => {
-  //   return state.cart.cartItems;
-  // });
-  // for (let i = 0; i < items.length; i += 1) {
-  //   for (let j = 0; j < cartArray.length; j += 1) {
-  //     if (items[i].itemNo === cartArray[j].itemNo) {
-  //       items[i] = { ...items[i], ...cartArray[j] };
-  //     }
-  //   }
-  // }
+  const cartArray = useSelector((state) => {
+    return state.cart.cartItems;
+  });
+ 
+  if (items){
+    for (let i = 0; i < items.length; i += 1) {
+      for (let j = 0; j < cartArray.length; j += 1) {
+        if (items[i].itemNo === cartArray[j].itemNo) {
+          items[i] = { ...items[i], ...cartArray[j] };
+        }
+      }
+    }
+  }
+  
   const { isLoading } = useSelector((store) => store.items);
 
 const dispatch = useDispatch();

@@ -15,11 +15,9 @@ export const setIsLoadingCards = (isLoading) => ({
 });
 
 export const initCardItemsCreator = () => async (dispatch) => {
-<<<<<<< HEAD
-  const { data } = await getProducts();
-  
-  dispatch({ type: GET_ITEMS, payload: data });
-=======
+
+ 
+
 
   dispatch(setIsLoadingCards(true));
   try {
@@ -29,7 +27,6 @@ export const initCardItemsCreator = () => async (dispatch) => {
   } catch (e) {
     dispatch(setIsLoadingCards(false));
   }
->>>>>>> dev
 };
 
 export const initCategories = (categories) => ({
