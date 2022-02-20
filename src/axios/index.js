@@ -34,7 +34,3 @@ export const deleteWishlist = () => instance.delete(`/wishlist`); // Удали�
 // Если нужно посмореть примеры запросов и обьектов, вот ссылка на документацию
 // https://saribeg.github.io/DAN.IT-API-Documentation/#about-project
 
-
-
-
-
