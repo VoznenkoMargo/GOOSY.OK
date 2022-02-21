@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 import React from "react";
+// import PropTypes from "prop-types";
 import { useDispatch } from "react-redux";
 import { FaMinus, FaPlus } from "react-icons/fa";
 import { AiTwotoneDelete } from "react-icons/ai";
@@ -12,6 +13,7 @@ import {
 } from "../../store/actionCreators/cartItemsCreator";
 
 function CartItemContainer({ cartItems }) {
+  
   const dispatch = useDispatch();
   const handleClickDelete = (cartItem) => {
     dispatch(deleteFromCartCreator(cartItem));

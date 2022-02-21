@@ -8,6 +8,7 @@ import styles from "../Header.module.scss";
 import { searchItemsCreator } from "../../../store/actionCreators/searchItemsCreator";
 
 function Search({ disabled }) {
+  
   const dispatch = useDispatch();
   const [text, setText] = useState("");
   const searchPhrases = {
