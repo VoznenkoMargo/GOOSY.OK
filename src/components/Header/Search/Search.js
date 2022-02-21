@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import React, { useState } from "react";
 import { FiSearch } from "react-icons/fi";
 import Notiflix from "notiflix";
@@ -7,7 +6,7 @@ import { useDispatch } from "react-redux";
 import styles from "../Header.module.scss";
 import { searchItemsCreator } from "../../../store/actionCreators/searchItemsCreator";
 
-function Search({ disabled }) {
+function Search() {
   
   const dispatch = useDispatch();
   const [text, setText] = useState("");
@@ -34,7 +33,7 @@ function Search({ disabled }) {
     <div>
       <form className={styles.formSearch}>
         <input
-          disabled={disabled}
+          
           className={styles.inputSearch}
           type="text"
           placeholder="What would you like to eat?"

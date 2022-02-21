@@ -1,6 +1,6 @@
-/* eslint-disable react/prop-types */
+
 import React from "react";
-// import PropTypes from "prop-types";
+import PropTypes from "prop-types";
 import { useDispatch } from "react-redux";
 import { FaMinus, FaPlus } from "react-icons/fa";
 import { AiTwotoneDelete } from "react-icons/ai";
@@ -32,6 +32,7 @@ function CartItemContainer({ cartItems }) {
         <ArrowBack />
         <div className={styles.cartTitle}>CART</div>
         {cartItems.length > 0 &&
+        
           cartItems.map((item) => {
             return (
               <div className={styles.itemCard} key={item.itemNo}>
@@ -88,5 +89,33 @@ function CartItemContainer({ cartItems }) {
     </>
   );
 }
+
+CartItemContainer.propTypes = {
+  cartItems: PropTypes.shape({
+    _id: PropTypes.string,    
+    name: PropTypes.string,
+    count: PropTypes.number,
+    currentPrice: PropTypes.number, 
+    description: PropTypes.string,   
+    imageUrls: PropTypes.arrayOf(PropTypes.string),  
+    itemNo: PropTypes.string,
+    map:PropTypes.func,
+    length: PropTypes.number,
+  })
+}
+
+CartItemContainer.defaultProps = {
+  cartItems: PropTypes.shape({
+    _id:0,
+    name: "",
+    count: 0,
+    currentPrice: 0,
+    description: "",
+    imageUrls: [""], 
+    itemNo: "",    
+
+  })
+}
+
 
 export default CartItemContainer;
