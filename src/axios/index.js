@@ -32,7 +32,8 @@ export const getWishlist = () => instance.get(`/wishlist`); // Получить 
 export const deleteWishlist = () => instance.delete(`/wishlist`); // Удалить список желаний
 
 
-export const sendRegData = (userData) => instance.post('/customers/login', userData);
+export const sendRegData = (userData) => instance.post('/customers', userData);
+export const sendLogInData = (loginData)=> instance.post('/customers/login', loginData);
 // Если нужно посмореть примеры запросов и обьектов, вот ссылка на документацию
 // https://saribeg.github.io/DAN.IT-API-Documentation/#about-project
 
