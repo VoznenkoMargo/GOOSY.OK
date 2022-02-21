@@ -6,12 +6,13 @@ import PropTypes from 'prop-types'
 import axios from "axios";
 import styles from './FormLogin.module.scss'
 import { saveToLS } from "../../utils/localStorage";
+import { sendLogInData } from "../../axios";
 
 
 
 function FormLogin (props) {
 
-    const { closeSignIn } = props;
+    const { closeSignIn, setUserName } = props;
 
 
     const ref = useRef();
@@ -61,13 +62,27 @@ function FormLogin (props) {
     }
     const handleSubmit = (userData) => {
      document.body.style.overflow = 'unset'
+    
+    sendLogInData(userData)
+    .then( ({ data }) => {
+        console.log(data); 
+       
+        saveToLS('authToken', data.token); 
+        // saveToLS('userName', userData.name); 
 
-     axios.post("http://35.180.205.240:5000/api/customers/login", userData)
-	.then( ({ data }) => {saveToLS('authToken', data.token); saveToLS('userName', userData.name); closeSignIn()})
+        axios.defaults.headers.common['Authorization'] = data.token
+        axios.get("https://goos-ok.herokuapp.com/api/customers/customer")
+        .then(({data}) => {console.log('done'); saveToLS('userName', data.firstName); setUserName(data.firstName)})
+        .catch(err => {console.log(err)})
+        
+
+    })
 	.catch(err => {console.log(err)})
-
-
-
+    //  axios.post("https://goos-ok.herokuapp.com/api/customers/login", userData)
+	
+   
+    closeSignIn()
+    console.log("done")
     }
 
 

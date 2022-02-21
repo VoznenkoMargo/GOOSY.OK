@@ -24,23 +24,29 @@ function Header() {
 
   const [isSignUpOpen, setSignUpOpen] = useState(false)
 
-  const [isSigned, setSign] = useState(false)
+  // const [isSigned, setSign] = useState(false)
 
-  const [userName, setUserName] = useState('')
+  const [userName, setUserName] = useState(false)
 
   const dispatch = useDispatch();
   const home = useRouteMatch("/");
   const products = useRouteMatch("/products");
 
-  useEffect(()=>{
-   if(getFromLS('authToken')){
-    setSign(true)
-    setUserName(getFromLS('userName'))
-   }else{
-    setSign(false)
+  // useEffect(()=>{
+  //  if(getFromLS('authToken')){
+  //   setSign(true)
+  //   setUserName(getFromLS('userName'))
+  //  }else{
+  //   setSign(false)
      
-   }
-  },[])
+  //  }
+  // },[])
+
+  // useEffect(()=>{
+  //   if(setUserName(getFromLS('userName'))){
+  //     setUserName(getFromLS('userName'))
+  //   }
+  //  },[userName])
 
   const openSignIn = ()=>{
     setSignInOpen(true)
@@ -117,13 +123,13 @@ function Header() {
           </li>
 
           <li className={styles.contact}>
-            {isSigned ? <div> Weclome, {userName}</div> :
+            {userName ? <div> Weclome, {userName}</div> :
               <div className={styles.signInsignUp}>
                 <span  onClick={openSignUp} className={styles.signIn} role='button' tabIndex={0} onKeyPress={()=>{}}>Sign up</span>
                 {isSignUpOpen ?  <FormReg  closeSignUp={closeSignUp}/>    : '' }
 
                 <span onClick={openSignIn} className={styles.signUp} role='button' tabIndex={0} onKeyPress={()=>{}}>Sign in</span> 
-                {isSignInOpen ?  <FormLogin  closeSignIn={closeSignIn}/>    : '' }
+                {isSignInOpen ?  <FormLogin setUserName={setUserName}  closeSignIn={closeSignIn}/>    : '' }
               </div>
             }
           </li>
