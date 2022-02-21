@@ -40,15 +40,15 @@ function Categories() {
       <div className="container">
         <div className="categories_items">
          <NavLink
-            to = "/products/filter?minPrice=0&maxPrice=990&categories=cold snaks"
+             to = "/products/filter?minPrice=0&maxPrice=990&categories=cold snaks"
             className="categories_item_link"
-            onClick={()=>setCategories('cold snaks')}
+            onClick={()=>setCategories('cold snacks')}
           >
             Cold snacks{" "}
           </NavLink>
 
           <NavLink
-            to="/products/filter?minPrice=0&maxPrice=990&categories=soup"
+             to="/products/filter?minPrice=0&maxPrice=990&categories=soup"
             className="categories_item_link"
             onClick={()=>setCategories('soup')}
           >
@@ -56,7 +56,7 @@ function Categories() {
           </NavLink>
 
           <NavLink
-            to="/products/filter?minPrice=0&maxPrice=990&categories=salads"
+             to="/products/filter?minPrice=0&maxPrice=990&categories=salads"
             className="categories_item_link"
             onClick={()=>setCategories('salads')}
           >

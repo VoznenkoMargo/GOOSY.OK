@@ -3,8 +3,8 @@ import { Formik, Form, Field } from "formik";
 import * as yup from 'yup';
 import PropTypes from 'prop-types'
 import NumberFormat from "react-number-format";
-import axios from "axios";
 import styles from './FormReg.module.scss'
+import { sendRegData } from "../../axios";
 
 
 function FormReg (props) {
@@ -73,11 +73,10 @@ function FormReg (props) {
     }
     const handleSubmit = (newCustomer) => {
     delete newCustomer.confirmPassword
-     console.log(newCustomer);
+     
 
      document.body.style.overflow = 'unset'
-
-     axios.post("http://35.180.205.240:5000/api/customers", newCustomer)
+    sendRegData(newCustomer)
 	.then(savedCustomer => {console.log(savedCustomer); closeSignUp()})
 	.catch(err => {console.log(err)})
     }
