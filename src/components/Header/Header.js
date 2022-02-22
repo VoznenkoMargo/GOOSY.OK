@@ -14,7 +14,7 @@ import { getFromLS } from "../../utils/localStorage";
 import { clearSearchItemsCreator } from "../../store/actionCreators/searchItemsCreator";
 import HeartFromWishlist from "../HeartFromWishlist/HeartFromWishlist";
 import Categories from "../Categories/Categories";
-
+import {getUserWishlist} from "../../store/actionCreators/wishlistItemsCreator";
 
 
 function Header() {
@@ -33,6 +33,8 @@ function Header() {
   const products = useRouteMatch("/products");
 
   useEffect(()=>{
+    dispatch(getUserWishlist())
+
    if(getFromLS('authToken')){
     setSign(true)
     setUserName(getFromLS('userName'))

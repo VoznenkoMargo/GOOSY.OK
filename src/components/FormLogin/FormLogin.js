@@ -62,8 +62,10 @@ function FormLogin (props) {
     const handleSubmit = (userData) => {
      document.body.style.overflow = 'unset'
 
-     axios.post("http://35.180.205.240:5000/api/customers/login", userData)
-	.then( ({ data }) => {saveToLS('authToken', data.token); saveToLS('userName', userData.name); closeSignIn()})
+     axios.post("http://goos-ok.herokuapp.com/api/customers/login", userData)
+	.then( ({ data }) => {saveToLS('authToken', data.token); 
+    saveToLS('userName', userData.name); 
+    closeSignIn()})
 	.catch(err => {console.log(err)})
 
 
