@@ -24,7 +24,7 @@ function Header() {
 
   const [isSignUpOpen, setSignUpOpen] = useState(false)
 
-  // const [isSigned, setSign] = useState(false)
+  const [isSigned, setSign] = useState(false)
 
   const [userName, setUserName] = useState(false)
 
@@ -44,6 +44,7 @@ function Header() {
    }
   },[])
 
+  
   // useEffect(()=>{
   //   if(setUserName(getFromLS('userName'))){
   //     setUserName(getFromLS('userName'))
