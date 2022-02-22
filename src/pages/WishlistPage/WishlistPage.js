@@ -1,18 +1,12 @@
-import React, {useEffect} from 'react'
-import { useSelector, useDispatch } from 'react-redux';
+import React from 'react'
+import { useSelector } from 'react-redux';
 import ArrowBack from '../../components/ArrowBack/ArrowBack';
 import Item from '../../components/Item/Item';
-import { getUserWishlist } from '../../store/actionCreators/wishlistItemsCreator';
 import styles from './WishlistPage.module.scss';
 
 function WishlistPage() {
 
   const {wishlistItems} = useSelector(store => store.wishlist)
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(getUserWishlist())
-  }, [])
 
   return (
     <div className={styles.wishlistPage}>

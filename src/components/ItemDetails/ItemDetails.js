@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addProductToUserWishlist, getUserWishlist, deleteProductFromUserWishlist, deleteUserWishlist } from "../../store/actionCreators/wishlistItemsCreator";
 import PropTypes from "prop-types";
 import { FaPlus, FaMinus } from "react-icons/fa";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {faHeart} from "@fortawesome/free-solid-svg-icons";
+import { addProductToUserWishlist, deleteProductFromUserWishlist, deleteUserWishlist } from "../../store/actionCreators/wishlistItemsCreator";
 import ArrowBack from "../ArrowBack/ArrowBack";
 import styles from "./ItemDetails.module.scss";
 import AddCartBtnMultiply from "../AddCartBtn/AddCartBtnMultiply";
@@ -14,9 +14,6 @@ function ItemDetails({ item }) {
   const [countDetail, setCountDetail] = useState(1);
   const dispatch = useDispatch();
   const {wishlistItems} = useSelector(store => store.wishlist)
-  useEffect(() => {
-    dispatch(getUserWishlist()) 
-  }, [])
 
   function handleAddWishlistItem(id) {
     dispatch(addProductToUserWishlist(id))
