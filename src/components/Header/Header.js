@@ -124,7 +124,7 @@ function Header() {
           </li>
 
           <li className={styles.contact}>
-          {userName ? <div> Weclome, {userName} <SignOutBtn setUserName={setUserName} /> </div> :
+          {userName ? <div> <span className={styles.header_user}> Weclome, {userName} </span>  <SignOutBtn setUserName={setUserName} /> </div> :
               <div className={styles.signInsignUp}>
                 <span  onClick={openSignUp} className={styles.signIn} role='button' tabIndex={0} onKeyPress={()=>{}}>Sign up</span>
                 {isSignUpOpen ?  <FormReg  closeSignUp={closeSignUp}/>    : '' }
