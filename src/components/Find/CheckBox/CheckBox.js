@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import style from "./CheckBox.module.scss"
 
 
 function CheckBox ({id, name, funcOnChange, funChecked}){
