@@ -41,8 +41,8 @@ function Header() {
    }else{
     setSign(false)
      
-  //  }
-  // },[])
+   }
+  },[])
 
   // useEffect(()=>{
   //   if(setUserName(getFromLS('userName'))){
