@@ -95,7 +95,7 @@ function Header() {
               <div
                 aria-hidden
                 className={styles.logo}
-                onClick={() => dispatch(clearSearchItemsCreator())}
+                // onClick={() => dispatch(clearSearchItemsCreator())}
               >
                 <GiGoose />
                 <h1 className={styles.logoText}>goosy.ok</h1>
@@ -122,9 +122,9 @@ function Header() {
               <Contact />
             </NavLink>
           </li>
-
+          
           <li className={styles.contact}>
-          {userName ? <div> Weclome, {userName} <SignOutBtn setUserName={setUserName} /> </div> :
+          {userName ? <div> <span className={styles.header_welcomeLogin}> Weclome, {userName} </span> <SignOutBtn setUserName={setUserName} /> </div> :
               <div className={styles.signInsignUp}>
                 <span  onClick={openSignUp} className={styles.signIn} role='button' tabIndex={0} onKeyPress={()=>{}}>Sign up</span>
                 {isSignUpOpen ?  <FormReg  closeSignUp={closeSignUp}/>    : '' }

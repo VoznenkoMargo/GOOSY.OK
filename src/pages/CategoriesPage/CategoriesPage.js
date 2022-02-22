@@ -41,6 +41,7 @@ function CategoriesPage() {
         : [""].toString();
     const rangePrice = `minPrice=${price[0]}&maxPrice=${price[1]}`;
     history.push(`?${rangePrice}${allCategories}`);
+    console.log('okkkk')
   }, [categories, price]);
 
 

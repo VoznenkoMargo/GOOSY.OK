@@ -5,6 +5,8 @@ import CheckBoxContainer from "./CheckBoxContainer/CheckBoxContainer";
 import FindPrice from "./FindPrice/FindPrice";
 
 function Find({  setPri, price }) {
+  console.log(setPri)
+  console.log(price)
   return (
     <div className={style.find}>
       <p className={style.title}>Check filters</p>

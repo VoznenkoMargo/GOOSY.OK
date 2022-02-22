@@ -3,7 +3,7 @@ import { NavLink} from "react-router-dom";
 import "./Categories.scss";
 import { useDispatch, useSelector } from "react-redux";
 
-import {initCategories} from '../../store/actionCreators/cardItemsCreator'
+import {initCategories, initCategory} from '../../store/actionCreators/cardItemsCreator'
 
 
 function Categories() {
@@ -30,8 +30,9 @@ function Categories() {
     }
   });
 
-  const setCategories = (categories)=>{
-    dispatch(initCategories(categories))
+  const setCategory = (category)=>{
+    console.log(category)
+    dispatch(initCategory(category))
   }
   
 
@@ -42,7 +43,7 @@ function Categories() {
          <NavLink
              to = "/products/filter?minPrice=0&maxPrice=990&categories=cold snaks"
             className="categories_item_link"
-            onClick={()=>setCategories('cold snacks')}
+            onClick={()=>setCategory('cold snacks')}
           >
             Cold snacks{" "}
           </NavLink>
@@ -50,7 +51,7 @@ function Categories() {
           <NavLink
              to="/products/filter?minPrice=0&maxPrice=990&categories=soup"
             className="categories_item_link"
-            onClick={()=>setCategories('soup')}
+            onClick={()=>setCategory('soup')}
           >
             Soups{" "}
           </NavLink>
@@ -58,7 +59,7 @@ function Categories() {
           <NavLink
              to="/products/filter?minPrice=0&maxPrice=990&categories=salads"
             className="categories_item_link"
-            onClick={()=>setCategories('salads')}
+            onClick={()=>setCategory('salads')}
           >
             Salads
           </NavLink>
@@ -66,7 +67,7 @@ function Categories() {
           <NavLink
             to="/products/filter?minPrice=0&maxPrice=990&categories=main dishes"
             className="categories_item_link"
-            onClick={()=>setCategories('main dishes')}
+            onClick={()=>setCategory('main dishes')}
           >
             Main dishes
           </NavLink>
@@ -74,7 +75,7 @@ function Categories() {
           <NavLink
             to="/products/filter?minPrice=0&maxPrice=990&categories=desert"
             className="categories_item_link"
-            onClick={()=>setCategories('desert')}
+            onClick={()=>setCategory('desert')}
           >
             Deserts
           </NavLink>
@@ -82,7 +83,7 @@ function Categories() {
           <NavLink
             to="/products/filter?minPrice=0&maxPrice=990&categories=hot snaks"
             className="categories_item_link"
-            onClick={()=>setCategories('hot snaks')}
+            onClick={()=>setCategory('hot snaks')}
           >
             Hot snacks{" "}
           </NavLink>

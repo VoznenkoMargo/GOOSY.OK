@@ -72,7 +72,7 @@ function FormLogin (props) {
 
         axios.defaults.headers.common['Authorization'] = data.token
         axios.get("https://goos-ok.herokuapp.com/api/customers/customer")
-        .then(({data}) => {console.log('done'); saveToLS('userName', data.firstName); setUserName(data.firstName)})
+        .then(({data}) => {console.log(data); saveToLS('userName', data.firstName); setUserName(data.firstName)})
         .catch(err => {console.log(err)})
         
 
