@@ -26,3 +26,20 @@
     }
   }
 }
+
+@media screen and (max-width: 1549px) {
+  .findPrice {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+     label input{
+       margin-left: 2em;
+     }
+  }
+}
+
+@media screen and (max-width: 668px) {
+  .findPrice{
+    flex-direction: column;
+  }
+}

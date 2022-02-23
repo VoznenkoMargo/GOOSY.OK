@@ -8,7 +8,7 @@ function CheckBox ({id, name, funcOnChange, funChecked}){
 
 
     return (
-        <div >
+        <div className={style.check_box} >
           <input id={id} type='checkbox' onChange={funcOnChange} checked={funChecked(id)} value={id}/>
           <label for={id}>
             <span></span>
