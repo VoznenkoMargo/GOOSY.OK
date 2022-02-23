@@ -1,3 +1,21 @@
+
+@media screen and (max-width: 1549px) {
+  .check_box{
+    width: 16%;
+  }
+}
+
+@media screen and (max-width: 1034px) {
+  .check_box{
+    width: 30%;
+  }
+}
+
+@media screen and (max-width: 667px) {
+  .check_box{
+    width: 50%;
+  }
+}
 label{
   -moz-user-select: none;
       -khtml-user-select: none;
