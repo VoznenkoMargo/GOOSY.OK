@@ -1,7 +1,6 @@
-
 import React from "react";
-import PropTypes from "prop-types";
 import Slider from "react-slick";
+import PropTypes from "prop-types";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { ArrowBackIos, ArrowForwardIos } from "@mui/icons-material";
@@ -9,7 +8,6 @@ import "./carousel.scss";
 
 function SamplePrevArrow(props) {
   const { className, onClick } = props;
-  
   return (
     <div className={className} onClick={onClick} aria-hidden>
       <ArrowBackIos className="arrowStyle" />
@@ -18,7 +16,7 @@ function SamplePrevArrow(props) {
 }
 
 function SampleNextArrow(props) {
-  const { className, onClick } = props;  
+  const { className, onClick } = props;
   return (
     <div className={className} onClick={onClick} aria-hidden>
       <ArrowForwardIos className="arrowStyle" />
@@ -69,7 +67,7 @@ function Carousel() {
     <div>
       <Slider {...settings}>
         {images.map((item) => (
-          <div className="imageWrapper" key={new Date()}>
+          <div className="imageWrapper">
             <img src={item.image} alt="foodImage" />
             <div className="textOffer">
               <p className="mainTextOffer">{item.text}</p>
@@ -81,17 +79,13 @@ function Carousel() {
     </div>
   );
 }
+export default Carousel;
 
 SamplePrevArrow.propTypes = {
   className: PropTypes.string.isRequired,
-  onClick: PropTypes.func.isRequired
-}
-
+  onClick: PropTypes.func.isRequired,
+};
 SampleNextArrow.propTypes = {
   className: PropTypes.string.isRequired,
-  onClick: PropTypes.func.isRequired
-}
-
-
-
-export default Carousel;
+  onClick: PropTypes.func.isRequired,
+};

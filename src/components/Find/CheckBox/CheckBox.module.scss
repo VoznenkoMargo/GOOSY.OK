@@ -1,3 +1,21 @@
+
+@media screen and (max-width: 1549px) {
+  .check_box{
+    width: 16%;
+  }
+}
+
+@media screen and (max-width: 1034px) {
+  .check_box{
+    width: 30%;
+  }
+}
+
+@media screen and (max-width: 667px) {
+  .check_box{
+    width: 50%;
+  }
+}
 label{
   -moz-user-select: none;
       -khtml-user-select: none;
@@ -53,7 +71,7 @@ input[type='checkbox'] + label:hover > span, input[type='checkbox']:focus + labe
 input[type='checkbox']:checked + label > ins{ height: 100%; }
 
 input[type='checkbox']:checked + label > span{
-  border: .5em solid #8f5c86;
+  border: .5em solid #6da783;
   animation: shrink-bounce 200ms cubic-bezier(.4,.0,.23,1);
 }
 input[type='checkbox']:checked + label > span:before{
@@ -94,7 +112,7 @@ input[type='checkbox']:checked + label > span:before{
   100%{    
     width: .2em;
     height: .5em;    
-    border-color: #09e92b;
+    border-color: #00ff26;
     transform: translate3d(0,-.5em,0) rotate(45deg);
   }
 }

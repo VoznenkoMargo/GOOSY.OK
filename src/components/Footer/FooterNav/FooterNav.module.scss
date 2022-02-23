@@ -29,20 +29,44 @@
   color: #ffffff;
 }
 
-@media screen and (max-width: 479px) {
-  .FooterNav {
-    display: none;
-  }
-}
 
 @media screen and (max-width: 767px) {
   .FooterNav {
-    display: none;
+    
+    ul{
+      display: flex;
+    flex-direction: column;
+    gap: 5px;
+    
+    }
+    .footerNav_link {
+      font-size: 16px;
+      line-height: 20px;
+      
+    }
   }
 }
 
 @media screen and (max-width: 991px) {
   .FooterNav {
-    display: none;
+    
+    ul{
+      display: flex;
+    flex-direction: column;
+    gap: 5px;
+    
+    
+    }
+
+    li{
+      padding-top: 5px;
+      padding-bottom: 5px;
+      margin-top: 15px;
+      
+    }
+    .footerNav_link{
+      padding-top: 5px;
+      padding-bottom: 5px;
+    }
   }
 }

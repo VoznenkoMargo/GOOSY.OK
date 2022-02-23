@@ -1,5 +1,23 @@
-.mainSection {
-  display: flex;
-  gap: 10em;
-  padding: 10em 5em;
+
+  .mainSection {
+    display: flex;
+    gap: 10em;
+    padding: 2em 5em;
+    margin: 0 auto;
+  }
+
+
+@media screen and (max-width: 1549px) {
+  .mainSection {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    padding: 2em 5em;
+  }
+} 
+
+@media screen and (max-width: 583px) {
+  .mainSection {
+    padding: 2em 2em;
+  }
 }
