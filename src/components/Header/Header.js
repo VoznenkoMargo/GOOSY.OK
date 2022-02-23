@@ -14,7 +14,12 @@ import { getFromLS } from "../../utils/localStorage";
 import { clearSearchItemsCreator } from "../../store/actionCreators/searchItemsCreator";
 import HeartFromWishlist from "../HeartFromWishlist/HeartFromWishlist";
 import Categories from "../Categories/Categories";
+<<<<<<< HEAD
 import {getUserWishlist} from "../../store/actionCreators/wishlistItemsCreator";
+=======
+import SignOutBtn from "./SignOutBtn/SignOutBtn";
+
+>>>>>>> alex_login3
 
 
 function Header() {
@@ -44,12 +49,20 @@ function Header() {
    }
   },[])
 
+<<<<<<< HEAD
   
   // useEffect(()=>{
   //   if(setUserName(getFromLS('userName'))){
   //     setUserName(getFromLS('userName'))
   //   }
   //  },[userName])
+=======
+  useEffect(()=>{
+    if(setUserName(getFromLS('userName'))){
+      setUserName(getFromLS('userName'))
+    }
+   },[userName])
+>>>>>>> alex_login3
 
   const openSignIn = ()=>{
     setSignInOpen(true)
@@ -126,7 +139,7 @@ function Header() {
           </li>
 
           <li className={styles.contact}>
-            {userName ? <div> Weclome, {userName}</div> :
+          {userName ? <div> <span className={styles.header_user}> Weclome, {userName} </span>  <SignOutBtn setUserName={setUserName} /> </div> :
               <div className={styles.signInsignUp}>
                 <span  onClick={openSignUp} className={styles.signIn} role='button' tabIndex={0} onKeyPress={()=>{}}>Sign up</span>
                 {isSignUpOpen ?  <FormReg  closeSignUp={closeSignUp}/>    : '' }
