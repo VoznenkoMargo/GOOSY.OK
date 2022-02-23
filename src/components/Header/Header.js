@@ -1,5 +1,4 @@
 import React, {useEffect, useState} from "react";
-
 import { useDispatch } from "react-redux";
 import { GiGoose } from "react-icons/gi";
 import { NavLink, useRouteMatch, useLocation } from "react-router-dom";
@@ -7,19 +6,15 @@ import styles from "./Header.module.scss";
 import Contact from "./Contact/Contact";
 import CartBtn from "./CartBtn/CartBtn";
 import Search from "./Search/Search";
-
 import FormLogin from "../FormLogin/FormLogin";
 import FormReg from "../FormReg/FormReg";
 import { getFromLS } from "../../utils/localStorage";
 import { clearSearchItemsCreator } from "../../store/actionCreators/searchItemsCreator";
 import HeartFromWishlist from "../HeartFromWishlist/HeartFromWishlist";
 import Categories from "../Categories/Categories";
-<<<<<<< HEAD
 import {getUserWishlist} from "../../store/actionCreators/wishlistItemsCreator";
-=======
 import SignOutBtn from "./SignOutBtn/SignOutBtn";
 
->>>>>>> alex_login3
 
 
 function Header() {
@@ -49,20 +44,11 @@ function Header() {
    }
   },[])
 
-<<<<<<< HEAD
-  
-  // useEffect(()=>{
-  //   if(setUserName(getFromLS('userName'))){
-  //     setUserName(getFromLS('userName'))
-  //   }
-  //  },[userName])
-=======
   useEffect(()=>{
     if(setUserName(getFromLS('userName'))){
       setUserName(getFromLS('userName'))
     }
    },[userName])
->>>>>>> alex_login3
 
   const openSignIn = ()=>{
     setSignInOpen(true)
