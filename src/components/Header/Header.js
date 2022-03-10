@@ -16,16 +16,12 @@ import {getUserWishlist} from "../../store/actionCreators/wishlistItemsCreator";
 import SignOutBtn from "./SignOutBtn/SignOutBtn";
 
 
-
 function Header() {
   const location = useLocation();
   
   const [isSignInOpen, setSignInOpen] = useState(false)
-
   const [isSignUpOpen, setSignUpOpen] = useState(false)
-
   const [isSigned, setSign] = useState(false)
-
   const [userName, setUserName] = useState(false)
 
   const dispatch = useDispatch();
@@ -33,21 +29,22 @@ function Header() {
   const products = useRouteMatch("/products");
 
   useEffect(()=>{
-    dispatch(getUserWishlist())
-
+    
    if(getFromLS('authToken')){
     setSign(true)
-    setUserName(getFromLS('userName'))
-   }else{
-    setSign(false)
-     
-   }
+    setUserName(getFromLS('userName'))}
+   else{
+    setSign(false)}
   },[])
 
   useEffect(()=>{
+    dispatch(getUserWishlist())
+  },[getFromLS('authToken')])
+
+
+  useEffect(()=>{
     if(setUserName(getFromLS('userName'))){
-      setUserName(getFromLS('userName'))
-    }
+      setUserName(getFromLS('userName'))}
    },[userName])
 
   const openSignIn = ()=>{
@@ -55,8 +52,7 @@ function Header() {
   }
 
   const closeSignIn = () => {
-    setSignInOpen(false)
-   
+    setSignInOpen(false) 
    }
 
    const openSignUp = ()=>{
@@ -65,7 +61,6 @@ function Header() {
   
   const closeSignUp = () => {
     setSignUpOpen(false)
-   
    }
 
 
@@ -144,7 +139,7 @@ function Header() {
                   color: "#cfcfcf",
                 }}}
               to="/wishlist">            
-              <HeartFromWishlist />
+              <HeartFromWishlist  />
             </NavLink>
           </li>
 
@@ -159,7 +154,6 @@ function Header() {
           </li>
         </ul>
 
-        
         <div className={styles.searchComponentMobile}>
           <Search />
         </div>

@@ -1,5 +1,6 @@
 import { addNewWishlist, addProductToWishlist, deleteProducFromWishlist, deleteWishlist, getWishlist, updatedWishlist } from "../../axios";
 import { ADD_PRODUCTS_TO_WISHLIST, CREATE_WISHLIST, DELETE_PRODUCTS_FROM_WISHLIST, DELETE_WISHLIST, GET_WISHLIST, UPDATED_WISHLIST } from "../actions/wishlistItemsActions";
+import Notiflix from "notiflix";
 
 export const getUserWishlist = () => async (dispatch) => {
     try{
@@ -8,9 +9,8 @@ export const getUserWishlist = () => async (dispatch) => {
             dispatch({type: GET_WISHLIST, payload: result.data.products})
         }
     }catch(error){
-        console.error("Some Error");
-    }
-   
+        Notiflix.Notify.failure("Unauthorized");
+    } 
 }
 
 
@@ -21,7 +21,7 @@ export const addProductToUserWishlist = (productId) => async (dispatch) => {
         dispatch({type: ADD_PRODUCTS_TO_WISHLIST, payload: result.data.products})
         
     } catch (error) {
-        console.error("Some Error");
+        Notiflix.Notify.failure("Unauthorized");
     }
 }
 
@@ -33,7 +33,7 @@ export const deleteProductFromUserWishlist = (productId) => async (dispatch) => 
         dispatch({type: DELETE_PRODUCTS_FROM_WISHLIST, payload: result.data.products})
         
     } catch (error) {
-        console.error("Some Error");
+        Notiflix.Notify.failure("Server error");
     }
 }
 
@@ -45,7 +45,7 @@ export const deleteUserWishlist = () => async (dispatch) => {
         dispatch({type: DELETE_WISHLIST, payload: result})
         
     } catch (error) {
-        console.error("Some Error");
+        Notiflix.Notify.failure("Server error");
     }
 }
 

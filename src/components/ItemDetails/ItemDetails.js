@@ -8,12 +8,14 @@ import { addProductToUserWishlist, deleteProductFromUserWishlist, deleteUserWish
 import ArrowBack from "../ArrowBack/ArrowBack";
 import styles from "./ItemDetails.module.scss";
 import AddCartBtnMultiply from "../AddCartBtn/AddCartBtnMultiply";
+import Comments from "../Comment/Comments";
 
 
-function ItemDetails({ item }) {
+
+function ItemDetails({ item, setFlag, flag }) {
   const [countDetail, setCountDetail] = useState(1);
   const dispatch = useDispatch();
-  const {wishlistItems} = useSelector(store => store.wishlist)
+  const {wishlistItems} = useSelector(store => store.wishlist);
 
   function handleAddWishlistItem(id) {
     dispatch(addProductToUserWishlist(id))
@@ -25,6 +27,7 @@ function ItemDetails({ item }) {
       }else
     dispatch(deleteProductFromUserWishlist(id))
   }
+
 
   const decrement = () => {
     if (countDetail > 0) {
@@ -88,7 +91,12 @@ function ItemDetails({ item }) {
         </div>
         </div>
       )}
+      
+      <div>
+        <Comments id={item._id} setFlag={setFlag} flag={flag} />
+      </div>
     </div>
+    
   )
 }
 
@@ -100,9 +108,9 @@ ItemDetails.propTypes = {
     currentPrice: PropTypes.number,
     description:PropTypes.string,
     imageUrls: PropTypes.arrayOf(PropTypes.string),
-    weight:PropTypes.number,   
-
-  })
+    weight:PropTypes.number}),
+    flag: PropTypes.bool.isRequired,
+    setFlag: PropTypes.func.isRequired,
 }
 
 ItemDetails.defaultProps = {

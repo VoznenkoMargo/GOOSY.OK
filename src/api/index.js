@@ -1,6 +1,6 @@
 /* eslint-disable no-param-reassign */
 import axios from "axios";
-import Notiflix from "notiflix";
+// import Notiflix from "notiflix";
 
 
 const instance = axios.create({
@@ -15,8 +15,7 @@ instance.interceptors.response.use(
     };
   },
   (err) => {
-    console.error(err);
-    Notiflix.Notify.failure("Unable to load dishes. Server error.");
+    // Notiflix.Notify.failure("Unable to load dishes. Server error.");
     return Promise.reject(err);
   }
 );
@@ -24,7 +23,6 @@ instance.interceptors.response.use(
 instance.interceptors.request.use((config) => {
   if (localStorage.getItem("authToken")) {
     config.headers.Authorization = `${JSON.parse(localStorage.getItem("authToken"))}`;
-   
   }
   return config;
 });
