@@ -6,7 +6,7 @@ import { Comment } from 'semantic-ui-react';
 function UserComment({firstName, date, content }) {
   const datePublic = new Date(date).toLocaleString(); 
   return (
-    <div style={{display:"flex", padding: "20px 0px 20px 20px", backgroundColor: "#4e4948", borderRadius: "10px", marginBottom: "10px"}}>
+    <div style={{display:"flex", padding: "20px 0px 20px 20px", backgroundColor: "#4e4948", borderRadius: "10px", marginBottom: "10px", maxHeight:"600px"}}>
     <Comment.Avatar as='a' src="https://react.semantic-ui.com/images/avatar/small/christian.jpg" />
     <Comment.Content style={{paddingLeft: "10px"}} >
       <Comment.Author style={{fontWeight:"bold", color: "rgb(241, 241, 241)"}}>{firstName}</Comment.Author>
