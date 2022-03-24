@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from "prop-types";
 import { Comment } from 'semantic-ui-react';
+import Rating from '@mui/material/Rating';
 
-
-function UserComment({firstName, date, content }) {
+function UserComment({firstName, date, content, rating }) {
   const datePublic = new Date(date).toLocaleString(); 
   return (
     <div style={{display:"flex", padding: "20px 0px 20px 20px", backgroundColor: "#4e4948", borderRadius: "10px", marginBottom: "10px", maxHeight:"600px"}}>
@@ -13,6 +13,11 @@ function UserComment({firstName, date, content }) {
       <Comment.Metadata style={{fontSize: "12px", color: "rgb(184, 184, 184)"}}>
         <div>{datePublic}</div>
       </Comment.Metadata>
+      <Rating
+        name="simple-controlled"
+        value={Number(rating)}
+        readOnly
+        size="small"/>
       <Comment.Text style={{color: "rgb(184, 184, 184)", lineHeight: "150%", padding: "10px 10px 0px 0px"}}>
         <p>
           {content}
@@ -27,6 +32,7 @@ UserComment.propTypes = {
   firstName: PropTypes.string.isRequired,
   date: PropTypes.number.isRequired,
   content: PropTypes.string.isRequired,
+  rating: PropTypes.string.isRequired,
 }
 
 export default UserComment;
