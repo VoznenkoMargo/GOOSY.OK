@@ -12,29 +12,22 @@ function CategoriesPage() {
   const dispatch = useDispatch();
   const items = useSelector((store) => store.items.itemsFind);
   const categories = useSelector((store) => store.items.categories);
-  const [categorises, setCategories] = useState([]);
   const [keyCategories, setKeyCategories] = useState([]);
   const [price, setPrice] = useState(["0", "990"]);
   
   const setPri = (data) => {
     setPrice(data);
   };
-  console.log(location)
-  const setCateg = (data) => {
-    setCategories(data);
-  };
 
   const isLoading = false;
   const isError = false;
 
   useEffect(() => {
-
     dispatch(initСategoriesItemsCreator(location));
   }, [location]);
 
 
   useEffect(() => {
-    console.log(categories)
     const allCategories =
       categories.length > 0
         ? `&categories=${categories.toString()}`
@@ -55,7 +48,7 @@ function CategoriesPage() {
   return (
     <section className={style.mainSection}>
       <div>
-        <Find price={price} setPri={setPri} setCateg={setCateg} />
+        <Find price={price} setPri={setPri}  />
       </div>
       <div>
         {keyCategories &&
