@@ -12,7 +12,6 @@ function CheckBoxContainer() {
   }, [categories]);
 
   const setChecked = (id)=>{
-    
     if(categories.includes(id)){
         return true
     } else {return false}
