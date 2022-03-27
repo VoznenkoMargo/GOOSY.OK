@@ -1,6 +1,7 @@
-import { addNewComment, deleteOneComments, getAllComments, getAllCommentOfProduct } from "../../axios";
-import { ADD_COMMENT, GET_ALL_COMMENTS, GET_COMMENTS_OF_PRODUCT, DELETE_ONE_COMMENTS } from "../actions/commentItemsActions";
 import Notiflix from "notiflix";
+import { addNewComment, deleteOneComments, getAllComments, getAllCommentOfProduct, updateComments } from "../../axios";
+import { ADD_COMMENT, GET_ALL_COMMENTS, GET_COMMENTS_OF_PRODUCT, DELETE_ONE_COMMENTS, UPDATE_COMMENTS } from "../actions/commentItemsActions";
+
 
 export const addUserComment = (newComment) => async (dispatch) => {
     try{
@@ -35,6 +36,20 @@ export const getAllUsersComments = () => async (dispatch) => {
         Notiflix.Notify.failure("Failed to get comments");
     }  
 }
+
+
+export const putUserComments = (id, updatedComment) => async (dispatch) => {
+    try{
+        const result = await updateComments(id, updatedComment);
+        if (result.status === 200) {
+            dispatch({type: UPDATE_COMMENTS, payload: {thumbUp: result.data.thumbUp, thumbDown:result.data.thumbDown, id: result.data._id}})
+        }
+    }catch(error){
+        Notiflix.Notify.failure("Failed to update comments. Unauthorized");
+    }  
+}
+
+
 
 
 //

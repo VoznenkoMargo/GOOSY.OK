@@ -23,8 +23,12 @@ function UserRating({rank, setRank}) {
 }
 
 UserRating.propTypes = {
-    rank: PropTypes.string.isRequired,
+    rank: PropTypes.number,
     setRank: PropTypes.func.isRequired,
+}
+
+UserRating.defaultProps={
+  rank: null
 }
 
 export default UserRating;

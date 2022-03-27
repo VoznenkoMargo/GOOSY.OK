@@ -19,6 +19,7 @@ const [text, setText] = useState("");
 const [comm, setComm] = useState([]);
 const [visibleMore, setvisibleMore] = useState(true);
 const [rank, setRank] = useState(5);
+const {thumb} = useSelector(store => store.comment);
 
 // Очистка коментов
 // function del() {
@@ -55,13 +56,24 @@ const commentsFilter = comments.filter(elem => elem.product._id === id);
   }
 
 const commentsSlice = commentsFilter.reverse().slice(0, 5);
+
   useEffect(()=>{
+    if(!visibleMore){
+      setComm(commentsFilter);
+      setRank(5)
+    }else{
     setComm(commentsSlice);
     setRank(5);
+    setvisibleMore(true);
+  }
   },[comments]);
 
-  function addComment(id, text){
-    dispatch(addUserComment({product: `${id}`, content: `${text}`, datePublic: Date.now(), rating:`${rank}`})); 
+  useEffect(()=>{
+    dispatch(getAllUsersComments()); 
+  },[thumb]);
+
+  function addComment(idProduct, textComment){
+    dispatch(addUserComment({product: `${idProduct}`, content: `${textComment}`, datePublic: Date.now(), rating:`${rank}`})); 
     dispatch(getAllUsersComments()); 
     setFlag(!flag); 
     setvisibleMore(true);
@@ -77,7 +89,7 @@ const commentsSlice = commentsFilter.reverse().slice(0, 5);
     <Comment.Group style={{paddingTop: "20px"}}>
     <Comment style={{padding: '10px 0px 10px 0px', maxWidth: "500px"}}>
   {commentsFilter.length > 0 
-  ? comm.map(elem => <UserComment key={elem._id} firstName={elem.customer.firstName} content={elem.content} date={elem.datePublic} avatar={elem.customer.avatarUrl} rating={elem.rating} /> ) 
+  ? comm.map(elem => <UserComment key={elem._id} commentsId={elem._id} firstName={elem.customer.firstName} content={elem.content} date={elem.datePublic} avatar={elem.customer.avatarUrl} rating={elem.rating} thumbUpUser={elem.thumbUp === undefined ? 0 : elem.thumbUp} thumbDownUser={elem.thumbDown === undefined ? 0 : elem.thumbDown} /> ) 
   : <p style={{fontSize:"18px", color: "rgb(241, 241, 241)" , padding: "20px 0px 20px 20px", backgroundColor: "#4e4948", borderRadius: "10px"}}>No comments</p> } 
     </Comment>
     {commentsFilter.length > 5 && visibleMore
