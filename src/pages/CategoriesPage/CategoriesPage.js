@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from "react";
 import { useHistory, useLocation } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
@@ -16,11 +17,11 @@ function CategoriesPage() {
   const [categorises, setCategories] = useState([]);
   const [keyCategories, setKeyCategories] = useState([]);
   const [price, setPrice] = useState(["0", "990"]);
-  
+
   const setPri = (data) => {
     setPrice(data);
   };
-  
+
   const setCateg = (data) => {
     setCategories(data);
   };
@@ -29,10 +30,8 @@ function CategoriesPage() {
   const isError = false;
 
   useEffect(() => {
-
     dispatch(initСategoriesItemsCreator(location));
   }, [location]);
-
 
   useEffect(() => {
     const allCategories =
@@ -42,8 +41,6 @@ function CategoriesPage() {
     const rangePrice = `minPrice=${price[0]}&maxPrice=${price[1]}`;
     history.push(`?${rangePrice}${allCategories}`);
   }, [categories, price]);
-
-
 
   useEffect(() => {
     const keys = Object.keys(items);

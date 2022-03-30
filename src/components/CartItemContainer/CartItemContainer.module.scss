@@ -6,9 +6,10 @@
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
+  user-select: none;
 
   .cartTitle {
-    margin-top: 70px;
+    margin-top: 20px;
     margin-bottom: 40px;
     font-weight: bold;
     font-size: 32px;
@@ -205,19 +206,17 @@
     .plusMinus {
       margin-right: 0px;
     }
-    .orderDetails{
-      .info{
+    .orderDetails {
+      .info {
         margin-right: 0px;
       }
     }
-
   }
-  .totalPrice{
+  .totalPrice {
     width: 60%;
     .order {
       padding: 15px 25px;
       font-size: 15px;
     }
   }
-
 }

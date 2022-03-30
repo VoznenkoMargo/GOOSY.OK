@@ -1,4 +1,3 @@
-
 import React from "react";
 import PropTypes from "prop-types";
 import Slider from "react-slick";
@@ -9,7 +8,7 @@ import "./carousel.scss";
 
 function SamplePrevArrow(props) {
   const { className, onClick } = props;
-  
+
   return (
     <div className={className} onClick={onClick} aria-hidden>
       <ArrowBackIos className="arrowStyle" />
@@ -18,7 +17,7 @@ function SamplePrevArrow(props) {
 }
 
 function SampleNextArrow(props) {
-  const { className, onClick } = props;  
+  const { className, onClick } = props;
   return (
     <div className={className} onClick={onClick} aria-hidden>
       <ArrowForwardIos className="arrowStyle" />
@@ -32,13 +31,19 @@ function Carousel() {
       image:
         "https://supericebuckett.s3.eu-west-3.amazonaws.com/img/img/main_dishes/carbonara.jpg",
       text: "Eat your favorite Carbonara pasta for only 200 uah!",
-      subtext: "The promotional offer is valid from 20.03 to 27.03.2022",
+      subtext: "The promotional offer is valid from 20.03 to 11.05.2022",
+    },
+    {
+      image:
+        "https://www.state.gov/wp-content/uploads/2018/11/Ukraine-2109x1406.jpg",
+      text: "Lunches for the defenders of  Ukraine are free",
+      subtext: "Every day from Monday to Sunday from 12:00 to 3:00",
     },
     {
       image:
         "https://supericebuckett.s3.eu-west-3.amazonaws.com/img/img/salads/salat.jpg",
       text: "Order any salad and get the second one for free!",
-      subtext: "The promotional offer is valid from 08.01 to 22.03.2022",
+      subtext: "The promotional offer is valid from 08.01 to 23.06.2022",
     },
     {
       image:
@@ -83,14 +88,13 @@ function Carousel() {
 }
 
 SamplePrevArrow.propTypes = {
-  className: PropTypes.string,
-  onClick: PropTypes.func
-}
+  className: PropTypes.string.isRequired,
+  onClick: PropTypes.func.isRequired,
+};
 
 SampleNextArrow.propTypes = {
-  className: PropTypes.string,
-  onClick: PropTypes.func
-}
-
+  className: PropTypes.string.isRequired,
+  onClick: PropTypes.func.isRequired,
+};
 
 export default Carousel;
