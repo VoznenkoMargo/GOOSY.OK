@@ -24,8 +24,9 @@ function ItemDetails({ item, setFlag, flag }) {
   function handleDeleteWishlistItem(id) {
     if(wishlistItems.length === 1){
       dispatch(deleteUserWishlist())
-      }else
+      }else{
     dispatch(deleteProductFromUserWishlist(id))
+  }
   }
 
 

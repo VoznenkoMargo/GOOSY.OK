@@ -9,7 +9,7 @@ import {getAllUsersCommentOfProduct, getAllUsersComments} from "../../store/acti
 import UserComment from '../UserComment/UserComment';
 import styles from './Comments.module.scss';
 import UserRating from '../Rating/Rating';
-
+import Preloader from "../Preloader/Preloader";
 
 function Comments(props) {
     const {id, setFlag, flag} = props;
@@ -19,7 +19,7 @@ const [text, setText] = useState("");
 const [comm, setComm] = useState([]);
 const [visibleMore, setvisibleMore] = useState(true);
 const [rank, setRank] = useState(5);
-const {thumb} = useSelector(store => store.comment);
+const {isLoading} = useSelector(store => store.comment);
 
 // Очистка коментов
 // function del() {
@@ -68,9 +68,6 @@ const commentsSlice = commentsFilter.reverse().slice(0, 5);
   }
   },[comments]);
 
-  useEffect(()=>{
-    dispatch(getAllUsersComments()); 
-  },[thumb]);
 
   function addComment(idProduct, textComment){
     dispatch(addUserComment({product: `${idProduct}`, content: `${textComment}`, datePublic: Date.now(), rating:`${rank}`})); 
@@ -87,17 +84,19 @@ const commentsSlice = commentsFilter.reverse().slice(0, 5);
 
   return (
     <Comment.Group style={{paddingTop: "20px"}}>
+    {isLoading ? <Preloader /> :
     <Comment style={{padding: '10px 0px 10px 0px', maxWidth: "500px"}}>
   {commentsFilter.length > 0 
-  ? comm.map(elem => <UserComment key={elem._id} commentsId={elem._id} firstName={elem.customer.firstName} content={elem.content} date={elem.datePublic} avatar={elem.customer.avatarUrl} rating={elem.rating} thumbUpUser={elem.thumbUp === undefined ? 0 : elem.thumbUp} thumbDownUser={elem.thumbDown === undefined ? 0 : elem.thumbDown} /> ) 
+  ? comm.map(elem => <UserComment key={elem._id} commentsId={elem._id} firstName={elem.customer.firstName} content={elem.content} date={elem.datePublic} avatar={elem.customer.avatarUrl} rating={elem.rating} thumbUpUser={elem.thumbUp === undefined ? 0 : elem.thumbUp} thumbDownUser={elem.thumbDown === undefined ? 0 : elem.thumbDown} thumbUpClick={elem.thumbUpClick} thumbDownClick={elem.thumbDownClick} token={elem.token} /> ) 
   : <p style={{fontSize:"18px", color: "rgb(241, 241, 241)" , padding: "20px 0px 20px 20px", backgroundColor: "#4e4948", borderRadius: "10px"}}>No comments</p> } 
     </Comment>
+    }
     {commentsFilter.length > 5 && visibleMore
     ? <Comment.Text onClick={handleShowMoreComments} style={{marginBottom: "20px", color: "rgb(241, 241, 241)", cursor: "pointer", maxWidth:"max-content"}}>See all comments →</Comment.Text>
     : null}
     <UserRating rank={rank} setRank={setRank} />
     <Form onSubmit={handleSubmit}>
-      <Form.TextArea className={styles.textarea_styling} style={{ minWidth: "500px", minHeight: "200px", borderRadius: "5px", padding: '10px 10px 10px 10px', fontSize: "1em", resize: "none" }} placeholder='Tell us more' onInput={(event)=>setText(event.target.value)} value={text} />
+      <Form.TextArea className={styles.textarea_styling} placeholder='Tell us more' onInput={(event)=>setText(event.target.value)} value={text} />
       <Button disabled={text.length<4} style={{color:"#FFFFFF", background: "linear-gradient(114.93deg, #618967 5.11%, #72a479 94%)", padding: '10px 10px 10px 10px', marginTop: "10px", border: "none", borderRadius:"5px", cursor: "pointer", fontSize: "18px"}} onClick={()=>{addComment(id,text)}} labelPosition='left' primary><FontAwesomeIcon icon={faPencilAlt}/> Add Comment </Button>
     </Form>
   </Comment.Group>
