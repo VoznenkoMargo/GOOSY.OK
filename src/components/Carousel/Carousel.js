@@ -97,4 +97,13 @@ SampleNextArrow.propTypes = {
   onClick: PropTypes.func.isRequired,
 };
 
+SamplePrevArrow.defaultProps = {
+  className: "",
+  onClick: ()=>{}
+}
+
+SampleNextArrow.defaultProps = {
+  className: "",
+  onClick: ()=>{}
+}
 export default Carousel;
