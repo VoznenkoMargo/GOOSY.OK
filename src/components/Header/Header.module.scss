@@ -62,7 +62,8 @@ li {
   justify-content: space-around;
 
   .cart {
-    font-family: "Montserrat", sans-serif;
+    
+    letter-spacing: 1px;
     font-style: normal;
     font-weight: 400;
     font-size: 14px;
@@ -70,6 +71,7 @@ li {
     color: #ffffff;
     border-right: 1px solid rgba(255, 255, 255, 0.3);
     padding: 13px 20px 13px 20px;
+
   }
 
   svg {
@@ -165,6 +167,31 @@ li {
   display: none;
 }
 
+.signInsignUp {
+  padding: 10px;
+  background-color: #618967;
+  border-radius: 10px;
+  
+}
+.signIn {
+  cursor: pointer;
+  margin-right: 8px;
+  padding-right: 8px;
+  border-right: 1px solid white;
+  &:hover {
+    color: #fff;
+  }
+}
+.signUp {
+  cursor: pointer;
+  &:hover {
+    color: #fff;
+  }
+}
+.header_user {
+  margin-right: 50px;
+}
+
 @media (max-width: 974px) {
   .root {
     height: 100%;
@@ -172,6 +199,10 @@ li {
 
   .navList {
     justify-content: space-between;
+  }
+
+  .logo{
+    display: none;
   }
 
   li {
@@ -214,20 +245,6 @@ li {
     display: block;
     margin: 10px 0 10px 0;
   }
-}
-
-@media (max-width: 479px) {
-  .navList {
-    width: 100%;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    padding-left: 0px;
-  }
-
-  .contact {
-    display: none;
-  }
 
   .burger {
     display: flex;
@@ -235,6 +252,7 @@ li {
     align-items: center;
     flex-direction: column;
     color: #65906c;
+    box-sizing: border-box;
 
     p {
       display: block;
@@ -252,38 +270,67 @@ li {
       margin-bottom: 10px;
     }
   }
+}
+
+@media (max-width: 500px) {
+  .navList {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding-left: 0px;
+  }
+
+  .contact {
+    display: none;
+  }
+
+
 
   .searchComponentMobile {
     display: block;
   }
 
-  .logo {
-    svg {
-      display: none;
-    }
+  .signInsignUp{
+    display: flex;
+    flex-direction: column;
+    padding: 7px;    
+    font-size: 14px;
+    line-height: 17px;
+
+  }
+
+  .signIn {
+    border-bottom: 1px solid white; 
+    border-right: 1px solid transparent;
+    margin: 0px 0px 4px 0px;
+    padding: 0px 0px 4px 0px;
+    
   }
 }
 
-.signInsignUp {
-  padding: 10px;
-  background-color: #618967;
-  border-radius: 10px;
-}
-.signIn {
-  cursor: pointer;
-  margin-right: 8px;
-  padding-right: 8px;
-  border-right: 1px solid white;
-  &:hover {
-    color: #fff;
-  }
-}
-.signUp {
-  cursor: pointer;
-  &:hover {
-    color: #fff;
-  }
-}
-.header_user {
-  margin-right: 50px;
-}
+// .signInsignUp {
+//   padding: 10px;
+//   background-color: #618967;
+//   border-radius: 10px;
+  
+// }
+// .signIn {
+//   cursor: pointer;
+//   margin-right: 8px;
+//   padding-right: 8px;
+//   border-right: 1px solid white;
+//   &:hover {
+//     color: #fff;
+//   }
+// }
+// .signUp {
+//   cursor: pointer;
+//   &:hover {
+//     color: #fff;
+//   }
+// }
+// .header_user {
+//   margin-right: 50px;
+// }
+
