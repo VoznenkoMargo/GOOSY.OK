@@ -39,6 +39,7 @@
     object-fit: cover;
     border-radius: 10px 0 0 10px;
     margin-left: 20px;
+    cursor: pointer;
   }
   .orderDetails {
     display: flex;
@@ -47,6 +48,7 @@
     .info {
       width: 600px;
       margin-right: 20px;
+      cursor: pointer;
     }
   }
   .name {
@@ -76,6 +78,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      cursor: pointer;
 
       * {
         fill: #ffffff;
@@ -88,6 +91,7 @@
     font-size: 20px;
     color: #fff;
     font-weight: bold;
+    width: 150px;
   }
 
   .plusMinus {
@@ -103,6 +107,7 @@
     box-shadow: 0px 0px 20px rgba(151, 145, 145, 0.4);
     width: 150px;
     margin-right: 20px;
+    cursor: pointer;
   }
 }
 
@@ -139,6 +144,7 @@
     line-height: 17px;
     color: #ffffff;
     margin-right: 30px;
+    cursor: pointer;
   }
 }
 
@@ -155,7 +161,8 @@
     display: none;
   }
   .itemCard img {
-    width: 70%;
+    width: 100%;
+    margin-left: 0px;
   }
   .info {
     width: unset;
@@ -193,7 +200,7 @@
     }
     .currentPrice {
       font-size: 20px;
-      text-align: right;
+      text-align: center;
     }
     .addToCart {
       margin: 30px 0;
