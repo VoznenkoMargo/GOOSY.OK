@@ -1,5 +1,5 @@
 
-
+import Notiflix from "notiflix";
 import { getProducts, getByCategory } from "../../axios";
 
 import {
@@ -26,6 +26,7 @@ export const initCardItemsCreator = () => async (dispatch) => {
     dispatch(setIsLoadingCards(false));
   } catch (e) {
     dispatch(setIsLoadingCards(false));
+    Notiflix.Notify.failure("Unable to load dishes. Server error.");
   }
 };
 

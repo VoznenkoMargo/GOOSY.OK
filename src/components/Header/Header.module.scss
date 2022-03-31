@@ -9,14 +9,13 @@
   background: #403c3b;
   box-shadow: 0px 30px 60px rgba(34, 31, 32, 0.2);
   color: white;
-  //bind footer
   flex: 0 0 auto;
 }
 .nav {
- width: 100%;
+  width: 100%;
 }
 
-.navList{
+.navList {
   width: 100%;
   display: flex;
   justify-content: space-around;
@@ -127,7 +126,7 @@ li {
   max-width: 100%;
   margin: 0 auto;
 
-  .inputSearch{
+  .inputSearch {
     border: none;
     outline: none;
     border-radius: 10px;
@@ -137,7 +136,7 @@ li {
     font-size: 20px;
     line-height: 19px;
     color: #cfcfcf;
-    width: 100%;  
+    width: 100%;
     height: 52px;
     background: #504b4a;
     padding: 0px 45px 0px 15px;
@@ -162,22 +161,20 @@ li {
   text-decoration: none;
 }
 
-
-.searchComponentMobile{
+.searchComponentMobile {
   display: none;
 }
 
 @media (max-width: 974px) {
-
-  .root{
+  .root {
     height: 100%;
   }
 
-  .navList{
+  .navList {
     justify-content: space-between;
   }
 
-  li{
+  li {
     margin-top: 15px;
   }
   .cartWrap {
@@ -209,15 +206,14 @@ li {
     }
   }
 
-  .searchComponent{
-    display: none;       
+  .searchComponent {
+    display: none;
   }
 
-  .searchComponentMobile{
+  .searchComponentMobile {
     display: block;
     margin: 10px 0 10px 0;
   }
-
 }
 
 @media (max-width: 479px) {
@@ -257,7 +253,7 @@ li {
     }
   }
 
-  .searchComponentMobile{
+  .searchComponentMobile {
     display: block;
   }
 
@@ -268,23 +264,26 @@ li {
   }
 }
 
-.signInsignUp{
-    padding: 10px;
-    background-color:#618967;
-    border-radius: 10px;
+.signInsignUp {
+  padding: 10px;
+  background-color: #618967;
+  border-radius: 10px;
 }
-.signIn{
-    cursor: pointer;
-    margin-right: 8px;
-    padding-right: 8px;
-    border-right: 1px solid white;
-    &:hover{
-        color:#fff;
-    }
+.signIn {
+  cursor: pointer;
+  margin-right: 8px;
+  padding-right: 8px;
+  border-right: 1px solid white;
+  &:hover {
+    color: #fff;
+  }
 }
-.signUp{
-    cursor: pointer;
-    &:hover{
-        color:#fff;
-    }
+.signUp {
+  cursor: pointer;
+  &:hover {
+    color: #fff;
+  }
+}
+.header_user {
+  margin-right: 50px;
 }

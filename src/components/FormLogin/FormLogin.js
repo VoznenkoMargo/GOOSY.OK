@@ -9,37 +9,25 @@ import { saveToLS } from "../../utils/localStorage";
 import { sendLogInData } from "../../axios";
 
 
-
 function FormLogin (props) {
 
     const { closeSignIn, setUserName } = props;
-
-
     const ref = useRef();
 
     useEffect(() => {
         const checkIfClickedOutside = (e) => {
           if (ref.current && !ref.current.contains(e.target)) {
-            closeSignIn()
-            }
-    
+            closeSignIn()}
         }
         document.addEventListener("mousedown", checkIfClickedOutside)
         return () => {
-    
-          document.removeEventListener("mousedown", checkIfClickedOutside)
-    
-        }
-    
-      }, [])
+          document.removeEventListener("mousedown", checkIfClickedOutside)}
+    }, [])
 
 
     const initialValues = {
         loginOrEmail:'',
         password:'',
-        
-        
-
     }
 
     const validationSchema = yup.object().shape({
@@ -50,8 +38,6 @@ function FormLogin (props) {
             .matches(/[A-Za-z/s]/, 'Латиница онли'),
         password:yup.string()
             .required('Reqire password'),
-       
-
     });
 
     // document.body.style.overflow = 'hidden'
@@ -62,11 +48,10 @@ function FormLogin (props) {
     }
     const handleSubmit = (userData) => {
      document.body.style.overflow = 'unset'
-    
+     
     sendLogInData(userData)
     .then( ({ data }) => {
-        console.log(data); 
-       
+         
         saveToLS('authToken', data.token); 
         // saveToLS('userName', userData.name); 
 
@@ -74,13 +59,10 @@ function FormLogin (props) {
         axios.get("https://goos-ok.herokuapp.com/api/customers/customer")
         .then(({data}) => {console.log('done'); saveToLS('userName', data.firstName); setUserName(data.firstName)})
         .catch(err => {console.log(err)})
-        
-
     })
 	.catch(err => {console.log(err)})
     //  axios.post("https://goos-ok.herokuapp.com/api/customers/login", userData)
 	
-   
     closeSignIn()
     console.log("done")
     }
@@ -113,7 +95,7 @@ function FormLogin (props) {
                         </label>
 
                         <div className={styles.form_bottom}>
-                            <button className={styles.form_submit_button} disabled={!isValid && !dirty}  type="submit"> Submit </button>
+                            <button className={styles.form_submit_button} disabled={!isValid && !dirty}  type="submit" > Submit </button>
                         </div>
                     </Form>
                     )

@@ -4,6 +4,7 @@ import {faHeart} from "@fortawesome/free-solid-svg-icons";
 import { useSelector } from "react-redux";
 import styles from "./HeartFromWishlist.module.scss";
 
+
 function HeartFromWishlist() {
  const {wishlistItems} = useSelector(store => store.wishlist);
 

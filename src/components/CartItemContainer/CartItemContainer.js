@@ -1,11 +1,10 @@
-
 import React from "react";
 import PropTypes from "prop-types";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { FaMinus, FaPlus } from "react-icons/fa";
 import { AiTwotoneDelete } from "react-icons/ai";
-import ArrowBack from "../ArrowBack/ArrowBack";
+
 import styles from "./CartItemContainer.module.scss";
 import {
   deleteFromCartCreator,
@@ -14,7 +13,6 @@ import {
 } from "../../store/actionCreators/cartItemsCreator";
 
 function CartItemContainer({ cartItems }) {
-  
   const dispatch = useDispatch();
   const handleClickDelete = (cartItem) => {
     dispatch(deleteFromCartCreator(cartItem));
@@ -30,10 +28,8 @@ function CartItemContainer({ cartItems }) {
     <>
       {cartItems.length === 0 && <h1>Корзина пустая</h1>}
       <div className={styles.container}>
-        <ArrowBack />
         <div className={styles.cartTitle}>CART</div>
         {cartItems.length > 0 &&
-        
           cartItems.map((item) => {
             return (
               <div className={styles.itemCard} key={item.itemNo}>
@@ -96,30 +92,28 @@ function CartItemContainer({ cartItems }) {
 
 CartItemContainer.propTypes = {
   cartItems: PropTypes.shape({
-    _id: PropTypes.string,    
+    _id: PropTypes.string,
     name: PropTypes.string,
     count: PropTypes.number,
-    currentPrice: PropTypes.number, 
-    description: PropTypes.string,   
-    imageUrls: PropTypes.arrayOf(PropTypes.string),  
+    currentPrice: PropTypes.number,
+    description: PropTypes.string,
+    imageUrls: PropTypes.arrayOf(PropTypes.string),
     itemNo: PropTypes.string,
-    map:PropTypes.func,
+    map: PropTypes.func,
     length: PropTypes.number,
-  })
-}
+  }),
+};
 
 CartItemContainer.defaultProps = {
   cartItems: PropTypes.shape({
-    _id:0,
+    _id: 0,
     name: "",
     count: 0,
     currentPrice: 0,
     description: "",
-    imageUrls: [""], 
-    itemNo: "",    
-
-  })
-}
-
+    imageUrls: [""],
+    itemNo: "",
+  }),
+};
 
 export default CartItemContainer;
