@@ -38,6 +38,7 @@ function Header() {
   }, []);
 
   useEffect(() => {
+    if(getFromLS('authToken'))
     dispatch(getUserWishlist());
   }, [getFromLS("authToken")]);
 
