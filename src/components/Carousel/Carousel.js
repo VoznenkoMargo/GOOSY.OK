@@ -88,13 +88,13 @@ function Carousel() {
 }
 
 SamplePrevArrow.propTypes = {
-  className: PropTypes.string.isRequired,
-  onClick: PropTypes.func.isRequired,
+  className: PropTypes.string,
+  onClick: PropTypes.func,
 };
 
 SampleNextArrow.propTypes = {
-  className: PropTypes.string.isRequired,
-  onClick: PropTypes.func.isRequired,
+  className: PropTypes.string,
+  onClick: PropTypes.func,
 };
 
 SamplePrevArrow.defaultProps = {
@@ -106,4 +106,5 @@ SampleNextArrow.defaultProps = {
   className: "",
   onClick: ()=>{}
 }
+
 export default Carousel;
