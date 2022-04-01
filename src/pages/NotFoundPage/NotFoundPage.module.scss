@@ -3,20 +3,32 @@
     background-image: url(../../assets/error-page.jpg);
     background-repeat: no-repeat;
     background-position: center;
-    background-size: auto;
+    background-size: cover;
     padding: 20px 50px 0px 50px;
-
     
     .notFoundPage_home{
-        color: #618967;
+        color: #618967;   
     }
 
     span{
         font-size: 24px;
         color: #5f5d5d;
-        padding-left: 10px;
-        
-        
+        padding-left: 10px;    
     }
 
 }
+
+
+@media screen and (max-width: 991px) {
+    .notFoundPage{
+        background-image: url(../../assets/error-page-min.jpg);
+    }
+  }
+  
+@media screen and (max-width: 479px) {
+    .notFoundPage{
+        text-align: center;
+         
+    }
+ 
+  }
