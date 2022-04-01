@@ -112,7 +112,8 @@ function Header() {
               <NavLink
                 style={{ textDecoration: "none" }}
                 activeClassName={styles.active}
-                to="/contact"
+                to="/order"
+                href= "+380950486568"
               >
                 <Contact />
               </NavLink>

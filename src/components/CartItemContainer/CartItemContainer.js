@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
+import {Link, NavLink} from "react-router-dom";
 import { FaMinus, FaPlus } from "react-icons/fa";
 import { AiTwotoneDelete } from "react-icons/ai";
 
@@ -83,7 +83,9 @@ function CartItemContainer({ cartItems }) {
               ₴
             </span>
           </h2>
-          <div className={styles.order}>Place an order</div>
+          <NavLink to="order" className={styles.order}>
+            Place an order
+          </NavLink>
         </div>
       </div>
     </>
