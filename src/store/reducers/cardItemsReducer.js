@@ -12,8 +12,9 @@ const initialState = {
   items: [],
   itemsFind: {},
   isLoading: false,
-  categories: [],
-};
+  categories: []
+}; 
+
 
 const cardItemsReducer = (state = initialState, { type, payload }) => {
   switch (type) {

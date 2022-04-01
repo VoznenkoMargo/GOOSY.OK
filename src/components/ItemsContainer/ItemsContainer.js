@@ -12,7 +12,6 @@ import Preloader from "../Preloader/Preloader";
 
 function ItemsContainer(props) {
   const { items, header } = props;
-
   const cartArray = useSelector((state) => {
     return state.cart.cartItems;
   });

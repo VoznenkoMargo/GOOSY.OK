@@ -11,12 +11,20 @@ function CheckBoxContainer() {
 
   useEffect(() => {}, [categories]);
 
-  const setChecked = (id) => {
-    if (categories.includes(id)) {
-      return true;
-    }
-    return false;
-  };
+
+  const setChecked = (id)=>{
+    if(categories.includes(id)){
+        return true
+    } else {return false}
+  } 
+
+  // const setChecked = (id) => {
+  //   if (categories.includes(id)) {
+  //     return true;
+  //   }
+  //   return false;
+  // };
+
 
   function change(e) {
     const { value } = e.target;

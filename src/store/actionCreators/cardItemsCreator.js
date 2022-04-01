@@ -33,6 +33,7 @@ export const initCategories = (categories) => ({
 
 export const initСategoriesItemsCreator = (inquiry) => async (dispatch) => {
   const allCategories = {};
+  console.log(inquiry)
   const {
     data: { products },
   } = await getByCategory(inquiry);
