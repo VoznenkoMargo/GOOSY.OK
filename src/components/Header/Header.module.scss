@@ -188,14 +188,14 @@ li {
     color: #fff;
   }
 }
-  .signOut{
-    display: flex;
-    justify-content: space-between;
-    text-align: center;
-    
-  }
+.signOut{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
   .header_user {
-    margin-right: 25px;
+    margin-bottom: 5px;    
   }
 
 @media (max-width: 974px) {
@@ -277,16 +277,7 @@ li {
     }
   }
 
-  .signOut{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align: center;
-  }
-
-  .header_user {
-    margin-right: 0px;  
-  }
+ 
 
 }
 
