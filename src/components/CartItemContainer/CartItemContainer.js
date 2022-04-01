@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 import { FaMinus, FaPlus } from "react-icons/fa";
 import { AiTwotoneDelete } from "react-icons/ai";
 
@@ -32,13 +33,16 @@ function CartItemContainer({ cartItems }) {
           cartItems.map((item) => {
             return (
               <div className={styles.itemCard} key={item.itemNo}>
-                <img src={item.imageUrls} alt="foodImage" />
+                <Link to={`/products/${item.itemNo}`} style={{ textDecoration: "none", width: "80%" }}>
+                  <img src={item.imageUrls} alt="foodImage" />
+                </Link>
                 <div className={styles.orderDetails}>
-                  <div className={styles.info}>
-                    <h3 className={styles.name}>{item.name}</h3>
-                    <p className={styles.description}>{item.description}</p>
-                  </div>
-
+                  <Link to={`/products/${item.itemNo}`} style={{ textDecoration: "none" }}>
+                    <div className={styles.info}>
+                      <h3 className={styles.name}>{item.name}</h3>
+                      <p className={styles.description}>{item.description}</p>
+                    </div>
+                  </Link>
                   <div className={styles.addToCart}>
                     <div className={styles.plusMinus}>
                       <FaMinus

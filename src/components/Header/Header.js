@@ -80,7 +80,7 @@ function Header() {
                 </div>
               </NavLink>
             </li>
-            <li>
+            <li className={styles.logo}>
               <NavLink
                 style={{ textDecoration: "none" }}
                 activeClassName={styles.active}
@@ -117,7 +117,7 @@ function Header() {
               </NavLink>
             </li>
 
-            <li className={styles.contact}>
+            <li >
               {userName ? (
                 <div>
                   {" "}
@@ -167,6 +167,7 @@ function Header() {
                   return {
                     textDecoration: "none",
                     color: "#cfcfcf",
+                    textAlign: "center",
                   };
                 }}
                 to="/wishlist"
