@@ -120,7 +120,7 @@ function Header() {
 
             <li >
               {userName ? (
-                <div>
+                <div className={styles.signOut}>
                   {" "}
                   <span className={styles.header_user}>
                     {" "}

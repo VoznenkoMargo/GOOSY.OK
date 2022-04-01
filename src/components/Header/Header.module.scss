@@ -188,9 +188,15 @@ li {
     color: #fff;
   }
 }
-.header_user {
-  margin-right: 50px;
-}
+  .signOut{
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    
+  }
+  .header_user {
+    margin-right: 25px;
+  }
 
 @media (max-width: 974px) {
   .root {
@@ -270,6 +276,18 @@ li {
       margin-bottom: 10px;
     }
   }
+
+  .signOut{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .header_user {
+    margin-right: 0px;  
+  }
+
 }
 
 @media (max-width: 500px) {
@@ -308,29 +326,4 @@ li {
     
   }
 }
-
-// .signInsignUp {
-//   padding: 10px;
-//   background-color: #618967;
-//   border-radius: 10px;
-  
-// }
-// .signIn {
-//   cursor: pointer;
-//   margin-right: 8px;
-//   padding-right: 8px;
-//   border-right: 1px solid white;
-//   &:hover {
-//     color: #fff;
-//   }
-// }
-// .signUp {
-//   cursor: pointer;
-//   &:hover {
-//     color: #fff;
-//   }
-// }
-// .header_user {
-//   margin-right: 50px;
-// }
 

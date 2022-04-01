@@ -4,3 +4,9 @@
     border-radius: 10px;
     cursor: pointer;
 }
+
+@media (max-width: 974px) {
+    .btn_out{
+        padding: 5px;
+    }
+}
