@@ -1,19 +1,8 @@
 /* eslint-disable no-underscore-dangle */
 import Notiflix from "notiflix";
-import {
-  addNewComment,
-  deleteOneComments,
-  getAllComments,
-  getAllCommentOfProduct,
-  updateComments,
-} from "../../axios";
-import {
-  ADD_COMMENT,
-  GET_ALL_COMMENTS,
-  GET_COMMENTS_OF_PRODUCT,
-  DELETE_ONE_COMMENTS,
-  UPDATE_COMMENTS,
-} from "../actions/commentItemsActions";
+import { addNewComment, deleteOneComments, getAllComments, getAllCommentOfProduct, updateComments } from "../../axios";
+import { ADD_COMMENT, GET_ALL_COMMENTS, GET_COMMENTS_OF_PRODUCT, DELETE_ONE_COMMENTS, UPDATE_COMMENTS, SET_IS_LOADING_COMMENT } from "../actions/commentItemsActions";
+
 
 export const addUserComment = (newComment) => async (dispatch) => {
   try {
@@ -37,16 +26,26 @@ export const getAllUsersCommentOfProduct = (productId) => async (dispatch) => {
   }
 };
 
+export const setIsLoadingComment = (isLoading) => ({
+    type: SET_IS_LOADING_COMMENT,
+    payload: isLoading,
+  });
+
+
 export const getAllUsersComments = () => async (dispatch) => {
-  try {
-    const result = await getAllComments();
-    if (result.status === 200) {
-      dispatch({ type: GET_ALL_COMMENTS, payload: result.data });
-    }
-  } catch (error) {
-    Notiflix.Notify.failure("Failed to get comments");
-  }
-};
+    dispatch(setIsLoadingComment(true));
+    try{
+        const result = await getAllComments();
+        if (result.status === 200) {
+            dispatch({type: GET_ALL_COMMENTS, payload: result.data})
+            dispatch(setIsLoadingComment(false));
+        }
+    }catch(error){
+        dispatch(setIsLoadingComment(false));
+        Notiflix.Notify.failure("Failed to get comments");
+    }  
+}
+
 
 export const putUserComments = (id, updatedComment) => async (dispatch) => {
   try {

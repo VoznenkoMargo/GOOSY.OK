@@ -37,7 +37,7 @@ function Categories() {
           <NavLink
             to="/products/filter?minPrice=0&maxPrice=990&categories=cold snaks"
             className="categories_item_link"
-            onClick={() => setCategories("cold snacks")}
+            onClick={()=>setCategories('cold snaks')}
           >
             Cold snacks{" "}
           </NavLink>

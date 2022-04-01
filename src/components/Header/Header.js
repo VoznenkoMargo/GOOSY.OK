@@ -38,6 +38,7 @@ function Header() {
   }, []);
 
   useEffect(() => {
+    if(getFromLS("authToken"))
     dispatch(getUserWishlist());
   }, [getFromLS("authToken")]);
 
@@ -80,7 +81,7 @@ function Header() {
                 </div>
               </NavLink>
             </li>
-            <li>
+            <li className={styles.logo}>
               <NavLink
                 style={{ textDecoration: "none" }}
                 activeClassName={styles.active}
@@ -118,9 +119,9 @@ function Header() {
               </NavLink>
             </li>
 
-            <li className={styles.contact}>
+            <li >
               {userName ? (
-                <div>
+                <div className={styles.signOut}>
                   {" "}
                   <span className={styles.header_user}>
                     {" "}
@@ -168,6 +169,7 @@ function Header() {
                   return {
                     textDecoration: "none",
                     color: "#cfcfcf",
+                    textAlign: "center",
                   };
                 }}
                 to="/wishlist"

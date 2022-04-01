@@ -15,10 +15,6 @@ export const setIsLoadingCards = (isLoading) => ({
 });
 
 export const initCardItemsCreator = () => async (dispatch) => {
-
- 
-
-
   dispatch(setIsLoadingCards(true));
   try {
     const { data } = await getProducts();
@@ -37,6 +33,7 @@ export const initCategories = (categories) => ({
 
 export const initСategoriesItemsCreator = (inquiry) => async (dispatch) => {
   const allCategories = {};
+  console.log(inquiry)
   const {
     data: { products },
   } = await getByCategory(inquiry);
