@@ -40,6 +40,7 @@ export const addNewComment = (newComment) => instance.post('/comments', newComme
 export const getAllCommentOfProduct = (productId) => instance.get(`/comments/product/${productId}`);
 export const getAllComments = () => instance.get('/comments');
 export const deleteOneComments = (id) => instance.delete(`/comments/${id}`);
+export const updateComments = (id, updatedComment) => instance.put(`/comments/${id}`, updatedComment);
 
 // Если нужно посмореть примеры запросов и обьектов, вот ссылка на документацию
 // https://saribeg.github.io/DAN.IT-API-Documentation/#about-project

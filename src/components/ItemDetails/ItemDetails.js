@@ -93,6 +93,7 @@ function ItemDetails({ item, setFlag, flag }) {
       )}
       
       <div>
+        <p className={styles.comment}>Comments</p>
         <Comments id={item._id} setFlag={setFlag} flag={flag} />
       </div>
     </div>

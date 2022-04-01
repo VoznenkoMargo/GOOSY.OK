@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from "react";
 import { useHistory, useLocation } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
@@ -14,7 +15,7 @@ function CategoriesPage() {
   const categories = useSelector((store) => store.items.categories);
   const [keyCategories, setKeyCategories] = useState([]);
   const [price, setPrice] = useState(["0", "990"]);
-  
+
   const setPri = (data) => {
     setPrice(data);
   };
@@ -26,7 +27,6 @@ function CategoriesPage() {
     dispatch(initСategoriesItemsCreator(location));
   }, [location]);
 
-
   useEffect(() => {
     const allCategories =
       categories.length > 0
@@ -36,10 +36,9 @@ function CategoriesPage() {
     history.push(`?${rangePrice}${allCategories}`);
   }, [categories, price]);
 
-
-
   useEffect(() => {
     const keys = Object.keys(items);
+    console.log(keys.length > 0);
     setKeyCategories(keys);
   }, [items]);
   
@@ -51,7 +50,7 @@ function CategoriesPage() {
         <Find price={price} setPri={setPri}  />
       </div>
       <div>
-        {keyCategories &&
+        {/* {keyCategories &&
           keyCategories.map((item) => {
             return (
               <ItemsContainer
@@ -62,7 +61,26 @@ function CategoriesPage() {
                 isError={isError}
               />
             );
-          })}
+          })} */}
+                  { (keyCategories && (keyCategories.length > 0)) ?  keyCategories.map((item) => {
+            return (
+              <ItemsContainer
+                key={item}
+                header={`${item}`}
+                items={items[`${item}`]}
+                isLoading={isLoading}
+                isError={isError}
+              />
+            );
+          })  
+          :
+          
+          <div className={style.emptyContainer}>
+            <div>
+              <p>Sorry, but your search did not match anything.</p>
+            </div>
+          </div> }
+         
       </div>
     </section>
   );
