@@ -4,6 +4,10 @@
   margin-top: 100px;
   column-gap: 10px;
   padding: 15px 15px 130px 15px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 
   .comment{
     font-size: 24px;
@@ -89,16 +93,18 @@ cursor: pointer;
 
   .plusMinus {
     display: inline-flex;
-    gap: 20px;
+    gap: 25px;
     color: #fff;
-    font-size: 20px;
+    font-size: 25px;
     align-items: center;
-    padding: 5px 7px;
+    padding: 10px;
     justify-content: center;
-    border: 1px solid #3130309d;
+    border: 1px solid #313030;
     border-radius: 5px;
     box-shadow: 0px 0px 20px rgba(151, 145, 145, 0.4);
-    width: 130px;
+    width: 150px;
+    margin-right: 20px;
+    cursor: pointer;
   }
   
 }
