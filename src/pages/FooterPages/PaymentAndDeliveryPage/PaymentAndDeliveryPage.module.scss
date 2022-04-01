@@ -48,6 +48,8 @@
         padding: 20px 0px 20px 0px;
 
     }
+
+    
   
 
 }
@@ -58,6 +60,7 @@
             flex-direction: column;
         }
     }
+    
   }
 
 @media screen and (max-width: 767px) {
@@ -66,6 +69,9 @@
             align-items: center;
             flex-direction: column;
         }
+    }
+    iframe{
+        width: 100%;
     }
   
   }

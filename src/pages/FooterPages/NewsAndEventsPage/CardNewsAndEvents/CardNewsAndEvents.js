@@ -18,9 +18,9 @@ function CardNewsAndEvents({title, imageUrl}) {
           image={imageUrl}
           alt="news"/>
 </CardContent>
-        <CardContent className={styles.cardContent} sx={{background:"#cfcfcf", minWidth: 400, display:"flex", flexDirection:"column", alignItems:"center", justifyContent:"space-between", '@media screen and (max-width: 479px)': {
-      maxWidth: '350px',
-    },}}>
+        <CardContent className={styles.cardContent} sx={{background:"#cfcfcf", minWidth: 400, display:"flex", flexDirection:"column", alignItems:"center", justifyContent:"space-between", 
+        '@media screen and (max-width: 479px)': {minWidth: '350px', background: "linear-gradient(0deg, rgba(230,235,233,1) 0%, rgba(72, 110, 77,1) 97%)"
+        }}}>
             <Typography component="h3" sx={{alignSelf:"stretch"}}>
               {title}
             </Typography>

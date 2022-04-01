@@ -6,8 +6,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { Button, Comment, Form } from "semantic-ui-react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPencilAlt } from '@fortawesome/free-solid-svg-icons';
-import { addUserComment, deleteOneUserComments } from '../../store/actionCreators/commentItemsCreator';
-import {getAllUsersCommentOfProduct, getAllUsersComments} from "../../store/actionCreators/commentItemsCreator";
+import { addUserComment } from '../../store/actionCreators/commentItemsCreator';
+import { getAllUsersComments } from "../../store/actionCreators/commentItemsCreator";
 import UserComment from '../UserComment/UserComment';
 import styles from './Comments.module.scss';
 import UserRating from '../Rating/Rating';
@@ -23,28 +23,6 @@ const [visibleMore, setvisibleMore] = useState(true);
 const [rank, setRank] = useState(5);
 const {isLoading} = useSelector(store => store.comment);
 
-// Очистка коментов
-// function del() {
-//   comments.forEach(elem => {
-//     dispatch(deleteOneUserComments(elem._id))
-//   })
-// }
-// del()
-
-function scrollToComment() {
-  window.scrollTo({
-    top: 500,
-    behavior: "smooth",
-  });
-}
-
-  // Очистка коментов
-  // function del() {
-  //   comments.forEach(elem => {
-  //     dispatch(deleteOneUserComments(elem._id))
-  //   })
-  // }
-  // del()
 
   function scrollToComment() {
     window.scrollTo({

@@ -40,15 +40,15 @@ function PaymentAndDeliveryPage() {
       <h3>How to place an order</h3>
       <div className={styles.card_block}>
         <CardPaymentAndDelivery
-          smartphone="true"
+          smartphone
           text="You can place an order on the website or by calling our phone +380 (067) 215-98-88"
         />
         <CardPaymentAndDelivery
-          callCenter="true"
+          callCenter
           text="You can order a call back and the operator will contact you in near time."
         />
         <CardPaymentAndDelivery
-          shopping="true"
+          shopping
           text="You can also place an order on the site yourself."
         />
       </div>
@@ -56,22 +56,22 @@ function PaymentAndDeliveryPage() {
       <h3>Payment And Delivery</h3>
       <div className={styles.card_block}>
         <CardPaymentAndDelivery
-          clock="true"
+          clock
           title="WE WORK FROM 10 TO 23:00"
           text="When placing an order, the operator will tell you the exact time of delivery. Depending on the workload of the kitchen, weather conditions and traffic jams, the delivery time may be changed! Delivery time takes 30-60 minutes depending on your location. The operator will tell you the exact time. We start preparing food immediately after confirming the order."
         />
         <CardPaymentAndDelivery
-          free="true"
+          free
           title="FREE SHIPPING"
           text="When ordering from 500 UAH, unless otherwise specified on the Delivery Zone map below."
         />
         <CardPaymentAndDelivery
-          contactless="true"
+          contactless
           title="CONTACTLESS DELIVERY"
           text="After agreeing on the order with the operator, he will send you a card for payment, or after paying online through the LiqPay system on our website, and after the money is credited to the account, we will send you a courier with the order. The courier leaves the order at your door and moves 5 meters away from the door. You pick up your order yourself and close the door."
         />
         <CardPaymentAndDelivery
-          pickup="true"
+          pickup
           title="PICKUP BY YOURSELF"
           text="If you pick up your order yourself, you will get 10% cashback to your bonus account. Address: Pavla Tychyna, 1v."
         />
@@ -80,17 +80,17 @@ function PaymentAndDeliveryPage() {
       <h3>How to pay for an order</h3>
       <div className={styles.card_block}>
         <CardPaymentAndDelivery
-          courier="true"
+          courier
           title="CASH COURIER"
           text="You can pay for the order to the courier upon receipt. Please check with the operator when placing an order if you need change."
         />
         <CardPaymentAndDelivery
-          online="true"
+          online
           title="ONLINE"
           text="Payment can be made with a Visa and MasterCard payment card of any bank. In this case, the online payment service LiqPay is used."
         />
         <CardPaymentAndDelivery
-          terminal="true"
+          terminal
           title="TERMINAL"
           text="Payment can be made using a mobile terminal upon receipt of an order. Please specify this method of payment to the operator when placing an order."
         />

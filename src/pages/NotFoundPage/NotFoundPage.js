@@ -5,11 +5,12 @@ import { faHome } from "@fortawesome/free-solid-svg-icons";
 import styles from './NotFoundPage.module.scss';
 
 function NotFoundPage() {
+
   return <div className={styles.notFoundPage}>
-       
+  
         <Link to="/">
-        <FontAwesomeIcon icon={faHome} size="3x" className={styles.notFoundPage_home} />
-        <span>Go Home</span>
+        <FontAwesomeIcon icon={faHome} size= "2x" className={styles.notFoundPage_home} />
+        <span>Go to Homepage</span>
         </Link>
         
   </div>;
