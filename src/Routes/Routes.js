@@ -16,6 +16,7 @@ import CardNewsAndEventsSitePage from "../pages/FooterPages/NewsAndEventsPage/Ca
 import CardNewsAndEventsWorkingPage from "../pages/FooterPages/NewsAndEventsPage/CardNewsAndEventsWorkingPage/CardNewsAndEventsWorkingPage";
 import NotFoundPage from "../pages/NotFoundPage/NotFoundPage";
 import WishlistPage from "../pages/WishlistPage/WishlistPage";
+import OrderPage from "../pages/OrderPage";
 
 const ProductsPage = React.lazy(() => import("../pages/ProductsPage"));
 
@@ -43,6 +44,7 @@ function Routes() {
             <Route exact path="/news-and-events/Master Class" component={CardNewsAndEventsMasterPage} />
             <Route exact path="/news-and-events/Working hours during the holidays" component={CardNewsAndEventsWorkingPage} />
         <Route exact path="/wishlist" component={WishlistPage} />
+        <Route exact path="/order" component={OrderPage} />
         <Route component={NotFoundPage} />
       </Switch>
     </Suspense>
