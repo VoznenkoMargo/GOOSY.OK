@@ -1,16 +1,11 @@
 /* eslint-disable default-param-last */
-import {
-  ADD_PRODUCTS_TO_WISHLIST,
-  CREATE_WISHLIST,
-  DELETE_PRODUCTS_FROM_WISHLIST,
-  DELETE_WISHLIST,
-  GET_WISHLIST,
-  UPDATED_WISHLIST,
-} from "../actions/wishlistItemsActions";
+import { ADD_PRODUCTS_TO_WISHLIST, CREATE_WISHLIST, DELETE_PRODUCTS_FROM_WISHLIST, DELETE_WISHLIST, GET_WISHLIST, UPDATED_WISHLIST, SET_IS_LOADING_WISHLIST } from "../actions/wishlistItemsActions";
+
 
 const initialState = {
-  wishlistItems: [],
-};
+    wishlistItems: [],
+    isLoading: false,
+}
 
 const wishlistItemsReducer = (state = initialState, { type, payload }) => {
   switch (type) {
@@ -38,9 +33,13 @@ const wishlistItemsReducer = (state = initialState, { type, payload }) => {
       return { ...state, wishlistItems: payload };
     }
 
+    case SET_IS_LOADING_WISHLIST: {
+      return {...state, isLoading: payload}
+    }
+    
     default:
       return state;
-  }
+    }
 };
 
 export default wishlistItemsReducer;

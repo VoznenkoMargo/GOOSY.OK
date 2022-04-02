@@ -7,27 +7,25 @@
 
     .wishlistPageItemsContainer{
         display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 20px;
-  margin-bottom: 30px;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        gap: 20px;
+        margin-bottom: 30px;
     }
-.wishlistPageTitle
-    {
+    .wishlistPageTitle{
         text-align: center;
         margin-top: 50px;
-    margin-bottom: 40px;
-    font-weight: bold;
-    font-size: 32px;
-    line-height: 39px;
-    color: #ffffff;
+        margin-bottom: 40px;
+        font-weight: bold;
+        font-size: 32px;
+        line-height: 39px;
+        color: #ffffff;
     }
 
     .wishlistPageEmpty{
+        text-align: center;
         font-size: 24px;
         line-height: 30px;
         color: #ffffff;
     }
-
-
 }

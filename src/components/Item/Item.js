@@ -14,29 +14,24 @@ import AddCartBtn from "../AddCartBtn/AddCartBtn";
 import styles from "./Item.module.scss";
 
 function Item(props) {
-  const {
-    itemNo,
-    imageUrls,
-    categories,
-    name,
-    currentPrice,
-    weight,
-    count,
-    _id,
-  } = props;
+  const { itemNo, imageUrls, categories, name, currentPrice, weight, count, _id } = props;
 
-  const dispatch = useDispatch();
-  const { wishlistItems } = useSelector((store) => store.wishlist);
+const dispatch = useDispatch();
+const {wishlistItems, isLoading} = useSelector(store => store.wishlist)
 
-  function handleAddWishlistItem(id) {
-    dispatch(addProductToUserWishlist(id));
-  }
+function handleAddWishlistItem(id) {
+  if(!isLoading)
+  dispatch(addProductToUserWishlist(id))
+}
 
-  function handleDeleteWishlistItem(id) {
-    if (wishlistItems.length === 1) {
-      dispatch(deleteUserWishlist());
-    } else dispatch(deleteProductFromUserWishlist(id));
-  }
+function handleDeleteWishlistItem(id) {
+  if(!isLoading)
+  if(wishlistItems.length === 1){
+    dispatch(deleteUserWishlist())
+    }else
+  dispatch(deleteProductFromUserWishlist(id))
+}
+
 
   return (
     <div className={styles.item} key={itemNo}>
