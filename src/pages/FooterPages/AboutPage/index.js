@@ -1,1 +1,2 @@
-export {default} from  "./AboutPage"
+/* eslint-disable no-restricted-exports */
+export { default } from "./AboutPage";
