@@ -37,13 +37,13 @@ export const getAllUsersComments = () => async (dispatch) => {
     try{
         const result = await getAllComments();
         if (result.status === 200) {
-            dispatch({type: GET_ALL_COMMENTS, payload: result.data})
-            dispatch(setIsLoadingComment(false));
+            dispatch({type: GET_ALL_COMMENTS, payload: result.data})    
         }
     }catch(error){
-        dispatch(setIsLoadingComment(false));
         Notiflix.Notify.failure("Failed to get comments");
-    }  
+    }finally{
+      dispatch(setIsLoadingComment(false));
+    }
 }
 
 
@@ -65,7 +65,7 @@ export const putUserComments = (id, updatedComment) => async (dispatch) => {
   }
 };
 
-//
+
 export const deleteOneUserComments = (id) => async (dispatch) => {
   try {
     const result = await deleteOneComments(id);

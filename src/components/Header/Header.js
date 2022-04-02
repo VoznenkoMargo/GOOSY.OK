@@ -37,10 +37,12 @@ function Header() {
     }
   }, []);
 
+  const authToken = getFromLS("authToken");
+
   useEffect(() => {
     if(getFromLS("authToken"))
     dispatch(getUserWishlist());
-  }, [getFromLS("authToken")]);
+  }, [authToken]);
 
   useEffect(() => {
     if (setUserName(getFromLS("userName"))) {

@@ -14,11 +14,8 @@ function WishlistPage() {
         <ArrowBack />
       </div>
       <h3 className={styles.wishlistPageTitle}>Your Wishlist Items</h3>
+      {wishlistItems.length === 0 ? <div className={styles.wishlistPageEmpty}>Wishlist list is empty</div> : null}
       <div className={styles.wishlistPageItemsContainer}>
-        <div className={styles.wishlistPageEmpty}>
-          {wishlistItems.length === 0 ? "Wishlist list is empty" : null}
-        </div>
-
         {wishlistItems &&
           wishlistItems.map((element) => (
             <Item

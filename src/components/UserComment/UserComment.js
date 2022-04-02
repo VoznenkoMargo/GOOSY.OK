@@ -14,22 +14,31 @@ function UserComment({firstName, date, content, rating, commentsId, thumbUpUser,
   const datePublic = new Date(date).toLocaleString(); 
   const dispatch = useDispatch();
 
+  // function thumbUpClickFunc (){
+  //   if(customerThumb?.includes(customerNo) || thumbUpClick || thumbDownClick){
+  //     return
+  //   }
+  //   if(customerThumb === undefined){
+  //     dispatch(putUserComments(commentsId, {thumbUp: thumbUpUser + 1, thumbUpClick: true, customerThumb: [...customerThumb, customerNo]}))
+  //   }
+  // }
+
   function thumbUpClickFunc (){
-    if(thumbUpClick || thumbDownClick){
-      return
-    }
-    if(getFromLS('authToken') !== token){
-      dispatch(putUserComments(commentsId, {thumbUp: thumbUpUser + 1, thumbUpClick: true, token: getFromLS('authToken')}))
-    }
+      if(!token.includes(getFromLS('authToken'))){
+        dispatch(putUserComments(commentsId, {thumbUp: thumbUpUser + 1, thumbUpClick: true, token: [...token, getFromLS('authToken')]}))
+      } 
+      if(token.includes(getFromLS('authToken')) || thumbDownClick || thumbUpClick){
+        return
+      }
   }
 
 
   function thumbDownClickFunc (){
-    if(thumbDownClick || thumbUpClick){
+    if(token.includes(getFromLS('authToken')) || thumbDownClick || thumbUpClick){
       return
     }
-    if(getFromLS('authToken') !== token){
-      dispatch(putUserComments(commentsId, {thumbDown: thumbDownUser + 1, thumbDownClick: true, token: getFromLS('authToken')}))
+    if(!token.includes(getFromLS('authToken'))){
+      dispatch(putUserComments(commentsId, {thumbDown: thumbDownUser + 1, thumbDownClick: true, token: [...token, getFromLS('authToken')]}))
     } 
   }
 
@@ -73,13 +82,13 @@ UserComment.propTypes = {
   thumbDownUser:PropTypes.number.isRequired,
   thumbUpClick:PropTypes.bool,
   thumbDownClick:PropTypes.bool, 
-  token: PropTypes.string,
+  token: PropTypes.array,
 }
 
 UserComment.defaultProps = {
   thumbUpClick: false,
   thumbDownClick: false,
-  token: "",
+  token: [],
 }
 
 export default UserComment;

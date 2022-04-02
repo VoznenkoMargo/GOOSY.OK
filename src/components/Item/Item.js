@@ -13,13 +13,15 @@ function Item(props) {
   const { itemNo, imageUrls, categories, name, currentPrice, weight, count, _id } = props;
 
 const dispatch = useDispatch();
-const {wishlistItems} = useSelector(store => store.wishlist)
+const {wishlistItems, isLoading} = useSelector(store => store.wishlist)
 
 function handleAddWishlistItem(id) {
+  if(!isLoading)
   dispatch(addProductToUserWishlist(id))
 }
 
 function handleDeleteWishlistItem(id) {
+  if(!isLoading)
   if(wishlistItems.length === 1){
     dispatch(deleteUserWishlist())
     }else
@@ -46,9 +48,6 @@ function handleDeleteWishlistItem(id) {
       }
        />}
       
-
-
-
       <Link to={`/products/${itemNo}`} style={{ textDecoration: "none" }}>
         <img src={imageUrls} alt="dish" />
         <div>
