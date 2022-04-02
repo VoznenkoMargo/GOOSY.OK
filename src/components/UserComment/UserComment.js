@@ -14,15 +14,6 @@ function UserComment({firstName, date, content, rating, commentsId, thumbUpUser,
   const datePublic = new Date(date).toLocaleString(); 
   const dispatch = useDispatch();
 
-  // function thumbUpClickFunc (){
-  //   if(customerThumb?.includes(customerNo) || thumbUpClick || thumbDownClick){
-  //     return
-  //   }
-  //   if(customerThumb === undefined){
-  //     dispatch(putUserComments(commentsId, {thumbUp: thumbUpUser + 1, thumbUpClick: true, customerThumb: [...customerThumb, customerNo]}))
-  //   }
-  // }
-
   function thumbUpClickFunc (){
       if(!token.includes(getFromLS('authToken'))){
         dispatch(putUserComments(commentsId, {thumbUp: thumbUpUser + 1, thumbUpClick: true, token: [...token, getFromLS('authToken')]}))
@@ -31,7 +22,6 @@ function UserComment({firstName, date, content, rating, commentsId, thumbUpUser,
         return
       }
   }
-
 
   function thumbDownClickFunc (){
     if(token.includes(getFromLS('authToken')) || thumbDownClick || thumbUpClick){

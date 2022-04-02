@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Button, Comment, Form } from "semantic-ui-react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPencilAlt } from '@fortawesome/free-solid-svg-icons';
-import { addUserComment, deleteOneUserComments } from '../../store/actionCreators/commentItemsCreator';
+import { addUserComment } from '../../store/actionCreators/commentItemsCreator';
 import { getAllUsersComments } from "../../store/actionCreators/commentItemsCreator";
 import UserComment from '../UserComment/UserComment';
 import styles from './Comments.module.scss';
