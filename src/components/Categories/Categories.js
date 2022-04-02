@@ -24,7 +24,7 @@ function Categories() {
     } else {
       document.getElementById("header").classList.remove("scrolled");
     }
-  });
+  }, [handleScroll, scrolled]);
 
   const setCategories = (categories) => {
     dispatch(initCategories(categories));
@@ -37,7 +37,7 @@ function Categories() {
           <NavLink
             to="/products/filter?minPrice=0&maxPrice=990&categories=cold snaks"
             className="categories_item_link"
-            onClick={()=>setCategories('cold snaks')}
+            onClick={() => setCategories("cold snaks")}
           >
             Cold snacks{" "}
           </NavLink>
