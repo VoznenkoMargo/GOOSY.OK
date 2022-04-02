@@ -7,8 +7,8 @@ import styles from "./Header.module.scss";
 import Contact from "./Contact/Contact";
 import CartBtn from "./CartBtn/CartBtn";
 import Search from "./Search/Search";
-import FormLogin from "../FormLogin/FormLogin";
-import FormReg from "../FormReg/FormReg";
+import FormLogin from "../Form/FormLogin";
+import FormReg from "../Form/FormReg";
 import { getFromLS } from "../../utils/localStorage";
 import { clearSearchItemsCreator } from "../../store/actionCreators/searchItemsCreator";
 import HeartFromWishlist from "../HeartFromWishlist/HeartFromWishlist";
@@ -53,6 +53,7 @@ function Header() {
   };
 
   const closeSignIn = () => {
+    document.body.style.overflow = 'unset'
     setSignInOpen(false);
   };
 
@@ -61,6 +62,7 @@ function Header() {
   };
 
   const closeSignUp = () => {
+    document.body.style.overflow = 'unset'
     setSignUpOpen(false);
   };
 
@@ -120,47 +122,15 @@ function Header() {
             </li>
 
             <li >
-              {userName ? (
-                <div className={styles.signOut}>
-                  {" "}
-                  <span className={styles.header_user}>
-                    {" "}
-                    Welcome, {userName}{" "}
-                  </span>{" "}
-                  <SignOutBtn setUserName={setUserName} />{" "}
-                </div>
-              ) : (
-                <div className={styles.signInsignUp}>
-                  <span
-                    onClick={openSignUp}
-                    className={styles.signIn}
-                    role="button"
-                    tabIndex={0}
-                    onKeyPress={() => {}}
-                  >
-                    Sign up
-                  </span>
-                  {isSignUpOpen ? <FormReg closeSignUp={closeSignUp} /> : ""}
+            {userName ? <div> <span className={styles.header_user}> Weclome, {userName} </span>  <SignOutBtn setUserName={setUserName} /> </div> :
+              <div className={styles.signInsignUp}>
+                <span  onClick={openSignUp} className={styles.signIn} role='button' tabIndex={0} onKeyPress={()=>{}}>Sign up</span>
+                {isSignUpOpen ?  <FormReg setUserName={setUserName} closeSignUp={closeSignUp}/>    : '' }
 
-                  <span
-                    onClick={openSignIn}
-                    className={styles.signUp}
-                    role="button"
-                    tabIndex={0}
-                    onKeyPress={() => {}}
-                  >
-                    Sign in
-                  </span>
-                  {isSignInOpen ? (
-                    <FormLogin
-                      setUserName={setUserName}
-                      closeSignIn={closeSignIn}
-                    />
-                  ) : (
-                    ""
-                  )}
-                </div>
-              )}
+                <span onClick={openSignIn} className={styles.signUp} role='button' tabIndex={0} onKeyPress={()=>{}}>Sign in</span> 
+                {isSignInOpen ?  <FormLogin setUserName={setUserName}  closeSignIn={closeSignIn}/>    : '' }
+              </div>
+            }
             </li>
 
             <li>

@@ -34,6 +34,7 @@ export const deleteWishlist = () => instance.delete(`/wishlist`); // Удали�
 
 export const sendRegData = (userData) => instance.post('/customers', userData);
 export const sendLogInData = (loginData)=> instance.post('/customers/login', loginData);
+export const getUserData = () => instance.get('/customers/customer');
 
 // CRUD FOR COMMENTS
 export const addNewComment = (newComment) => instance.post('/comments', newComment);
@@ -41,6 +42,7 @@ export const getAllCommentOfProduct = (productId) => instance.get(`/comments/pro
 export const getAllComments = () => instance.get('/comments');
 export const deleteOneComments = (id) => instance.delete(`/comments/${id}`);
 export const updateComments = (id, updatedComment) => instance.put(`/comments/${id}`, updatedComment);
+
 
 // Если нужно посмореть примеры запросов и обьектов, вот ссылка на документацию
 // https://saribeg.github.io/DAN.IT-API-Documentation/#about-project
