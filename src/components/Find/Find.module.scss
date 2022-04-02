@@ -1,0 +1,52 @@
+.find {
+  width: 20em;
+  height: fit-content;
+  background-color: #fff;
+  margin: 40px;
+  border-radius: 10px;
+  border: 5px solid #618967;
+  background: linear-gradient(90deg, #494544 0%, #504b4a 100%);
+  box-shadow: 0px 30px 45px rgb(43 40 40 / 60%);
+
+  .title {
+    color: #fff;
+    font-family: "Outfit", sans-serif;
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px;
+    margin-top: 10px;
+  }
+}
+
+@media screen and (max-width: 1549px) {
+  .find {
+    display: flex;
+    flex-direction: column;
+    
+    height: fit-content;
+    background-color: #fff;
+    width: auto;
+    margin-top: 40px;
+    border-radius: 10px;
+    border: 5px solid #618967;
+    background: linear-gradient(90deg, #494544 0%, #504b4a 100%);
+    box-shadow: 0px 30px 45px rgb(43 40 40 / 60%);
+
+  
+    .title {
+      color: #fff;
+      font-family: "Outfit", sans-serif;
+      text-align: center;
+      font-weight: bold;
+      font-size: 20px;
+      margin-top: 10px;
+    }
+  }
+}
+
+@media screen and (max-width: 456px) {
+  .find {
+  margin: 0;
+  }
+
+}

@@ -1,0 +1,116 @@
+.modal {
+    display: block;
+    position: fixed;
+    z-index: 1;
+    padding-top: 50px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;   
+    background-color: rgba(0, 0, 0, 0.596);
+    
+}
+.modalContent {
+    background-color: #494544;
+    margin: auto;
+    width: 100%;
+    padding-bottom: 20px;
+    border: 1px solid #888;
+    width: 40%;
+    border-radius: 10px;
+    overflow-y: auto;
+    
+    &_login{
+        height: max-content;
+        overflow-y:unset;
+        
+    }
+    &_reg{
+        height: 90%;
+    }
+
+    @media (max-width: 1000px) 
+    {   
+        &_reg
+        {
+            width: 50%;
+            height: 90%;
+            overflow-y: auto;
+        }
+        
+    }
+    @media (max-width: 650px) 
+    {   
+        width: 85%;
+        
+    }     
+}
+.form {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+    margin: 20px;
+
+    &_login{
+        @media (min-width: 1000px) 
+        {   
+        row-gap: 30px; 
+        }  
+    }
+    
+          
+}
+.form_label{
+margin-top: 10px;
+}
+.form_input{
+    display: block;
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    background-color: rgb(99, 101, 102);
+    padding: 0px 45px 0px 15px;
+    height: 50px;
+    width: 100%;
+    margin-right: 5px;
+    
+
+    &_birthdate{
+       
+        display:block;
+        -webkit-appearance: textfield;
+        -moz-appearance: textfield;
+        min-height: 2em;
+        width: 100px;
+        margin-bottom: 10px;
+    }
+}
+.form_input_error{
+    color: rgb(245, 72, 72);
+    font-size: 14px;
+    text-transform: uppercase;
+    height: 14px;
+    margin-bottom: 15px;
+}
+.form_header{
+    display: flex;
+    justify-content: space-between;
+}
+.form_header_topic{
+    color: #fff;
+    
+}
+
+.form_submit_button{
+    border: none;
+    font-size: 20px;
+    text-align: center;
+    background-color:  #618967;
+    border-radius: 10px;
+    color: black;
+    padding: 1vw 40px;
+    margin-top: 20px;
+}
+.form_bottom{
+    margin: 0 auto;
+}

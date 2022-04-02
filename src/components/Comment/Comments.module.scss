@@ -1,0 +1,20 @@
+.textarea_styling{
+    max-width: 500px;
+    textarea{
+    min-width: 100%;
+    min-height: 200px; 
+    border-radius: 5px;
+    padding: 10px 10px 10px 10px;
+    font-size: 1em;
+    resize: none;
+    }
+
+    :focus{
+        box-shadow: 0px 0px 20px rgba(151, 145, 145, 0.4);
+    }
+  
+    :focus::placeholder{
+        opacity: 0; 
+        transition: opacity 0.3s ease;    
+    }
+}

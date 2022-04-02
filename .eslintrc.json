@@ -22,6 +22,15 @@
   },
   "plugins": ["react"],
   "rules": {
-    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }]
+    "no-console": "off",
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "react/jsx-props-no-spreading": "off",
+    "import/no-unresolved": "off",
+    "arrow-body-style": "off",
+    "react/no-unstable-nested-components": [
+      "off",
+      { "allowAsProps": true }
+    ],
+    "react-hooks/exhaustive-deps": "off"
   }
 }

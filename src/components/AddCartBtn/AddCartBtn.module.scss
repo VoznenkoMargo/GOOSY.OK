@@ -1,0 +1,21 @@
+.backgroundBtn {
+  cursor: pointer;
+  background: linear-gradient(114.93deg, #618967 5.11%, #72a479 94%);
+  border-radius: 5px;
+  display: flex;
+  max-width: 150px;
+  align-items: center;
+  border: none;
+  outline: #618967;
+
+  p {
+    font-weight: 600;
+    font-size: 14px;
+    color: #ffffff;
+    padding: 14px 5px 14px 14px;
+  }
+
+  svg {
+    margin-right: 15px;
+  }
+}

@@ -1,0 +1,45 @@
+.findPrice {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-content: flex-end;
+  margin-bottom: 2em;
+  & > label {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 10px;
+    font-weight: bold;
+    font-size: 18px;
+    color: #ffffff;
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+    & > input{
+      background:linear-gradient(90deg, #a2f3c1 0%, #f1e67c 100%);
+      color: #073749;
+      font-weight: bold;
+      max-width: 4em;
+      border-radius: 45px;
+      padding-left: 0.5em;
+    }
+  }
+}
+
+@media screen and (max-width: 1549px) {
+  .findPrice {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+     label input{
+       margin-left: 2em;
+     }
+  }
+}
+
+@media screen and (max-width: 668px) {
+  .findPrice{
+    flex-direction: column;
+  }
+}

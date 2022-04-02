@@ -1,0 +1,35 @@
+.cardNewsAndEventsWorkingPage{
+    padding: 20px 50px 50px 50px;
+
+    .cardNewsAndEventsWorkingPage_back{
+        display: flex;
+        align-items: center;
+    
+    }
+
+    h2{
+        text-align: center;
+        text-transform: uppercase;
+        padding: 10px 0px 30px 0px;
+        color: #cacaca;
+    }
+
+    h3{
+        padding: 30px 0px 10px 0px;
+        text-indent: 5%;
+        color: #cacaca;
+
+    }
+    
+    p{
+        text-align: justify;
+        text-indent: 5%;
+        color: #9b9999;
+        line-height: 30px;
+    }
+
+    .about_padding{
+        padding-bottom: 10px;
+    }
+
+}

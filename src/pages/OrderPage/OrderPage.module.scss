@@ -1,0 +1,24 @@
+.orderContainer{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+
+  .orderTitle {
+    text-transform: uppercase;
+    font-style: normal;
+    font-size: 35px;
+    letter-spacing: 0.15em;
+    color: #FFFFFF;
+    text-align: center;
+    margin: 50px 0px;
+    line-height: normal;
+  }
+
+  .orderImg {
+    width: 40%;
+    height: 40%;
+    align-items: center;
+    margin-bottom: 50px;
+  }
+}
