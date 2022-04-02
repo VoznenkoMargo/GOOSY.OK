@@ -1,53 +1,66 @@
+/* eslint-disable no-underscore-dangle */
 import React from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {faHeart} from "@fortawesome/free-solid-svg-icons";
+import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import { useDispatch, useSelector } from "react-redux";
-import { addProductToUserWishlist, deleteProductFromUserWishlist, deleteUserWishlist } from "../../store/actionCreators/wishlistItemsCreator";
+import {
+  addProductToUserWishlist,
+  deleteProductFromUserWishlist,
+  deleteUserWishlist,
+} from "../../store/actionCreators/wishlistItemsCreator";
 import AddCartBtn from "../AddCartBtn/AddCartBtn";
 import styles from "./Item.module.scss";
 
-
 function Item(props) {
-  const { itemNo, imageUrls, categories, name, currentPrice, weight, count, _id } = props;
+  const {
+    itemNo,
+    imageUrls,
+    categories,
+    name,
+    currentPrice,
+    weight,
+    count,
+    _id,
+  } = props;
 
-const dispatch = useDispatch();
-const {wishlistItems} = useSelector(store => store.wishlist)
+  const dispatch = useDispatch();
+  const { wishlistItems } = useSelector((store) => store.wishlist);
 
-function handleAddWishlistItem(id) {
-  dispatch(addProductToUserWishlist(id))
-}
+  function handleAddWishlistItem(id) {
+    dispatch(addProductToUserWishlist(id));
+  }
 
-function handleDeleteWishlistItem(id) {
-  if(wishlistItems.length === 1){
-    dispatch(deleteUserWishlist())
-    }else
-  dispatch(deleteProductFromUserWishlist(id))
-}
-
+  function handleDeleteWishlistItem(id) {
+    if (wishlistItems.length === 1) {
+      dispatch(deleteUserWishlist());
+    } else dispatch(deleteProductFromUserWishlist(id));
+  }
 
   return (
     <div className={styles.item} key={itemNo}>
       {count ? <span className={styles.cartCircle}>{count}</span> : ""}
 
-      {wishlistItems.find((element)=>(element._id === _id)) ? 
-      <FontAwesomeIcon  
-      icon={faHeart}
-      size="2x"
-      className={styles.item_favorite_active}
-      onClick={()=>{handleDeleteWishlistItem(_id)}
-    }/> : 
-      <FontAwesomeIcon  
-       icon={faHeart}
-       size="2x"
-       className={styles.item_favorite}
-       onClick={()=>{handleAddWishlistItem(_id)}
-      }
-       />}
-      
-
-
+      {wishlistItems.find((element) => element._id === _id) ? (
+        <FontAwesomeIcon
+          icon={faHeart}
+          size="2x"
+          className={styles.item_favorite_active}
+          onClick={() => {
+            handleDeleteWishlistItem(_id);
+          }}
+        />
+      ) : (
+        <FontAwesomeIcon
+          icon={faHeart}
+          size="2x"
+          className={styles.item_favorite}
+          onClick={() => {
+            handleAddWishlistItem(_id);
+          }}
+        />
+      )}
 
       <Link to={`/products/${itemNo}`} style={{ textDecoration: "none" }}>
         <img src={imageUrls} alt="dish" />
@@ -64,7 +77,7 @@ function handleDeleteWishlistItem(id) {
 
       <div className={styles.priceInfo}>
         <h2 className={styles.price}>{currentPrice} ₴</h2>
-          <AddCartBtn cartItem={props}/>
+        <AddCartBtn cartItem={props} />
       </div>
     </div>
   );
@@ -72,14 +85,14 @@ function handleDeleteWishlistItem(id) {
 
 Item.propTypes = {
   _id: PropTypes.string,
-  itemNo:PropTypes.elementType.isRequired,
-  imageUrls:PropTypes.arrayOf(PropTypes.string),
-  categories:PropTypes.string,
+  itemNo: PropTypes.elementType.isRequired,
+  imageUrls: PropTypes.arrayOf(PropTypes.string),
+  categories: PropTypes.string,
   name: PropTypes.string,
   currentPrice: PropTypes.number,
-  weight:PropTypes.number,
-  count:PropTypes.number
-}
+  weight: PropTypes.number,
+  count: PropTypes.number,
+};
 
 Item.defaultProps = {
   _id: "",
@@ -89,6 +102,6 @@ Item.defaultProps = {
   currentPrice: 0,
   weight: 0,
   count: 0,
-} 
- 
+};
+
 export default Item;
