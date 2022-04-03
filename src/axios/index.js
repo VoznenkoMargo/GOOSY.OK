@@ -2,15 +2,15 @@
 import instance from "../api";
 
 // CRUD FOR PRODUCTS
-export const getProducts = () => instance.get(`/products`); // Получить все продукты
-export const addNewProduct = (data) => instance.post(`/products`, data); // Добавить новый продукт
+export const getProducts = () => instance.get(`/api/products`); // Получить все продукты
+export const addNewProduct = (data) => instance.post(`/api/products`, data); // Добавить новый продукт
 export const updatedProduct = (productId, data) =>
-  instance.post(`/products/${productId}`, data); // Обновить продукт
+  instance.post(`/api/products/${productId}`, data); // Обновить продукт
 export const searchProducts = (searchPhrases) =>
-  instance.post(`/products/search`, searchPhrases); // Поиск продукта по фразе
-export const getOneProduct = (itemNo) => instance.get(`/products/${itemNo}`); // Получить один продукт
+  instance.post(`/api/products/search`, searchPhrases); // Поиск продукта по фразе
+export const getOneProduct = (itemNo) => instance.get(`/api/products/${itemNo}`); // Получить один продукт
 export const getByCategory = (category) =>
-  instance.get(`/products/filter${category}`); // Получить продукты по категории
+  instance.get(`/api/products/filter${category}`); // Получить продукты по категории
 
 // CRUD FOR CART
 export const getCart = () => instance.get(`/cart`); // Получить корзину
