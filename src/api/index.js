@@ -2,7 +2,7 @@
 import axios from "axios";
 
 const instance = axios.create({
-  baseURL: "http://goos-ok.herokuapp.com/api",
+  baseURL: "https://goos-ok.herokuapp.com/api",
 });
 
 instance.interceptors.response.use(
