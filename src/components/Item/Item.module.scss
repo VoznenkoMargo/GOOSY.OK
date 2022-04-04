@@ -14,22 +14,22 @@
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-
-position: relative;
+  position: relative;
+  
   .item_favorite{
-position: absolute;
-left: 5%;
-top: 3%;
-opacity: .4;
-cursor: pointer;
+    position: absolute;
+    left: 5%;
+    top: 3%;
+    opacity: .5;
+    cursor: pointer;
   }
 
   .item_favorite_active{
     position: absolute;
-left: 5%;
-top: 3%;
-opacity: .8;
-cursor: pointer;
+    left: 5%;
+    top: 3%;
+    opacity: .8;
+    cursor: pointer;
     color:#79b382;
   }
 
