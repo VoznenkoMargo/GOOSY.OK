@@ -3,12 +3,12 @@ import React from "react";
 import PropTypes from "prop-types";
 import style from "./FindPrice.module.scss";
 
-function FindPrice({ price, setPri }) {
-  const setMinPr = (e, index) => {
+function FindPrice({ price, setNewPrice }) {
+  const setMinPrice = (e, index) => {
     const newPr = e.target.value;
     const statePrice = [...price];
     statePrice[index] = newPr;
-    setPri(statePrice);
+    setNewPrice(statePrice);
   };
 
   return (
@@ -18,7 +18,7 @@ function FindPrice({ price, setPri }) {
         min Price
         <input
           type="number"
-          onChange={(e) => setMinPr(e, 0)}
+          onChange={(e) => setMinPrice(e, 0)}
           value={price[0]}
         />
       </label>
@@ -27,7 +27,7 @@ function FindPrice({ price, setPri }) {
         max Price
         <input
           type="number"
-          onChange={(e) => setMinPr(e, 1)}
+          onChange={(e) => setMinPrice(e, 1)}
           value={price[1]}
         />
       </label>
@@ -37,7 +37,7 @@ function FindPrice({ price, setPri }) {
 
 FindPrice.propTypes = {
   price: PropTypes.number.isRequired,
-  setPri: PropTypes.func.isRequired,
+  setNewPrice: PropTypes.func.isRequired,
 };
 
 export default FindPrice;

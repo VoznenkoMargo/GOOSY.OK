@@ -16,7 +16,7 @@ function CategoriesPage() {
   const [keyCategories, setKeyCategories] = useState([]);
   const [price, setPrice] = useState(["0", "990"]);
 
-  const setPri = (data) => {
+  const setNewPrice = (data) => {
     setPrice(data);
   };
 
@@ -47,7 +47,7 @@ function CategoriesPage() {
   return (
     <section className={style.mainSection}>
       <div>
-        <Find price={price} setPri={setPri}  />
+        <Find price={price} setNewPrice={setNewPrice}  />
       </div>
       <div>
         {/* {keyCategories &&

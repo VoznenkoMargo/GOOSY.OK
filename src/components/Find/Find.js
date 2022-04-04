@@ -4,18 +4,18 @@ import style from "./Find.module.scss";
 import CheckBoxContainer from "./CheckBoxContainer/CheckBoxContainer";
 import FindPrice from "./FindPrice/FindPrice";
 
-function Find({  setPri, price }) {
+function Find({  setNewPrice, price }) {
   return (
     <div className={style.find}>
       <p className={style.title}>Check filters</p>
       <CheckBoxContainer/>
-      <FindPrice price={price} setPri={setPri} />
+      <FindPrice price={price} setNewPrice={setNewPrice} />
     </div>
   );
 }
 
 Find.propTypes = {
-  setPri:PropTypes.func.isRequired, 
+  setNewPrice:PropTypes.func.isRequired, 
   price:PropTypes.number.isRequired
 }
 
