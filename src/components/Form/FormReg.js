@@ -88,12 +88,12 @@ function FormReg(props) {
             saveToLS("userName", data.firstName);
             setUserName(data.firstName);
           })
-          .catch((err) => {
-            console.log(err);
+          .catch(() => {
+            
           });
       })
-      .catch((err) => {
-        console.log(err);
+      .catch(() => {
+        
       });
   };
 

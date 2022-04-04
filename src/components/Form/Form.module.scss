@@ -95,6 +95,7 @@ margin-top: 10px;
 .form_header{
     display: flex;
     justify-content: space-between;
+    margin-bottom: 5px;
 }
 .form_header_closebtn{
  cursor: pointer;   
@@ -112,6 +113,13 @@ margin-top: 10px;
     color: black;
     padding: 1vw 40px;
     margin-top: 20px;
+
+    &:hover{
+        cursor: pointer;
+        color: #fff;
+        border: 1px solid #02f426;
+       
+    }
 }
 .form_bottom{
     margin: 0 auto;
