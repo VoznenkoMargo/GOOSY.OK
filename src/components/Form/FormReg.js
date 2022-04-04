@@ -117,9 +117,9 @@ function FormReg(props) {
   };
 
   const handleSubmit = (userData) => {
+    console.log(userData);
     delete userData.confirmPassword;
     document.body.style.overflow = "unset";
-
     SignUp(userData);
   };
 

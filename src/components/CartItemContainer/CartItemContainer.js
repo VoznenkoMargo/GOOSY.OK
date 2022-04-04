@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import {Link, NavLink} from "react-router-dom";
 import { FaMinus, FaPlus } from "react-icons/fa";
 import { AiTwotoneDelete } from "react-icons/ai";
+import { getFromLS } from "../../utils/localStorage";
 
 import styles from "./CartItemContainer.module.scss";
 import {
@@ -24,6 +25,11 @@ function CartItemContainer({ cartItems }) {
     dispatch(deleteItemCreator(cartItem));
   };
 
+  const test =  () =>{
+    const userEmail = getFromLS('userEmail')
+    const {cartItems} = getFromLS("cart")
+    console.log(userEmail,cartItems );
+  }
   return (
     <>
       {cartItems.length === 0 && <h1>Корзина пустая</h1>}
@@ -83,7 +89,7 @@ function CartItemContainer({ cartItems }) {
               ₴
             </span>
           </h2>
-          <NavLink to="order" className={styles.order}>
+          <NavLink to="order" onClick={()=>test('work')} className={styles.order}>
             Place an order
           </NavLink>
         </div>

@@ -15,7 +15,6 @@ function FormLogin(props) {
   const [modalErrorLoginOpen, setModalErrorLoginOpen] = useState(false);
 
   const ref = useRef();
-  console.log(ref);
 
   useEffect(() => {
     const checkIfClickedOutside = (e) => {
@@ -62,6 +61,7 @@ function FormLogin(props) {
         getUserData()
           .then(({ data }) => {
             saveToLS("userName", data.firstName);
+            saveToLS("userEmail", data.email);
             setUserName(data.firstName);
           })
           .catch((err) => {
