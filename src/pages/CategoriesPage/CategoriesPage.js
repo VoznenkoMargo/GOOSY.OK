@@ -42,27 +42,13 @@ function CategoriesPage() {
     setKeyCategories(keys);
   }, [items]);
   
-  
-
   return (
     <section className={style.mainSection}>
       <div>
         <Find price={price} setNewPrice={setNewPrice}  />
       </div>
       <div>
-        {/* {keyCategories &&
-          keyCategories.map((item) => {
-            return (
-              <ItemsContainer
-                key={item}
-                header={`${item}`}
-                items={items[`${item}`]}
-                isLoading={isLoading}
-                isError={isError}
-              />
-            );
-          })} */}
-                  { (keyCategories && (keyCategories.length > 0)) ?  keyCategories.map((item) => {
+            { (keyCategories && (keyCategories.length > 0)) ?  keyCategories.map((item) => {
             return (
               <ItemsContainer
                 key={item}
@@ -74,7 +60,6 @@ function CategoriesPage() {
             );
           })  
           :
-          
           <div className={style.emptyContainer}>
             <div>
               <p>Sorry, but your search did not match anything.</p>
