@@ -7,7 +7,7 @@ import classNames from "classnames";
 import { saveToLS } from "../../utils/localStorage";
 import { sendLogInData, getUserData } from "../../axios";
 import styles from "./Form.module.scss";
-import ModalErrorLogin from "./ModalErrorLogin/ModalErrorLogin";
+import Modal from "../MainModal/Modal";
 
 function FormLogin(props) {
   const { closeSignIn, setUserName } = props;
@@ -149,7 +149,7 @@ function FormLogin(props) {
           }}
         </Formik>
       </div>
-      {modalErrorLoginOpen ? <ModalErrorLogin /> : ""};
+      {modalErrorLoginOpen ? <Modal modalType="errorLogin" /> : ""};
     </div>
   );
 }

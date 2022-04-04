@@ -96,11 +96,13 @@ margin-top: 10px;
     display: flex;
     justify-content: space-between;
 }
+.form_header_closebtn{
+ cursor: pointer;   
+}
 .form_header_topic{
     color: #fff;
     
 }
-
 .form_submit_button{
     border: none;
     font-size: 20px;

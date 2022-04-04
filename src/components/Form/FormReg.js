@@ -7,9 +7,7 @@ import * as yup from "yup";
 import PropTypes from "prop-types";
 import NumberFormat from "react-number-format";
 import classNames from "classnames";
-import Modal from "../Modal/Modal";
-import ModalServerRegError from "./ModalServerRegError/ModalServerRegError";
-import ModalSuccessReg from "./ModalSuccessReg/ModalSuccessReg";
+import Modal from "../MainModal/Modal";
 import { sendRegData, sendLogInData, getUserData } from "../../axios";
 import { saveToLS } from "../../utils/localStorage";
 import styles from "./Form.module.scss";
@@ -80,7 +78,6 @@ function FormReg(props) {
   document.body.style.overflow = "hidden";
 
   const hendleLogin = (userData) => {
-    console.log(userData);
     openSuccessModal();
 
     sendLogInData(userData)
@@ -88,7 +85,6 @@ function FormReg(props) {
         saveToLS("authToken", data.token);
         getUserData()
           .then(({ data }) => {
-            console.log("done");
             saveToLS("userName", data.firstName);
             setUserName(data.firstName);
           })
@@ -283,21 +279,10 @@ function FormReg(props) {
           }}
         </Formik>
       </div>
-      {modalOpen ? (
-        <Modal setModalOpen={setModalOpen} closeSignUp={closeSignUp} />
-      ) : (
-        ""
-      )}
-      ;
-      {modalServerRegOpen ? (
-        <ModalServerRegError
-          setModalServerRegOpen={setModalServerRegOpen}
-          currentModalError={currentModalError}
-        />
-      ) : (
-        ""
-      )}
-      ;{modalSuccessRegOpen ? <ModalSuccessReg /> : console.log("notok")}
+      {modalOpen ? (<Modal setModalOpen={setModalOpen} closeSignUp={closeSignUp} modalType='cancelReg' />) : ("")};
+      {modalServerRegOpen ? (<Modal modalType="errorReg" setModalServerRegOpen={setModalServerRegOpen} currentModalError={currentModalError}/>) : 
+      ("")};
+      {modalSuccessRegOpen ? <Modal modalType="successReg" /> : ""}
     </div>
   );
 }
