@@ -1,5 +1,5 @@
 /* eslint-disable no-underscore-dangle */
-import React from "react";
+import React, {useState} from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -12,17 +12,28 @@ import {
 } from "../../store/actionCreators/wishlistItemsCreator";
 import AddCartBtn from "../AddCartBtn/AddCartBtn";
 import styles from "./Item.module.scss";
+import PopoverHeart from "../Popover/Popover";
 
 function Item(props) {
   const { itemNo, imageUrls, categories, name, currentPrice, weight, count, _id } = props;
 
 const dispatch = useDispatch();
-const {wishlistItems, isLoading} = useSelector(store => store.wishlist)
+const {wishlistItems, isLoading} = useSelector(store => store.wishlist);
+const [anchorEl, setAnchorEl] = useState(null);
+const open = Boolean(anchorEl);
+
+function handlePopoverOpen(event)  {
+  setAnchorEl(event.currentTarget);
+};
+
+function handlePopoverClose() {
+  setAnchorEl(null);
+};
 
 function handleAddWishlistItem(id) {
   if(!isLoading)
   dispatch(addProductToUserWishlist(id))
-}
+};
 
 function handleDeleteWishlistItem(id) {
   if(!isLoading)
@@ -30,7 +41,7 @@ function handleDeleteWishlistItem(id) {
     dispatch(deleteUserWishlist())
     }else
   dispatch(deleteProductFromUserWishlist(id))
-}
+};
 
 
   return (
@@ -38,6 +49,7 @@ function handleDeleteWishlistItem(id) {
       {count ? <span className={styles.cartCircle}>{count}</span> : ""}
 
       {wishlistItems.find((element) => element._id === _id) ? (
+        <>
         <FontAwesomeIcon
           icon={faHeart}
           size="2x"
@@ -45,8 +57,15 @@ function handleDeleteWishlistItem(id) {
           onClick={() => {
             handleDeleteWishlistItem(_id);
           }}
+          aria-owns={open ? 'mouse-over-popover' : undefined}
+          aria-haspopup="true"
+          onMouseEnter={handlePopoverOpen}
+          onMouseLeave={handlePopoverClose}
         />
+        <PopoverHeart open={open} anchorEl={anchorEl} handlePopoverClose={handlePopoverClose} popText="Remove from wishlist" />
+        </>  
       ) : (
+        <>
         <FontAwesomeIcon
           icon={faHeart}
           size="2x"
@@ -54,9 +73,15 @@ function handleDeleteWishlistItem(id) {
           onClick={() => {
             handleAddWishlistItem(_id);
           }}
-        />
+          aria-owns={open ? 'mouse-over-popover' : undefined}
+          aria-haspopup="true"
+          onMouseEnter={handlePopoverOpen}
+          onMouseLeave={handlePopoverClose}
+        /> 
+        <PopoverHeart open={open} anchorEl={anchorEl} handlePopoverClose={handlePopoverClose} popText="Add to wishlist" />
+        </>
       )}
-
+        
       <Link to={`/products/${itemNo}`} style={{ textDecoration: "none" }}>
         <img src={imageUrls} alt="dish" />
         <div>
