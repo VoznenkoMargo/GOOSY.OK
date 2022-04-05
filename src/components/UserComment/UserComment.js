@@ -1,3 +1,4 @@
+/* eslint-disable react/forbid-prop-types */
 /* eslint-disable react/jsx-no-bind */
 import React from "react";
 import PropTypes from "prop-types";
@@ -25,22 +26,35 @@ function UserComment({
   const datePublic = new Date(date).toLocaleString();
   const dispatch = useDispatch();
 
-  function thumbUpClickFunc (){
-      if(!token.includes(getFromLS('authToken'))){
-        dispatch(putUserComments(commentsId, {thumbUp: thumbUpUser + 1, thumbUpClick: true, token: [...token, getFromLS('authToken')]}))
-      } 
-      if(token.includes(getFromLS('authToken')) || thumbDownClick || thumbUpClick){
-        return
-      }
+  function thumbUpClickFunc() {
+    if (!token.includes(getFromLS("authToken"))) {
+      dispatch(
+        putUserComments(commentsId, {
+          thumbUp: thumbUpUser + 1,
+          thumbUpClick: true,
+          token: [...token, getFromLS("authToken")],
+        })
+      );
+    }
   }
 
-  function thumbDownClickFunc (){
-    if(token.includes(getFromLS('authToken')) || thumbDownClick || thumbUpClick){
-      return
+  function thumbDownClickFunc() {
+    if (
+      token.includes(getFromLS("authToken")) ||
+      thumbDownClick ||
+      thumbUpClick
+    ) {
+      return;
     }
-    if(!token.includes(getFromLS('authToken'))){
-      dispatch(putUserComments(commentsId, {thumbDown: thumbDownUser + 1, thumbDownClick: true, token: [...token, getFromLS('authToken')]}))
-    } 
+    if (!token.includes(getFromLS("authToken"))) {
+      dispatch(
+        putUserComments(commentsId, {
+          thumbDown: thumbDownUser + 1,
+          thumbDownClick: true,
+          token: [...token, getFromLS("authToken")],
+        })
+      );
+    }
   }
 
   return (
@@ -118,18 +132,18 @@ UserComment.propTypes = {
   date: PropTypes.number.isRequired,
   content: PropTypes.string.isRequired,
   rating: PropTypes.string.isRequired,
-  commentsId: PropTypes.string.isRequired, 
-  thumbUpUser:PropTypes.number.isRequired, 
-  thumbDownUser:PropTypes.number.isRequired,
-  thumbUpClick:PropTypes.bool,
-  thumbDownClick:PropTypes.bool, 
+  commentsId: PropTypes.string.isRequired,
+  thumbUpUser: PropTypes.number.isRequired,
+  thumbDownUser: PropTypes.number.isRequired,
+  thumbUpClick: PropTypes.bool,
+  thumbDownClick: PropTypes.bool,
   token: PropTypes.array,
-}
+};
 
 UserComment.defaultProps = {
   thumbUpClick: false,
   thumbDownClick: false,
   token: [],
-}
+};
 
 export default UserComment;
