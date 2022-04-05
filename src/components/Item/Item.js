@@ -1,4 +1,5 @@
 /* eslint-disable no-underscore-dangle */
+/* eslint-disable react/jsx-no-bind */
 import React, {useState} from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
@@ -47,7 +48,6 @@ function handleDeleteWishlistItem(id) {
   return (
     <div className={styles.item} key={itemNo}>
       {count ? <span className={styles.cartCircle}>{count}</span> : ""}
-
       {wishlistItems.find((element) => element._id === _id) ? (
         <>
         <FontAwesomeIcon
