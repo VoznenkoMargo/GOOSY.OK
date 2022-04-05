@@ -209,6 +209,7 @@
       justify-content: center;
       flex-direction: column;
       row-gap: 15px;
+      width: unset;
     }
     .plusMinus {
       margin-right: 0px;
@@ -216,6 +217,7 @@
     .orderDetails {
       .info {
         margin-right: 0px;
+        width: unset;
       }
     }
   }
