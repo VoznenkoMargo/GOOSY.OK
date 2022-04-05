@@ -16,12 +16,9 @@ function CategoriesPage() {
   const [keyCategories, setKeyCategories] = useState([]);
   const [price, setPrice] = useState(["0", "990"]);
 
-  const setPri = (data) => {
+  const setNewPrice = (data) => {
     setPrice(data);
   };
-
-  const isLoading = false;
-  const isError = false;
 
   useEffect(() => {
     dispatch(initСategoriesItemsCreator(location));
@@ -41,46 +38,30 @@ function CategoriesPage() {
     console.log(keys.length > 0);
     setKeyCategories(keys);
   }, [items]);
-  
-  
 
   return (
     <section className={style.mainSection}>
       <div>
-        <Find price={price} setPri={setPri}  />
+        <Find price={price} setNewPrice={setNewPrice} />
       </div>
       <div>
-        {/* {keyCategories &&
+        {keyCategories && keyCategories.length > 0 ? (
           keyCategories.map((item) => {
             return (
               <ItemsContainer
                 key={item}
                 header={`${item}`}
                 items={items[`${item}`]}
-                isLoading={isLoading}
-                isError={isError}
               />
             );
-          })} */}
-                  { (keyCategories && (keyCategories.length > 0)) ?  keyCategories.map((item) => {
-            return (
-              <ItemsContainer
-                key={item}
-                header={`${item}`}
-                items={items[`${item}`]}
-                isLoading={isLoading}
-                isError={isError}
-              />
-            );
-          })  
-          :
-          
+          })
+        ) : (
           <div className={style.emptyContainer}>
             <div>
               <p>Sorry, but your search did not match anything.</p>
             </div>
-          </div> }
-         
+          </div>
+        )}
       </div>
     </section>
   );

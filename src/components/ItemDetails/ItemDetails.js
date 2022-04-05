@@ -15,21 +15,24 @@ import styles from "./ItemDetails.module.scss";
 import AddCartBtnMultiply from "../AddCartBtn/AddCartBtnMultiply";
 import Comments from "../Comment/Comments";
 
+
 function ItemDetails({ item, setFlag, flag }) {
   const [countDetail, setCountDetail] = useState(1);
   const dispatch = useDispatch();
-  const { wishlistItems } = useSelector((store) => store.wishlist);
+  const {wishlistItems, isLoading} = useSelector(store => store.wishlist);
 
   function handleAddWishlistItem(id) {
-    dispatch(addProductToUserWishlist(id));
+    if(!isLoading)
+    dispatch(addProductToUserWishlist(id))
   }
 
   function handleDeleteWishlistItem(id) {
-    if (wishlistItems.length === 1) {
-      dispatch(deleteUserWishlist());
-    } else {
-      dispatch(deleteProductFromUserWishlist(id));
-    }
+    if(!isLoading)
+    if(wishlistItems.length === 1){
+      dispatch(deleteUserWishlist())
+      }else{
+    dispatch(deleteProductFromUserWishlist(id))
+  }
   }
 
   const decrement = () => {
@@ -54,43 +57,34 @@ function ItemDetails({ item, setFlag, flag }) {
             <p className={styles.description}>{item.description}</p>
             <p className={styles.itemNo}>id: {item.itemNo}</p>
             <p className={styles.weight}>weight: {item.weight} g</p>
-
+            
             <div className={styles.count_favorite_block}>
-              <div className={styles.plusMinus}>
-                <FaMinus
-                  className={styles.minus}
-                  fill="#fff"
-                  size={20}
-                  onClick={decrement}
-                />
-                <h4>{countDetail}</h4>
-                <FaPlus
-                  className={styles.plus}
-                  fill="#fff"
-                  size={20}
-                  onClick={increment}
-                />
-              </div>
+            <div className={styles.plusMinus}>
+              <FaMinus
+                className={styles.minus}
+                fill="#fff"
+                size={20}
+                onClick={decrement}
+              />
+              <h4>{countDetail}</h4>
+              <FaPlus
+                className={styles.plus}
+                fill="#fff"
+                size={20}
+                onClick={increment}/>
+            </div>
 
-              {wishlistItems.find((element) => element._id === item._id) ? (
-                <FontAwesomeIcon
-                  icon={faHeart}
-                  size="2x"
-                  className={styles.itemDetalis_favorite_active}
-                  onClick={() => {
-                    handleDeleteWishlistItem(item._id);
-                  }}
-                />
-              ) : (
-                <FontAwesomeIcon
-                  icon={faHeart}
-                  size="2x"
-                  className={styles.itemDetalis_favorite}
-                  onClick={() => {
-                    handleAddWishlistItem(item._id);
-                  }}
-                />
-              )}
+            {wishlistItems.find((element)=>(element._id === item._id)) ? 
+              <FontAwesomeIcon  
+              icon={faHeart}
+              size="2x"
+              className={styles.itemDetalis_favorite_active}
+              onClick={()=>{handleDeleteWishlistItem(item._id)}}/> : 
+              <FontAwesomeIcon  
+              icon={faHeart}
+              size="2x"
+              className={styles.itemDetalis_favorite}
+              onClick={()=>{handleAddWishlistItem(item._id)}}/>}
             </div>
             <div className={styles.addToCart}>
               <AddCartBtnMultiply cartItem={item} countDetail={countDetail} />
@@ -98,7 +92,7 @@ function ItemDetails({ item, setFlag, flag }) {
                 Price: {item.currentPrice} ₴
               </p>
             </div>
-          </div>
+        </div>
         </div>
       )}
 

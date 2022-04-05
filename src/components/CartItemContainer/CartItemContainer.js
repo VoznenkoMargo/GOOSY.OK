@@ -83,7 +83,7 @@ function CartItemContainer({ cartItems }) {
               ₴
             </span>
           </h2>
-          <NavLink to="order" className={styles.order}>
+          <NavLink to="order" className={styles.order} >
             Place an order
           </NavLink>
         </div>

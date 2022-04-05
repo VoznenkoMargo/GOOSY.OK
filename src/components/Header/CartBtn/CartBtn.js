@@ -18,7 +18,7 @@ function CartBtn() {
   return (
     <div className={styles.cartWrap}>
       <div className={styles.cartMobile}>
-        <FiShoppingCart />
+        <FiShoppingCart />        
       </div>
       <h3 className={styles.cart}>Cart</h3>
       <div className={styles.counter}>{counter}</div>

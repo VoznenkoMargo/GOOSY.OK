@@ -55,7 +55,7 @@ function Carousel() {
   ];
   const settings = {
     dots: true,
-    // autoplay: true,
+    autoplay: true,
     infinite: true,
     speed: 300,
     slidesToShow: 1,
@@ -99,12 +99,12 @@ SampleNextArrow.propTypes = {
 
 SamplePrevArrow.defaultProps = {
   className: "",
-  onClick: ()=>{}
-}
+  onClick: () => {},
+};
 
 SampleNextArrow.defaultProps = {
   className: "",
-  onClick: ()=>{}
-}
+  onClick: () => {},
+};
 
 export default Carousel;

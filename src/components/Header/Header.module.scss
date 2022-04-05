@@ -208,6 +208,7 @@ li {
 
   .navList {
     justify-content: space-between;
+    margin-bottom: 10px;
   }
 
   .logo{
@@ -216,6 +217,7 @@ li {
 
   li {
     margin-top: 15px;
+        
   }
   .cartWrap {
     width: 62px;
@@ -224,9 +226,18 @@ li {
     color: #ffffff;
     justify-content: center;
     align-items: center;
+    position: relative;
 
     .counter {
-      display: none;
+      
+        height: 15px;
+        display: block;
+        position: absolute;
+        right: 1px;
+        top: -11px;
+        text-align: center;
+        width: 15px;
+    
     }
 
     .cart {
@@ -291,6 +302,7 @@ li {
     justify-content: space-around;
     align-items: center;
     padding-left: 0px;
+    margin-bottom: 10px;
   }
 
   .contact {
