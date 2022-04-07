@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React from "react";
 import PropTypes from "prop-types";
 import { useDispatch } from "react-redux";
@@ -83,7 +84,7 @@ function CartItemContainer({ cartItems }) {
               ₴
             </span>
           </h2>
-          <NavLink to="order" className={styles.order}>
+          <NavLink to="order" className={styles.order} onClick={() => cartItems.forEach(elem => handleClickDelete(elem))}>
             Place an order
           </NavLink>
         </div>

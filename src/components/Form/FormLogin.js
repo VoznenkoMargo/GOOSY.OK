@@ -7,7 +7,7 @@ import classNames from "classnames";
 import { saveToLS } from "../../utils/localStorage";
 import { sendLogInData, getUserData } from "../../axios";
 import styles from "./Form.module.scss";
-import ModalErrorLogin from "./ModalErrorLogin/ModalErrorLogin";
+import Modal from "../MainModal/Modal";
 
 function FormLogin(props) {
   const { closeSignIn, setUserName } = props;
@@ -15,7 +15,7 @@ function FormLogin(props) {
   const [modalErrorLoginOpen, setModalErrorLoginOpen] = useState(false);
 
   const ref = useRef();
-  console.log(ref);
+  
 
   useEffect(() => {
     const checkIfClickedOutside = (e) => {
@@ -64,12 +64,11 @@ function FormLogin(props) {
             saveToLS("userName", data.firstName);
             setUserName(data.firstName);
           })
-          .catch((err) => {
-            console.log(err);
+          .catch(() => {
+            
           });
       })
-      .catch((err) => {
-        console.log(err);
+      .catch(() => {
         showError();
       });
   };
@@ -149,7 +148,7 @@ function FormLogin(props) {
           }}
         </Formik>
       </div>
-      {modalErrorLoginOpen ? <ModalErrorLogin /> : ""};
+      {modalErrorLoginOpen ? <Modal modalType="errorLogin" /> : ""};
     </div>
   );
 }

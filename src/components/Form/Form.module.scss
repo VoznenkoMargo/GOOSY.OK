@@ -95,12 +95,15 @@ margin-top: 10px;
 .form_header{
     display: flex;
     justify-content: space-between;
+    margin-bottom: 5px;
+}
+.form_header_closebtn{
+ cursor: pointer;   
 }
 .form_header_topic{
     color: #fff;
     
 }
-
 .form_submit_button{
     border: none;
     font-size: 20px;
@@ -110,6 +113,14 @@ margin-top: 10px;
     color: black;
     padding: 1vw 40px;
     margin-top: 20px;
+    border: 1px solid transparent;
+
+    &:hover{
+        cursor: pointer;
+        color: #fff;
+        border-color: #02f426;
+       
+    }
 }
 .form_bottom{
     margin: 0 auto;

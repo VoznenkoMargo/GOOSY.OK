@@ -16,7 +16,6 @@ function SignOutBtn(props) {
     <span
       className={styles.btn_out}
       onClick={() => {
-        console.log("hello");
         dispatch({ type: DELETE_WISHLIST, payload: [] });
         removeFromLS("userName");
         removeFromLS("authToken");

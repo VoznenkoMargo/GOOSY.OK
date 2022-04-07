@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { NavLink } from "react-router-dom";
 import "./Categories.scss";
 import { useDispatch } from "react-redux";
@@ -6,25 +6,7 @@ import { useDispatch } from "react-redux";
 import { initCategories } from "../../store/actionCreators/cardItemsCreator";
 
 function Categories() {
-  const [scrolled, setScrolled] = useState(false);
   const dispatch = useDispatch();
-
-  const handleScroll = () => {
-    const offset = window.scrollY;
-    if (offset > 1) {
-      setScrolled(true);
-    } else {
-      setScrolled(false);
-    }
-  };
-  useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
-    if (scrolled) {
-      document.getElementById("header").classList.add("scrolled");
-    } else {
-      document.getElementById("header").classList.remove("scrolled");
-    }
-  }, [handleScroll, scrolled]);
 
   const setCategories = (categories) => {
     dispatch(initCategories(categories));
