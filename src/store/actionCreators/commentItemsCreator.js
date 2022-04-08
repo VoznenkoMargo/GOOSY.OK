@@ -11,7 +11,7 @@ export const addUserComment = (newComment) => async (dispatch) => {
       dispatch({ type: ADD_COMMENT });
     }
   } catch (error) {
-    Notiflix.Notify.failure("Failed to add comment. Unauthorized");
+    Notiflix.Notify.info("Unauthorized. Failed to add comment");
   }
 };
 

@@ -46,7 +46,7 @@ function handleDeleteWishlistItem(id) {
 
 
   return (
-    <div className={styles.item} key={itemNo}>
+    <div className={styles.item} key={itemNo} >
       {count ? <span className={styles.cartCircle}>{count}</span> : ""}
       {wishlistItems.find((element) => element._id === _id) ? (
         <>
@@ -56,6 +56,7 @@ function handleDeleteWishlistItem(id) {
           className={styles.item_favorite_active}
           onClick={() => {
             handleDeleteWishlistItem(_id);
+            handlePopoverClose();
           }}
           aria-owns={open ? 'mouse-over-popover' : undefined}
           aria-haspopup="true"
@@ -72,6 +73,7 @@ function handleDeleteWishlistItem(id) {
           className={styles.item_favorite}
           onClick={() => {
             handleAddWishlistItem(_id);
+            handlePopoverClose();
           }}
           aria-owns={open ? 'mouse-over-popover' : undefined}
           aria-haspopup="true"

@@ -17,6 +17,7 @@ import CardNewsAndEventsWorkingPage from "../pages/FooterPages/NewsAndEventsPage
 import NotFoundPage from "../pages/NotFoundPage/NotFoundPage";
 import WishlistPage from "../pages/WishlistPage/WishlistPage";
 import OrderPage from "../pages/OrderPage";
+import RequireAuth from "../hoc/RequireAuth";
 
 const ProductsPage = React.lazy(() => import("../pages/ProductsPage"));
 
@@ -43,7 +44,7 @@ function Routes() {
             <Route exact path="/news-and-events/Site in a test mode" component={CardNewsAndEventsSitePage} />
             <Route exact path="/news-and-events/Master Class" component={CardNewsAndEventsMasterPage} />
             <Route exact path="/news-and-events/Working hours during the holidays" component={CardNewsAndEventsWorkingPage} />
-        <Route exact path="/wishlist" component={WishlistPage} />
+        <RequireAuth exact path="/wishlist" component={WishlistPage} />
         <Route exact path="/order" component={OrderPage} />
         <Route component={NotFoundPage} />
       </Switch>
