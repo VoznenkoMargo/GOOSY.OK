@@ -5,7 +5,7 @@ import { useSelector, useDispatch } from "react-redux";
 import Find from "../../components/Find/Find";
 import style from "./CategoriesPage.module.scss";
 import ItemsContainer from "../../components/ItemsContainer/ItemsContainer";
-import { initСategoriesItemsCreator } from "../../store/actionCreators/cardItemsCreator";
+import { initСategoriesItemsCreator, resetCategories } from "../../store/actionCreators/cardItemsCreator";
 
 function CategoriesPage() {
   const location = useLocation().search;
@@ -35,9 +35,16 @@ function CategoriesPage() {
 
   useEffect(() => {
     const keys = Object.keys(items);
-    console.log(keys.length > 0);
     setKeyCategories(keys);
   }, [items]);
+
+  useEffect(()=>{
+    console.log("did mount");
+    return()=>{
+      console.log("will mount")
+      dispatch(resetCategories());
+    }
+  }, [])
 
   return (
     <section className={style.mainSection}>

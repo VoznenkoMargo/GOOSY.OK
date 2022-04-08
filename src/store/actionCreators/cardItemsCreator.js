@@ -6,7 +6,8 @@ import {
   GET_ITEMS,
   GET_FIND_ITEMS,
   SET_IS_LOADING_CARDS,
-  SET_CATEGORIES
+  SET_CATEGORIES,
+  RESER_CATEGORIES
 } from "../actions/cardItemsActions";
 
 export const setIsLoadingCards = (isLoading) => ({
@@ -26,6 +27,8 @@ export const initCardItemsCreator = () => async (dispatch) => {
   }
 };
 
+export const resetCategories = ()=> ({type: RESER_CATEGORIES, payload: []})
+
 export const initCategories = (categories) => ({
   type: SET_CATEGORIES,
   payload: categories,
@@ -33,7 +36,6 @@ export const initCategories = (categories) => ({
 
 export const initСategoriesItemsCreator = (inquiry) => async (dispatch) => {
   const allCategories = {};
-  console.log(inquiry)
   const {
     data: { products },
   } = await getByCategory(inquiry);

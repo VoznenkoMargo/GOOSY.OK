@@ -18,13 +18,6 @@ function CheckBoxContainer() {
     return false;
   };
 
-  // const setChecked = (id) => {
-  //   if (categories.includes(id)) {
-  //     return true;
-  //   }
-  //   return false;
-  // };
-
   function change(e) {
     const { value } = e.target;
     dispatch(initCategories(value));
