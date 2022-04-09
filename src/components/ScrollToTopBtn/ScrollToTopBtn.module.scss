@@ -1,7 +1,7 @@
 .scrollToTop {
     position: fixed;
     bottom: 1rem;
-    right: 2rem;
+    right: 1rem;
     animation: fadeIn 700ms ease-in-out 1s both;
     cursor: pointer;
     color: #72a479;
@@ -18,15 +18,15 @@
 
   @media screen and (max-width: 479px) {
     .scrollToTop{
-      right: calc(50% - 46.5px/2);
+      // right: calc(50% - 46.5px/2);
       color: #72a479B3;
     }
   }
   
-  @media screen and (max-width: 767px) {
-    .scrollToTop{
-      right: calc(50% - 46.5px/2);
-    }
+  // @media screen and (max-width: 767px) {
+  //   .scrollToTop{
+  //     right: calc(50% - 46.5px/2);
+  //   }
     
-  }
+  // }
   

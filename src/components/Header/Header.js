@@ -146,7 +146,7 @@ function Header() {
                 }}
                 to="/wishlist"
               >
-                <HeartFromWishlist />
+                <HeartFromWishlist openSignIn={openSignIn} />
               </NavLink>
             </li>
 
