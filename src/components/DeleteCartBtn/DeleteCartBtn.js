@@ -2,21 +2,16 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { useDispatch } from "react-redux";
-import { Notify } from "notiflix";
-import { useRouteMatch } from "react-router-dom";
-import { ReactComponent as Cart } from "../../assets/svg/Buy.svg";
-import styles from "./AddCartBtn.module.scss";
-import { addToCartCreator } from "../../store/actionCreators/cartItemsCreator";
 
-function AddCartBtn(props) {
-  const match = useRouteMatch();
+import { AiTwotoneDelete } from "react-icons/ai";
+import styles from "./DeleteCartBtn.module.scss";
+import { deleteProductFromCartCreator } from "../../store/actionCreators/cartItemsCreator";
+
+function DeleteCartBtn(props) {
   const dispatch = useDispatch();
   const { cartItem } = props;
   const handleClick = () => {
-    dispatch(addToCartCreator(cartItem._id));
-    if (match.path !== "/") {
-      Notify.success(`${cartItem.name} added to cart`);
-    }
+    dispatch(deleteProductFromCartCreator(cartItem._id));
   };
 
   return (
@@ -26,13 +21,13 @@ function AddCartBtn(props) {
       aria-hidden
       onClick={handleClick}
     >
-      <p>Add to Cart</p>
-      <Cart />
+      <p>Delete</p>
+      <AiTwotoneDelete size={25} color="#fff" />
     </button>
   );
 }
 
-AddCartBtn.propTypes = {
+DeleteCartBtn.propTypes = {
   cartItem: PropTypes.shape({
     _id: PropTypes.string,
     itemNo: PropTypes.string,
@@ -45,7 +40,7 @@ AddCartBtn.propTypes = {
   }),
 };
 
-AddCartBtn.defaultProps = {
+DeleteCartBtn.defaultProps = {
   cartItem: {
     _id: "",
     itemNo: "",
@@ -58,4 +53,4 @@ AddCartBtn.defaultProps = {
   },
 };
 
-export default React.memo(AddCartBtn);
+export default React.memo(DeleteCartBtn);

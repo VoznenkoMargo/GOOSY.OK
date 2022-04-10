@@ -1,97 +1,114 @@
-/* eslint-disable react/prop-types */
+/* eslint-disable import/namespace */
+/* eslint-disable no-underscore-dangle */
+
 import React from "react";
 import PropTypes from "prop-types";
 import { useDispatch } from "react-redux";
-import {Link, NavLink} from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { FaMinus, FaPlus } from "react-icons/fa";
 import { AiTwotoneDelete } from "react-icons/ai";
-
+import { ArrowBack } from "@mui/icons-material";
 import styles from "./CartItemContainer.module.scss";
 import {
-  deleteFromCartCreator,
-  deleteItemCreator,
+  deleteProductFromCartCreator,
+  decreaseProductFromCartCreator,
   addToCartCreator,
+  deleteCartCreator,
 } from "../../store/actionCreators/cartItemsCreator";
-import ArrowBack from "../ArrowBack/ArrowBack";
 
-function CartItemContainer({ cartItems }) {
+function CartItemContainer(props) {
+  const { cartItems } = props;
   const dispatch = useDispatch();
-  const handleClickDelete = (cartItem) => {
-    dispatch(deleteFromCartCreator(cartItem));
+
+  const handleClickDecrease = (id) => {
+    dispatch(decreaseProductFromCartCreator(id));
   };
-  const handleClickAdd = (cartItem) => {
-    dispatch(addToCartCreator(cartItem));
+  const handleClickAdd = (id) => {
+    dispatch(addToCartCreator(id));
   };
-  const handleClickDeleteItem = (cartItem) => {
-    dispatch(deleteItemCreator(cartItem));
+  const handleClickDeleteFromCart = (id) => {
+    dispatch(deleteProductFromCartCreator(id));
+  };
+  const handleClickDeleteCart = () => {
+    dispatch(deleteCartCreator());
   };
 
   return (
-    <div className={styles.mainCartContainer}>
-      {cartItems.length === 0 && <h1>Корзина пустая</h1>}
-      <ArrowBack/>
+    <div className={styles.container}>
+      <ArrowBack />
       <div className={styles.cartTitle}>CART</div>
-      <div className={styles.container}>
-
-        {cartItems.length > 0 &&
-          cartItems.map((item) => {
-            return (
-              <div className={styles.itemCard} key={item.itemNo}>
-                <Link to={`/products/${item.itemNo}`} style={{ textDecoration: "none", width: "100%" }}>
-                  <img src={item.imageUrls} alt="foodImage" />
-                </Link>
-                <div className={styles.orderDetails}>
-                  <Link to={`/products/${item.itemNo}`} style={{ textDecoration: "none" }}>
-                    <div className={styles.info}>
-                      <h3 className={styles.name}>{item.name}</h3>
-                      <p className={styles.description}>{item.description}</p>
-                    </div>
-                  </Link>
-                  <div className={styles.addToCart}>
-                    <div className={styles.plusMinus}>
-                      <FaMinus
-                        className={styles.minus}
-                        fill="#fff"
-                        size={20}
-                        onClick={() => handleClickDeleteItem(item)}
-                      />
-                      <h4>{item.count}</h4>
-                      <FaPlus
-                        className={styles.plus}
-                        fill="#fff"
-                        size={20}
-                        onClick={() => handleClickAdd(item)}
-                      />
-                    </div>
-                    <p className={styles.currentPrice}>
-                      Price: {item.currentPrice * item.count} ₴
+      {cartItems.length > 0 &&
+        cartItems.map((item) => {
+          return (
+            <div className={styles.itemCard} key={item._id}>
+              <Link
+                to={`/products/${item.product.itemNo}`}
+                style={{ textDecoration: "none", width: "80%" }}
+              >
+                <img src={item.product.imageUrls} alt="foodImage" />
+              </Link>
+              <div className={styles.orderDetails}>
+                <Link
+                  to={`/products/${item.product.itemNo}`}
+                  style={{ textDecoration: "none" }}
+                >
+                  <div className={styles.info}>
+                    <h3 className={styles.name}>{item.product.name}</h3>
+                    <p className={styles.description}>
+                      {item.product.description}
                     </p>
-                    <div className={styles.delete}>
-                      <AiTwotoneDelete
-                        onClick={() => handleClickDelete(item)}
-                      />
-                    </div>
+                  </div>
+                </Link>
+                <div className={styles.addToCart}>
+                  <div className={styles.plusMinus}>
+                    <FaMinus
+                      className={styles.minus}
+                      fill="#fff"
+                      size={20}
+                      onClick={() => handleClickDecrease(item.product._id)}
+                    />
+                    <h4>{item.cartQuantity}</h4>
+                    <FaPlus
+                      className={styles.plus}
+                      fill="#fff"
+                      size={20}
+                      onClick={() => handleClickAdd(item.product._id)}
+                    />
+                  </div>
+                  <p className={styles.currentPrice}>
+                    Price: {item.product.currentPrice * item.cartQuantity} $
+                  </p>
+                  <div className={styles.delete}>
+                    <AiTwotoneDelete
+                      onClick={() =>
+                        handleClickDeleteFromCart(item.product._id)
+                      }
+                    />
                   </div>
                 </div>
               </div>
-            );
-          })}
-      </div>
+            </div>
+          );
+        })}
 
       <div className={styles.totalPrice}>
-      <h2 className={styles.priceTitle}>
-        Total price:
-        <span className={styles.currentPrice}>
-              {cartItems
-                  .map((item) => item.count * item.currentPrice)
-                  .reduce((a, b) => a + b)}
-          ₴
-            </span>
-      </h2>
-      <NavLink to="order" className={styles.order} onClick={() => cartItems.forEach(elem => handleClickDelete(elem))}>
-        Place an order
-      </NavLink>
-    </div>
+        <h2 className={styles.priceTitle}>
+          Total price:
+          <span className={styles.currentPrice}>
+            {cartItems
+              .map((item) => item.cartQuantity * item.product.currentPrice)
+              .reduce((a, b) => a + b)}
+            $
+          </span>
+        </h2>
+        <NavLink
+          to="order"
+          className={styles.order}
+          onClick={handleClickDeleteCart}
+        >
+          Place an order
+        </NavLink>
+      </div>
     </div>
   );
 }
@@ -100,7 +117,6 @@ CartItemContainer.propTypes = {
   cartItems: PropTypes.shape({
     _id: PropTypes.string,
     name: PropTypes.string,
-    count: PropTypes.number,
     currentPrice: PropTypes.number,
     description: PropTypes.string,
     imageUrls: PropTypes.arrayOf(PropTypes.string),
@@ -122,4 +138,4 @@ CartItemContainer.defaultProps = {
   }),
 };
 
-export default CartItemContainer;
+export default React.memo(CartItemContainer);

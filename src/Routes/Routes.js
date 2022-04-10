@@ -1,10 +1,7 @@
 import React, { Suspense } from "react";
 import { Route, Switch } from "react-router-dom";
-import CategoriesPage from "../pages/CategoriesPage/CategoriesPage";
 import HomePage from "../pages/HomePage";
-import ItemPage from "../pages/ItemPage";
 import Preloader from "../components/Preloader/Preloader";
-import CartPage from "../pages/CartPage";
 import PrivacyPolicyPage from "../pages/FooterPages/PrivacyPolicyPage";
 import UserAgrPage from "../pages/FooterPages/UserAgrPage/UserAgrPage";
 import AboutPage from "../pages/FooterPages/AboutPage/AboutPage";
@@ -15,11 +12,17 @@ import CardNewsAndEventsMasterPage from "../pages/FooterPages/NewsAndEventsPage/
 import CardNewsAndEventsSitePage from "../pages/FooterPages/NewsAndEventsPage/CardNewsAndEventsSitePage/CardNewsAndEventsSitePage";
 import CardNewsAndEventsWorkingPage from "../pages/FooterPages/NewsAndEventsPage/CardNewsAndEventsWorkingPage/CardNewsAndEventsWorkingPage";
 import NotFoundPage from "../pages/NotFoundPage/NotFoundPage";
-import WishlistPage from "../pages/WishlistPage/WishlistPage";
 import OrderPage from "../pages/OrderPage";
-import RequireAuth from "../hoc/RequireAuth";
 
 const ProductsPage = React.lazy(() => import("../pages/ProductsPage"));
+const ItemPage = React.lazy(() => import("../pages/ItemPage"));
+const CartPage = React.lazy(() => import("../pages/CartPage"));
+const CategoriesPage = React.lazy(() =>
+  import("../pages/CategoriesPage/CategoriesPage")
+);
+const WishlistPage = React.lazy(() =>
+  import("../pages/WishlistPage/WishlistPage")
+);
 
 function Routes() {
   return (
@@ -39,18 +42,33 @@ function Routes() {
           path="/payment-and-delivery"
           component={PaymentAndDeliveryPage}
         />
-        <Route exact path="/news-and-events" component={NewsAndEventsPage} /> 
-            <Route exact path="/news-and-events/Goose Day" component={CardNewsAndEventsGoosePage} />
-            <Route exact path="/news-and-events/Site in a test mode" component={CardNewsAndEventsSitePage} />
-            <Route exact path="/news-and-events/Master Class" component={CardNewsAndEventsMasterPage} />
-            <Route exact path="/news-and-events/Working hours during the holidays" component={CardNewsAndEventsWorkingPage} />
-        <RequireAuth exact path="/wishlist" component={WishlistPage} />
+        <Route exact path="/news-and-events" component={NewsAndEventsPage} />
+        <Route
+          exact
+          path="/news-and-events/Goose Day"
+          component={CardNewsAndEventsGoosePage}
+        />
+        <Route
+          exact
+          path="/news-and-events/Site in a test mode"
+          component={CardNewsAndEventsSitePage}
+        />
+        <Route
+          exact
+          path="/news-and-events/Master Class"
+          component={CardNewsAndEventsMasterPage}
+        />
+        <Route
+          exact
+          path="/news-and-events/Working hours during the holidays"
+          component={CardNewsAndEventsWorkingPage}
+        />
+        <Route exact path="/wishlist" component={WishlistPage} />
         <Route exact path="/order" component={OrderPage} />
         <Route component={NotFoundPage} />
       </Switch>
     </Suspense>
   );
-
 }
 
 export default Routes;

@@ -1,9 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { useSelector, useDispatch } from "react-redux";
+import { ErrorBoundary } from "react-error-boundary";
 import { Link, useRouteMatch } from "react-router-dom";
 import { BiHomeAlt, BiDish } from "react-icons/bi";
 import { AiOutlineClear } from "react-icons/ai";
+import ErrorFallback from "../Error/Error";
 import Item from "../Item/Item";
 import styles from "./ItemsContainer.module.scss";
 import flames from "../../assets/flames.png";
@@ -12,16 +14,14 @@ import Preloader from "../Preloader/Preloader";
 
 function ItemsContainer(props) {
   const { items, header } = props;
-  const cartArray = useSelector((state) => {
-    return state.cart.cartItems;
-  });
+  const cartArray = useSelector((state) => state.cart.cartItems);
   const { isLoading } = useSelector((store) => store.items);
   const { isSearched } = useSelector((store) => store.search);
 
   const dispatch = useDispatch();
   const match = useRouteMatch();
- 
-  if (items){
+
+  if (items) {
     for (let i = 0; i < items.length; i += 1) {
       for (let j = 0; j < cartArray.length; j += 1) {
         if (items[i].itemNo === cartArray[j].itemNo) {
@@ -30,7 +30,6 @@ function ItemsContainer(props) {
       }
     }
   }
-  
 
   return isLoading ? (
     <Preloader />
@@ -38,8 +37,7 @@ function ItemsContainer(props) {
     <div className="container">
       <div className={styles.itemsWrapper}>
         <h2 className={styles.items_header}>{header}</h2>
-
-        <img alt="" width="40px" src={flames} />
+        {match.path === "/" && <img alt="" width="40px" src={flames} />}
       </div>
 
       {match.path === "/" && (
@@ -77,7 +75,9 @@ function ItemsContainer(props) {
       <div className={styles.itemsContainer}>
         {items &&
           items.map(({ itemNo, ...args }) => (
-            <Item key={itemNo} itemNo={itemNo} {...args} />
+            <ErrorBoundary FallbackComponent={ErrorFallback}>
+              <Item key={itemNo} itemNo={itemNo} {...args} />
+            </ErrorBoundary>
           ))}
       </div>
     </div>
@@ -86,7 +86,7 @@ function ItemsContainer(props) {
 
 ItemsContainer.propTypes = {
   header: PropTypes.elementType.isRequired,
-  items: PropTypes.arrayOf(PropTypes.object).isRequired
-}
+  items: PropTypes.arrayOf(PropTypes.object).isRequired,
+};
 
 export default ItemsContainer;

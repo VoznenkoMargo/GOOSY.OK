@@ -1,6 +1,7 @@
 .item {
   width: 280px;
-  background: linear-gradient(90deg, #494544 0%, #504b4a 100%);
+  background: linear-gradient(90deg, #3f3d3c 0%, #504b4a 100%);
+  background: #3f3d3c;
   box-shadow: 0px 30px 45px rgba(43, 40, 40, 0.6);
   border-radius: 10px;
   text-align: left;
@@ -15,30 +16,30 @@
   -ms-user-select: none;
   user-select: none;
   position: relative;
-  
-  .item_favorite{
+
+  .item_favorite {
     position: absolute;
     left: 5%;
     top: 3%;
-    opacity: .5;
+    opacity: 0.5;
     cursor: pointer;
   }
 
-  .item_favorite_active{
+  .item_favorite_active {
     position: absolute;
     left: 5%;
     top: 3%;
-    opacity: .8;
+    opacity: 0.8;
     cursor: pointer;
-    color:#79b382;
+    color: #79b382;
   }
 
-  .item_favorite_active:hover{
+  .item_favorite_active:hover {
     opacity: 1;
   }
 
-  .item_favorite:hover{
-    opacity: .8;
+  .item_favorite:hover {
+    opacity: 0.8;
   }
 
   .cardStyles {
@@ -79,11 +80,12 @@
   }
   .title {
     font-weight: bold;
-    font-size: 18px;
-    color: #ffffff;
+    font-size: 23px;
+    color: #fafafa;
     max-width: 70%;
     margin-bottom: 10px;
     min-height: 50px;
+    letter-spacing: 1px;
   }
   .categories {
     margin-bottom: 5px;
@@ -125,24 +127,24 @@
     .price {
       padding-top: 10px;
       font-weight: 600;
-      font-size: 20px;
+      font-size: 25px;
       line-height: 24px;
       color: #ffffff;
       padding-bottom: 30px;
     }
   }
-  .cartCircle{
+  .cartCircle {
     position: absolute;
     border-radius: 50%;
     width: 40px;
     height: 40px;
     padding: 10px;
     text-align: right;
-    background: #79B382;
-    border: 2px solid #79B382;
+    background: #79b382;
+    border: 2px solid #79b382;
     color: #fff;
     text-align: center;
-    right:-5px;
+    right: -5px;
     top: -10px;
     font-size: 15px;
   }
