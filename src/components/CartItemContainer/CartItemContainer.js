@@ -12,6 +12,7 @@ import {
   deleteItemCreator,
   addToCartCreator,
 } from "../../store/actionCreators/cartItemsCreator";
+import ArrowBack from "../ArrowBack/ArrowBack";
 
 function CartItemContainer({ cartItems }) {
   const dispatch = useDispatch();
@@ -26,15 +27,17 @@ function CartItemContainer({ cartItems }) {
   };
 
   return (
-    <>
+    <div className={styles.mainCartContainer}>
       {cartItems.length === 0 && <h1>Корзина пустая</h1>}
+      <ArrowBack/>
+      <div className={styles.cartTitle}>CART</div>
       <div className={styles.container}>
-        <div className={styles.cartTitle}>CART</div>
+
         {cartItems.length > 0 &&
           cartItems.map((item) => {
             return (
               <div className={styles.itemCard} key={item.itemNo}>
-                <Link to={`/products/${item.itemNo}`} style={{ textDecoration: "none", width: "80%" }}>
+                <Link to={`/products/${item.itemNo}`} style={{ textDecoration: "none", width: "100%" }}>
                   <img src={item.imageUrls} alt="foodImage" />
                 </Link>
                 <div className={styles.orderDetails}>
@@ -73,23 +76,23 @@ function CartItemContainer({ cartItems }) {
               </div>
             );
           })}
-
-        <div className={styles.totalPrice}>
-          <h2 className={styles.priceTitle}>
-            Total price:
-            <span className={styles.currentPrice}>
-              {cartItems
-                .map((item) => item.count * item.currentPrice)
-                .reduce((a, b) => a + b)}
-              ₴
-            </span>
-          </h2>
-          <NavLink to="order" className={styles.order} onClick={() => cartItems.forEach(elem => handleClickDelete(elem))}>
-            Place an order
-          </NavLink>
-        </div>
       </div>
-    </>
+
+      <div className={styles.totalPrice}>
+      <h2 className={styles.priceTitle}>
+        Total price:
+        <span className={styles.currentPrice}>
+              {cartItems
+                  .map((item) => item.count * item.currentPrice)
+                  .reduce((a, b) => a + b)}
+          ₴
+            </span>
+      </h2>
+      <NavLink to="order" className={styles.order} onClick={() => cartItems.forEach(elem => handleClickDelete(elem))}>
+        Place an order
+      </NavLink>
+    </div>
+    </div>
   );
 }
 

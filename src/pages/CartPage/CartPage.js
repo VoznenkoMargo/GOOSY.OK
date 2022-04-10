@@ -12,11 +12,7 @@ function CartPage() {
 
   return (
     <section>
-      <div className={styles.cartPage}>
-        <div className={styles.cartPage_back}>
-          <ArrowBack />
-        </div>
-      </div>
+
       {cartItems.length > 0 ? (
         <CartItemContainer cartItems={cartItems} />
       ) : (

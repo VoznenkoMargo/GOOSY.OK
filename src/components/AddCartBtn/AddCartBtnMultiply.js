@@ -4,6 +4,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { useDispatch } from "react-redux";
+import {Notify} from "notiflix";
 import { ReactComponent as Cart } from "../../assets/svg/Buy.svg";
 import styles from "./AddCartBtn.module.scss";
 // eslint-disable-next-line import/named
@@ -14,9 +15,11 @@ function AddCartBtnMultiply(props) {
   const dispatch = useDispatch();
 
   const { cartItem, countDetail } = props;
- 
+  
   const handleClick = () => {
     dispatch(addToCartMultiplyCreator(cartItem, countDetail));
+    Notify.success(`${countDetail} ${cartItem.name} added to cart`);
+
   };
 
   return (

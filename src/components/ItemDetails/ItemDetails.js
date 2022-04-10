@@ -44,6 +44,7 @@ function ItemDetails({ item, setFlag, flag }) {
     setCountDetail(countDetail + 1);
   };
 
+
   return (
     <div className={styles.container}>
       <ArrowBack />
