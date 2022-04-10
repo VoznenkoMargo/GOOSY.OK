@@ -1,7 +1,6 @@
 import {
   getCart,
   deleteCart,
-  updatedCart,
   addProductToCart,
   deleteProductFromCart,
   decreaseProductFromCart,
@@ -10,7 +9,6 @@ import {
 import {
   ADD_TO_CART,
   DELETE_CART,
-  ADD_TO_CART_MULTIPLY,
   DELETE_FROM_CART,
   GET_CART,
   SET_IS_LOADING_CART,
@@ -58,9 +56,11 @@ export const addToCartCreator = (productId) => async (dispatch) => {
 
 export const deleteProductFromCartCreator = (productId) => async (dispatch) => {
   try {
+    dispatch(setIsLoadingCart(true));
     const { status, data } = await deleteProductFromCart(productId);
     if (status === 200);
     dispatch({ type: DELETE_FROM_CART, payload: data.products });
+    dispatch(setIsLoadingCart(false));
   } catch (error) {
     console.log(error);
   }
@@ -69,11 +69,9 @@ export const deleteProductFromCartCreator = (productId) => async (dispatch) => {
 export const decreaseProductFromCartCreator =
   (productId) => async (dispatch) => {
     try {
-      // dispatch(setIsLoadingCart(true));
       const { status, data } = await decreaseProductFromCart(productId);
       if (status === 200 && data !== null) {
         dispatch({ type: DECREASE_ITEM, payload: data.products });
-        // dispatch(setIsLoadingCart(false));
       }
     } catch (error) {
       console.log(error);
@@ -81,23 +79,11 @@ export const decreaseProductFromCartCreator =
   };
 export const deleteCartCreator = () => async (dispatch) => {
   try {
+    dispatch(setIsLoadingCart(true));
     const result = await deleteCart();
     if (result.status === 200) dispatch({ type: DELETE_CART, payload: result });
+    dispatch(setIsLoadingCart(false));
   } catch (error) {
     console.log(error);
   }
 };
-export const addToCartMultiplyCreator = (updateProduct) => async (dispatch) => {
-  try {
-    const { status, data } = await updatedCart(updateProduct);
-    if (status === 200)
-      dispatch({ type: ADD_TO_CART_MULTIPLY, payload: data.products });
-  } catch (error) {
-    console.log(error);
-  }
-};
-
-// export const addToCartMultiplyCreator = (cartItem, countDetail) => ({
-//   type: ADD_TO_CART_MULTIPLY,
-//   payload: [cartItem, countDetail],
-// });

@@ -53,4 +53,4 @@ DeleteCartBtn.defaultProps = {
   },
 };
 
-export default DeleteCartBtn;
+export default React.memo(DeleteCartBtn);

@@ -1,9 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { useSelector, useDispatch } from "react-redux";
+import { ErrorBoundary } from "react-error-boundary";
 import { Link, useRouteMatch } from "react-router-dom";
 import { BiHomeAlt, BiDish } from "react-icons/bi";
 import { AiOutlineClear } from "react-icons/ai";
+import ErrorFallback from "../Error/Error";
 import Item from "../Item/Item";
 import styles from "./ItemsContainer.module.scss";
 import flames from "../../assets/flames.png";
@@ -73,7 +75,9 @@ function ItemsContainer(props) {
       <div className={styles.itemsContainer}>
         {items &&
           items.map(({ itemNo, ...args }) => (
-            <Item key={itemNo} itemNo={itemNo} {...args} />
+            <ErrorBoundary FallbackComponent={ErrorFallback}>
+              <Item key={itemNo} itemNo={itemNo} {...args} />
+            </ErrorBoundary>
           ))}
       </div>
     </div>

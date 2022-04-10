@@ -1,8 +1,8 @@
 /* eslint-disable import/namespace */
 /* eslint-disable no-underscore-dangle */
-/* eslint-disable react/prop-types */
+
 import React from "react";
-// import PropTypes from "prop-types";
+import PropTypes from "prop-types";
 import { useDispatch } from "react-redux";
 import { Link, NavLink } from "react-router-dom";
 import { FaMinus, FaPlus } from "react-icons/fa";
@@ -115,29 +115,29 @@ function CartItemContainer(props) {
   );
 }
 
-// CartItemContainer.propTypes = {
-//   cartItems: PropTypes.shape({
-//     _id: PropTypes.string,
-//     name: PropTypes.string,
-//     currentPrice: PropTypes.number,
-//     description: PropTypes.string,
-//     imageUrls: PropTypes.arrayOf(PropTypes.string),
-//     itemNo: PropTypes.string,
-//     map: PropTypes.func,
-//     length: PropTypes.number,
-//   }),
-// };
+CartItemContainer.propTypes = {
+  cartItems: PropTypes.shape({
+    _id: PropTypes.string,
+    name: PropTypes.string,
+    currentPrice: PropTypes.number,
+    description: PropTypes.string,
+    imageUrls: PropTypes.arrayOf(PropTypes.string),
+    itemNo: PropTypes.string,
+    map: PropTypes.func,
+    length: PropTypes.number,
+  }),
+};
 
-// CartItemContainer.defaultProps = {
-//   cartItems: PropTypes.shape({
-//     _id: 0,
-//     name: "",
-//     count: 0,
-//     currentPrice: 0,
-//     description: "",
-//     imageUrls: [""],
-//     itemNo: "",
-//   }),
-// };
+CartItemContainer.defaultProps = {
+  cartItems: PropTypes.shape({
+    _id: 0,
+    name: "",
+    count: 0,
+    currentPrice: 0,
+    description: "",
+    imageUrls: [""],
+    itemNo: "",
+  }),
+};
 
-export default CartItemContainer;
+export default React.memo(CartItemContainer);

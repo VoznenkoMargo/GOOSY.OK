@@ -27,4 +27,4 @@ CheckBox.propTypes = {
   name: PropTypes.string.isRequired,
 };
 
-export default CheckBox;
+export default React.memo(CheckBox);

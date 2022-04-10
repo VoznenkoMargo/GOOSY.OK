@@ -52,4 +52,4 @@ AddCartBtn.defaultProps = {
   },
 };
 
-export default AddCartBtn;
+export default React.memo(AddCartBtn);

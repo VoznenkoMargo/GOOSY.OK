@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { FiSearch } from "react-icons/fi";
 import Notiflix from "notiflix";
-import { useDispatch } from "react-redux";
 
+import { useDispatch } from "react-redux";
 import styles from "../Header.module.scss";
 import { searchItemsCreator } from "../../../store/actionCreators/searchItemsCreator";
 
@@ -45,4 +45,4 @@ function Search() {
   );
 }
 
-export default Search;
+export default React.memo(Search);

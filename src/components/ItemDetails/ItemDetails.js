@@ -17,7 +17,7 @@ import {
 } from "../../store/actionCreators/wishlistItemsCreator";
 import ArrowBack from "../ArrowBack/ArrowBack";
 import styles from "./ItemDetails.module.scss";
-// import AddCartBtnMultiply from "../AddCartBtn/AddCartBtnMultiply";
+
 import DeleteCartBtn from "../DeleteCartBtn/DeleteCartBtn";
 import AddCartBtn from "../AddCartBtn/AddCartBtn";
 import Comments from "../Comment/Comments";
@@ -77,22 +77,21 @@ function ItemDetails({ item, setFlag, flag }) {
 
             <div className={styles.count_favorite_block}>
               <div className={styles.plusMinus}>
-                <div className={styles.minus}>
-                  <FaMinus
-                    fill="#fff"
-                    size={20}
-                    onClick={() => handleClickDecrease(item._id)}
-                  />
-                </div>
+                <FaMinus
+                  className={styles.minus}
+                  fill="#fff"
+                  size={20}
+                  onClick={() => handleClickDecrease(item._id)}
+                />
 
                 <h4>{isInCart ? counter : 0}</h4>
-                <div className={styles.plus}>
-                  <FaPlus
-                    fill="#fff"
-                    size={20}
-                    onClick={() => handleClickAdd(item._id)}
-                  />
-                </div>
+
+                <FaPlus
+                  className={styles.plus}
+                  fill="#fff"
+                  size={20}
+                  onClick={() => handleClickAdd(item._id)}
+                />
               </div>
 
               {wishlistItems.find((element) => element._id === item._id) ? (

@@ -24,7 +24,6 @@ function Item(props) {
     (item) => item.product._id === _id
   )?.cartQuantity;
 
-  console.log(count);
   const dispatch = useDispatch();
   const { wishlistItems, isLoading } = useSelector((store) => store.wishlist);
   const [anchorEl, setAnchorEl] = useState(null);
