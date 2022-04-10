@@ -12,16 +12,14 @@ import Preloader from "../Preloader/Preloader";
 
 function ItemsContainer(props) {
   const { items, header } = props;
-  const cartArray = useSelector((state) => {
-    return state.cart.cartItems;
-  });
+  const cartArray = useSelector((state) => state.cart.cartItems);
   const { isLoading } = useSelector((store) => store.items);
   const { isSearched } = useSelector((store) => store.search);
 
   const dispatch = useDispatch();
   const match = useRouteMatch();
- 
-  if (items){
+
+  if (items) {
     for (let i = 0; i < items.length; i += 1) {
       for (let j = 0; j < cartArray.length; j += 1) {
         if (items[i].itemNo === cartArray[j].itemNo) {
@@ -30,7 +28,6 @@ function ItemsContainer(props) {
       }
     }
   }
-  
 
   return isLoading ? (
     <Preloader />
@@ -38,8 +35,7 @@ function ItemsContainer(props) {
     <div className="container">
       <div className={styles.itemsWrapper}>
         <h2 className={styles.items_header}>{header}</h2>
-
-        <img alt="" width="40px" src={flames} />
+        {match.path === "/" && <img alt="" width="40px" src={flames} />}
       </div>
 
       {match.path === "/" && (
@@ -86,7 +82,7 @@ function ItemsContainer(props) {
 
 ItemsContainer.propTypes = {
   header: PropTypes.elementType.isRequired,
-  items: PropTypes.arrayOf(PropTypes.object).isRequired
-}
+  items: PropTypes.arrayOf(PropTypes.object).isRequired,
+};
 
 export default ItemsContainer;

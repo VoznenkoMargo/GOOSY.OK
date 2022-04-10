@@ -12,12 +12,25 @@ export const getOneProduct = (itemNo) => instance.get(`/products/${itemNo}`); //
 export const getByCategory = (category) =>
   instance.get(`/products/filter${category}`); // Получить продукты по категории
 
+// CRUD FOR CART
+export const getCart = () => instance.get(`/cart`); // Получить корзину
+export const deleteCart = () => instance.delete(`/cart`); // Удалить всю корзину
+export const addNewCart = (data) => instance.post(`/cart`, data); // Создать корзину
+export const updatedCart = (data) => instance.put(`/cart`, data); // Обновить товары корзине
+export const addProductToCart = (productId) =>
+  instance.put(`/cart/${productId}`); // Добавить товар в корзину
+export const deleteProductFromCart = (productId) =>
+  instance.delete(`/cart/${productId}`); // Удалить товар из корзины
+export const decreaseProductFromCart = (productId) =>
+  instance.delete(`/cart/product/${productId}`); // Уменьшить количество товара в корзине
+
 // CRUD FOR WISHLIST
-export const addProductToWishlist = (productId) => instance.put(`/wishlist/${productId}`); // Добавить товар в список желаний
-export const deleteProducFromWishlist = (productId) =>instance.delete(`/wishlist/${productId}`); // Удалить товар из спискa желаний
+export const addProductToWishlist = (productId) =>
+  instance.put(`/wishlist/${productId}`); // Добавить товар в список желаний
+export const deleteProducFromWishlist = (productId) =>
+  instance.delete(`/wishlist/${productId}`); // Удалить товар из спискa желаний
 export const getWishlist = () => instance.get(`/wishlist`); // Получить список желаний
 export const deleteWishlist = () => instance.delete(`/wishlist`); // Удалить список желаний
-
 export const sendRegData = (userData) => instance.post("/customers", userData);
 export const sendLogInData = (loginData) =>
   instance.post("/customers/login", loginData);

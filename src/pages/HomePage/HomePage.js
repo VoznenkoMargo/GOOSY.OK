@@ -1,4 +1,3 @@
-
 /* eslint-disable consistent-return */
 import React, { useEffect, useMemo } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -21,7 +20,6 @@ function HomePage() {
 
   return (
     <div>
-     
       <Carousel />
       {!isSearched ? (
         <ItemsContainer header="Popular dishes" items={items} />
@@ -33,7 +31,6 @@ function HomePage() {
           <p className={styles.text}>Sorry, nothing found...</p>
         </div>
       )}
-       
     </div>
   );
 }

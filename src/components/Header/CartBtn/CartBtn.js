@@ -1,27 +1,33 @@
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React from "react";
+import { useSelector } from "react-redux";
 import { FiShoppingCart } from "react-icons/fi";
-import { getFromLS } from "../../../utils/localStorage";
+// import { getFromLS } from "../../../utils/localStorage";
+// import { getCartCreator } from "../../../store/actionCreators/cartItemsCreator";
 import styles from "../Header.module.scss";
-import { GET_CART } from "../../../store/actions/cartItemsActions";
+// import { GET_CART } from "../../../store/actions/cartItemsActions";
 
 function CartBtn() {
-  const dispatch = useDispatch();
-  const counter = useSelector((state) => state.cart.counter);
+  const { cartItems } = useSelector((state) => state.cart);
 
-  useEffect(() => {
-    const cart = getFromLS("cart");
-    if (cart) {
-      dispatch({ type: GET_CART, payload: cart });
-    }
-  }, [dispatch]);
+  // useEffect(() => {
+  //   const cart = getFromLS("cart");
+  //   if (cart) {
+  //     dispatch({ type: GET_CART, payload: cart });
+  //   }
+  // }, [dispatch]);
   return (
     <div className={styles.cartWrap}>
       <div className={styles.cartMobile}>
-        <FiShoppingCart />        
+        <FiShoppingCart />
       </div>
       <h3 className={styles.cart}>Cart</h3>
-      <div className={styles.counter}>{counter}</div>
+      <div className={styles.counter}>
+        {cartItems === undefined || !cartItems.length
+          ? 0
+          : cartItems
+              ?.map((item) => item.cartQuantity)
+              .reduce((a, b) => a + b, 0)}
+      </div>
     </div>
   );
 }

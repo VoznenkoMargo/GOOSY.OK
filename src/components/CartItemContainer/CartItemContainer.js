@@ -1,28 +1,36 @@
+/* eslint-disable import/namespace */
+/* eslint-disable no-underscore-dangle */
 /* eslint-disable react/prop-types */
 import React from "react";
-import PropTypes from "prop-types";
+// import PropTypes from "prop-types";
 import { useDispatch } from "react-redux";
-import {Link, NavLink} from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { FaMinus, FaPlus } from "react-icons/fa";
 import { AiTwotoneDelete } from "react-icons/ai";
 
 import styles from "./CartItemContainer.module.scss";
 import {
-  deleteFromCartCreator,
-  deleteItemCreator,
+  deleteProductFromCartCreator,
+  decreaseProductFromCartCreator,
   addToCartCreator,
+  deleteCartCreator,
 } from "../../store/actionCreators/cartItemsCreator";
 
-function CartItemContainer({ cartItems }) {
+function CartItemContainer(props) {
+  const { cartItems } = props;
   const dispatch = useDispatch();
-  const handleClickDelete = (cartItem) => {
-    dispatch(deleteFromCartCreator(cartItem));
+
+  const handleClickDecrease = (id) => {
+    dispatch(decreaseProductFromCartCreator(id));
   };
-  const handleClickAdd = (cartItem) => {
-    dispatch(addToCartCreator(cartItem));
+  const handleClickAdd = (id) => {
+    dispatch(addToCartCreator(id));
   };
-  const handleClickDeleteItem = (cartItem) => {
-    dispatch(deleteItemCreator(cartItem));
+  const handleClickDeleteFromCart = (id) => {
+    dispatch(deleteProductFromCartCreator(id));
+  };
+  const handleClickDeleteCart = () => {
+    dispatch(deleteCartCreator());
   };
 
   return (
@@ -33,15 +41,23 @@ function CartItemContainer({ cartItems }) {
         {cartItems.length > 0 &&
           cartItems.map((item) => {
             return (
-              <div className={styles.itemCard} key={item.itemNo}>
-                <Link to={`/products/${item.itemNo}`} style={{ textDecoration: "none", width: "80%" }}>
-                  <img src={item.imageUrls} alt="foodImage" />
+              <div className={styles.itemCard} key={item._id}>
+                <Link
+                  to={`/products/${item.product.itemNo}`}
+                  style={{ textDecoration: "none", width: "80%" }}
+                >
+                  <img src={item.product.imageUrls} alt="foodImage" />
                 </Link>
                 <div className={styles.orderDetails}>
-                  <Link to={`/products/${item.itemNo}`} style={{ textDecoration: "none" }}>
+                  <Link
+                    to={`/products/${item.product.itemNo}`}
+                    style={{ textDecoration: "none" }}
+                  >
                     <div className={styles.info}>
-                      <h3 className={styles.name}>{item.name}</h3>
-                      <p className={styles.description}>{item.description}</p>
+                      <h3 className={styles.name}>{item.product.name}</h3>
+                      <p className={styles.description}>
+                        {item.product.description}
+                      </p>
                     </div>
                   </Link>
                   <div className={styles.addToCart}>
@@ -50,22 +66,24 @@ function CartItemContainer({ cartItems }) {
                         className={styles.minus}
                         fill="#fff"
                         size={20}
-                        onClick={() => handleClickDeleteItem(item)}
+                        onClick={() => handleClickDecrease(item.product._id)}
                       />
-                      <h4>{item.count}</h4>
+                      <h4>{item.cartQuantity}</h4>
                       <FaPlus
                         className={styles.plus}
                         fill="#fff"
                         size={20}
-                        onClick={() => handleClickAdd(item)}
+                        onClick={() => handleClickAdd(item.product._id)}
                       />
                     </div>
                     <p className={styles.currentPrice}>
-                      Price: {item.currentPrice * item.count} ₴
+                      Price: {item.product.currentPrice * item.cartQuantity} $
                     </p>
                     <div className={styles.delete}>
                       <AiTwotoneDelete
-                        onClick={() => handleClickDelete(item)}
+                        onClick={() =>
+                          handleClickDeleteFromCart(item.product._id)
+                        }
                       />
                     </div>
                   </div>
@@ -79,12 +97,16 @@ function CartItemContainer({ cartItems }) {
             Total price:
             <span className={styles.currentPrice}>
               {cartItems
-                .map((item) => item.count * item.currentPrice)
+                .map((item) => item.cartQuantity * item.product.currentPrice)
                 .reduce((a, b) => a + b)}
-              ₴
+              $
             </span>
           </h2>
-          <NavLink to="order" className={styles.order} onClick={() => cartItems.forEach(elem => handleClickDelete(elem))}>
+          <NavLink
+            to="order"
+            className={styles.order}
+            onClick={handleClickDeleteCart}
+          >
             Place an order
           </NavLink>
         </div>
@@ -93,30 +115,29 @@ function CartItemContainer({ cartItems }) {
   );
 }
 
-CartItemContainer.propTypes = {
-  cartItems: PropTypes.shape({
-    _id: PropTypes.string,
-    name: PropTypes.string,
-    count: PropTypes.number,
-    currentPrice: PropTypes.number,
-    description: PropTypes.string,
-    imageUrls: PropTypes.arrayOf(PropTypes.string),
-    itemNo: PropTypes.string,
-    map: PropTypes.func,
-    length: PropTypes.number,
-  }),
-};
+// CartItemContainer.propTypes = {
+//   cartItems: PropTypes.shape({
+//     _id: PropTypes.string,
+//     name: PropTypes.string,
+//     currentPrice: PropTypes.number,
+//     description: PropTypes.string,
+//     imageUrls: PropTypes.arrayOf(PropTypes.string),
+//     itemNo: PropTypes.string,
+//     map: PropTypes.func,
+//     length: PropTypes.number,
+//   }),
+// };
 
-CartItemContainer.defaultProps = {
-  cartItems: PropTypes.shape({
-    _id: 0,
-    name: "",
-    count: 0,
-    currentPrice: 0,
-    description: "",
-    imageUrls: [""],
-    itemNo: "",
-  }),
-};
+// CartItemContainer.defaultProps = {
+//   cartItems: PropTypes.shape({
+//     _id: 0,
+//     name: "",
+//     count: 0,
+//     currentPrice: 0,
+//     description: "",
+//     imageUrls: [""],
+//     itemNo: "",
+//   }),
+// };
 
 export default CartItemContainer;

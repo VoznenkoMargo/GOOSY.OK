@@ -8,7 +8,7 @@
   -ms-user-select: none;
   user-select: none;
 
-  .comment{
+  .comment {
     font-size: 24px;
     padding-top: 50px;
     border-bottom: 2px solid #44403f;
@@ -71,23 +71,22 @@
     font-weight: bold;
   }
 
-  .count_favorite_block{
-display: flex;
-gap: 20px;
-    .itemDetalis_favorite{
-align-self: center;
-color: #f1f1f1;
-cursor: pointer;
-}
-.itemDetalis_favorite:hover{
-  color: #cfcfcf;
-}
-.itemDetalis_favorite_active{
-    color:#79b382;
-    align-self: center;
-    cursor: pointer;
-  }
-
+  .count_favorite_block {
+    display: flex;
+    gap: 20px;
+    .itemDetalis_favorite {
+      align-self: center;
+      color: #f1f1f1;
+      cursor: pointer;
+    }
+    .itemDetalis_favorite:hover {
+      color: #cfcfcf;
+    }
+    .itemDetalis_favorite_active {
+      color: #79b382;
+      align-self: center;
+      cursor: pointer;
+    }
   }
 
   .plusMinus {
@@ -98,20 +97,25 @@ cursor: pointer;
     align-items: center;
     padding: 10px;
     justify-content: center;
-    border: 1px solid #313030;
-    border-radius: 5px;
-    box-shadow: 0px 0px 20px rgba(151, 145, 145, 0.4);
-    width: 150px;
+
     margin-right: 20px;
     cursor: pointer;
+    .plus,
+    .minus {
+      border: 1px solid #3d3c3c9c;
+      border-radius: 5px;
+      padding: 10px 15px;
+      box-shadow: 0px 0px 20px rgba(151, 145, 145, 0.4);
+      &:hover {
+        background-color: #383838;
+      }
+    }
   }
-  
 }
 
 @media screen and (max-width: 991px) {
   .itemCard img {
     width: 100%;
-    // overflow: hidden;
   }
 }
 

@@ -3,12 +3,13 @@
 
 import React, { useEffect } from "react";
 import { useSelector, shallowEqual, useDispatch } from "react-redux";
+
 import styles from "./CartPage.module.scss";
 import ArrowBack from "../../components/ArrowBack/ArrowBack";
 import CartItemContainer from "../../components/CartItemContainer/CartItemContainer";
 
 function CartPage() {
-  const cartItems = useSelector((state) => state.cart.cartItems);
+  const { cartItems } = useSelector((state) => state.cart);
 
   return (
     <section>

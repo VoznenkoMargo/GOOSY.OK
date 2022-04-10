@@ -3,6 +3,7 @@
 /* eslint-disable react/prop-types */
 import React from "react";
 import { useDispatch } from "react-redux";
+import LogoutOutlinedIcon from "@mui/icons-material/LogoutOutlined";
 import { DELETE_WISHLIST } from "../../../store/actions/wishlistItemsActions";
 import { removeFromLS } from "../../../utils/localStorage";
 
@@ -22,7 +23,9 @@ function SignOutBtn(props) {
         setUserName(false);
       }}
     >
-      Sign out
+      {/* Sign out */}
+      Log out
+      <LogoutOutlinedIcon />
     </span>
   );
 }

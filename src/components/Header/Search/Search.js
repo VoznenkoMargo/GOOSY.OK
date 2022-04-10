@@ -7,7 +7,6 @@ import styles from "../Header.module.scss";
 import { searchItemsCreator } from "../../../store/actionCreators/searchItemsCreator";
 
 function Search() {
-  
   const dispatch = useDispatch();
   const [text, setText] = useState("");
   const searchPhrases = {
@@ -33,10 +32,9 @@ function Search() {
     <div>
       <form className={styles.formSearch}>
         <input
-          
           className={styles.inputSearch}
           type="text"
-          placeholder="What would you like to eat?"
+          placeholder="Enter the dish"
           value={text}
           onChange={handleInput}
           onKeyPress={(e) => e.key === "Enter" && searchHandler(e)}

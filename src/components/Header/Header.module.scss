@@ -33,6 +33,9 @@ li {
   justify-content: center;
   align-items: center;
   color: #ffffff;
+  img {
+    width: 40px;
+  }
 
   .logoText {
     min-width: 100px;
@@ -62,8 +65,8 @@ li {
   justify-content: space-around;
 
   .cart {
-    
     letter-spacing: 1px;
+    text-transform: uppercase;
     font-style: normal;
     font-weight: 400;
     font-size: 14px;
@@ -71,7 +74,6 @@ li {
     color: #ffffff;
     border-right: 1px solid rgba(255, 255, 255, 0.3);
     padding: 13px 20px 13px 20px;
-
   }
 
   svg {
@@ -115,12 +117,11 @@ li {
     text-decoration: none;
     color: #cfcfcf;
 
-
     span {
-      font-family: "Montserrat", sans-serif;
+      // font-family: "Montserrat", sans-serif;
       font-style: normal;
       font-weight: normal;
-      font-size: 12px;
+      font-size: 15px;
       line-height: 20px;
     }
   }
@@ -135,7 +136,6 @@ li {
     border: none;
     outline: none;
     border-radius: 10px;
-    font-family: "Montserrat", sans-serif;
     font-style: normal;
     font-weight: normal;
     font-size: 20px;
@@ -171,35 +171,44 @@ li {
 }
 
 .signInsignUp {
-  padding: 10px;
-  background-color: #618967;
-  border-radius: 10px;
-  
+  display: flex;
+  justify-content: space-around;
+  text-transform: uppercase;
+  gap: 10px;
 }
 .signIn {
   cursor: pointer;
-  margin-right: 8px;
-  padding-right: 8px;
-  border-right: 1px solid white;
+  border: 1px solid rgba(255, 255, 255, 0.555);
+  border-radius: 10px;
+  padding: 15px;
   &:hover {
     color: #fff;
+    background-color: rgb(85, 83, 83);
   }
 }
 .signUp {
   cursor: pointer;
+  border-radius: 10px;
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  box-shadow: 2px 2px 15px rgba(114, 114, 114, 0.192);
+  border: 1px solid rgba(255, 255, 255, 0.555);
+  gap: 2px;
   &:hover {
     color: #fff;
+    background-color: rgb(85, 83, 83);
   }
 }
-.signOut{
+.signOut {
   display: flex;
   flex-direction: column;
   justify-content: center;
   text-align: center;
 }
-  .header_user {
-    margin-bottom: 5px;    
-  }
+.header_user {
+  margin-bottom: 5px;
+}
 
 @media (max-width: 974px) {
   .root {
@@ -211,13 +220,12 @@ li {
     margin-bottom: 10px;
   }
 
-  .logo{
+  .logo {
     display: none;
   }
 
   li {
     margin-top: 15px;
-        
   }
   .cartWrap {
     width: 62px;
@@ -229,15 +237,13 @@ li {
     position: relative;
 
     .counter {
-      
-        height: 15px;
-        display: block;
-        position: absolute;
-        right: 1px;
-        top: -11px;
-        text-align: center;
-        width: 15px;
-    
+      height: 15px;
+      display: block;
+      position: absolute;
+      right: 1px;
+      top: -11px;
+      text-align: center;
+      width: 15px;
     }
 
     .cart {
@@ -290,11 +296,13 @@ li {
       margin-bottom: 10px;
     }
   }
-
- 
-
 }
 
+@media (max-width: 600px) {
+  .contact {
+    display: none;
+  }
+}
 @media (max-width: 500px) {
   .navList {
     width: 100%;
@@ -305,31 +313,20 @@ li {
     margin-bottom: 10px;
   }
 
-  .contact {
-    display: none;
-  }
-
-
-
   .searchComponentMobile {
     display: block;
   }
 
-  .signInsignUp{
+  .signInsignUp {
     display: flex;
     flex-direction: column;
-    padding: 7px;    
     font-size: 14px;
     line-height: 17px;
-
   }
 
   .signIn {
-    border-bottom: 1px solid white; 
+    border-bottom: 1px solid white;
     border-right: 1px solid transparent;
     margin: 0px 0px 4px 0px;
-    padding: 0px 0px 4px 0px;
-    
   }
 }
-
