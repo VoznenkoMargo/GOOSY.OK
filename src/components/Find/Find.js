@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import style from "./Find.module.scss";
 import CheckBoxContainer from "./CheckBoxContainer/CheckBoxContainer";
 import FindPrice from "./FindPrice/FindPrice";
-import InputRange from "./InputRange/InputRange";
+import InputPrice from "./InputPrice/InputPrice";
 
 function Find({  setNewPrice, price }) {
   return (
@@ -11,7 +11,7 @@ function Find({  setNewPrice, price }) {
       <p className={style.title}>Check filters</p>
       <CheckBoxContainer/>
       <FindPrice price={price} setNewPrice={setNewPrice} />
-      <InputRange/>
+      <InputPrice/>
       <p>Testnpm </p>
     </div>
   );
