@@ -2,21 +2,16 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { useDispatch } from "react-redux";
-import { Notify } from "notiflix";
-import { useRouteMatch } from "react-router-dom";
 import { ReactComponent as Cart } from "../../assets/svg/Buy.svg";
 import styles from "./AddCartBtn.module.scss";
 import { addToCartCreator } from "../../store/actionCreators/cartItemsCreator";
 
 function AddCartBtn(props) {
-  const match = useRouteMatch();
   const dispatch = useDispatch();
   const { cartItem } = props;
+
   const handleClick = () => {
     dispatch(addToCartCreator(cartItem._id));
-    if (match.path !== "/") {
-      Notify.success(`${cartItem.name} added to cart`);
-    }
   };
 
   return (

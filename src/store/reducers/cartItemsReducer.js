@@ -45,31 +45,7 @@ const initialState = {
 //         counter: state.counter + 1,
 //       };
 //     }
-//     case ADD_TO_CART_MULTIPLY: {
-//       const newCartItems = [...state.cartItems];
-//       const index = newCartItems.findIndex(
-//         (elem) => elem._id === payload[0]._id
-//       );
-//       if (index === -1) {
-//         const newItem = { ...payload[0], count: payload[1], inCart: true };
-//         saveToLS("cart", {
-//           cartItems: [...state.cartItems, newItem],
-//           counter: state.counter + payload[1],
-//         });
-//         return {
-//           ...state,
-//           cartItems: [...state.cartItems, newItem],
-//           counter: state.counter + payload[1],
-//         };
-//       }
-//       newCartItems[index].count += payload[1];
-//       saveToLS("cart", { cartItems: newCartItems, counter: state.counter + 1 });
-//       return {
-//         ...state,
-//         cartItems: newCartItems,
-//         counter: state.counter + payload[1],
-//       };
-//     }
+//
 //     case DELETE_ITEM: {
 //       const newCartItems = [...state.cartItems];
 //       const index = newCartItems.findIndex((elem) => elem._id === payload._id);

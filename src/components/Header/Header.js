@@ -9,7 +9,7 @@ import Contact from "./Contact/Contact";
 import CartBtn from "./CartBtn/CartBtn";
 import Search from "./Search/Search";
 import FormLogin from "../Form/FormLogin";
-
+import { GET_CART } from "../../store/actions/cartItemsActions";
 import FormReg from "../Form/FormReg";
 import { getFromLS } from "../../utils/localStorage";
 import { clearSearchItemsCreator } from "../../store/actionCreators/searchItemsCreator";
@@ -18,6 +18,9 @@ import HeartFromWishlist from "../HeartFromWishlist/HeartFromWishlist";
 import Categories from "../Categories/Categories";
 import { getUserWishlist } from "../../store/actionCreators/wishlistItemsCreator";
 import SignOutBtn from "./SignOutBtn/SignOutBtn";
+
+const ukraine =
+  "https://icons.iconarchive.com/icons/icons-land/vista-flags/256/Ukraine-Flag-2-icon.png";
 
 function Header() {
   const location = useLocation();
@@ -28,8 +31,6 @@ function Header() {
   const dispatch = useDispatch();
   const home = useRouteMatch("/");
   const products = useRouteMatch("/products");
-  const ukraine =
-    "https://icons.iconarchive.com/icons/icons-land/vista-flags/256/Ukraine-Flag-2-icon.png";
   useEffect(() => {
     if (getFromLS("authToken")) {
       setSign(true);

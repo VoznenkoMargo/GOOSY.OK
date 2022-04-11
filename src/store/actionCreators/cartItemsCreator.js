@@ -1,3 +1,5 @@
+import Notiflix from "notiflix";
+
 import {
   getCart,
   deleteCart,
@@ -37,7 +39,6 @@ export const getCartCreator = () => async (dispatch) => {
 };
 
 export const addToCartCreator = (productId) => async (dispatch) => {
-  // if (isAuth != null) {
   try {
     const { status, data } = await addProductToCart(productId);
     if (status === 200 && data !== null) {
@@ -45,13 +46,8 @@ export const addToCartCreator = (productId) => async (dispatch) => {
     }
   } catch (error) {
     console.log(error);
+    Notiflix.Notify.failure("Unauthorized");
   }
-  // }
-  // if (isAuth === null) {
-  //   const newCartItems = [...cartLS];
-
-  //   dispatch({ type: ADD_TO_CART, payload: cartLS });
-  // }
 };
 
 export const deleteProductFromCartCreator = (productId) => async (dispatch) => {
@@ -63,6 +59,7 @@ export const deleteProductFromCartCreator = (productId) => async (dispatch) => {
     dispatch(setIsLoadingCart(false));
   } catch (error) {
     console.log(error);
+    Notiflix.Notify.failure("Unauthorized");
   }
 };
 
@@ -75,6 +72,7 @@ export const decreaseProductFromCartCreator =
       }
     } catch (error) {
       console.log(error);
+      Notiflix.Notify.failure("Unauthorized");
     }
   };
 export const deleteCartCreator = () => async (dispatch) => {

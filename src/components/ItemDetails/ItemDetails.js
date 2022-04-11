@@ -10,6 +10,7 @@ import { Notify } from "notiflix";
 import { FaPlus, FaMinus } from "react-icons/fa";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
+import { getFromLS } from "../../utils/localStorage";
 import Preloader from "../Preloader/Preloader";
 import {
   addProductToUserWishlist,
@@ -37,6 +38,7 @@ function ItemDetails({ item, setFlag, flag }) {
   const [countDetail, setCountDetail] = useState(1);
   const dispatch = useDispatch();
   const { wishlistItems, isLoading } = useSelector((store) => store.wishlist);
+  const authToken = getFromLS("authToken");
 
   const handleClickDecrease = (id) => {
     if (countDetail >= 0) {
@@ -47,7 +49,9 @@ function ItemDetails({ item, setFlag, flag }) {
   const handleClickAdd = (id, name) => {
     setCountDetail(countDetail + 1);
     dispatch(addToCartCreator(id));
-    Notify.success(`${name} added to cart`);
+    if (authToken) {
+      Notify.success(`${name} added to cart`);
+    }
   };
 
   function handleAddWishlistItem(id) {
