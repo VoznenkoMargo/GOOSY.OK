@@ -37,4 +37,4 @@ function ScrollToTopBtn() {
   );
 }
 
-export default ScrollToTopBtn;
+export default React.memo(ScrollToTopBtn);

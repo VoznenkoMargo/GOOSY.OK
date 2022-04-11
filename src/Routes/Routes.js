@@ -2,12 +2,6 @@ import React, { Suspense } from "react";
 import { Route, Switch } from "react-router-dom";
 import HomePage from "../pages/HomePage";
 import Preloader from "../components/Preloader/Preloader";
-import PrivacyPolicyPage from "../pages/FooterPages/PrivacyPolicyPage";
-import UserAgrPage from "../pages/FooterPages/UserAgrPage/UserAgrPage";
-import AboutPage from "../pages/FooterPages/AboutPage/AboutPage";
-import PaymentAndDeliveryPage from "../pages/FooterPages/PaymentAndDeliveryPage/PaymentAndDeliveryPage";
-import NewsAndEventsPage from "../pages/FooterPages/NewsAndEventsPage/NewsAndEventsPage";
-import CardNewsAndEventsGoosePage from "../pages/FooterPages/NewsAndEventsPage/CardNewsAndEventsGoosePage/CardNewsAndEventsGoosePage";
 import CardNewsAndEventsMasterPage from "../pages/FooterPages/NewsAndEventsPage/CardNewsAndEventsMasterPage/CardNewsAndEventsMasterPage";
 import CardNewsAndEventsSitePage from "../pages/FooterPages/NewsAndEventsPage/CardNewsAndEventsSitePage/CardNewsAndEventsSitePage";
 import CardNewsAndEventsWorkingPage from "../pages/FooterPages/NewsAndEventsPage/CardNewsAndEventsWorkingPage/CardNewsAndEventsWorkingPage";
@@ -22,6 +16,27 @@ const CategoriesPage = React.lazy(() =>
 );
 const WishlistPage = React.lazy(() =>
   import("../pages/WishlistPage/WishlistPage")
+);
+const PrivacyPolicyPage = React.lazy(() =>
+  import("../pages/FooterPages/PrivacyPolicyPage")
+);
+const UserAgrPage = React.lazy(() =>
+  import("../pages/FooterPages/UserAgrPage/UserAgrPage")
+);
+const AboutPage = React.lazy(() =>
+  import("../pages/FooterPages/AboutPage/AboutPage")
+);
+
+const PaymentAndDeliveryPage = React.lazy(() =>
+  import("../pages/FooterPages/PaymentAndDeliveryPage/PaymentAndDeliveryPage")
+);
+const NewsAndEventsPage = React.lazy(() =>
+  import("../pages/FooterPages/NewsAndEventsPage/NewsAndEventsPage")
+);
+const CardNewsAndEventsGoosePage = React.lazy(() =>
+  import(
+    "../pages/FooterPages/NewsAndEventsPage/CardNewsAndEventsGoosePage/CardNewsAndEventsGoosePage"
+  )
 );
 
 function Routes() {

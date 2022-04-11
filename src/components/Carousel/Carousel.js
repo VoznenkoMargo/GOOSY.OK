@@ -106,4 +106,4 @@ SampleNextArrow.defaultProps = {
   onClick: () => {},
 };
 
-export default Carousel;
+export default React.memo(Carousel);

@@ -7,7 +7,8 @@ import { useDispatch } from "react-redux";
 import { Link, NavLink } from "react-router-dom";
 import { FaMinus, FaPlus } from "react-icons/fa";
 import { AiTwotoneDelete } from "react-icons/ai";
-import { ArrowBack } from "@mui/icons-material";
+import ArrowBack from "../ArrowBack/ArrowBack";
+
 import styles from "./CartItemContainer.module.scss";
 import {
   deleteProductFromCartCreator,

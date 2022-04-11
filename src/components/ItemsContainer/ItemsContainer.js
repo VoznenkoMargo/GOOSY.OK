@@ -14,22 +14,11 @@ import Preloader from "../Preloader/Preloader";
 
 function ItemsContainer(props) {
   const { items, header } = props;
-  const cartArray = useSelector((state) => state.cart.cartItems);
   const { isLoading } = useSelector((store) => store.items);
   const { isSearched } = useSelector((store) => store.search);
 
   const dispatch = useDispatch();
   const match = useRouteMatch();
-
-  if (items) {
-    for (let i = 0; i < items.length; i += 1) {
-      for (let j = 0; j < cartArray.length; j += 1) {
-        if (items[i].itemNo === cartArray[j].itemNo) {
-          items[i] = { ...items[i], ...cartArray[j] };
-        }
-      }
-    }
-  }
 
   return isLoading ? (
     <Preloader />
@@ -75,8 +64,8 @@ function ItemsContainer(props) {
       <div className={styles.itemsContainer}>
         {items &&
           items.map(({ itemNo, ...args }) => (
-            <ErrorBoundary FallbackComponent={ErrorFallback}>
-              <Item key={itemNo} itemNo={itemNo} {...args} />
+            <ErrorBoundary FallbackComponent={ErrorFallback} key={itemNo}>
+              <Item itemNo={itemNo} {...args} />
             </ErrorBoundary>
           ))}
       </div>
@@ -89,4 +78,4 @@ ItemsContainer.propTypes = {
   items: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
-export default ItemsContainer;
+export default React.memo(ItemsContainer);

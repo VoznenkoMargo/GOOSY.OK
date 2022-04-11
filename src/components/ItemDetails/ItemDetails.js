@@ -165,4 +165,4 @@ ItemDetails.defaultProps = {
   }),
 };
 
-export default ItemDetails;
+export default React.memo(ItemDetails);
