@@ -35,9 +35,10 @@ function CartItemContainer(props) {
   };
 
   return (
-    <div className={styles.container}>
+    <div className={styles.mainCartContainer}>
       <ArrowBack />
       <div className={styles.cartTitle}>CART</div>
+      <div className={styles.container}>
       {cartItems.length > 0 &&
         cartItems.map((item) => {
           return (
@@ -91,6 +92,7 @@ function CartItemContainer(props) {
             </div>
           );
         })}
+      </div>
 
       <div className={styles.totalPrice}>
         <h2 className={styles.priceTitle}>
