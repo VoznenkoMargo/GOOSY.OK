@@ -10,7 +10,7 @@ function RequireAuth({ component: Component, ...rest }) {
     return(
         <Route
           {...rest}
-          render={props => {console.log(props);
+          render={props => {
             if (getFromLS("authToken")) {
               return <Component {...props} />;
             } else {
