@@ -7,6 +7,7 @@ import CardNewsAndEventsSitePage from "../pages/FooterPages/NewsAndEventsPage/Ca
 import CardNewsAndEventsWorkingPage from "../pages/FooterPages/NewsAndEventsPage/CardNewsAndEventsWorkingPage/CardNewsAndEventsWorkingPage";
 import NotFoundPage from "../pages/NotFoundPage/NotFoundPage";
 import OrderPage from "../pages/OrderPage";
+import RequireAuth from "../hoc/RequireAuth";
 
 const ProductsPage = React.lazy(() => import("../pages/ProductsPage"));
 const ItemPage = React.lazy(() => import("../pages/ItemPage"));
@@ -78,7 +79,7 @@ function Routes() {
           path="/news-and-events/Working hours during the holidays"
           component={CardNewsAndEventsWorkingPage}
         />
-        <Route exact path="/wishlist" component={WishlistPage} />
+        <RequireAuth exact path="/wishlist" component={WishlistPage} />
         <Route exact path="/order" component={OrderPage} />
         <Route component={NotFoundPage} />
       </Switch>

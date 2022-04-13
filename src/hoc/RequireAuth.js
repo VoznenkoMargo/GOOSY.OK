@@ -6,20 +6,22 @@ import { Route, Redirect } from "react-router-dom";
 import { getFromLS } from "../utils/localStorage";
 
 function RequireAuth({ component: Component, ...rest }) {
-  return (
-    <Route
-      {...rest}
-      render={(props) => {
-        if (getFromLS("authToken")) {
-          return <Component {...props} />;
-        } else {
-          return (
-            <Redirect to={{ pathname: "/", state: { from: props.location } }} />
-          );
-        }
-      }}
-    />
-  );
+
+    return(
+        <Route
+          {...rest}
+          render={(props) => {
+            if (getFromLS("authToken")) {
+              return <Component {...props} />;
+            } else {
+              return (
+                <Redirect
+                  to={{ pathname: "/", state: {from: props.location}}} />
+              ); 
+            }
+          }}
+        />
+      );
 }
 
 RequireAuth.propTypes = {
