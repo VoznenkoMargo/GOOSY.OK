@@ -73,33 +73,33 @@ function ItemsContainer(props) {
   );
 }
 
-ItemsContainer.propTypes = {
-  header: PropTypes.elementType.isRequired,
-  items: PropTypes.arrayOf(
-    PropTypes.shape({
-      _id: PropTypes.string,
-      itemNo: PropTypes.string,
-      imageUrls: PropTypes.arrayOf(PropTypes.string),
-      categories: PropTypes.string,
-      name: PropTypes.string,
-      currentPrice: PropTypes.number,
-      weight: PropTypes.number,
-    })
-  ),
-};
+// ItemsContainer.propTypes = {
+//   header: PropTypes.elementType.isRequired,
+//   items: PropTypes.arrayOf(
+//     PropTypes.shape({
+//       _id: PropTypes.string,
+//       itemNo: PropTypes.string,
+//       imageUrls: PropTypes.arrayOf(PropTypes.string),
+//       categories: PropTypes.string,
+//       name: PropTypes.string,
+//       currentPrice: PropTypes.number,
+//       weight: PropTypes.number,
+//     })
+//   ),
+// };
 
-ItemsContainer.defaultProps = {
-  items: PropTypes.arrayOf(
-    PropTypes.shape({
-      _id: "",
-      itemNo: "",
-      imageUrls: [""],
-      categories: "",
-      name: "",
-      currentPrice: 0,
-      weight: 0,
-    })
-  ),
-};
+// ItemsContainer.defaultProps = {
+//   items: PropTypes.arrayOf(
+//     PropTypes.shape({
+//       _id: "",
+//       itemNo: "",
+//       imageUrls: [""],
+//       categories: "",
+//       name: "",
+//       currentPrice: 0,
+//       weight: 0,
+//     })
+//   ),
+// };
 
 export default React.memo(ItemsContainer);

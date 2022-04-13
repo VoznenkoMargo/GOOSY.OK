@@ -23,7 +23,6 @@ function CategoriesPage() {
   useEffect(() => {
     dispatch(initСategoriesItemsCreator(location));
   }, [location]);
-
   useEffect(() => {
     const allCategories =
       categories.length > 0
@@ -39,9 +38,7 @@ function CategoriesPage() {
   }, [items]);
 
   useEffect(()=>{
-    console.log("did mount");
     return()=>{
-      console.log("will mount")
       dispatch(resetCategories());
     }
   }, [])

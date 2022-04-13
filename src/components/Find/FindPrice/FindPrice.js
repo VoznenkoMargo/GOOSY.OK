@@ -1,5 +1,6 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
-import React from "react";
+import React, {useEffect} from "react";
+import { useHistory, useLocation } from "react-router-dom";
 import PropTypes from "prop-types";
 import style from "./FindPrice.module.scss";
 
@@ -10,6 +11,10 @@ function FindPrice({ price, setNewPrice }) {
     statePrice[index] = newPr;
     setNewPrice(statePrice);
   };
+  const location = useLocation().search
+useEffect(()=>{
+  console.log(location);
+},[location])
 
   return (
     <div className={style.findPrice}>

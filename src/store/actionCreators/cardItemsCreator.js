@@ -39,7 +39,6 @@ export const initСategoriesItemsCreator = (inquiry) => async (dispatch) => {
   const {
     data: { products },
   } = await getByCategory(inquiry);
-  console.log(inquiry);
   products.forEach((item) => {
     if (!(`${item.categories}` in allCategories)) {
       allCategories[item.categories] = [item];

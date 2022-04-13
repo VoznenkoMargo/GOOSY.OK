@@ -45,7 +45,7 @@ function Routes() {
       <Switch>
         <Route exact path="/" component={HomePage} />
         <Route exact path="/products/filter" component={CategoriesPage} />
-        <Route exact path="/products/filter/:find" component={CategoriesPage} />
+        {/* <Route exact path="/products/filter/:find" component={CategoriesPage} /> */}
         <Route exact path="/products" component={ProductsPage} />
         <Route exact path="/products/:itemNo" component={ItemPage} />
         <Route exact path="/cart" component={CartPage} />
