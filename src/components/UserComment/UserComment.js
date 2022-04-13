@@ -146,4 +146,4 @@ UserComment.defaultProps = {
   token: [],
 };
 
-export default UserComment;
+export default React.memo(UserComment);

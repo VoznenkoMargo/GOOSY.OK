@@ -40,4 +40,4 @@ FindPrice.propTypes = {
   setNewPrice: PropTypes.func.isRequired,
 };
 
-export default FindPrice;
+export default React.memo(FindPrice);

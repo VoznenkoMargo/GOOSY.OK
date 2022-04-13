@@ -1,1 +1,2 @@
-export {default} from "./Rating";
+/* eslint-disable no-restricted-exports */
+export { default } from "./Rating";

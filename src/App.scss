@@ -4,7 +4,8 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Outfit", sans-serif;
+  // font-family: "Outfit", sans-serif;
+  font-family: "Concert One", cursive;
 }
 
 p {
@@ -26,12 +27,13 @@ p {
   flex: 1 0 auto;
 }
 
-#root, html, body{
+#root,
+html,
+body {
   height: 100%;
 }
 
-
-.main_content{
+.main_content {
   display: flex;
   flex-direction: column;
   flex: 1 0 auto;

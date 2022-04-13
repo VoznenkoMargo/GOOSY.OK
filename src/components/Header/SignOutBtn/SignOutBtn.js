@@ -3,7 +3,9 @@
 /* eslint-disable react/prop-types */
 import React from "react";
 import { useDispatch } from "react-redux";
+import LogoutOutlinedIcon from "@mui/icons-material/LogoutOutlined";
 import { DELETE_WISHLIST } from "../../../store/actions/wishlistItemsActions";
+import { DELETE_CART } from "../../../store/actions/cartItemsActions";
 import { removeFromLS } from "../../../utils/localStorage";
 
 import styles from "./SignOutBtn.module.scss";
@@ -17,12 +19,14 @@ function SignOutBtn(props) {
       className={styles.btn_out}
       onClick={() => {
         dispatch({ type: DELETE_WISHLIST, payload: [] });
+        dispatch({ type: DELETE_CART, payload: [] });
         removeFromLS("userName");
         removeFromLS("authToken");
         setUserName(false);
       }}
     >
-      Sign out
+      Log out
+      <LogoutOutlinedIcon />
     </span>
   );
 }

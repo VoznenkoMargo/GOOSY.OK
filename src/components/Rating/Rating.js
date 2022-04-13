@@ -1,34 +1,42 @@
-import React from 'react';
+import React from "react";
 import PropTypes from "prop-types";
-import Rating from '@mui/material/Rating';
-import Typography from '@mui/material/Typography';
+import Rating from "@mui/material/Rating";
+import Typography from "@mui/material/Typography";
 
-function UserRating({rank, setRank}) {
- 
+function UserRating({ rank, setRank }) {
   return (
-      <div style={{display:"flex", flexDirection: "column", alignItems:"flex-end", maxWidth:"500px", paddingBottom:"10px"}}>
-      <Typography component="legend" sx={{color: "rgb(241, 241, 241)"}}>Set your rating</Typography>
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "flex-end",
+        maxWidth: "500px",
+        paddingBottom: "10px",
+      }}
+    >
+      <Typography component="legend" sx={{ color: "rgb(241, 241, 241)" }}>
+        Set your rating
+      </Typography>
       <Rating
-      sx={{ textAlign:"end"}}
+        sx={{ textAlign: "end" }}
         name="simple-controlled"
         value={rank}
-        defaultValue={5}   
+        defaultValue={5}
         onChange={(event, newValue) => {
-            setRank(newValue);
+          setRank(newValue);
         }}
       />
-      </div>
-    
-  )
+    </div>
+  );
 }
 
 UserRating.propTypes = {
-    rank: PropTypes.number,
-    setRank: PropTypes.func.isRequired,
-}
+  rank: PropTypes.number,
+  setRank: PropTypes.func.isRequired,
+};
 
-UserRating.defaultProps={
-  rank: null
-}
+UserRating.defaultProps = {
+  rank: null,
+};
 
-export default UserRating;
+export default React.memo(UserRating);

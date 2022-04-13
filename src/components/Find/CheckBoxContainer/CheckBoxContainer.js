@@ -67,4 +67,4 @@ function CheckBoxContainer() {
   );
 }
 
-export default CheckBoxContainer;
+export default React.memo(CheckBoxContainer);
