@@ -13,7 +13,7 @@ import { GET_CART } from "../../store/actions/cartItemsActions";
 import FormReg from "../Form/FormReg";
 import { getFromLS } from "../../utils/localStorage";
 import { clearSearchItemsCreator } from "../../store/actionCreators/searchItemsCreator";
-import { getCartCreator } from "../../store/actionCreators/cartItemsCreator";
+import {getCartCreator, getLsCartCreator} from "../../store/actionCreators/cartItemsCreator";
 import HeartFromWishlist from "../HeartFromWishlist/HeartFromWishlist";
 import Categories from "../Categories/Categories";
 import { getUserWishlist } from "../../store/actionCreators/wishlistItemsCreator";
@@ -47,6 +47,7 @@ function Header() {
       dispatch(getCartCreator());
       dispatch(getUserWishlist());
     }
+    // dispatch(getLsCartCreator())
   }, [authToken]);
 
   useEffect(() => {

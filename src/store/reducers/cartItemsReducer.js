@@ -3,19 +3,26 @@
 
 import {
   ADD_TO_CART,
+  ADD_TO_LS,
   DELETE_CART,
   SET_IS_LOADING_CART,
   DELETE_FROM_CART,
   GET_CART,
   DECREASE_ITEM,
+  DECREASE_FROM_LS,
+  DELETE_FROM_LS, GET_CART_LS,
 } from "../actions/cartItemsActions";
+import {saveToLS} from "../../utils/localStorage";
 
 // import { saveToLS } from "../../utils/localStorage";
 
 const initialState = {
   cartItems: [],
+  // lsItems: [],
   isLoadingCart: false,
 };
+
+
 
 // const cartItemsReducer = (state = initialState, { type, payload }) => {
 //   switch (type) {
@@ -86,6 +93,7 @@ const initialState = {
 // };
 
 const cartItemsReducer = (state = initialState, { type, payload }) => {
+  console.log(state)
   switch (type) {
     case GET_CART: {
       return { ...state, cartItems: payload };
@@ -94,9 +102,11 @@ const cartItemsReducer = (state = initialState, { type, payload }) => {
     case ADD_TO_CART: {
       return { ...state, cartItems: payload };
     }
+
     case DELETE_FROM_CART: {
       return { ...state, cartItems: payload };
     }
+
     case DELETE_CART: {
       return { ...state, cartItems: [] };
     }
@@ -106,6 +116,49 @@ const cartItemsReducer = (state = initialState, { type, payload }) => {
 
     case SET_IS_LOADING_CART: {
       return { ...state, isLoadingCart: payload };
+    }
+
+      /// ////////////////////////// LS /////////////////////////////////////
+
+    case GET_CART_LS: {
+      return {...state, cartItems: payload};
+    }
+
+    case ADD_TO_LS: {
+      const newCartItems = [...state.cartItems];
+      // console.log(newCartItems)
+      const index = newCartItems.findIndex((elem) => elem.product._id === payload.product._id);
+      // console.log(index)
+      if (index === -1) {
+        const newItem = {...payload};
+        newItem.cartQuantity = 1;
+        saveToLS("cart", {products: [...state.cartItems, newItem]});
+        return {...state, cartItems: [...state.cartItems, newItem]};
+      }
+      newCartItems[index].cartQuantity += 1;
+      saveToLS("cart", { products: newCartItems });
+      console.log(state.cartItems)
+      return { ...state, cartItems: newCartItems };
+    }
+
+    case DECREASE_FROM_LS: {
+      const newCartItems = [...state.cartItems];
+      const index = newCartItems.findIndex((elem) => elem.product._id === payload.product._id);
+      newCartItems[index].cartQuantity -= 1;
+      if (newCartItems[index].cartQuantity === 0) {
+        newCartItems.splice(index, 1);
+      }
+      saveToLS("cart", { products: newCartItems });
+      return { ...state, cartItems: newCartItems };
+    }
+
+    case DELETE_FROM_LS: {
+      const newCartItems = [...state.cartItems];
+      console.log(newCartItems)
+      const index = newCartItems.findIndex((elem) => elem.product._id === payload);
+      newCartItems.splice(index, 1);
+      saveToLS("cart", {cartItems: newCartItems});
+      return {...state, cartItems: newCartItems};
     }
 
     default:

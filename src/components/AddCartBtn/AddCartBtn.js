@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import { useDispatch } from "react-redux";
 import { ReactComponent as Cart } from "../../assets/svg/Buy.svg";
 import styles from "./AddCartBtn.module.scss";
-import { addToCartCreator } from "../../store/actionCreators/cartItemsCreator";
+import {addToCartCreator, addToLsCreator} from "../../store/actionCreators/cartItemsCreator";
 
 function AddCartBtn(props) {
   const dispatch = useDispatch();
@@ -12,6 +12,7 @@ function AddCartBtn(props) {
 
   const handleClick = () => {
     dispatch(addToCartCreator(cartItem._id));
+    dispatch(addToLsCreator(cartItem));
   };
 
   return (

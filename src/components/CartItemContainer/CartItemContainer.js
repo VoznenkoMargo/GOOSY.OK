@@ -15,20 +15,25 @@ import {
   decreaseProductFromCartCreator,
   addToCartCreator,
   deleteCartCreator,
+  decreaseProductFromLsCreator, addToLsCreator, deleteProductFromLsCreator,
 } from "../../store/actionCreators/cartItemsCreator";
 
 function CartItemContainer(props) {
   const { cartItems } = props;
   const dispatch = useDispatch();
+  // console.log(cartItems)
 
-  const handleClickDecrease = (id) => {
+  const handleClickDecrease = (id, cartItem) => {
     dispatch(decreaseProductFromCartCreator(id));
+    dispatch(decreaseProductFromLsCreator(cartItem));
   };
-  const handleClickAdd = (id) => {
+  const handleClickAdd = (id, cartItem) => {
     dispatch(addToCartCreator(id));
+    dispatch(addToLsCreator(cartItem));
   };
-  const handleClickDeleteFromCart = (id) => {
+  const handleClickDeleteFromCart = (id, cartItem) => {
     dispatch(deleteProductFromCartCreator(id));
+    dispatch(deleteProductFromLsCreator(cartItem))
   };
   const handleClickDeleteCart = () => {
     dispatch(deleteCartCreator());
@@ -67,14 +72,14 @@ function CartItemContainer(props) {
                       className={styles.minus}
                       fill="#fff"
                       size={20}
-                      onClick={() => handleClickDecrease(item.product._id)}
+                      onClick={() => handleClickDecrease(item.product._id, item)}
                     />
                     <h4>{item.cartQuantity}</h4>
                     <FaPlus
                       className={styles.plus}
                       fill="#fff"
                       size={20}
-                      onClick={() => handleClickAdd(item.product._id)}
+                      onClick={() => handleClickAdd(item.product._id, item.product)}
                     />
                   </div>
                   <p className={styles.currentPrice}>
@@ -82,9 +87,7 @@ function CartItemContainer(props) {
                   </p>
                   <div className={styles.delete}>
                     <AiTwotoneDelete
-                      onClick={() =>
-                        handleClickDeleteFromCart(item.product._id)
-                      }
+                      onClick={() => handleClickDeleteFromCart(item.product._id, item.product._id)}
                     />
                   </div>
                 </div>
