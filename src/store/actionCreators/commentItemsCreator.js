@@ -36,7 +36,6 @@ export const getAllUsersComments = () => async (dispatch) => {
     dispatch(setIsLoadingComment(true));
     try{
         const result = await getAllComments();
-        console.log(result);
         if (result.status === 200) {
             dispatch({type: GET_ALL_COMMENTS, payload: result.data})    
         }
@@ -51,7 +50,6 @@ export const getAllUsersComments = () => async (dispatch) => {
 export const putUserComments = (id, updatedComment) => async (dispatch) => {
   try {
     const result = await updateComments(id, updatedComment);
-    console.log(result);
     if (result.status === 200) {
       dispatch({
         type: UPDATE_COMMENTS,

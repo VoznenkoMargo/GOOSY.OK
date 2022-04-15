@@ -1,5 +1,6 @@
 /* eslint-disable react/forbid-prop-types */
 /* eslint-disable react/jsx-no-bind */
+/* eslint-disable no-useless-return */
 import React from "react";
 import PropTypes from "prop-types";
 import { Comment } from "semantic-ui-react";
@@ -35,10 +36,13 @@ function UserComment({
           customersNo: [...customersNo, getFromLS("customerNo")],
         })
       );
-    }if(customersNo?.includes(getFromLS("customerNo"))){
+    }
+    if(customersNo?.includes(getFromLS("customerNo")))
+    {
       return;
     }
-    if(thumbUpClick || thumbDownClick ){
+    if(thumbUpClick || thumbDownClick )
+    {
       return;
     }
   }
