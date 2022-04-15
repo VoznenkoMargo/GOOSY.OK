@@ -21,39 +21,43 @@ function UserComment({
   thumbDownUser,
   thumbUpClick,
   thumbDownClick,
-  token,
+  customersNo,
 }) {
   const datePublic = new Date(date).toLocaleString();
   const dispatch = useDispatch();
 
   function thumbUpClickFunc() {
-    if (!token.includes(getFromLS("authToken"))) {
+    if (!customersNo?.includes(getFromLS("customerNo"))) {
       dispatch(
         putUserComments(commentsId, {
           thumbUp: thumbUpUser + 1,
           thumbUpClick: true,
-          token: [...token, getFromLS("authToken")],
+          customersNo: [...customersNo, getFromLS("customerNo")],
         })
       );
+    }if(customersNo?.includes(getFromLS("customerNo"))){
+      return;
+    }
+    if(thumbUpClick || thumbDownClick ){
+      return;
     }
   }
 
   function thumbDownClickFunc() {
-    if (
-      token.includes(getFromLS("authToken")) ||
-      thumbDownClick ||
-      thumbUpClick
-    ) {
-      return;
-    }
-    if (!token.includes(getFromLS("authToken"))) {
+    if (!customersNo?.includes(getFromLS("customerNo"))) {
       dispatch(
         putUserComments(commentsId, {
           thumbDown: thumbDownUser + 1,
           thumbDownClick: true,
-          token: [...token, getFromLS("authToken")],
+          customersNo: [...customersNo, getFromLS("customerNo")],
         })
       );
+    }
+    if (customersNo?.includes(getFromLS("customerNo")) ) {
+      return;
+    }
+    if(thumbDownClick || thumbUpClick){
+      return;
     }
   }
 
@@ -137,13 +141,13 @@ UserComment.propTypes = {
   thumbDownUser: PropTypes.number.isRequired,
   thumbUpClick: PropTypes.bool,
   thumbDownClick: PropTypes.bool,
-  token: PropTypes.array,
+  customersNo: PropTypes.array,
 };
 
 UserComment.defaultProps = {
   thumbUpClick: false,
   thumbDownClick: false,
-  token: [],
+  customersNo: [],
 };
 
 export default React.memo(UserComment);
