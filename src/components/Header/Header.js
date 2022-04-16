@@ -43,7 +43,7 @@ function Header() {
   const authToken = getFromLS("authToken");
 
   useEffect(() => {
-    if (getFromLS("authToken")) {
+    if (authToken) {
       dispatch(getCartCreator());
       dispatch(getUserWishlist());
     }

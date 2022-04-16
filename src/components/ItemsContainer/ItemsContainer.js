@@ -62,12 +62,12 @@ function ItemsContainer(props) {
         </div>
       )}
       <div className={styles.itemsContainer}>
-        {items &&
-          items.map(({ itemNo, ...args }) => (
-            <ErrorBoundary FallbackComponent={ErrorFallback} key={itemNo}>
-              <Item itemNo={itemNo} {...args} />
-            </ErrorBoundary>
-          ))}
+        <ErrorBoundary FallbackComponent={ErrorFallback}>
+          {items &&
+            items.map(({ itemNo, ...args }) => (
+              <Item itemNo={itemNo} {...args} key={itemNo} />
+            ))}
+        </ErrorBoundary>
       </div>
     </div>
   );

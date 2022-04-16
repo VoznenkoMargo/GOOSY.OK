@@ -10,19 +10,14 @@ import ScrollToTop from "./Routes/ScrollToTop";
 import ScrollToTopBtn from "./components/ScrollToTopBtn/ScrollToTopBtn";
 // import FormLogin from "./components/FormLogin/FormLogin";
 
-
-
-
 function App() {
   return (
     <Provider store={store}>
       <Router>
         <ScrollToTop />
         <div className="App">
-          {/* <FormLogin /> */}
           <Header />
           <div className="main_content">
-           
             <Routes />
           </div>
           <Footer />
