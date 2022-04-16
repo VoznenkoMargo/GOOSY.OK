@@ -20,9 +20,7 @@ function Item(props) {
     props;
 
   const cartArray = useSelector((state) => state.cart.cartItems);
-  const count = cartArray?.find(
-    (item) => item.product._id === _id
-  )?.cartQuantity;
+  const count = cartArray?.find((item) => item.product._id === _id)?.cartQuantity;
 
   const dispatch = useDispatch();
   const { wishlistItems, isLoading } = useSelector((store) => store.wishlist);

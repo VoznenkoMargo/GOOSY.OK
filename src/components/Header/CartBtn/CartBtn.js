@@ -8,13 +8,8 @@ import styles from "../Header.module.scss";
 
 function CartBtn() {
   const { cartItems } = useSelector((state) => state.cart);
+    console.log(cartItems)
 
-  // useEffect(() => {
-  //   const cart = getFromLS("cart");
-  //   if (cart) {
-  //     dispatch({ type: GET_CART, payload: cart });
-  //   }
-  // }, [dispatch]);
   return (
     <div className={styles.cartWrap}>
       <div className={styles.cartMobile}>

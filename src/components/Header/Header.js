@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import { GiGoose } from "react-icons/gi";
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
 import { NavLink, useRouteMatch, useLocation } from "react-router-dom";
@@ -9,11 +9,15 @@ import Contact from "./Contact/Contact";
 import CartBtn from "./CartBtn/CartBtn";
 import Search from "./Search/Search";
 import FormLogin from "../Form/FormLogin";
-import { GET_CART } from "../../store/actions/cartItemsActions";
 import FormReg from "../Form/FormReg";
 import { getFromLS } from "../../utils/localStorage";
 import { clearSearchItemsCreator } from "../../store/actionCreators/searchItemsCreator";
-import {getCartCreator, getLsCartCreator} from "../../store/actionCreators/cartItemsCreator";
+import {
+  deleteCartCreator,
+  getCartCreator,
+  getLsCartCreator,
+  syncCartCreator
+} from "../../store/actionCreators/cartItemsCreator";
 import HeartFromWishlist from "../HeartFromWishlist/HeartFromWishlist";
 import Categories from "../Categories/Categories";
 import { getUserWishlist } from "../../store/actionCreators/wishlistItemsCreator";
@@ -41,20 +45,40 @@ function Header() {
   }, []);
 
   const authToken = getFromLS("authToken");
+  const lsCart = getFromLS("cart")
+  console.log(authToken)
 
   useEffect(() => {
     if (getFromLS("authToken")) {
       dispatch(getCartCreator());
       dispatch(getUserWishlist());
+      dispatch(syncCartCreator(lsCart));
+      // localStorage.removeItem("cart")
+
     }
-    // dispatch(getLsCartCreator())
   }, [authToken]);
+
+  const { cartItems } = useSelector((state) => state.cart);
+
+  useEffect(() => {
+    if (getFromLS("cart")) {
+      dispatch(getLsCartCreator(lsCart.products || lsCart.cartItems))
+    }
+  }, [authToken]);
+
+  console.log(cartItems)
 
   useEffect(() => {
     if (setUserName(getFromLS("userName"))) {
       setUserName(getFromLS("userName"));
     }
   }, [userName]);
+
+  // useEffect(() => {
+  //   if(lsCart !== null) {
+  //     dispatch(getLsCartCreator());
+  //   }
+  // }, [lsCart])
 
   const openSignIn = () => {
     setSignInOpen(true);
@@ -73,6 +97,7 @@ function Header() {
     document.body.style.overflow = "unset";
     setSignUpOpen(false);
   };
+
 
   return (
     <div id="header">

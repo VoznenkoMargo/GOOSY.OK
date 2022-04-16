@@ -15,13 +15,14 @@ import {
   decreaseProductFromCartCreator,
   addToCartCreator,
   deleteCartCreator,
-  decreaseProductFromLsCreator, addToLsCreator, deleteProductFromLsCreator,
+  decreaseProductFromLsCreator,
+  addToLsCreator,
+  deleteProductFromLsCreator,
 } from "../../store/actionCreators/cartItemsCreator";
 
 function CartItemContainer(props) {
   const { cartItems } = props;
   const dispatch = useDispatch();
-  // console.log(cartItems)
 
   const handleClickDecrease = (id, cartItem) => {
     dispatch(decreaseProductFromCartCreator(id));
@@ -39,13 +40,15 @@ function CartItemContainer(props) {
     dispatch(deleteCartCreator());
   };
 
+
   return (
     <div className={styles.mainCartContainer}>
       <ArrowBack />
       <div className={styles.cartTitle}>CART</div>
       <div className={styles.container}>
+
       {cartItems.length > 0 &&
-        cartItems.map((item) => {
+          cartItems.map((item) => {
           return (
             <div className={styles.itemCard} key={item._id}>
               <Link
@@ -107,13 +110,7 @@ function CartItemContainer(props) {
             $
           </span>
         </h2>
-        <NavLink
-          to="order"
-          className={styles.order}
-          onClick={handleClickDeleteCart}
-        >
-          Place an order
-        </NavLink>
+        <NavLink to="order" className={styles.order} onClick={handleClickDeleteCart}>Place an order</NavLink>
       </div>
     </div>
   );

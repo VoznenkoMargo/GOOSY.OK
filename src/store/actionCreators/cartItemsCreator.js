@@ -1,11 +1,11 @@
 // import Notiflix from "notiflix";
 
 import {
-  getCart,
-  deleteCart,
-  addProductToCart,
-  deleteProductFromCart,
-  decreaseProductFromCart,
+    getCart,
+    deleteCart,
+    addProductToCart,
+    deleteProductFromCart,
+    decreaseProductFromCart, updatedCart,
 } from "../../axios";
 
 import {
@@ -17,17 +17,17 @@ import {
     DECREASE_ITEM, ADD_TO_LS,
     DECREASE_FROM_LS, DELETE_FROM_LS, GET_CART_LS,
 } from "../actions/cartItemsActions";
+// import {getFromLS} from "../../utils/localStorage";
 
 export const setIsLoadingCart = (isLoading) => ({
   type: SET_IS_LOADING_CART,
   payload: isLoading,
 });
 const isAuth = localStorage.getItem("authToken");
-const cartLS = localStorage.getItem("cart");
-console.log(cartLS)
+// const lsCart = getFromLS("cart")
 
 export const getCartCreator = () => async (dispatch) => {
-  if (isAuth) {
+  // if (isAuth !== null) {
     try {
       const { status, data } = await getCart();
       if (status === 200 && data !== null) {
@@ -35,17 +35,17 @@ export const getCartCreator = () => async (dispatch) => {
         dispatch({ type: GET_CART, payload: data.products });
       }
     } catch (error) {
+        // dispatch({ type: GET_CART, payload: lsCart.products || lsCart.cartItems })
       console.log(error);
     }
-  }
-  if (!isAuth) dispatch({ type: GET_CART, payload: cartLS });
+  // }
+  // if (!isAuth) dispatch({ type: GET_CART, payload: cartLS });
 };
 
 export const addToCartCreator = (productId) => async (dispatch) => {
-  // if (isAuth) {
+  if (isAuth) {
       try {
           const { status, data } = await addProductToCart(productId);
-          console.log(data)
           if (status === 200 && data !== null) {
             dispatch({ type: ADD_TO_CART, payload: data.products });
           }
@@ -53,7 +53,7 @@ export const addToCartCreator = (productId) => async (dispatch) => {
           console.log(error);
           // Notiflix.Notify.failure("Unauthorized");
       }
-    // }
+    }
   }
 
 export const deleteProductFromCartCreator = (productId) => async (dispatch) => {
@@ -92,6 +92,20 @@ export const deleteCartCreator = () => async (dispatch) => {
   } catch (error) {
     console.log(error);
   }
+};
+
+
+export const syncCartCreator = (products) => async (dispatch) => {
+    try {
+        const { status, data } = await updatedCart(products);
+        if (status === 200) {
+            console.log(data)
+            dispatch({ type: GET_CART, payload: data.products });
+        }
+    } catch (error) {
+        // dispatch({ type: GET_CART, payload: lsCart.products || lsCart.cartItems })
+        console.log(error);
+    }
 };
 
 /// ////////////////////////// LS /////////////////////////////////////

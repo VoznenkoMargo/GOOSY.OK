@@ -10,7 +10,6 @@ import { Notify } from "notiflix";
 import { FaPlus, FaMinus } from "react-icons/fa";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
-import { getFromLS } from "../../utils/localStorage";
 import Preloader from "../Preloader/Preloader";
 import {
   addProductToUserWishlist,
@@ -25,11 +24,13 @@ import AddCartBtn from "../AddCartBtn/AddCartBtn";
 import Comments from "../Comment/Comments";
 import {
   decreaseProductFromCartCreator,
-  addToCartCreator,
+  addToCartCreator, addToLsCreator, decreaseProductFromLsCreator,
 } from "../../store/actionCreators/cartItemsCreator";
 
 function ItemDetails({ item, setFlag, flag }) {
   const { cartItems, isLoadingCart } = useSelector((state) => state.cart);
+  console.log(cartItems)
+  const index = cartItems.findIndex(elem => elem.product._id === item._id);
   const isInCartItem = cartItems.find(
     (itemtoFind) => itemtoFind.product._id === item._id
   )?.cartQuantity;
@@ -38,20 +39,20 @@ function ItemDetails({ item, setFlag, flag }) {
   const [countDetail, setCountDetail] = useState(1);
   const dispatch = useDispatch();
   const { wishlistItems, isLoading } = useSelector((store) => store.wishlist);
-  const authToken = getFromLS("authToken");
 
-  const handleClickDecrease = (id) => {
-    if (countDetail >= 0) {
+  const handleClickDecrease = (id,cartItem) => {
+    // if (countDetail >= 0) {
       setCountDetail(countDetail - 1);
       dispatch(decreaseProductFromCartCreator(id));
-    }
+      dispatch(decreaseProductFromLsCreator(cartItem));
+    // }
   };
-  const handleClickAdd = (id, name) => {
+  const handleClickAdd = (id, name, cartItem) => {
     setCountDetail(countDetail + 1);
     dispatch(addToCartCreator(id));
-    if (authToken) {
-      Notify.success(`${name} added to cart`);
-    }
+    dispatch(addToLsCreator(cartItem));
+    Notify.success(`${name} added to cart`);
+
   };
 
   function handleAddWishlistItem(id) {
@@ -87,7 +88,7 @@ function ItemDetails({ item, setFlag, flag }) {
                   className={styles.minus}
                   fill="#fff"
                   size={20}
-                  onClick={() => handleClickDecrease(item._id)}
+                  onClick={() => handleClickDecrease(item._id, cartItems[index])}
                 />
 
                 <h4>{isInCart ? counter : 0}</h4>
@@ -96,7 +97,7 @@ function ItemDetails({ item, setFlag, flag }) {
                   className={styles.plus}
                   fill="#fff"
                   size={20}
-                  onClick={() => handleClickAdd(item._id, item.name)}
+                  onClick={() => handleClickAdd(item._id, item.name, item)}
                 />
               </div>
 
