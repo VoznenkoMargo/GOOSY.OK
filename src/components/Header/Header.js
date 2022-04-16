@@ -47,8 +47,7 @@ function Header() {
   const lsCart = getFromLS("cart")
 
   useEffect(() => {
-    if (getFromLS("authToken")) {
-      dispatch(syncCartCreator(lsCart));
+    if (authToken) {
       dispatch(getCartCreator());
       dispatch(getUserWishlist());
     }

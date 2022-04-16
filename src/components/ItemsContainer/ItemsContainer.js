@@ -62,12 +62,12 @@ function ItemsContainer(props) {
         </div>
       )}
       <div className={styles.itemsContainer}>
-        {items &&
-          items.map(({ itemNo, ...args }) => (
-            <ErrorBoundary FallbackComponent={ErrorFallback} key={itemNo}>
-              <Item itemNo={itemNo} {...args} />
-            </ErrorBoundary>
-          ))}
+        <ErrorBoundary FallbackComponent={ErrorFallback}>
+          {items &&
+            items.map(({ itemNo, ...args }) => (
+              <Item itemNo={itemNo} {...args} key={itemNo} />
+            ))}
+        </ErrorBoundary>
       </div>
     </div>
   );
@@ -75,7 +75,31 @@ function ItemsContainer(props) {
 
 ItemsContainer.propTypes = {
   header: PropTypes.elementType.isRequired,
-  items: PropTypes.arrayOf(PropTypes.object).isRequired,
+  items: PropTypes.arrayOf(
+    PropTypes.shape({
+      _id: PropTypes.string,
+      itemNo: PropTypes.string,
+      imageUrls: PropTypes.arrayOf(PropTypes.string),
+      categories: PropTypes.string,
+      name: PropTypes.string,
+      currentPrice: PropTypes.number,
+      weight: PropTypes.number,
+    })
+  ),
+};
+
+ItemsContainer.defaultProps = {
+  items: PropTypes.arrayOf(
+    PropTypes.shape({
+      _id: "",
+      itemNo: "",
+      imageUrls: [""],
+      categories: "",
+      name: "",
+      currentPrice: 0,
+      weight: 0,
+    })
+  ),
 };
 
 export default React.memo(ItemsContainer);

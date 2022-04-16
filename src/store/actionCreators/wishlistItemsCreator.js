@@ -39,8 +39,8 @@ export const addProductToUserWishlist = (productId) => async (dispatch) => {
         payload: result.data.products,
       });
   } catch (error) {
-    Notiflix.Notify.failure(
-      "Unauthorized. The product has not been added to the wishlist"
+    Notiflix.Notify.info(
+      "The product has not been added to the wishlist. Unauthorized.y"
     );
   } finally {
     dispatch(setIsLoadingWishlist(false));

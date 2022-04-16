@@ -11,9 +11,6 @@ import ScrollToTopBtn from "./components/ScrollToTopBtn/ScrollToTopBtn";
 
 // import FormLogin from "./components/FormLogin/FormLogin";
 
-
-
-
 function App() {
 
   return (
@@ -21,7 +18,6 @@ function App() {
       <Router>
         <ScrollToTop />
         <div className="App">
-          {/* <FormLogin /> */}
           <Header />
           <div className="main_content">
             <Routes />

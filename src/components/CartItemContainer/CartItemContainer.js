@@ -126,7 +126,8 @@ function CartItemContainer(props) {
 }
 
 CartItemContainer.propTypes = {
-  cartItems: PropTypes.shape({
+  cartItems: PropTypes.arrayOf(
+  PropTypes.shape({
     _id: PropTypes.string,
     name: PropTypes.string,
     currentPrice: PropTypes.number,
@@ -136,10 +137,11 @@ CartItemContainer.propTypes = {
     map: PropTypes.func,
     length: PropTypes.number,
   }),
-};
+  )};
 
 CartItemContainer.defaultProps = {
-  cartItems: PropTypes.shape({
+  cartItems: PropTypes.arrayOf(
+    PropTypes.shape({
     _id: 0,
     name: "",
     count: 0,
@@ -148,6 +150,7 @@ CartItemContainer.defaultProps = {
     imageUrls: [""],
     itemNo: "",
   }),
+ ),
 };
 
 export default React.memo(CartItemContainer);
