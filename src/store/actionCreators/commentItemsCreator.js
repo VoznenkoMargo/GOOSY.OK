@@ -11,7 +11,7 @@ export const addUserComment = (newComment) => async (dispatch) => {
       dispatch({ type: ADD_COMMENT });
     }
   } catch (error) {
-    Notiflix.Notify.info("Unauthorized. Failed to add comment");
+    Notiflix.Notify.info("Failed to add comment. Unauthorized.");
   }
 };
 
@@ -61,7 +61,7 @@ export const putUserComments = (id, updatedComment) => async (dispatch) => {
       });
     }
   } catch (error) {
-    Notiflix.Notify.failure("Failed to update comments. Unauthorized");
+    Notiflix.Notify.info("Failed to update comments. Unauthorized.");
   }
 };
 
@@ -70,7 +70,6 @@ export const deleteOneUserComments = (id) => async (dispatch) => {
   try {
     const result = await deleteOneComments(id);
     if (result.status === 200) {
-      console.log(result);
       dispatch({ type: DELETE_ONE_COMMENTS, payload: result.data });
     }
   } catch (error) {

@@ -84,6 +84,7 @@ function Comments(props) {
     }
   }
 
+
   return (
     <Comment.Group style={{ paddingTop: "20px" }}>
       {isLoading ? (
@@ -106,7 +107,7 @@ function Comments(props) {
                 }
                 thumbUpClick={elem.thumbUpClick}
                 thumbDownClick={elem.thumbDownClick}
-                token={elem.token}
+                customersNo={elem.customersNo === undefined ? [] : elem.customersNo}
               />
             ))
           ) : (
