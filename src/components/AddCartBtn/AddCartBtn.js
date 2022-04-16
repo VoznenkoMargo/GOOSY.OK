@@ -17,9 +17,11 @@ function AddCartBtn(props) {
   const { path } = useRouteMatch();
 
   const handleClick = () => {
-    if (authToken && path === "/products/:itemNo") {
+    if (authToken) {
       dispatch(addToCartCreator(cartItem._id));
-      Notify.success(`${cartItem.name} added to cart`);
+      if (path === "/products/:itemNo") {
+        Notify.success(`${cartItem.name} added to cart`);
+      }
     }
   };
 
