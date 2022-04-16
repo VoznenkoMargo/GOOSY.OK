@@ -8,7 +8,6 @@ import styles from "../Header.module.scss";
 
 function CartBtn() {
   const { cartItems } = useSelector((state) => state.cart);
-    console.log(cartItems)
 
   return (
     <div className={styles.cartWrap}>

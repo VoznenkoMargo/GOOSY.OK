@@ -13,7 +13,6 @@ import FormReg from "../Form/FormReg";
 import { getFromLS } from "../../utils/localStorage";
 import { clearSearchItemsCreator } from "../../store/actionCreators/searchItemsCreator";
 import {
-  deleteCartCreator,
   getCartCreator,
   getLsCartCreator,
   syncCartCreator
@@ -46,19 +45,14 @@ function Header() {
 
   const authToken = getFromLS("authToken");
   const lsCart = getFromLS("cart")
-  console.log(authToken)
 
   useEffect(() => {
     if (getFromLS("authToken")) {
+      dispatch(syncCartCreator(lsCart));
       dispatch(getCartCreator());
       dispatch(getUserWishlist());
-      dispatch(syncCartCreator(lsCart));
-      // localStorage.removeItem("cart")
-
     }
   }, [authToken]);
-
-  const { cartItems } = useSelector((state) => state.cart);
 
   useEffect(() => {
     if (getFromLS("cart")) {
@@ -66,19 +60,12 @@ function Header() {
     }
   }, [authToken]);
 
-  console.log(cartItems)
-
   useEffect(() => {
     if (setUserName(getFromLS("userName"))) {
       setUserName(getFromLS("userName"));
     }
   }, [userName]);
 
-  // useEffect(() => {
-  //   if(lsCart !== null) {
-  //     dispatch(getLsCartCreator());
-  //   }
-  // }, [lsCart])
 
   const openSignIn = () => {
     setSignInOpen(true);
@@ -97,7 +84,6 @@ function Header() {
     document.body.style.overflow = "unset";
     setSignUpOpen(false);
   };
-
 
   return (
     <div id="header">
@@ -148,7 +134,7 @@ function Header() {
               <NavLink
                 style={{ textDecoration: "none" }}
                 activeClassName={styles.active}
-                to="/order"
+                to="#"
                 href="+380672159888"
               >
                 <Contact />

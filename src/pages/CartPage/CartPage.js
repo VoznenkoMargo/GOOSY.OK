@@ -9,7 +9,6 @@ import CartItemContainer from "../../components/CartItemContainer/CartItemContai
 
 function CartPage() {
   const { cartItems } = useSelector((state) => state.cart);
-  console.log(cartItems)
 
 
   return (

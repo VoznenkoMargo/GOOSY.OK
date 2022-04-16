@@ -7,6 +7,7 @@ import { useDispatch } from "react-redux";
 import { Link, NavLink } from "react-router-dom";
 import { FaMinus, FaPlus } from "react-icons/fa";
 import { AiTwotoneDelete } from "react-icons/ai";
+import {Notify} from "notiflix";
 import ArrowBack from "../ArrowBack/ArrowBack";
 
 import styles from "./CartItemContainer.module.scss";
@@ -19,6 +20,7 @@ import {
   addToLsCreator,
   deleteProductFromLsCreator,
 } from "../../store/actionCreators/cartItemsCreator";
+import throttle from "../../utils/throttle";
 
 function CartItemContainer(props) {
   const { cartItems } = props;
@@ -37,9 +39,11 @@ function CartItemContainer(props) {
     dispatch(deleteProductFromLsCreator(cartItem))
   };
   const handleClickDeleteCart = () => {
+    localStorage.removeItem("cart")
     dispatch(deleteCartCreator());
   };
-
+  const signUpNotification = () => Notify.warning('Please Sign up or Log in to make an order');
+  const isAuth = () => localStorage.getItem("authToken");
 
   return (
     <div className={styles.mainCartContainer}>
@@ -50,7 +54,7 @@ function CartItemContainer(props) {
       {cartItems.length > 0 &&
           cartItems.map((item) => {
           return (
-            <div className={styles.itemCard} key={item._id}>
+            <div className={styles.itemCard} key={item?.product._id}>
               <Link
                 to={`/products/${item.product.itemNo}`}
                 style={{ textDecoration: "none", width: "80%" }}
@@ -110,7 +114,12 @@ function CartItemContainer(props) {
             $
           </span>
         </h2>
-        <NavLink to="order" className={styles.order} onClick={handleClickDeleteCart}>Place an order</NavLink>
+        {isAuth() ?
+          <NavLink to="order" className={styles.order} onClick={handleClickDeleteCart}>Place an order</NavLink>
+            :
+          <button type="button" className={styles.order} style={{background: "rgb(128,128,128)"}} onClick={throttle(() => signUpNotification(), 4000)}>Place an order</button>
+        }
+
       </div>
     </div>
   );

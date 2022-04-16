@@ -29,7 +29,6 @@ import {
 
 function ItemDetails({ item, setFlag, flag }) {
   const { cartItems, isLoadingCart } = useSelector((state) => state.cart);
-  console.log(cartItems)
   const index = cartItems.findIndex(elem => elem.product._id === item._id);
   const isInCartItem = cartItems.find(
     (itemtoFind) => itemtoFind.product._id === item._id

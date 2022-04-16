@@ -10,7 +10,6 @@ import {deleteProductFromCartCreator, deleteProductFromLsCreator} from "../../st
 function DeleteCartBtn(props) {
   const dispatch = useDispatch();
   const { cartItem } = props;
-  console.log(cartItem)
 
   const handleClick = () => {
     dispatch(deleteProductFromCartCreator(cartItem._id));

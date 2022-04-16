@@ -9,7 +9,6 @@ import { DELETE_CART } from "../../../store/actions/cartItemsActions";
 import { removeFromLS } from "../../../utils/localStorage";
 
 import styles from "./SignOutBtn.module.scss";
-// import {deleteCartCreator} from "../../../store/actionCreators/cartItemsCreator";
 
 function SignOutBtn(props) {
   const { setUserName } = props;
@@ -22,7 +21,6 @@ function SignOutBtn(props) {
       onClick={() => {
         dispatch({ type: DELETE_WISHLIST, payload: [] });
         dispatch({ type: DELETE_CART, payload: [] });
-        // dispatch(deleteCartCreator)
         removeFromLS("userName");
         removeFromLS("authToken");
         removeFromLS("cart")

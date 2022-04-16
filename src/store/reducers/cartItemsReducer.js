@@ -59,15 +59,14 @@ const cartItemsReducer = (state = initialState, { type, payload }) => {
     case ADD_TO_LS: {
       const newCartItems = [...state.cartItems];
       const index = newCartItems.findIndex((elem) => elem.product._id === payload.product._id);
-      if (index === -1) {
-        const newItem = {...payload};
-        newItem.cartQuantity = 1;
-        saveToLS("cart", {products: [...state.cartItems, newItem]});
-        return {...state, cartItems: [...state.cartItems, newItem]};
-      }
+        if (index === -1) {
+          const newItem = {...payload};
+          newItem.cartQuantity = 1;
+          saveToLS("cart", {products: [...state.cartItems, newItem]});
+          return {...state, cartItems: [...state.cartItems, newItem]};
+        }
       newCartItems[index].cartQuantity += 1;
       saveToLS("cart", { products: newCartItems });
-      console.log(state.cartItems)
       return { ...state, cartItems: newCartItems };
     }
 
@@ -75,9 +74,9 @@ const cartItemsReducer = (state = initialState, { type, payload }) => {
       const newCartItems = [...state.cartItems];
       const index = newCartItems.findIndex((elem) => elem.product._id === payload.product._id);
       newCartItems[index].cartQuantity -= 1;
-      if (newCartItems[index].cartQuantity === 0) {
-        newCartItems.splice(index, 1);
-      }
+        if (newCartItems[index].cartQuantity === 0) {
+          newCartItems.splice(index, 1);
+        }
       saveToLS("cart", { products: newCartItems });
       return { ...state, cartItems: newCartItems };
     }
