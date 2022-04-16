@@ -50,6 +50,7 @@ function Header() {
     if (authToken) {
       dispatch(getCartCreator());
       dispatch(getUserWishlist());
+      dispatch(syncCartCreator(lsCart))
     }
   }, [authToken]);
 

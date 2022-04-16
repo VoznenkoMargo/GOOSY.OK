@@ -30,8 +30,9 @@ function CartItemContainer(props) {
     dispatch(decreaseProductFromCartCreator(id));
     dispatch(decreaseProductFromLsCreator(cartItem));
   };
+
   const handleClickAdd = (id, cartItem) => {
-    dispatch(addToCartCreator(id));
+    dispatch(addToCartCreator(id))
     dispatch(addToLsCreator(cartItem));
   };
   const handleClickDeleteFromCart = (id, cartItem) => {

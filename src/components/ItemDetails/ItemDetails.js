@@ -3,7 +3,7 @@
 /* eslint-disable no-shadow */
 /* eslint-disable react/prop-types */
 /* eslint-disable no-underscore-dangle */
-import React, { useState } from "react";
+import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import PropTypes from "prop-types";
 import { Notify } from "notiflix";
@@ -35,23 +35,18 @@ function ItemDetails({ item, setFlag, flag }) {
   )?.cartQuantity;
   const counter = isLoadingCart ? <Preloader /> : isInCartItem;
   const isInCart = !!cartItems.find((i) => i.product._id === item._id);
-  const [countDetail, setCountDetail] = useState(1);
   const dispatch = useDispatch();
   const { wishlistItems, isLoading } = useSelector((store) => store.wishlist);
 
   const handleClickDecrease = (id,cartItem) => {
-    // if (countDetail >= 0) {
-      setCountDetail(countDetail - 1);
       dispatch(decreaseProductFromCartCreator(id));
       dispatch(decreaseProductFromLsCreator(cartItem));
-    // }
   };
-  const handleClickAdd = (id, name, cartItem) => {
-    setCountDetail(countDetail + 1);
-    dispatch(addToCartCreator(id));
-    dispatch(addToLsCreator(cartItem));
-    Notify.success(`${name} added to cart`);
 
+  const handleClickAdd = (id, name, cartItem) => {
+    dispatch(addToLsCreator(cartItem));
+    dispatch(addToCartCreator(id));
+    Notify.success(`${name} added to cart`);
   };
 
   function handleAddWishlistItem(id) {
