@@ -35,7 +35,7 @@ function CategoriesPage() {
 
   useEffect(() => {
     const keys = Object.keys(items);
-    console.log(keys.length > 0);
+    console.log(items);
     setKeyCategories(keys);
   }, [items]);
 
