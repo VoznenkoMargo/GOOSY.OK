@@ -25,8 +25,10 @@ function CategoriesPage() {
   }, [location]);
 
   useEffect(()=>{
-    return (resetCategories())
-  },[])
+    return()=>{
+      dispatch(resetCategories());
+    }
+  }, [])
 
   useEffect(() => {
     const allCategories =
@@ -39,7 +41,6 @@ function CategoriesPage() {
 
   useEffect(() => {
     const keys = Object.keys(items);
-    console.log(items);
     setKeyCategories(keys);
   }, [items]);
 

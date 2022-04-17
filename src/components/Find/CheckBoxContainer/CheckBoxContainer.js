@@ -9,7 +9,7 @@ function CheckBoxContainer() {
   const categories = useSelector((store) => store.items.categories);
   const dispatch = useDispatch();
 
-  useEffect(() => {}, [categories]);
+  // useEffect(() => {}, [categories]);
 
   const setChecked = (id) => {
     if (categories.includes(id)) {

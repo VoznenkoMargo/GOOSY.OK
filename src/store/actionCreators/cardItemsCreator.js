@@ -35,6 +35,7 @@ export const initCategories = (categories) => ({
 export const resetCategories = ()=> ({type: RESER_CATEGORIES, payload: []})
 
 export const initСategoriesItemsCreator = (inquiry) => async (dispatch) => {
+  console.log(inquiry);
   const allCategories = {};
   const {
     data: { products },
