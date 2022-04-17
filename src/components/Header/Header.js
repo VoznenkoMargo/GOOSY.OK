@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import { GiGoose } from "react-icons/gi";
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
 import { NavLink, useRouteMatch, useLocation } from "react-router-dom";
-import styles from "./Header.module.scss";
+import { ErrorBoundary } from "react-error-boundary";
 import Contact from "./Contact/Contact";
 import CartBtn from "./CartBtn/CartBtn";
 import Search from "./Search/Search";
@@ -18,6 +18,8 @@ import HeartFromWishlist from "../HeartFromWishlist/HeartFromWishlist";
 import Categories from "../Categories/Categories";
 import { getUserWishlist } from "../../store/actionCreators/wishlistItemsCreator";
 import SignOutBtn from "./SignOutBtn/SignOutBtn";
+import ErrorFallback from "../Error/Error";
+import styles from "./Header.module.scss";
 
 const ukraine =
   "https://icons.iconarchive.com/icons/icons-land/vista-flags/256/Ukraine-Flag-2-icon.png";
@@ -149,10 +151,13 @@ function Header() {
                     sign up
                   </div>
                   {isSignUpOpen ? (
-                    <FormReg
-                      setUserName={setUserName}
-                      closeSignUp={closeSignUp}
-                    />
+                    <ErrorBoundary FallbackComponent={ErrorFallback}
+                    resetKeys={[isSignUpOpen]}>
+                      <FormReg
+                        setUserName={setUserName}
+                        closeSignUp={closeSignUp}
+                      />
+                    </ErrorBoundary>
                   ) : (
                     ""
                   )}
