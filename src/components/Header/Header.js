@@ -1,8 +1,9 @@
 /* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from "react";
-import {useDispatch, useSelector} from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { GiGoose } from "react-icons/gi";
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
+import LoginOutlinedIcon from "@mui/icons-material/LoginOutlined";
 import { NavLink, useRouteMatch, useLocation } from "react-router-dom";
 import styles from "./Header.module.scss";
 import Contact from "./Contact/Contact";
@@ -15,7 +16,7 @@ import { clearSearchItemsCreator } from "../../store/actionCreators/searchItemsC
 import {
   getCartCreator,
   getLsCartCreator,
-  syncCartCreator
+  syncCartCreator,
 } from "../../store/actionCreators/cartItemsCreator";
 import HeartFromWishlist from "../HeartFromWishlist/HeartFromWishlist";
 import Categories from "../Categories/Categories";
@@ -44,19 +45,19 @@ function Header() {
   }, []);
 
   const authToken = getFromLS("authToken");
-  const lsCart = getFromLS("cart")
+  const lsCart = getFromLS("cart");
 
   useEffect(() => {
     if (authToken) {
       dispatch(getCartCreator());
       dispatch(getUserWishlist());
-      dispatch(syncCartCreator(lsCart))
+      dispatch(syncCartCreator(lsCart));
     }
   }, [authToken]);
 
   useEffect(() => {
     if (getFromLS("cart")) {
-      dispatch(getLsCartCreator(lsCart.products || lsCart.cartItems))
+      dispatch(getLsCartCreator(lsCart.products || lsCart.cartItems));
     }
   }, [authToken]);
 
@@ -65,7 +66,6 @@ function Header() {
       setUserName(getFromLS("userName"));
     }
   }, [userName]);
-
 
   const openSignIn = () => {
     setSignInOpen(true);
@@ -160,6 +160,7 @@ function Header() {
                     tabIndex={0}
                     onKeyPress={() => {}}
                   >
+                    <AccountCircleOutlinedIcon />
                     sign up
                   </div>
                   {isSignUpOpen ? (
@@ -178,7 +179,7 @@ function Header() {
                     tabIndex={0}
                     onKeyPress={() => {}}
                   >
-                    <AccountCircleOutlinedIcon />
+                    <LoginOutlinedIcon />
                     log in
                   </div>
                   {isSignInOpen ? (
