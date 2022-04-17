@@ -14,24 +14,26 @@ function CategoriesPage() {
   const items = useSelector((store) => store.items.itemsFind);
   const categories = useSelector((store) => store.items.categories);
   const [keyCategories, setKeyCategories] = useState([]);
-  const [price, setPrice] = useState(["0", "990"]);
 
-  const setNewPrice = (data) => {
-    setPrice(data);
-  };
 
   useEffect(() => {
     dispatch(initСategoriesItemsCreator(location));
   }, [location]);
+
+
+
   useEffect(() => {
     const allCategories =
       categories.length > 0
         ? `&categories=${categories.toString()}`
         : [""].toString();
-    const rangePrice = `minPrice=${price[0]}&maxPrice=${price[1]}`;
-    history.push(`?${rangePrice}${allCategories}`);
-  }, [categories, price]);
+    // const rangePrice = `minPrice=${price[0]}&maxPrice=${price[1]}`;
+    history.push(`?${allCategories}`);
+  }, [categories]);
 
+
+
+  
   useEffect(() => {
     const keys = Object.keys(items);
     setKeyCategories(keys);
@@ -46,7 +48,7 @@ function CategoriesPage() {
   return (
     <section className={style.mainSection}>
       <div>
-        <Find price={price} setNewPrice={setNewPrice} />
+        <Find/>
       </div>
       <div>
         {keyCategories && keyCategories.length > 0 ? (

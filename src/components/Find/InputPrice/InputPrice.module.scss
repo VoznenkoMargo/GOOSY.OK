@@ -55,36 +55,3 @@ input[type=number] {
 	margin-bottom: 20px;
 }
 
-.noUi-connect {
-	background-color: #5d71dd;
-}
-
-.noUi-target {
-	background-color: #bfbfbf;
-	border: none;
-	border-radius: 100px;
-	box-shadow: none;
-	height: 3px;
-}
-
-.noUi-handle::after,
-.noUi-handle::before {
-	display: none;
-}
-
-.noUi-handle {
-	box-shadow: none;
-	border-radius: 100%;
-	background-color: #fff;
-	border: 3px solid #5d71dd;
-}
-
-.noUi-horizontal .noUi-handle {
-	width: 22px;
-	height: 22px;
-	top: -10px;
-}
-
-.noUi-horizontal .noUi-handle-upper {
-	right: 0;
-}

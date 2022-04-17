@@ -1,8 +1,10 @@
-import React, {useEffect} from "react";
+import React, {useEffect, useState} from "react";
 import style from "./InputPrice.module.scss";
 import noUiSlider from "./nouislider.min.mjs"
 
-function InputPrice (){
+function InputPrice ({setNewPrice, price}){
+
+// const [price, setPrice]= useState([null, null])
 
 useEffect(()=>{
 	const rangeSlider = document.getElementById('range-slider');
@@ -20,22 +22,26 @@ useEffect(()=>{
 		const inputs = [input0, input1];
 		rangeSlider.noUiSlider.on('update', function(values, handle){
 			inputs[handle].value = Math.round(values[handle]);
+			// console.log(price);
+			const newPrice = [...price]
+			newPrice[handle]=inputs[handle].value
+			setNewPrice(newPrice)
 		})
-		const setRangeSlider = (i, value) => {
+		const setRangeSlider = (index, value) => {
 		const arr = [null, null];
-		arr[i] = value;
-
-		console.log(arr);
-
+		arr[index] = value;
 		rangeSlider.noUiSlider.set(arr);
 	};
 	inputs.forEach((el, index) => {
 		el.addEventListener('change', (e) => {
-			console.log(index);
 			setRangeSlider(index, e.currentTarget.value);
 		});
 	});
 },[])
+
+// useEffect(()=>{
+// 	console.log(price);
+// },[price])
 
     return (
         <div className={style.filters}>
@@ -46,12 +52,12 @@ useEffect(()=>{
 					<label className={style[`filters-price__label`]}>
 						<span className={style[`filters-price__text`]}>от</span>
 						<input type="number" min="0" max="990" placeholder="0" className={style[`filters-price__input`]} id="input-0"/>
-						<span className={style[`filters-price__text`]}>₽</span>
+						<span className={style[`filters-price__text`]}> $</span>
 					</label>
 					<label className={style[`filters-price__label`]}>
 						<span className={style[`filters-price__text`]}>до</span>
 						<input type="number" min="0" max="990" placeholder="990" className={style[`filters-price__input`]} id="input-1"/>
-						<span className={style[`filters-price__text`]}>₽</span>
+						<span className={style[`filters-price__text`]}> $</span>
 					</label>
 				</div>
 			</div>
