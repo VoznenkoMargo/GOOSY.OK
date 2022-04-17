@@ -55,13 +55,15 @@ function CategoriesPage() {
               />
             );
           })
-        ) : (
+        )
+         : (
           <div className={style.emptyContainer}>
             <div>
               <p>Sorry, but your search did not match anything.</p>
             </div>
           </div>
-        )}
+        )
+        }
       </div>
     </section>
   );

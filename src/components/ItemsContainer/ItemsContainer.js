@@ -19,7 +19,7 @@ function ItemsContainer(props) {
 
   const dispatch = useDispatch();
   const match = useRouteMatch();
-
+  console.log(items);
   return isLoading ? (
     <Preloader />
   ) : (
