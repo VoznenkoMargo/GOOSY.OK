@@ -38,62 +38,65 @@ function Item(props) {
   }
 
   function handleAddWishlistItem(id) {
+    handlePopoverClose();
     if (!isLoading) dispatch(addProductToUserWishlist(id));
+    
   }
 
   function handleDeleteWishlistItem(id) {
+    handlePopoverClose();
     if (!isLoading)
       if (wishlistItems.length === 1) {
         dispatch(deleteUserWishlist());
       } else dispatch(deleteProductFromUserWishlist(id));
   }
 
+  const inWishlist = <>
+        <FontAwesomeIcon
+          icon={faHeart}
+          size="2x"
+          className={styles.item_favorite_active}
+          onClick={() => {
+            handleDeleteWishlistItem(_id);
+          }}
+          aria-owns={open ? "mouse-over-popover" : undefined}
+          aria-haspopup="true"
+          onMouseEnter={handlePopoverOpen}
+          onMouseLeave={handlePopoverClose}
+        />
+        <PopoverHeart
+          open={open}
+          anchorEl={anchorEl}
+          handlePopoverClose={handlePopoverClose}
+          popText="Remove from wishlist"
+        />
+  </>
+
+const notInWishlist = <>
+      <FontAwesomeIcon
+        icon={faHeart}
+        size="2x"
+        className={styles.item_favorite}
+        onClick={() => {
+          handleAddWishlistItem(_id);
+        }}
+        aria-owns={open ? "mouse-over-popover" : undefined}
+        aria-haspopup="true"
+        onMouseEnter={handlePopoverOpen}
+        onMouseLeave={handlePopoverClose}
+      />
+      <PopoverHeart
+        open={open}
+        anchorEl={anchorEl}
+        handlePopoverClose={handlePopoverClose}
+        popText="Add to wishlist"
+      />
+  </>
+
   return (
     <div className={styles.item} key={itemNo}>
       {count ? <span className={styles.cartCircle}>{count}</span> : ""}
-      {wishlistItems.find((element) => element._id === _id) ? (
-        <>
-          <FontAwesomeIcon
-            icon={faHeart}
-            size="2x"
-            className={styles.item_favorite_active}
-            onClick={() => {
-              handleDeleteWishlistItem(_id);
-            }}
-            aria-owns={open ? "mouse-over-popover" : undefined}
-            aria-haspopup="true"
-            onMouseEnter={handlePopoverOpen}
-            onMouseLeave={handlePopoverClose}
-          />
-          <PopoverHeart
-            open={open}
-            anchorEl={anchorEl}
-            handlePopoverClose={handlePopoverClose}
-            popText="Remove from wishlist"
-          />
-        </>
-      ) : (
-        <>
-          <FontAwesomeIcon
-            icon={faHeart}
-            size="2x"
-            className={styles.item_favorite}
-            onClick={() => {
-              handleAddWishlistItem(_id);
-            }}
-            aria-owns={open ? "mouse-over-popover" : undefined}
-            aria-haspopup="true"
-            onMouseEnter={handlePopoverOpen}
-            onMouseLeave={handlePopoverClose}
-          />
-          <PopoverHeart
-            open={open}
-            anchorEl={anchorEl}
-            handlePopoverClose={handlePopoverClose}
-            popText="Add to wishlist"
-          />
-        </>
-      )}
+      {wishlistItems.find((element) => element._id === _id) ? (inWishlist) : (notInWishlist)}
 
       <Link to={`/products/${itemNo}`} style={{ textDecoration: "none" }}>
         <img src={imageUrls} alt="dish" />

@@ -29,3 +29,16 @@
         color: #ffffff;
     }
 }
+
+
+@media screen and (max-width: 479px) {
+    .wishlistPage{
+        .wishlistPageTitle{
+            font-size: 24px; 
+        }
+
+        .wishlistPageEmpty{
+            font-size: 14px;
+        }
+    }
+  }
