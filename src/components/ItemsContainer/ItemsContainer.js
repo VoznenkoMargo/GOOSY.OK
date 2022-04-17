@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import PropTypes from "prop-types";
 import { useSelector, useDispatch } from "react-redux";
 import { ErrorBoundary } from "react-error-boundary";
@@ -19,7 +19,11 @@ function ItemsContainer(props) {
 
   const dispatch = useDispatch();
   const match = useRouteMatch();
- 
+  useEffect(()=>{
+    console.log(Array.isArray(items));
+  },[items])
+
+
   return isLoading ? (
     <Preloader />
   ) : (
