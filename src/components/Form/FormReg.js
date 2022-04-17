@@ -22,21 +22,11 @@ function FormReg(props) {
 
   const [currentModalError, setCurrentModalError] = useState(false);
 
-  const [modalSuccessRegOpen, setModalSuccessRegOpen] = useState(false);
-
-  // const ref = useRef();
 
   const openModal = () => {
     setModalOpen(true);
   };
-  // setModalSuccessRegOpen(true);
-  // const openSuccessModal = () => {
-  //   setModalSuccessRegOpen(true);
-  //   //  setTimeout(() => {
-  //   //    setModalSuccessRegOpen(false);
-  //   //   // closeSignUp();
-  //   // }, 1000); 
-  // };
+ 
 
   const initialValues = {
     firstName: "",
@@ -87,8 +77,7 @@ function FormReg(props) {
           .then(({ data }) => {
             saveToLS("userName", data.firstName);
             setUserName(data.firstName);
-            // openSuccessModal();
-            // setModalSuccessRegOpen(true);
+            closeSignUp();
           })
           .catch(() => {
           });
@@ -125,7 +114,6 @@ function FormReg(props) {
 
   return (
     <div className={styles.modal}>
-      {modalSuccessRegOpen ? <Modal modalType="successReg" /> : ""}
       {modalServerRegOpen ? (<Modal modalType="errorReg" setModalServerRegOpen={setModalServerRegOpen} currentModalError={currentModalError}/>) : 
       ("")};
        {modalOpen ? (<Modal setModalOpen={setModalOpen} closeSignUp={closeSignUp} modalType='cancelReg' />) : ("")};

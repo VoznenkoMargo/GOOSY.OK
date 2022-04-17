@@ -132,11 +132,9 @@ function Header() {
             <li>
               {userName ? (
                 <div className={styles.signOut}>
-                  {" "}
                   <span className={styles.header_user}>
-                    {" "}
-                    Welcome, {userName}{" "}
-                  </span>{" "}
+                    Welcome, {userName}
+                  </span>
                   <SignOutBtn setUserName={setUserName} />{" "}
                 </div>
               ) : (
