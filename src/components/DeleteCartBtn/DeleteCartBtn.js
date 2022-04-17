@@ -5,13 +5,15 @@ import { useDispatch } from "react-redux";
 
 import { AiTwotoneDelete } from "react-icons/ai";
 import styles from "./DeleteCartBtn.module.scss";
-import { deleteProductFromCartCreator } from "../../store/actionCreators/cartItemsCreator";
+import {deleteProductFromCartCreator, deleteProductFromLsCreator} from "../../store/actionCreators/cartItemsCreator";
 
 function DeleteCartBtn(props) {
   const dispatch = useDispatch();
   const { cartItem } = props;
+
   const handleClick = () => {
     dispatch(deleteProductFromCartCreator(cartItem._id));
+    dispatch(deleteProductFromLsCreator(cartItem._id));
   };
 
   return (

@@ -7,6 +7,7 @@ import { useDispatch } from "react-redux";
 import { Link, NavLink } from "react-router-dom";
 import { FaMinus, FaPlus } from "react-icons/fa";
 import { AiTwotoneDelete } from "react-icons/ai";
+import {Notify} from "notiflix";
 import ArrowBack from "../ArrowBack/ArrowBack";
 
 import styles from "./CartItemContainer.module.scss";
@@ -15,37 +16,48 @@ import {
   decreaseProductFromCartCreator,
   addToCartCreator,
   deleteCartCreator,
+  decreaseProductFromLsCreator,
+  addToLsCreator,
+  deleteProductFromLsCreator,
 } from "../../store/actionCreators/cartItemsCreator";
 
 function CartItemContainer(props) {
   const { cartItems } = props;
   const dispatch = useDispatch();
 
-  const handleClickDecrease = (id) => {
+  const handleClickDecrease = (id, cartItem) => {
     dispatch(decreaseProductFromCartCreator(id));
+    dispatch(decreaseProductFromLsCreator(cartItem));
   };
-  const handleClickAdd = (id) => {
-    dispatch(addToCartCreator(id));
+
+  const handleClickAdd = (id, cartItem) => {
+    dispatch(addToCartCreator(id))
+    dispatch(addToLsCreator(cartItem));
   };
-  const handleClickDeleteFromCart = (id) => {
+  const handleClickDeleteFromCart = (id, cartItem) => {
     dispatch(deleteProductFromCartCreator(id));
+    dispatch(deleteProductFromLsCreator(cartItem))
   };
   const handleClickDeleteCart = () => {
+    localStorage.removeItem("cart")
     dispatch(deleteCartCreator());
   };
+  const signUpWarning = () => Notify.warning('Please Sign up to make an order', {showOnlyTheLastOne: true});
+  const isAuth = () => localStorage.getItem("authToken");
 
   return (
     <div className={styles.mainCartContainer}>
       <ArrowBack />
       <div className={styles.cartTitle}>CART</div>
       <div className={styles.container}>
+
       {cartItems.length > 0 &&
-        cartItems.map((item) => {
+          cartItems.map((item) => {
           return (
-            <div className={styles.itemCard} key={item._id}>
+            <div className={styles.itemCard} key={item?.product._id}>
               <Link
                 to={`/products/${item.product.itemNo}`}
-                style={{ textDecoration: "none", width: "80%" }}
+                style={{ textDecoration: "none", width: "100%" }}
               >
                 <img src={item.product.imageUrls} alt="foodImage" />
               </Link>
@@ -67,14 +79,14 @@ function CartItemContainer(props) {
                       className={styles.minus}
                       fill="#fff"
                       size={20}
-                      onClick={() => handleClickDecrease(item.product._id)}
+                      onClick={() => handleClickDecrease(item.product._id, item)}
                     />
                     <h4>{item.cartQuantity}</h4>
                     <FaPlus
                       className={styles.plus}
                       fill="#fff"
                       size={20}
-                      onClick={() => handleClickAdd(item.product._id)}
+                      onClick={() => handleClickAdd(item.product._id, item.product)}
                     />
                   </div>
                   <p className={styles.currentPrice}>
@@ -82,9 +94,7 @@ function CartItemContainer(props) {
                   </p>
                   <div className={styles.delete}>
                     <AiTwotoneDelete
-                      onClick={() =>
-                        handleClickDeleteFromCart(item.product._id)
-                      }
+                      onClick={() => handleClickDeleteFromCart(item.product._id, item.product._id)}
                     />
                   </div>
                 </div>
@@ -104,13 +114,12 @@ function CartItemContainer(props) {
             $
           </span>
         </h2>
-        <NavLink
-          to="order"
-          className={styles.order}
-          onClick={handleClickDeleteCart}
-        >
-          Place an order
-        </NavLink>
+        {isAuth() ?
+          <NavLink to="order" className={styles.order} onClick={handleClickDeleteCart}>Place an order</NavLink>
+            :
+          <button type="button" className={styles.order} style={{background: "rgb(128,128,128)"}} onClick={signUpWarning}>Place an order</button>
+        }
+
       </div>
     </div>
   );

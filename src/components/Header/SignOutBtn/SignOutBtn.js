@@ -14,7 +14,8 @@ function SignOutBtn(props) {
   const { setUserName } = props;
   const dispatch = useDispatch();
 
-  return (
+
+    return (
     <span
       className={styles.btn_out}
       onClick={() => {
@@ -22,6 +23,7 @@ function SignOutBtn(props) {
         dispatch({ type: DELETE_CART, payload: [] });
         removeFromLS("userName");
         removeFromLS("authToken");
+        removeFromLS("cart")
         setUserName(false);
       }}
     >

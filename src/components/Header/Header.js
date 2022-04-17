@@ -1,19 +1,23 @@
 /* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { GiGoose } from "react-icons/gi";
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
+import LoginOutlinedIcon from "@mui/icons-material/LoginOutlined";
 import { NavLink, useRouteMatch, useLocation } from "react-router-dom";
 import { ErrorBoundary } from "react-error-boundary";
 import Contact from "./Contact/Contact";
 import CartBtn from "./CartBtn/CartBtn";
 import Search from "./Search/Search";
 import FormLogin from "../Form/FormLogin";
-import { GET_CART } from "../../store/actions/cartItemsActions";
 import FormReg from "../Form/FormReg";
 import { getFromLS } from "../../utils/localStorage";
 import { clearSearchItemsCreator } from "../../store/actionCreators/searchItemsCreator";
-import { getCartCreator } from "../../store/actionCreators/cartItemsCreator";
+import {
+  getCartCreator,
+  getLsCartCreator,
+  syncCartCreator,
+} from "../../store/actionCreators/cartItemsCreator";
 import HeartFromWishlist from "../HeartFromWishlist/HeartFromWishlist";
 import Categories from "../Categories/Categories";
 import { getUserWishlist } from "../../store/actionCreators/wishlistItemsCreator";
@@ -43,11 +47,19 @@ function Header() {
   }, []);
 
   const authToken = getFromLS("authToken");
+  const lsCart = getFromLS("cart");
 
   useEffect(() => {
     if (authToken) {
       dispatch(getCartCreator());
       dispatch(getUserWishlist());
+      dispatch(syncCartCreator(lsCart));
+    }
+  }, [authToken]);
+
+  useEffect(() => {
+    if (getFromLS("cart")) {
+      dispatch(getLsCartCreator(lsCart.products || lsCart.cartItems));
     }
   }, [authToken]);
 
@@ -124,7 +136,7 @@ function Header() {
               <NavLink
                 style={{ textDecoration: "none" }}
                 activeClassName={styles.active}
-                to="/order"
+                to="#"
                 href="+380672159888"
               >
                 <Contact />
@@ -148,6 +160,7 @@ function Header() {
                     tabIndex={0}
                     onKeyPress={() => {}}
                   >
+                    <AccountCircleOutlinedIcon />
                     sign up
                   </div>
                   {isSignUpOpen ? (
@@ -169,7 +182,7 @@ function Header() {
                     tabIndex={0}
                     onKeyPress={() => {}}
                   >
-                    <AccountCircleOutlinedIcon />
+                    <LoginOutlinedIcon />
                     log in
                   </div>
                   {isSignInOpen ? (

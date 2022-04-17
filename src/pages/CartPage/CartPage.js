@@ -1,21 +1,20 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-underscore-dangle */
 
-import React, { useEffect } from "react";
+import React from "react";
 import { useSelector, shallowEqual, useDispatch } from "react-redux";
-import { getFromLS } from "../../utils/localStorage";
 import styles from "./CartPage.module.scss";
 import ArrowBack from "../../components/ArrowBack/ArrowBack";
 import CartItemContainer from "../../components/CartItemContainer/CartItemContainer";
 
 function CartPage() {
   const { cartItems } = useSelector((state) => state.cart);
-  console.log(cartItems);
+
 
   return (
     <section>
-      {cartItems?.length > 0 && cartItems !== "undefined" ? (
-        <CartItemContainer cartItems={cartItems} />
+      {cartItems.length > 0 ? (
+        <CartItemContainer cartItems={cartItems}/>
       ) : (
         <div className={styles.container}>
           <ArrowBack />

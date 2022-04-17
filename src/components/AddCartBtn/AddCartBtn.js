@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 /* eslint-disable no-underscore-dangle */
 import React from "react";
 import PropTypes from "prop-types";
@@ -7,7 +6,7 @@ import { useRouteMatch } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { ReactComponent as Cart } from "../../assets/svg/Buy.svg";
 import styles from "./AddCartBtn.module.scss";
-import { addToCartCreator } from "../../store/actionCreators/cartItemsCreator";
+import {addToCartCreator, addToLsCreator} from "../../store/actionCreators/cartItemsCreator";
 import { getFromLS } from "../../utils/localStorage";
 
 function AddCartBtn(props) {
@@ -17,6 +16,7 @@ function AddCartBtn(props) {
   const { path } = useRouteMatch();
 
   const handleClick = () => {
+    dispatch(addToLsCreator(cartItem));
     if (authToken) {
       dispatch(addToCartCreator(cartItem._id));
       if (path === "/products/:itemNo") {
