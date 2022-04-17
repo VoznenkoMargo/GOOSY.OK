@@ -21,7 +21,7 @@ function HeartFromWishlist({openSignIn}) {
             size="2x"
             color="#79b382"
             /> :
-            <FontAwesomeIcon  
+      <FontAwesomeIcon  
             icon={faHeart}
             size="2x"
             onClick={handleClickUserWishlist}

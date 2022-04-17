@@ -102,9 +102,7 @@ function Comments(props) {
                 avatar={elem.customer.avatarUrl}
                 rating={elem.rating}
                 thumbUpUser={elem.thumbUp === undefined ? 0 : elem.thumbUp}
-                thumbDownUser={
-                  elem.thumbDown === undefined ? 0 : elem.thumbDown
-                }
+                thumbDownUser={elem.thumbDown === undefined ? 0 : elem.thumbDown}
                 thumbUpClick={elem.thumbUpClick}
                 thumbDownClick={elem.thumbDownClick}
                 customersNo={elem.customersNo === undefined ? [] : elem.customersNo}
@@ -156,7 +154,7 @@ function Comments(props) {
             marginTop: "10px",
             border: "none",
             borderRadius: "5px",
-            ursor: "pointer",
+            cursor: "pointer",
             fontSize: "18px",
           }}
           onClick={() => {
