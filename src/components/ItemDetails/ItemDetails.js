@@ -44,9 +44,9 @@ function ItemDetails({ item, setFlag, flag }) {
   };
 
   const handleClickAdd = (id, name, cartItem) => {
-    dispatch(addToLsCreator(cartItem));
     dispatch(addToCartCreator(id));
-    Notify.success(`${name} added to cart`);
+    dispatch(addToLsCreator(cartItem));
+    Notify.success(`${name} added to cart`, {showOnlyTheLastOne: true});
   };
 
   function handleAddWishlistItem(id) {
@@ -82,7 +82,7 @@ function ItemDetails({ item, setFlag, flag }) {
                   className={styles.minus}
                   fill="#fff"
                   size={20}
-                  onClick={() => handleClickDecrease(item._id, cartItems[index])}
+                  onClick={() => handleClickDecrease(item._id, cartItems[index]) }
                 />
 
                 <h4>{isInCart ? counter : 0}</h4>

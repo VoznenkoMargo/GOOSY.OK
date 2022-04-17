@@ -23,7 +23,7 @@ function Search() {
     if (text.trim()) {
       dispatch(searchItemsCreator(searchPhrases));
     } else {
-      Notiflix.Notify.failure("Enter your request, please!");
+      Notiflix.Notify.failure("Enter your request, please!", {showOnlyTheLastOne: true});
     }
     setText("");
   };

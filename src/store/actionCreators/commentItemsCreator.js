@@ -11,7 +11,7 @@ export const addUserComment = (newComment) => async (dispatch) => {
       dispatch({ type: ADD_COMMENT });
     }
   } catch (error) {
-    Notiflix.Notify.info("Failed to add comment. Unauthorized.");
+    Notiflix.Notify.info("Failed to add comment. Unauthorized");
   }
 };
 
@@ -61,7 +61,7 @@ export const putUserComments = (id, updatedComment) => async (dispatch) => {
       });
     }
   } catch (error) {
-    Notiflix.Notify.info("Failed to update comments. Unauthorized.");
+    Notiflix.Notify.info("Failed to update comments. Unauthorized", {showOnlyTheLastOne: true});
   }
 };
 

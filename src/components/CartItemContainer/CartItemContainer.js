@@ -20,7 +20,6 @@ import {
   addToLsCreator,
   deleteProductFromLsCreator,
 } from "../../store/actionCreators/cartItemsCreator";
-import throttle from "../../utils/throttle";
 
 function CartItemContainer(props) {
   const { cartItems } = props;
@@ -43,7 +42,7 @@ function CartItemContainer(props) {
     localStorage.removeItem("cart")
     dispatch(deleteCartCreator());
   };
-  const signUpNotification = () => Notify.warning('Please Sign up or Log in to make an order');
+  const signUpWarning = () => Notify.warning('Please Sign up to make an order', {showOnlyTheLastOne: true});
   const isAuth = () => localStorage.getItem("authToken");
 
   return (
@@ -58,7 +57,7 @@ function CartItemContainer(props) {
             <div className={styles.itemCard} key={item?.product._id}>
               <Link
                 to={`/products/${item.product.itemNo}`}
-                style={{ textDecoration: "none", width: "80%" }}
+                style={{ textDecoration: "none", width: "100%" }}
               >
                 <img src={item.product.imageUrls} alt="foodImage" />
               </Link>
@@ -118,7 +117,7 @@ function CartItemContainer(props) {
         {isAuth() ?
           <NavLink to="order" className={styles.order} onClick={handleClickDeleteCart}>Place an order</NavLink>
             :
-          <button type="button" className={styles.order} style={{background: "rgb(128,128,128)"}} onClick={throttle(() => signUpNotification(), 4000)}>Place an order</button>
+          <button type="button" className={styles.order} style={{background: "rgb(128,128,128)"}} onClick={signUpWarning}>Place an order</button>
         }
 
       </div>
