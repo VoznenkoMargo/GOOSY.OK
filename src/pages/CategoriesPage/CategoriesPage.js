@@ -5,7 +5,7 @@ import { useSelector, useDispatch } from "react-redux";
 import Find from "../../components/Find/Find";
 import style from "./CategoriesPage.module.scss";
 import ItemsContainer from "../../components/ItemsContainer/ItemsContainer";
-import { initСategoriesItemsCreator } from "../../store/actionCreators/cardItemsCreator";
+import { initСategoriesItemsCreator, resetCategories } from "../../store/actionCreators/cardItemsCreator";
 
 function CategoriesPage() {
   const location = useLocation().search;
@@ -23,6 +23,10 @@ function CategoriesPage() {
   useEffect(() => {
     dispatch(initСategoriesItemsCreator(location));
   }, [location]);
+
+  useEffect(()=>{
+    return (resetCategories())
+  },[])
 
   useEffect(() => {
     const allCategories =
