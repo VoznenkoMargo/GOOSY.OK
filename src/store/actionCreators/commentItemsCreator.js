@@ -1,7 +1,7 @@
 /* eslint-disable no-underscore-dangle */
 import Notiflix from "notiflix";
-import { addNewComment, deleteOneComments, getAllComments, getAllCommentOfProduct, updateComments } from "../../axios";
-import { ADD_COMMENT, GET_ALL_COMMENTS, GET_COMMENTS_OF_PRODUCT, DELETE_ONE_COMMENTS, UPDATE_COMMENTS, SET_IS_LOADING_COMMENT } from "../actions/commentItemsActions";
+import { addNewComment, deleteOneComments, getAllComments, updateComments } from "../../axios";
+import { ADD_COMMENT, GET_ALL_COMMENTS, DELETE_ONE_COMMENTS, UPDATE_COMMENTS, SET_IS_LOADING_COMMENT } from "../actions/commentItemsActions";
 
 
 export const addUserComment = (newComment) => async (dispatch) => {
@@ -15,16 +15,6 @@ export const addUserComment = (newComment) => async (dispatch) => {
   }
 };
 
-export const getAllUsersCommentOfProduct = (productId) => async (dispatch) => {
-  try {
-    const result = await getAllCommentOfProduct(productId);
-    if (result.status === 200) {
-      dispatch({ type: GET_COMMENTS_OF_PRODUCT, payload: result.data });
-    }
-  } catch (error) {
-    Notiflix.Notify.failure("Failed to get comment");
-  }
-};
 
 export const setIsLoadingComment = (isLoading) => ({
     type: SET_IS_LOADING_COMMENT,
