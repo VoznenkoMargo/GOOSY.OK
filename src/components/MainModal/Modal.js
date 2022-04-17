@@ -56,7 +56,7 @@ function Modal(props) {
     );
   } else if (modalType === "errorReg") {
     modalHeaderText = "Error!";
-    modalMainText = { errorMessage };
+    modalMainText = errorMessage ;
     modalButtons = (
       <div className="modal_buttons_div">
         <button
@@ -85,11 +85,13 @@ function Modal(props) {
 Modal.defaultProps = {
   currentModalError: "Error",
   setModalServerRegOpen: () => {},
+  setModalOpen: () => {},
+  closeSignUp: () => {},
 };
 
 Modal.propTypes = {
-  closeSignUp: PropTypes.func.isRequired,
-  setModalOpen: PropTypes.bool.isRequired,
+  closeSignUp: PropTypes.func,
+  setModalOpen: PropTypes.func,
   modalType: PropTypes.string.isRequired,
   currentModalError: PropTypes.string,
   setModalServerRegOpen: PropTypes.func,
