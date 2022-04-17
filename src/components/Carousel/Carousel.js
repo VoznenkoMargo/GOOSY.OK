@@ -29,25 +29,25 @@ function Carousel() {
   const images = [
     {
       image:
-        "https://supericebuckett.s3.eu-west-3.amazonaws.com/img/img/main_dishes/carbonara.jpg",
+        "https://supericebuckett.s3.eu-west-3.amazonaws.com/carousel/carusel/carusel/carbonarabaner.webp",
       text: "Eat your favorite Carbonara pasta for only 200$!",
       subtext: "The promotional offer is valid from 20.03 to 11.05.2022",
     },
     {
       image:
-        "https://www.state.gov/wp-content/uploads/2018/11/Ukraine-2109x1406.jpg",
+        "https://supericebuckett.s3.eu-west-3.amazonaws.com/carousel/carusel/carusel/Ukrainebaner.webp",
       text: "Lunches for the defenders of  Ukraine are free! Slava Ukraini!",
       subtext: "Every day from Monday to Sunday",
     },
     {
       image:
-        "https://supericebuckett.s3.eu-west-3.amazonaws.com/img/img/salads/salat.jpg",
+        "https://supericebuckett.s3.eu-west-3.amazonaws.com/carousel/carusel/carusel/salatbaner.webp",
       text: "Order any salad and get the second one for free!",
       subtext: "The promotional offer is valid from 08.01 to 23.06.2022",
     },
     {
       image:
-        "https://supericebuckett.s3.eu-west-3.amazonaws.com/img/img/main_dishes/fish.jpg",
+        "https://supericebuckett.s3.eu-west-3.amazonaws.com/carousel/carusel/carusel/fishbaner.webp",
       text: "Totally fish dinner for only 300$!",
       subtext: "The promotional offer is valid every Thursday",
     },
