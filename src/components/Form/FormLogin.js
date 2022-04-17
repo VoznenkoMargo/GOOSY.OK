@@ -62,6 +62,7 @@ function FormLogin(props) {
         getUserData()
           .then(({ data }) => {
             saveToLS("userName", data.firstName);
+            saveToLS("customerNo", data.customerNo);//
             setUserName(data.firstName);
           })
           .catch(() => {
@@ -72,6 +73,7 @@ function FormLogin(props) {
         showError();
       });
   };
+  
 
   return (
     <div className={styles.modal}>

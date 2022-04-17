@@ -1,29 +1,37 @@
+.mainCartContainer{
+  max-width: 1230px;
+  margin: 0 auto;
+  padding: 15px 15px 0px 15px;
+}
+.cartTitle {
+  margin-top: 60px;
+  margin-bottom: 40px;
+  font-weight: bold;
+  font-size: 32px;
+  line-height: 39px;
+  color: #ffffff;
+}
+.cartTitle::before {
+  content: "";
+  width: 5px;
+  height: 30px;
+  background: #618967;
+  display: inline-block;
+  margin-right: 20px;
+
+}
+
 .container {
   max-width: 1230px;
   margin: 0 auto;
   margin-top: 10px;
-  padding: 15px 15px 130px 15px;
+  padding-bottom: 130px;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
 
-  .cartTitle {
-    margin-top: 20px;
-    margin-bottom: 40px;
-    font-weight: bold;
-    font-size: 32px;
-    line-height: 39px;
-    color: #ffffff;
-  }
-  .cartTitle::before {
-    content: "";
-    width: 5px;
-    height: 30px;
-    background: #618967;
-    display: inline-block;
-    margin-right: 20px;
-  }
+
 }
 .itemCard {
   margin-top: 10px;
@@ -52,7 +60,7 @@
     }
   }
   .name {
-    font-size: 25px;
+    font-size: 20px;
     color: rgb(241, 241, 241);
     margin-bottom: 10px;
   }
@@ -71,8 +79,8 @@
     width: 400px;
 
     .delete {
-      width: 30px;
-      height: 30px;
+      width: 40px;
+      height: 40px;
       background: #79b382;
       border-radius: 50%;
       display: flex;
@@ -118,15 +126,16 @@
   border-radius: 10px;
   background-color: #4e4948;
   width: 50%;
-  margin: 100px auto 90px auto;
+  margin: 0px auto 90px auto;
   height: 100px;
 
   .priceTitle {
-    font-weight: 500;
+    font-weight: bold;
     font-size: 18px;
     line-height: 21px;
     color: #a6a7ab;
     margin-left: 40px;
+
 
     * {
       font-size: 20px;
@@ -140,61 +149,44 @@
     padding: 17px 50px;
     background: linear-gradient(114.93deg, #618967 5.11%, #72a479 94%);
     border-radius: 10px;
+    border: none;
     font-size: 14px;
     line-height: 17px;
     color: #ffffff;
     margin-right: 30px;
     cursor: pointer;
+    font-weight: bold;
   }
+
+
 }
 
 @media screen and (max-width: 1210px) {
+  .mainCartContainer{
+    max-width: 620px;
+  }
+  .container {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 20px;
+
+  }
   .itemCard {
     flex-direction: column;
+    width: 280px;
     img {
       height: 300px;
       border-radius: 10px 10px 0 0;
-      margin-top: 10px;
+      width: 100%;
     }
-  }
-  .description {
-    display: none;
-  }
-  .itemCard img {
-    width: 100%;
-    margin-left: 0px;
-  }
-  .info {
-    width: unset;
-  }
-  .orderDetails {
-    flex-direction: column;
-  }
-  .name {
-    text-align: center;
-    margin-top: 20px;
-  }
-}
-
-@media screen and (max-width: 930px) {
-  .totalPrice {
-    flex-direction: column;
-    .priceTitle {
-      margin-left: 0;
-      margin-top: 10px;
-      margin-bottom: 10px;
+    .orderDetails {
+      flex-direction: column;
+      .info {
+        margin-right: 0px;
+        width: unset;
+      }
     }
-    .order {
-      margin-right: 0;
-      margin-bottom: 10px;
-      padding: 10px 20px;
-    }
-  }
-}
-
-@media screen and (max-width: 479px) {
-  .itemCard {
-    flex-direction: column;
     .weight {
       font-size: 14px;
     }
@@ -203,7 +195,7 @@
       text-align: center;
     }
     .addToCart {
-      margin: 30px 0;
+      margin: 15px 0;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -214,18 +206,46 @@
     .plusMinus {
       margin-right: 0px;
     }
-    .orderDetails {
-      .info {
-        margin-right: 0px;
-        width: unset;
-      }
-    }
+
+  }
+  .description {
+    display: none;
+  }
+  .itemCard img {
+    width: 100%;
+    margin-left: 0px;
+  }
+  .name {
+    text-align: center;
+    margin-top: 20px;
+    width: unset;
+    font-size: 20px;
   }
   .totalPrice {
-    width: 60%;
+    width: 70%;
     .order {
       padding: 15px 25px;
       font-size: 15px;
     }
+  }
+
+}
+
+@media screen and (max-width: 770px) {
+  .totalPrice{
+    flex-direction: column;
+    .priceTitle{
+      margin-left: 0;
+      margin-top: 10px;
+    }
+    .order{
+      margin-right: 0;
+      margin-bottom: 10px;
+    }
+  }
+}
+@media screen and (max-width: 628px) {
+  .container{
+    justify-content: center;
   }
 }

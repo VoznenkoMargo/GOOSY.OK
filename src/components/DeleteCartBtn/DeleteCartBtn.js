@@ -1,28 +1,19 @@
 /* eslint-disable no-underscore-dangle */
 import React from "react";
 import PropTypes from "prop-types";
-import { Notify } from "notiflix";
-import { useRouteMatch } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { ReactComponent as Cart } from "../../assets/svg/Buy.svg";
-import styles from "./AddCartBtn.module.scss";
-import {addToCartCreator, addToLsCreator} from "../../store/actionCreators/cartItemsCreator";
-import { getFromLS } from "../../utils/localStorage";
 
-function AddCartBtn(props) {
+import { AiTwotoneDelete } from "react-icons/ai";
+import styles from "./DeleteCartBtn.module.scss";
+import {deleteProductFromCartCreator, deleteProductFromLsCreator} from "../../store/actionCreators/cartItemsCreator";
+
+function DeleteCartBtn(props) {
   const dispatch = useDispatch();
   const { cartItem } = props;
-  const authToken = getFromLS("authToken");
-  const { path } = useRouteMatch();
 
   const handleClick = () => {
-    dispatch(addToLsCreator(cartItem));
-    if (authToken) {
-      dispatch(addToCartCreator(cartItem._id));
-      if (path === "/products/:itemNo") {
-        Notify.success(`${cartItem.name} added to cart`);
-      }
-    }
+    dispatch(deleteProductFromCartCreator(cartItem._id));
+    dispatch(deleteProductFromLsCreator(cartItem._id));
   };
 
   return (
@@ -32,13 +23,13 @@ function AddCartBtn(props) {
       aria-hidden
       onClick={handleClick}
     >
-      <p>Add to Cart</p>
-      <Cart />
+      <p>Delete</p>
+      <AiTwotoneDelete size={25} color="#fff" />
     </button>
   );
 }
 
-AddCartBtn.propTypes = {
+DeleteCartBtn.propTypes = {
   cartItem: PropTypes.shape({
     _id: PropTypes.string,
     itemNo: PropTypes.string,
@@ -51,7 +42,7 @@ AddCartBtn.propTypes = {
   }),
 };
 
-AddCartBtn.defaultProps = {
+DeleteCartBtn.defaultProps = {
   cartItem: {
     _id: "",
     itemNo: "",
@@ -64,4 +55,4 @@ AddCartBtn.defaultProps = {
   },
 };
 
-export default React.memo(AddCartBtn);
+export default React.memo(DeleteCartBtn);

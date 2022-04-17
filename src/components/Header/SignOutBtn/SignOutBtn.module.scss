@@ -1,7 +1,13 @@
-.btn_out{
-    padding: 5px;
-    background-color:#618967;
-    border-radius: 7px;
-    cursor: pointer;
+.btn_out {
+  padding: 6px 4px;
+  display: flex;
+  align-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.724);
+  border-radius: 7px;
+  cursor: pointer;
+  justify-content: center;
+  gap: 3px;
+  &:hover {
+    background-color: #72a479;
+  }
 }
-

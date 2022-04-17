@@ -37,7 +37,7 @@ li {
 
 @media screen and (max-width: 479px) {
   .footer_container {
-    flex-direction: column;
+    flex-direction: column-reverse;
   }
 
   .footer_chevron {

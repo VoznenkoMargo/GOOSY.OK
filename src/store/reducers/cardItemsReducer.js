@@ -12,9 +12,8 @@ const initialState = {
   items: [],
   itemsFind: {},
   isLoading: false,
-  categories: []
-}; 
-
+  categories: [],
+};
 
 const cardItemsReducer = (state = initialState, { type, payload }) => {
   switch (type) {
@@ -24,7 +23,6 @@ const cardItemsReducer = (state = initialState, { type, payload }) => {
 
     case SET_CATEGORIES: {
       const newCategories = [...state.categories];
-      console.log(payload);
       if (!newCategories.includes(payload)) {
         newCategories.push(payload);
         return { ...state, categories: newCategories };

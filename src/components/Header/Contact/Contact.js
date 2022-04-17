@@ -8,9 +8,9 @@ function Contact() {
       <div className={styles.icon}>
         <FiPhoneCall />
       </div>
-      <a className={styles.number} href="tel: +380950486568">
+      <p className={styles.number}>
         <span>Contacts:</span> 067 215 9888
-      </a>
+      </p>
     </div>
   );
 }

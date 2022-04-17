@@ -1,13 +1,12 @@
 import React, { useState } from "react";
 import { FiSearch } from "react-icons/fi";
 import Notiflix from "notiflix";
-import { useDispatch } from "react-redux";
 
+import { useDispatch } from "react-redux";
 import styles from "../Header.module.scss";
 import { searchItemsCreator } from "../../../store/actionCreators/searchItemsCreator";
 
 function Search() {
-  
   const dispatch = useDispatch();
   const [text, setText] = useState("");
   const searchPhrases = {
@@ -24,7 +23,7 @@ function Search() {
     if (text.trim()) {
       dispatch(searchItemsCreator(searchPhrases));
     } else {
-      Notiflix.Notify.failure("Enter your request, please!");
+      Notiflix.Notify.failure("Enter your request, please!", {showOnlyTheLastOne: true});
     }
     setText("");
   };
@@ -33,10 +32,9 @@ function Search() {
     <div>
       <form className={styles.formSearch}>
         <input
-          
           className={styles.inputSearch}
           type="text"
-          placeholder="What would you like to eat?"
+          placeholder="Enter the dish"
           value={text}
           onChange={handleInput}
           onKeyPress={(e) => e.key === "Enter" && searchHandler(e)}
@@ -47,4 +45,4 @@ function Search() {
   );
 }
 
-export default Search;
+export default React.memo(Search);
