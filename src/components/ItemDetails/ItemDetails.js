@@ -1,7 +1,6 @@
 /* eslint-disable react/jsx-no-undef */
 /* eslint-disable no-unneeded-ternary */
 /* eslint-disable no-shadow */
-/* eslint-disable react/prop-types */
 /* eslint-disable no-underscore-dangle */
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
