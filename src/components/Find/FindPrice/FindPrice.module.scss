@@ -7,22 +7,28 @@
   & > label {
     display: flex;
     justify-content: space-around;
+    text-align: center;
     margin-bottom: 10px;
     font-weight: bold;
-    font-size: 18px;
+    font-size: 20px;
     color: #ffffff;
     input::-webkit-outer-spin-button,
     input::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-  }
-    & > input{
-      background:linear-gradient(90deg, #a2f3c1 0%, #f1e67c 100%);
-      color: #073749;
+      -webkit-appearance: none;
+      margin: 0;
+    }
+    & > div {
+      display: flex;
+      align-self: center;
+    }
+    & > div input {
+      background: #21242148;
+      color: white;
       font-weight: bold;
-      max-width: 4em;
-      border-radius: 45px;
-      padding-left: 0.5em;
+      max-width: 100px;
+      font-size: 20px;
+      border-radius: 8px;
+      padding: 10px;
     }
   }
 }
@@ -32,14 +38,14 @@
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-     label input{
-       margin-left: 2em;
-     }
+    label input {
+      margin-left: 2em;
+    }
   }
 }
 
 @media screen and (max-width: 668px) {
-  .findPrice{
+  .findPrice {
     flex-direction: column;
   }
 }

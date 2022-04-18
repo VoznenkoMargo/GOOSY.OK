@@ -23,7 +23,9 @@ function Search() {
     if (text.trim()) {
       dispatch(searchItemsCreator(searchPhrases));
     } else {
-      Notiflix.Notify.failure("Enter your request, please!", {showOnlyTheLastOne: true});
+      Notiflix.Notify.failure("Enter your request, please!", {
+        showOnlyTheLastOne: true,
+      });
     }
     setText("");
   };
@@ -31,15 +33,20 @@ function Search() {
   return (
     <div>
       <form className={styles.formSearch}>
-        <input
-          className={styles.inputSearch}
-          type="text"
-          placeholder="Enter the dish"
-          value={text}
-          onChange={handleInput}
-          onKeyPress={(e) => e.key === "Enter" && searchHandler(e)}
-        />
-        <FiSearch onClick={searchHandler} />
+        <div>
+          <input
+            className={styles.inputSearch}
+            type="text"
+            placeholder="Enter the dish"
+            value={text}
+            onChange={handleInput}
+            onKeyPress={(e) => e.key === "Enter" && searchHandler(e)}
+          />
+        </div>
+
+        <div>
+          <FiSearch onClick={searchHandler} />
+        </div>
       </form>
     </div>
   );

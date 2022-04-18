@@ -14,22 +14,26 @@ function FindPrice({ price, setNewPrice }) {
   return (
     <div className={style.findPrice}>
       <label>
-        {" "}
-        min Price
-        <input
-          type="number"
-          onChange={(e) => setMinPrice(e, 0)}
-          value={price[0]}
-        />
+        <div> min Price</div>
+        <div>
+          {" "}
+          <input
+            type="number"
+            onChange={(e) => setMinPrice(e, 0)}
+            value={price[0]}
+          />
+        </div>
       </label>
       <label>
-        {" "}
-        max Price
-        <input
-          type="number"
-          onChange={(e) => setMinPrice(e, 1)}
-          value={price[1]}
-        />
+        <div> max Price</div>
+        <div>
+          {" "}
+          <input
+            type="number"
+            onChange={(e) => setMinPrice(e, 1)}
+            value={price[1]}
+          />
+        </div>
       </label>
     </div>
   );

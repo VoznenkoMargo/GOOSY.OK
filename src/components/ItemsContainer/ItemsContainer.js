@@ -1,11 +1,9 @@
-import React, { useEffect } from "react";
-import PropTypes from "prop-types";
+/* eslint-disable react/prop-types */
+import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { ErrorBoundary } from "react-error-boundary";
 import { Link, useRouteMatch } from "react-router-dom";
 import { BiHomeAlt, BiDish } from "react-icons/bi";
 import { AiOutlineClear } from "react-icons/ai";
-import ErrorFallback from "../Error/Error";
 import Item from "../Item/Item";
 import styles from "./ItemsContainer.module.scss";
 import flames from "../../assets/flames.png";
@@ -19,10 +17,6 @@ function ItemsContainer(props) {
 
   const dispatch = useDispatch();
   const match = useRouteMatch();
-  useEffect(()=>{
-    console.log(Array.isArray(items));
-  },[items])
-
 
   return isLoading ? (
     <Preloader />
@@ -66,44 +60,13 @@ function ItemsContainer(props) {
         </div>
       )}
       <div className={styles.itemsContainer}>
-        {/* <ErrorBoundary FallbackComponent={ErrorFallback}> */}
-          {items &&
-            items.map(({ itemNo, ...args }) => (
-              <Item itemNo={itemNo} {...args} key={itemNo} />
-            ))}
-        {/* </ErrorBoundary> */}
+        {items &&
+          items.map(({ itemNo, ...args }) => (
+            <Item itemNo={itemNo} {...args} key={itemNo} />
+          ))}
       </div>
     </div>
   );
 }
-
-// ItemsContainer.propTypes = {
-//   header: PropTypes.elementType.isRequired,
-//   items: PropTypes.arrayOf(
-//     PropTypes.shape({
-//       _id: PropTypes.string,
-//       itemNo: PropTypes.string,
-//       imageUrls: PropTypes.arrayOf(PropTypes.string),
-//       categories: PropTypes.string,
-//       name: PropTypes.string,
-//       currentPrice: PropTypes.number,
-//       weight: PropTypes.number,
-//     })
-//   ),
-// };
-
-// ItemsContainer.defaultProps = {
-//   items: PropTypes.arrayOf(
-//     PropTypes.shape({
-//       _id: "",
-//       itemNo: "",
-//       imageUrls: [""],
-//       categories: "",
-//       name: "",
-//       currentPrice: 0,
-//       weight: 0,
-//     })
-//   ),
-// };
 
 export default React.memo(ItemsContainer);
