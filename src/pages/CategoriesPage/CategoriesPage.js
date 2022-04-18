@@ -17,6 +17,7 @@ function CategoriesPage() {
   const [price, setPrice] = useState(["0", "990"]);
 
   const setNewPrice = (data) => {
+    console.log(data);
     setPrice(data);
   };
 

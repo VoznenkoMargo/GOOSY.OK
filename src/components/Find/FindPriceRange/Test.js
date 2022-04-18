@@ -5,20 +5,22 @@ import "./styles.css";
 const { createSliderWithTooltip } = Slider;
 const Range = createSliderWithTooltip(Slider.Range);
 
-function Test() {
-
+function Test({ price, setNewPrice } ) {
+    // const onAfterChange = (value) => {
+    //     console.log(value)
+    //   };
   return (
     <div className="sliderArea">
     <Range
-    //   marks={{
-    //     100: `$ 100`,
-    //     500: `$ 500`
-    //   }}
-      min={100}
-      max={500}
-      defaultValue={[200, 300]}
+      marks={{
+        0: `$ 0`,
+        990: `$ 990`
+      }}
+      min={0}
+      max={990}
+      defaultValue={[0, 990]}
       tipFormatter={value => `$ ${value}`}
-      onAfterChange={(value)=>console.log(value)}
+      onAfterChange={(value)=>setNewPrice(value)}
       tipProps={{
         placement: "top",
         visible: true

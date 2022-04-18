@@ -9,7 +9,7 @@ function Find({ setNewPrice, price }) {
     <div className={style.find}>
       <p className={style.title}>Check filters</p>
       <CheckBoxContainer />
-      <Test />
+      <Test price={price} setNewPrice={setNewPrice}  />
       {/* <FindPrice price={price} setNewPrice={setNewPrice} /> */}
     </div>
   );
