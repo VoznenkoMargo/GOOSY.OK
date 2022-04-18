@@ -6,6 +6,7 @@ import Find from "../../components/Find/Find";
 import style from "./CategoriesPage.module.scss";
 import ItemsContainer from "../../components/ItemsContainer/ItemsContainer";
 import { initСategoriesItemsCreator, resetCategories } from "../../store/actionCreators/cardItemsCreator";
+import { getByCategory } from "../../axios";
 
 function CategoriesPage() {
   const location = useLocation().search;
@@ -15,7 +16,7 @@ function CategoriesPage() {
   const categories = useSelector((store) => store.items.categories);
   const [keyCategories, setKeyCategories] = useState([]);
   const [price, setPrice] = useState(["0", "990"]);
-
+  const [test, setTest]=useState('')
   const setNewPrice = (data) => {
     console.log(data);
     setPrice(data);
@@ -30,6 +31,13 @@ function CategoriesPage() {
       dispatch(resetCategories());
     }
   }, [])
+  useEffect(()=>{
+    async function f() {
+      let products = getByCategory('?weight=150')
+      let result = await products; 
+      console.log(result);;
+    }
+    f()},[test])
 
   useEffect(() => {
     const allCategories =
