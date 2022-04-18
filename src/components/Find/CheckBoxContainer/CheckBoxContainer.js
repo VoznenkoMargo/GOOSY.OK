@@ -1,5 +1,5 @@
 /* eslint-disable react/jsx-no-bind */
-import React, { useEffect } from "react";
+import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { initCategories } from "../../../store/actionCreators/cardItemsCreator";
 import CheckBox from "../CheckBox/CheckBox";
@@ -8,8 +8,6 @@ import style from "./CheckBoxContainer.module.scss";
 function CheckBoxContainer() {
   const categories = useSelector((store) => store.items.categories);
   const dispatch = useDispatch();
-
-  // useEffect(() => {}, [categories]);
 
   const setChecked = (id) => {
     if (categories.includes(id)) {
@@ -25,6 +23,7 @@ function CheckBoxContainer() {
 
   return (
     <div className={style.checkBox_container}>
+      <p>Сategories</p>
       <form className={style.checkBox_form}>
         <CheckBox
           id="cold snaks"
