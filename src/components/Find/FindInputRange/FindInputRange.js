@@ -2,6 +2,7 @@ import React from "react";
 import Slider from "rc-slider";
 import "rc-slider/assets/index.css";
 import style from "./FindInputRange.module.scss"
+import PropTypes from "prop-types";
 
 const { createSliderWithTooltip } = Slider;
 const Range = createSliderWithTooltip(Slider.Range);
@@ -44,6 +45,10 @@ function FindInputRange({ setNewPrice } ) {
     </div>
   );
 }
+
+FindInputRange.propTypes = {
+    setNewPrice: PropTypes.func.isRequired,
+};
 
 export default FindInputRange
 
