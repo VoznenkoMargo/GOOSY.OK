@@ -41,3 +41,16 @@
     padding: 2em 2em;
   }
 }
+
+@media screen and (max-width: 380px) {
+  .mainSection {
+    padding: 2em 1em;
+  }
+}
+
+@media screen and (max-width: 340px) {
+  .mainSection {
+    padding: 2em 5px;
+    max-width: 300px;
+  }
+}
