@@ -19,14 +19,14 @@ function FindInputRange({ setNewPrice } ) {
             0: {
               style: {
                 color: "#618967",
-                width: '100%',
+                width: '30px',
               },
               label: "$ 0"
             },
             990: {
               style: {
                 color: "#618967",
-                width: '100%',
+                width: '30px',
               },
               label: "$ 990"
             }
