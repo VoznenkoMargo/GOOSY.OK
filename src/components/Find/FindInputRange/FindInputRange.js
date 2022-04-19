@@ -1,8 +1,8 @@
 import React from "react";
 import Slider from "rc-slider";
 import "rc-slider/assets/index.css";
-import style from "./FindInputRange.module.scss"
 import PropTypes from "prop-types";
+import style from "./FindInputRange.module.scss"
 
 const { createSliderWithTooltip } = Slider;
 const Range = createSliderWithTooltip(Slider.Range);
