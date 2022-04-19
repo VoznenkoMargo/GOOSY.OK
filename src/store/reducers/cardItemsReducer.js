@@ -35,7 +35,6 @@ const cardItemsReducer = (state = initialState, { type, payload }) => {
     }
 
     case RESER_CATEGORIES: {
-      console.log("work");
       return {...state, categories: payload}
     }
 
