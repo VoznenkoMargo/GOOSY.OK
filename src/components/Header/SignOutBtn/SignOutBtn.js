@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
-/* eslint-disable react/prop-types */
 import React from "react";
+import PropTypes from "prop-types";
 import { useDispatch } from "react-redux";
 import LogoutOutlinedIcon from "@mui/icons-material/LogoutOutlined";
 import { DELETE_WISHLIST } from "../../../store/actions/wishlistItemsActions";
@@ -31,6 +31,10 @@ function SignOutBtn(props) {
       <LogoutOutlinedIcon />
     </span>
   );
+}
+
+SignOutBtn.propTypes = {
+  setUserName: PropTypes.func.isRequired,
 }
 
 export default SignOutBtn;

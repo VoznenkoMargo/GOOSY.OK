@@ -6,6 +6,7 @@ import {
   GET_FIND_ITEMS,
   SET_IS_LOADING_CARDS,
   SET_CATEGORIES,
+  RESER_CATEGORIES,
 } from "../actions/cardItemsActions";
 
 const initialState = {
@@ -31,6 +32,10 @@ const cardItemsReducer = (state = initialState, { type, payload }) => {
         newCategories.splice(index, 1);
         return { ...state, categories: newCategories };
       }
+    }
+
+    case RESER_CATEGORIES: {
+      return {...state, categories: payload}
     }
 
     case GET_FIND_ITEMS: {

@@ -13,6 +13,7 @@ import { saveToLS } from "../../utils/localStorage";
 import styles from "./Form.module.scss";
 
 function FormReg(props) {
+  
   const { closeSignUp, setUserName } = props;
 
   const [modalOpen, setModalOpen] = useState(false);
@@ -21,21 +22,12 @@ function FormReg(props) {
 
   const [currentModalError, setCurrentModalError] = useState(false);
 
-  const [modalSuccessRegOpen, setModalSuccessRegOpen] = useState(false);
-
-  const ref = useRef();
 
   const openModal = () => {
     setModalOpen(true);
   };
+ 
 
-  const openSuccessModal = () => {
-    setModalSuccessRegOpen(true);
-    setTimeout(() => {
-      setModalSuccessRegOpen(false);
-      closeSignUp();
-    }, 1000);
-  };
   const initialValues = {
     firstName: "",
     lastName: "",
@@ -78,8 +70,6 @@ function FormReg(props) {
   document.body.style.overflow = "hidden";
 
   const hendleLogin = (userData) => {
-    openSuccessModal();
-
     sendLogInData(userData)
       .then(({ data }) => {
         saveToLS("authToken", data.token);
@@ -87,13 +77,12 @@ function FormReg(props) {
           .then(({ data }) => {
             saveToLS("userName", data.firstName);
             setUserName(data.firstName);
+            closeSignUp();
           })
           .catch(() => {
-            
           });
       })
       .catch(() => {
-        
       });
   };
 
@@ -125,8 +114,10 @@ function FormReg(props) {
 
   return (
     <div className={styles.modal}>
+      {modalServerRegOpen ? (<Modal modalType="errorReg" setModalServerRegOpen={setModalServerRegOpen} currentModalError={currentModalError}/>) : 
+      ("")};
+       {modalOpen ? (<Modal setModalOpen={setModalOpen} closeSignUp={closeSignUp} modalType='cancelReg' />) : ("")};
       <div
-        ref={ref}
         id="formReg_modalContent"
         className={classNames(styles.modalContent, styles.modalContent_reg)}
       >
@@ -253,17 +244,6 @@ function FormReg(props) {
                   />
                 </label>
 
-                <label className={styles.form_label} htmlFor="birthdate">
-                  {" "}
-                  Your birthdate
-                  <Field
-                    className={styles.form_input_birthdate}
-                    type="date"
-                    name="date"
-                    placeholder="123"
-                  />
-                </label>
-
                 <div className={styles.form_bottom}>
                   <button
                     className={styles.form_submit_button}
@@ -279,16 +259,12 @@ function FormReg(props) {
           }}
         </Formik>
       </div>
-      {modalOpen ? (<Modal setModalOpen={setModalOpen} closeSignUp={closeSignUp} modalType='cancelReg' />) : ("")};
-      {modalServerRegOpen ? (<Modal modalType="errorReg" setModalServerRegOpen={setModalServerRegOpen} currentModalError={currentModalError}/>) : 
-      ("")};
-      {modalSuccessRegOpen ? <Modal modalType="successReg" /> : ""}
     </div>
   );
 }
 
-FormReg.propTypes = {
-  closeSignUp: PropTypes.func.isRequired,
-  setUserName: PropTypes.func.isRequired,
-};
+  FormReg.propTypes = {
+    closeSignUp: PropTypes.func.isRequired,
+    setUserName: PropTypes.func.isRequired,
+  };
 export default FormReg;

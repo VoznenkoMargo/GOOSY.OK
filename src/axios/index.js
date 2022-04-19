@@ -29,7 +29,6 @@ export const getUserData = () => instance.get("/customers/customer");
 
 // CRUD FOR COMMENTS
 export const addNewComment = (newComment) => instance.post("/comments", newComment);
-export const getAllCommentOfProduct = (productId) => instance.get(`/comments/product/${productId}`);
 export const getAllComments = () => instance.get("/comments");
 export const deleteOneComments = (id) => instance.delete(`/comments/${id}`);
 export const updateComments = (id, updatedComment) => instance.put(`/comments/${id}`, updatedComment);

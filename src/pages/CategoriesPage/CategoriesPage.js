@@ -5,7 +5,7 @@ import { useSelector, useDispatch } from "react-redux";
 import Find from "../../components/Find/Find";
 import style from "./CategoriesPage.module.scss";
 import ItemsContainer from "../../components/ItemsContainer/ItemsContainer";
-import { initСategoriesItemsCreator } from "../../store/actionCreators/cardItemsCreator";
+import { initСategoriesItemsCreator, resetCategories } from "../../store/actionCreators/cardItemsCreator";
 
 function CategoriesPage() {
   const location = useLocation().search;
@@ -24,6 +24,12 @@ function CategoriesPage() {
     dispatch(initСategoriesItemsCreator(location));
   }, [location]);
 
+  useEffect(()=>{
+    return()=>{
+      dispatch(resetCategories());
+    }
+  }, [])
+
   useEffect(() => {
     const allCategories =
       categories.length > 0
@@ -35,7 +41,6 @@ function CategoriesPage() {
 
   useEffect(() => {
     const keys = Object.keys(items);
-    console.log(keys.length > 0);
     setKeyCategories(keys);
   }, [items]);
 
@@ -55,13 +60,15 @@ function CategoriesPage() {
               />
             );
           })
-        ) : (
+        )
+         : (
           <div className={style.emptyContainer}>
             <div>
               <p>Sorry, but your search did not match anything.</p>
             </div>
           </div>
-        )}
+        )
+        }
       </div>
     </section>
   );
