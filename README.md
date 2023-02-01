@@ -1,16 +1,16 @@
 
 #  Goose.ok
-#### SPA ресторана европейской кухни, разработанное с помощью REACT + REDUX.
-##### Финальный проект в рамках курса FRONTEND (React), в учебном центре DAN.IT.
-###### Состав команды - 6 человек.
-ФУНКЦИОНАЛ САЙТА:
- * регистрация/авторизация пользователя
- * поиск товаров по ключевым словам
- * фильтрация товаров по категориям
- * добавление товаров в список желаний
- * добавление/удаление товара в/из корзину/ы
- * уменьшение/увеличение количества товара в/из корзину/ы
- * карусель с акционными предложениями
- * возможность оставлять отзыв о блюде
- * адаптивная верстка для разных устройств
+#### European cuisine restaurant SPA developed with REACT + REDUX
+##### The final project of the FRONTEND (React) course, at the DAN.IT training center.
+###### The team consists of 6 people.
+SITE FUNCTIONALITY:
+ * user registration/authorization
+ * search for products by keywords
+ * filter products by category
+ * add products to wishlist
+ * adding/removing goods to/from cart
+ * decrease / increase in the number of goods in / out of the cart 
+ * carousel with promotional offers
+ * the ability to leave a review about the dish
+ * adaptive layout for different devices
 ![Group 327](https://user-images.githubusercontent.com/37982184/166146888-8f0a96cc-282b-459a-9857-c11faa4afa16.png)
