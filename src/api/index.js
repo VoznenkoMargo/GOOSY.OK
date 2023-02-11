@@ -2,7 +2,7 @@
 import axios from "axios";
 
 const instance = axios.create({
-  baseURL: "https://goos-ok.herokuapp.com/api"
+  baseURL: "https://goose-ok-server.vercel.app/api"
 });
 
 instance.interceptors.response.use(
