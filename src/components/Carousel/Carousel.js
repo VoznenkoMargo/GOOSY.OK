@@ -29,9 +29,9 @@ function Carousel() {
   const images = [
     {
       image:
-        "https://en.wikipedia.org/wiki/Carbonara#/media/File:Espaguetis_carbonara.jpg",
+        "https://images.unian.net/photos/2021_03/1615387932-9078.jpg",
       text: "Eat your favorite Carbonara pasta for only 200$!",
-      subtext: "The promotional offer is valid from 20.03 to 11.05.2022",
+      subtext: "The promotional offer is valid from 20.03 to 11.05.2024",
     },
     {
       image:
@@ -43,7 +43,7 @@ function Carousel() {
       image:
         "https://images.unian.net/photos/2020_12/1608716135-8323.jpg?0.664389238602149",
       text: "Order any salad and get the second one for free!",
-      subtext: "The promotional offer is valid from 08.01 to 23.06.2022",
+      subtext: "The promotional offer is valid from 08.01 to 23.06.2024",
     }
   ];
   const settings = {
