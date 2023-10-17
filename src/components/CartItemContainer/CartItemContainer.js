@@ -59,7 +59,7 @@ function CartItemContainer(props) {
                 to={`/products/${item.product.itemNo}`}
                 style={{ textDecoration: "none", width: "100%" }}
               >
-                <img src={item.product.imageUrls} alt="foodImage" />
+                <img src="https://vegconomist.com/wp-content/uploads/sites/3/Ohayo-Valley.jpg alt="foodImage" />"
               </Link>
               <div className={styles.orderDetails}>
                 <Link
@@ -132,7 +132,6 @@ CartItemContainer.propTypes = {
     name: PropTypes.string,
     currentPrice: PropTypes.number,
     description: PropTypes.string,
-    imageUrls: PropTypes.arrayOf(PropTypes.string),
     itemNo: PropTypes.string,
     map: PropTypes.func,
     length: PropTypes.number,
@@ -147,7 +146,6 @@ CartItemContainer.defaultProps = {
     count: 0,
     currentPrice: 0,
     description: "",
-    imageUrls: [""],
     itemNo: "",
   }),
  ),
