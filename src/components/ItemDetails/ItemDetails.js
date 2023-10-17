@@ -68,7 +68,6 @@ function ItemDetails({ item, setFlag, flag }) {
         <div className={styles.itemCard}>
           <div className={styles.itemImg}>
             <img src="https://vegconomist.com/wp-content/uploads/sites/3/Ohayo-Valley.jpg" alt="foodImage" />
-            <img src={item.imageUrls} alt="foodImage" /> //
           </div>
           <div className={styles.orderDetails}>
             <h3 className={styles.name}>{item.name}</h3>
