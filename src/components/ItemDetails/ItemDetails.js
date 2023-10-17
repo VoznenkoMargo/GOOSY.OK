@@ -144,7 +144,6 @@ ItemDetails.propTypes = {
     name: PropTypes.string,
     currentPrice: PropTypes.number,
     description: PropTypes.string,
-    imageUrls: PropTypes.arrayOf(PropTypes.string),
     weight: PropTypes.number,
   }),
   flag: PropTypes.bool.isRequired,
@@ -158,7 +157,6 @@ ItemDetails.defaultProps = {
     name: "",
     currentPrice: 0,
     description: "",
-    imageUrls: [""],
     weight: 0,
   }),
 };
