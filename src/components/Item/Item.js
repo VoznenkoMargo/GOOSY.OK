@@ -16,7 +16,7 @@ import styles from "./Item.module.scss";
 import PopoverHeart from "../Popover/Popover";
 
 function Item(props) {
-  const { itemNo, imageUrls, categories, name, currentPrice, weight, _id } =
+  const { itemNo, categories, name, currentPrice, weight, _id } =
     props;
 
   const cartArray = useSelector((state) => state.cart.cartItems);
