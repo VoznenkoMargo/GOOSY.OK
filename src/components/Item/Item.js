@@ -97,7 +97,7 @@ const notInWishlist = <>
       {wishlistItems.find((element) => element._id === _id) ? (inWishlist) : (notInWishlist)}
 
       <Link to={`/products/${itemNo}`} style={{ textDecoration: "none" }}>
-        <img src="https://vegconomist.com/wp-content/uploads/sites/3/Ohayo-Valley.jpg" alt="foodImage" alt="dish" />
+        <img src="https://vegconomist.com/wp-content/uploads/sites/3/Ohayo-Valley.jpg" alt="foodImage" />
         <div>
           <div className={styles.cardStyles}>
             <p className={styles.weight}>{categories}</p>
