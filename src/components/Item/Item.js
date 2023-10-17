@@ -120,7 +120,6 @@ const notInWishlist = <>
 Item.propTypes = {
   _id: PropTypes.string,
   itemNo: PropTypes.elementType.isRequired,
-  imageUrls: PropTypes.arrayOf(PropTypes.string),
   categories: PropTypes.string,
   name: PropTypes.string,
   currentPrice: PropTypes.number,
@@ -129,7 +128,6 @@ Item.propTypes = {
 
 Item.defaultProps = {
   _id: "",
-  imageUrls: [""],
   categories: "",
   name: "",
   currentPrice: 0,
