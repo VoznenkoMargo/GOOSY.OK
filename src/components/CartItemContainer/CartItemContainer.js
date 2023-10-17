@@ -59,7 +59,7 @@ function CartItemContainer(props) {
                 to={`/products/${item.product.itemNo}`}
                 style={{ textDecoration: "none", width: "100%" }}
               >
-                <img src="https://vegconomist.com/wp-content/uploads/sites/3/Ohayo-Valley.jpg alt="foodImage" />
+                <img src="https://vegconomist.com/wp-content/uploads/sites/3/Ohayo-Valley.jpg" alt="foodImage" />
               </Link>
               <div className={styles.orderDetails}>
                 <Link
